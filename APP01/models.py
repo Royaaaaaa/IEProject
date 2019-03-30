@@ -4,6 +4,9 @@ class Type(models.Model):
     tName = models.CharField(max_length=20)
     desc = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.tName
+
 class Animal(models.Model):
   aName=models.CharField(max_length=28)
   aType=models.ForeignKey(Type,on_delete=models.CASCADE)

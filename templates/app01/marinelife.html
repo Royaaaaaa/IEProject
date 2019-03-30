@@ -49,6 +49,13 @@
 </div>
 
 </header>
+
+<ur>
+    {% for animal in animalList %}
+        <li><a href="{{ animal.id }}">{{animal.aName}}</a></li>
+    {% endfor %}
+</ur>
+
 </body>
 
 

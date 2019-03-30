@@ -21,7 +21,7 @@ from APP01 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',views.index),
-    url(r'^index$',views.index),
+    url(r'^index',views.index),
     url(r'^marinelife$',views.marinelife),
     url(r'^recyclevideo$',views.recyclevideo),
     url(r'^game$',views.game),

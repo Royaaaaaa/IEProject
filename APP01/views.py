@@ -7,7 +7,9 @@ from .models import *
 def index(request):
     return render(request,'app01/index.html')
 def marinelife(request):
-    return render(request,'app01/marinelife.html')
+    animalList = Animal.objects.all()
+    context={'animalList':animalList}
+    return render(request,'app01/marinelife.html',context)
 def recyclevideo(request):
     return render(request,'app01/recyclevideo.html')
 def game(request):

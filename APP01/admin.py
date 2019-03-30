@@ -1,6 +1,35 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+class imageInline(admin.StackedInline):
+    model = Image
+    extro = 3
 
+class animalInline(admin.StackedInline):
+    model = Animal
+    extro = 3
 
-##test................
+class AnimalAdmin(admin.ModelAdmin):
+    list_display = ['id','aName']
+    search_fields = ['aName']
+    list_filter = ['aName']
+    list_per_page = 1
+    # fieldsets = [
+    #     ('base',{'fields':['id','btitle']}),
+    #     ('super',{'field':['bpub_date']})
+    # ]
+
+    inlines = [imageInline]
+
+class ImageAdmin(admin.ModelAdmin):
+    list_display = ['id','iName']
+    search_fields = ['iName']
+
+class TypeAdmin(admin.ModelAdmin):
+    list_display = ['id','tName']
+    search_fields = ['tName']
+    inlines = [animalInline]
+
+admin.site.register(Animal,AnimalAdmin)
+admin.site.register(Image,ImageAdmin)
+admin.site.register(Type,TypeAdmin)

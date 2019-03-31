@@ -2,9 +2,16 @@
 <html lang="en">
 
 <head>
+<style>
+    
+    h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+</style>
     {% load staticfiles %}
     <meta charset="utf-8">
-    <title>Game</title>
+    <title>DetailInformation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -50,6 +57,71 @@
 </div>
 
 </header>
-<li>{{ animal.aName}}</li>
+
+<section id="intro">
+    {% if animal.aName == "shark" %}
+			<ul id="slippry-slider">
+			  <li>
+				<a ><img src="{% static 'app01/img/shark1.jpg' %}" alt="Welcome to MarineLife World!"></a>
+			  </li>
+			  <li>
+				<a><img src="{% static 'app01/img/shark2.jpg' %}" alt="This is an awesome website!"></a>
+			  </li>
+			  <li>
+				<a><img src="{% static 'app01/img/portfolio/pollution_shark1.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
+			  </li>
+              <li>
+				<a><img src="{% static 'app01/img/portfolio/pollution_shark2.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
+			  </li>
+			</ul>
+    {% endif %}
+</section>
+<script src="{% static 'app01/js/jquery-1.9.1.min.js'%}"></script>
+<script src="{% static 'app01/js/jquery.easing.js'%}"></script>
+<script src="{% static 'app01/js/classie.js'%}"></script>
+<script src="{% static 'app01/js/bootstrap.js'%}"></script>
+<script src="{% static 'app01/js/slippry.min.js'%}"></script>
+<script src="{% static 'app01/js/nagging-menu.js'%}"></script>
+<script src="{% static 'app01/js/jquery.nav.js'%}"></script>
+<script src="{% static 'app01/js/jquery.scrollTo.js'%}"></script>
+<script src="{% static 'app01/js/jquery.fancybox.pack.js'%}"></script>
+<script src="{% static 'app01/js/jquery.fancybox-media.js'%}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+<script src="{% static 'app01/js/masonry.pkgd.min.js'%}"></script>
+<script src="{% static 'app01/js/imagesloaded.js'%}"></script>
+<script src="{% static 'app01/js/jquery.nicescroll.min.js'%}"></script>
+<script src="{% static 'app01/js/validate.js'%}"></script>
+<script src="{% static 'app01/js/AnimOnScroll.js'%}"></script>
+    <script>
+        new AnimOnScroll( document.getElementById( 'grid' ), {
+            minDuration : 0.4,
+            maxDuration : 0.7,
+            viewportFactor : 0.2
+        } );
+    </script>
+<script>
+	$(document).ready(function(){
+	  $('#slippry-slider').slippry(
+		defaults = {
+			transition: 'vertical',
+			useCSS: true,
+			speed: 5000,
+			pause: 3000,
+			initSingle: false,
+			auto: true,
+			preload: 'visible',
+			pager: false,
+		}
+
+	  )
+	});
+</script>
+
+<li><h1>{{ animal.aName}}</h1></li>
+<li><h3>Type: {{ animal.aType }}</h3></li>
+<li><h3>Size: {{ animal.aSize }} cm</h3></li>
+<li><h3>Habitat:{{ animal.aHabitat }}</h3></li>
+
+<li></li>
 </body>
 </html>

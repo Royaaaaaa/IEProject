@@ -22,5 +22,6 @@ def aboutUs(request):
 def showDetail(request,id):
     image = Image.objects.get(pk=id)
     animal = image.iAnimal
-    context={'animal': animal}
+    imageList = animal.image_set.all()
+    context={'animal': animal, 'imageList': imageList}
     return render(request,'app01/showDetail.html',context)

@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
-<style>
+<style type="text/css">
+
     div.gallery {
         margin: 5px;
         border: 1px solid #ccc;
         float: left;
-        width: 200px;
-        }
+        width: 250px;
+    }
 
     div.gallery:hover {
         border: 1px solid #777;
         }
 
     div.gallery img {
+        cursor: pointer;
+         transition: all 1s;
          border-radius: 50%;
+
+    }
+    div.gallery img:hover{
+        transform: scale(1.2);
     }
 
     div.desc {
@@ -86,25 +93,33 @@
 
     <ur>
     {% for image in imageList %}
-        <div class="gallery">
             <a target="_blank" href="{{ image.id }}">
              {% if image.iName == "shark1.jpg" %}
-                <img src="static/app01/img/shark1.jpg" width="200" height="200"></a>
+                 <div class="gallery">
+                <img src="static/app01/img/shark1.jpg" width="200" height="200" class="center-block"></a>
+                 <div class="desc"><a href="{{ image.id }}">&nbsp;{{image.iAnimal.aName}}</a></div>
+                 </div>
              {% endif %}
 
              {% if image.iName == "shark2.jpg" %}
-                 <img src="static/app01/img/shark2.jpg" width="200" height="200"></a>
+                 <div class="gallery">
+                 <img src="static/app01/img/shark2.jpg" width="200" height="200" class="center-block"></a>
+                 <div class="desc"><a href="{{ image.id }}">&nbsp;{{image.iAnimal.aName}}</a></div>
+                 </div>
              {% endif %}
 
              {% if image.iName == "Flatback turtle1.jpg" %}
-                 <img src="static/app01/img/Flatback turtle1.jpg" width="200" height="200"></a>
+                 <div class="gallery">
+                 <img src="static/app01/img/Flatback turtle1.jpg" width="200" height="200" class="center-block"></a>
+                 <div class="desc"><a href="{{ image.id }}">&nbsp;{{image.iAnimal.aName}}</a></div>
+                 </div>
              {% endif %}
              {% if image.iName == "Flatback turtle2.jpg" %}
-                 <img src="static/app01/img/Flatback turtle2.jpg" width="200" height="200"></a>
+                 <div class="gallery">
+                 <img src="static/app01/img/Flatback turtle2.jpg" width="200" height="200" class="center-block"></a>
+                 <div class="desc"><a href="{{ image.id }}">&nbsp;{{image.iAnimal.aName}}</a></div>
+                 </div>
              {% endif %}
-
-             <div class="desc"><a href="{{ image.id }}">&nbsp;{{image.iAnimal.aName}}</a></div>
-         </div>
     {% endfor %}
 
   </ur>

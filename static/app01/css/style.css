@@ -316,11 +316,11 @@ section#intro.inner {
 	padding:140px 0 30px;
 }
 
-section#intro.inner h2 strong  {
+section#intro.inner strong  {
 	color:#fff;
 }
-section#intro.inner h2  {
-	font-size:32px;
+section#intro.inner{
+	font-size:10px;
 }
 
 

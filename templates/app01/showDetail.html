@@ -3,6 +3,12 @@
 
 <head>
 <style>
+    div.gallery img {
+        cursor: pointer;
+         transition: all 1s;
+         border-radius: 50%;
+
+    }
 
     h1 {
         font-size: 40px;
@@ -12,11 +18,14 @@
     {% load staticfiles %}
     <meta charset="utf-8">
     <title>DetailInformation</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!-- styles -->
     <link rel="stylesheet" href="{% static 'app01/css/bootstrap.min.css'%}">
+     <link rel="stylesheet" href="{% static 'app01/css/templatemo-style.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
     <link href="{% static 'app01/css/bootstrap.css'%}" rel="stylesheet" />
     <link href="{% static 'app01/css/bootstrap-theme.css'%}" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'app01/css/slippry.css' %}">
@@ -26,8 +35,21 @@
     <!--[if lt IE 9]>
          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+     <script>
+
+    var renderPage = true;
+
+    if(navigator.userAgent.indexOf('MSIE')!==-1
+      || navigator.appVersion.indexOf('Trident/') > 0){
+        /* Microsoft Internet Explorer detected in. */
+        alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+        renderPage = false;
+    }
+
+  </script>
 
     <script src="{% static 'app01/js/modernizr.custom.js'%} "></script>
+
 </head>
 
 <body>
@@ -76,6 +98,56 @@
 			</ul>
     {% endif %}
 </section>
+
+<div id="loader-wrapper">
+
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+
+    <div class="loader-section section-right"></div>
+
+  </div>
+ <div class="container">
+
+    <!-- 1st section -->
+
+  <section class="row tm-section">
+
+  <ur>
+      {% if animal.aName == "shark" %}
+          <div class="gallery">
+          <img src="static/app01/img/shark1.jpg" width="300" height="300" class="center-block"></a>
+              <div class="desc"><h1 class="tm-text-color-black tm-site-name">Shark</h1></div>
+          </div>
+      {% endif %}
+
+      {% if animal.aName == "Flatback turtle" %}
+          <div class="gallery">
+          <img src="static/app01/img/Flatback turtle1.jpg" width="300" height="300" class="center-block"></a>
+              <div class="desc"><h1 class="tm-text-color-black tm-site-name">&nbsp;Flatback turtle</h1></div>
+          </div>
+      {% endif %}
+
+  </ur>
+
+  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
+
+    <div class="tm-flex-center p-5">
+      {% if animal.aName == "shark" %}
+          <q class="tm-quote tm-text-color-primary"><b>Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton, five to seven gill slits on the sides of the head, and pectoral fins that are not fused to the head.Ut sit amet augue elit. Vivamus eget tortor in ante scelerisque gravida. Vestibulum auctor condimentum sem.</b></q>
+      {% endif %}
+
+      {% if animal.aName == "Flatback turtle" %}
+          <q class="tm-quote tm-text-color-primary"><b>The Australian flatback sea turtle is a species of sea turtle in the family Cheloniidae. The species is endemic to the sandy beaches and shallow coastal waters of the Australian continental shelf. This turtle gets its common name from the fact that its shell has a flattened or lower dome than the other sea turtles.</b></q>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
 <script src="{% static 'app01/js/jquery-1.9.1.min.js'%}"></script>
 <script src="{% static 'app01/js/jquery.easing.js'%}"></script>
 <script src="{% static 'app01/js/classie.js'%}"></script>
@@ -116,12 +188,48 @@
 	  )
 	});
 </script>
+ <!-- Footer -->
+
+<div class="row">
+
+  <div class="col-lg-12">
+
+    <p class="text-center small tm-copyright-text mb-0">Copyright  <span class="tm-current-year">2018</span> Your Company Name | Designed by Template Mo</p>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- load JS -->
+
+<script src="static/app01/css/js/jquery-3.2.1.slim.min.js"></script>         <!-- https://jquery.com/ -->
+
+<script>
+
+  /* DOM is ready
+
+  ------------------------------------------------*/
+
+  $(function(){
+
+    if(renderPage) {
+      $('body').addClass('loaded');
+    }
+
+    $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright
+
+  });
+
+</script>
 
 <li><h1>{{ animal.aName}}</h1></li>
 <li><h3>Type: {{ animal.aType }}</h3></li>
 <li><h3>Size: {{ animal.aSize }} cm</h3></li>
 <li><h3>Habitat:{{ animal.aHabitat }}</h3></li>
 <li><h3>Detail:{{ animal.aDetail }}</h3></li>
+
 
 <li></li>
 </body>

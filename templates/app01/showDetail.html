@@ -80,25 +80,6 @@
 
 </header>
 
-<section id="intro">
-    {% if animal.aName == "shark" %}
-			<ul id="slippry-slider">
-			  <li>
-				<a ><img src="{% static 'app01/img/shark1.jpg' %}" alt="Welcome to MarineLife World!"></a>
-			  </li>
-			  <li>
-				<a><img src="{% static 'app01/img/shark2.jpg' %}" alt="This is an awesome website!"></a>
-			  </li>
-			  <li>
-				<a><img src="{% static 'app01/img/portfolio/pollution_shark1.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
-			  </li>
-              <li>
-				<a><img src="{% static 'app01/img/portfolio/pollution_shark2.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
-			  </li>
-			</ul>
-    {% endif %}
-</section>
-
 <div id="loader-wrapper">
 
     <div id="loader"></div>
@@ -130,7 +111,6 @@
       {% endif %}
 
   </ur>
-
   <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
 
     <div class="tm-flex-center p-5">
@@ -143,10 +123,29 @@
       {% endif %}
 
     </div>
-
   </div>
-
 </section>
+
+<section id="intro">
+    {% if animal.aName == "shark" %}
+			<ul id="slippry-slider">
+			  <li>
+				<a ><img src="{% static 'app01/img/shark1.jpg' %}" alt="Welcome to MarineLife World!"></a>
+			  </li>
+			  <li>
+				<a><img src="{% static 'app01/img/shark2.jpg' %}" alt="This is an awesome website!"></a>
+			  </li>
+			  <li>
+				<a><img src="{% static 'app01/img/portfolio/pollution_shark1.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
+			  </li>
+              <li>
+				<a><img src="{% static 'app01/img/portfolio/pollution_shark2.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
+			  </li>
+			</ul>
+    {% endif %}
+</section>
+
+
 
 <script src="{% static 'app01/js/jquery-1.9.1.min.js'%}"></script>
 <script src="{% static 'app01/js/jquery.easing.js'%}"></script>
@@ -175,7 +174,7 @@
 	$(document).ready(function(){
 	  $('#slippry-slider').slippry(
 		defaults = {
-			transition: 'vertical',
+			transition: 'horizontal',
 			useCSS: true,
 			speed: 5000,
 			pause: 3000,

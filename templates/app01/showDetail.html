@@ -14,6 +14,12 @@
         font-size: 40px;
         text-align: center;
     }
+
+    #map {
+        height: 100px;  /* The height is 400 pixels */
+        width: 50%;  /* The width is the width of the web page */
+          align-content: center;
+       }
 </style>
     {% load staticfiles %}
     <meta charset="utf-8">
@@ -126,6 +132,7 @@
   </div>
 </section>
 
+ <!-- slide secion -->
 <section id="intro">
     {% if animal.aName == "shark" %}
 			<ul id="slippry-slider">
@@ -143,6 +150,53 @@
 			  </li>
 			</ul>
     {% endif %}
+</section><!--- google map secion -->
+ <section class="row tm-section">
+
+  <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru1 = {lat:-25.501890, lng: 152.928131};
+  var uluru2 = {lat:-18.172710, lng: 142.223100};
+  var uluru3 = {lat:-18.491380, lng: 133.499910};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom:4, center: uluru1});
+  // The marker, positioned at Uluru
+  var marker1 = new google.maps.Marker({position: uluru1, map: map});
+  var marker2 = new google.maps.Marker({position: uluru2, map: map});
+  var marker3 = new google.maps.Marker({position: uluru3, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7ZGxAWKGweQBCNoQWfIs75Do3oia5ZJA&callback=initMap">
+    </script>
+
+  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
+
+    <div class="tm-flex-center p-5">
+{#       <p>Type: {{ animal.aType }}</p>#}
+{#        <p>Size: {{ animal.aSize }} cm</p>#}
+{#        <p>Habitat:{{ animal.aHabitat }}</p>#}
+{#        <p>Detail:{{ animal.aDetail }}</p>#}
+      {% if animal.aName == "shark" %}
+          <q class="tm-quote tm-text-color-primary"><b>Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton, five to seven gill slits on the sides of the head, and pectoral fins that are not fused to the head.Ut sit amet augue elit. Vivamus eget tortor in ante scelerisque gravida. Vestibulum auctor condimentum sem.</b></q>
+      {% endif %}
+
+      {% if animal.aName == "Flatback turtle" %}
+          <q class="tm-quote tm-text-color-primary"><b>The flatback sea turtle can be found along the coastal waters of Northern Australia, the Tropic of Capricorn, and the coastal areas of Papua New Guinea. Its distribution within Australia is in the areas of eastern Queensland, Torres Strait and Gulf of Carpentaria, Northern Territory, and Western Australia.</b></q>
+      {% endif %}
+
+    </div>
+  </div>
 </section>
 
 
@@ -223,13 +277,6 @@
 
 </script>
 
-<li><h1>{{ animal.aName}}</h1></li>
-<li><h3>Type: {{ animal.aType }}</h3></li>
-<li><h3>Size: {{ animal.aSize }} cm</h3></li>
-<li><h3>Habitat:{{ animal.aHabitat }}</h3></li>
-<li><h3>Detail:{{ animal.aDetail }}</h3></li>
 
-
-<li></li>
 </body>
 </html>

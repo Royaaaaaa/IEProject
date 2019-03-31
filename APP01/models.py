@@ -12,6 +12,7 @@ class Animal(models.Model):
   aType=models.ForeignKey(Type,on_delete=models.CASCADE)
   aHabitat=models.CharField(max_length=40)
   aSize=models.CharField(max_length=20)
+  aDetail=models.CharField(max_length=10000,default='hhhh')
 
 
   def __str__(self):

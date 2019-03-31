@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^marinelife$',views.marinelife),
     url(r'^recyclevideo$',views.recyclevideo),
     url(r'^game$',views.game),
-    url(r'^aboutUs$',views.aboutUs)
+    url(r'^aboutUs$',views.aboutUs),
+    url(r'^(\d+)$',views.showDetail)
 ]

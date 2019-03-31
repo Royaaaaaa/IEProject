@@ -16,9 +16,9 @@
     <link href="{% static 'app01/css/style.css'%}" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'app01/color/default.css'%}">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+{#    <!--[if lt IE 9]>#}
+{#         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>#}
+{#        <![endif]-->#}
 
     <script src="{% static 'app01/js/modernizr.custom.js'%} "></script>
 </head>
@@ -55,13 +55,13 @@
 
 			<ul id="slippry-slider">
 			  <li>
-				<a href="#slide1"><img src="{% static 'app01/img/slide/1.jpg'%}" alt="Welcome to MarineLife World!"></a>
+				<a href="#slide1"><img src="{% static 'app01/img/slide/fish1.jpg' %}" alt="Welcome to MarineLife World!"></a>
 			  </li>
 			  <li>
-				<a href="#slide2"><img src="{% static 'app01/img/slide/2.jpg'%}"  alt="This is an awesome website!"></a>
+				<a href="#slide2"><img src="{% static 'app01/img/slide/fish2.jpg' %}" alt="This is an awesome website!"></a>
 			  </li>
 			  <li>
-				<a href="#slide3"><img src="{% static 'app01/img/slide/3.jpg'%}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
+				<a href="#slide3"><img src="{% static 'app01/img/slide/fish3.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
 			  </li>
 			</ul>
 </section>
@@ -94,7 +94,7 @@
 	$(document).ready(function(){
 	  $('#slippry-slider').slippry(
 		defaults = {
-			transition: 'vertical',
+			transition: 'horizontal',
 			useCSS: true,
 			speed: 5000,
 			pause: 3000,

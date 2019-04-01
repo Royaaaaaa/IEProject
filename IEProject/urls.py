@@ -26,5 +26,8 @@ urlpatterns = [
     url(r'^recyclevideo$',views.recyclevideo),
     url(r'^game$',views.game),
     url(r'^aboutUs$',views.aboutUs),
-    url(r'^(\d+)$',views.showDetail)
+    url(r'^search$',views.search),
+    url(r'^searchtype$',views.searchtype),
+    url(r'^(\d+)$',views.showDetail),
+
 ]

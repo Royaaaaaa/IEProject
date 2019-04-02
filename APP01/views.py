@@ -8,12 +8,19 @@ import json
 
 def index(request):
     return render(request,'app01/index.html')
-def marinelife(request):
-    # animalList = Animal.objects.all()
-    imageList = Image.objects.all()
+
+def marinefamily(request):
+    typelist= Type.objects.all()
+    context={'typelist': typelist}
+    return render(request,'app01/marinefamily.html',context)
+
+def marinelife(request,id):
+    type = Type.objects.get(pk=id)
+    animalList = type.animal_set.all()
     # context={'animalList':animalList}
-    context={'imageList':imageList}
+    context={'animalList':animalList,'typeid':id}
     return render(request,'app01/marinelife.html',context)
+
 def recyclevideo(request):
     return render(request,'app01/recyclevideo.html')
 def game(request):
@@ -54,3 +61,6 @@ def showDetail(request,id):
     imageList = animal.image_set.all()
     context={'animal': animal, 'imageList': imageList}
     return render(request,'app01/showDetail.html',context)
+
+def yellow(request):
+    return render(request,'app01/giftest.html')

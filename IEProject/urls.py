@@ -22,12 +22,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',views.index),
     url(r'^index',views.index),
-    url(r'^marinelife$',views.marinelife),
+    # url(r'^index',views.yellow),
+    url(r'^marinefamily$',views.marinefamily),
     url(r'^recyclevideo$',views.recyclevideo),
     url(r'^game$',views.game),
     url(r'^aboutUs$',views.aboutUs),
     url(r'^search$',views.search),
     url(r'^searchtype$',views.searchtype),
     url(r'^(\d+)$',views.showDetail),
+    url(r'^typeid=(\d+)$',views.marinelife)
+
 
 ]

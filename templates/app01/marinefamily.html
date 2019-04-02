@@ -95,22 +95,22 @@
 
 
     <ur>
-    {% for animal in animalList %}
-            <a target="_blank" href="{{ animal.id }}">
-             {% if animal.aName == "shark" %}
+    {% for type in typelist %}
+            <a target="_blank" href="typeid={{ type.id }}">
+             {% if type.id == 1 %}
                  <div class="gallery">
-                     <img src="static/app01/img/shark1.jpg" width="200" height="200" class="center-block">
-                     <div class="desc"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
+                     <img src="static/app01/img/type/1.jpg" width="200" height="200" class="center-block">
+                     <div class="desc"><a href="{{ type.id }}"><b>&nbsp;{{type.tName}}</b></a></div>
                  </div>
              {% endif %}
 
-
-             {% if animal.aName == "Flatback turtle" %}
+             {% if type.id == 2 %}
                  <div class="gallery">
-                 <img src="static/app01/img/Flatback turtle1.jpg" width="200" height="200" class="center-block">
-                     <div class="desc"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
+                 <img src="static/app01/img/type/2.jpg" width="200" height="200" class="center-block">
+                     <div class="desc"><a href="{{ type.id }}"><b>&nbsp;{{type.tName}}</b></a></div>
                  </div>
              {% endif %}
+
              </a>
     {% endfor %}
   </ur>

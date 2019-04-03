@@ -10,7 +10,8 @@
         width: 30%;
         height: 250px;
         justify-content: center;
-        background-color: #1b1e21;
+        background-color: #FFFFFF;
+        overflow: hidden;
 
     }
 
@@ -36,6 +37,7 @@
         color: white;
 
         }
+
 
 </style>
 
@@ -97,7 +99,8 @@
     <br/>
     <br/>
 </ur>
-
+ <h3 align="center" > All the fishes are there !!</h3>
+ <br/>
 
     <ur>
     {% for animal in animalList %}
@@ -113,7 +116,7 @@
              {% if animal.aName == "Flatback turtle" %}
                  <div class="gallery">
                  <img src="static/app01/img/Flatback turtle1.jpg" width=100% height="200" class="center-block">
-                     <div class="desc" style="text-decoration-color: white"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
+                     <div class="desc" style="color: #ffffff"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
                  </div>
              {% endif %}
              </a>

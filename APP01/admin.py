@@ -5,6 +5,10 @@ class imageInline(admin.StackedInline):
     model = Image
     extro = 3
 
+class locationInline(admin.StackedInline):
+    model = Location
+    extro = 4
+
 class animalInline(admin.StackedInline):
     model = Animal
     extro = 3
@@ -21,9 +25,15 @@ class AnimalAdmin(admin.ModelAdmin):
 
     inlines = [imageInline]
 
+
 class ImageAdmin(admin.ModelAdmin):
     list_display = ['id','iName']
     search_fields = ['iName']
+
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ['id','latAnimal','lonAnimal']
+
+
 
 class TypeAdmin(admin.ModelAdmin):
     list_display = ['id','tName']
@@ -33,3 +43,4 @@ class TypeAdmin(admin.ModelAdmin):
 admin.site.register(Animal,AnimalAdmin)
 admin.site.register(Image,ImageAdmin)
 admin.site.register(Type,TypeAdmin)
+admin.site.register(Location,LocationAdmin)

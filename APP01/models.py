@@ -21,3 +21,8 @@ class Animal(models.Model):
 class Image(models.Model):
     iName=models.CharField(max_length=20)
     iAnimal=models.ForeignKey(Animal,on_delete=models.CASCADE)
+
+class Location(models.Model):
+    latAnimal = models.FloatField(null=True, blank=True,default=None)
+    lonAnimal = models.FloatField(null=True, blank=True,default=None)
+    lAnimal=models.ForeignKey(Animal,on_delete=models.CASCADE)

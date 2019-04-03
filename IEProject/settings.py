@@ -74,14 +74,57 @@ WSGI_APPLICATION = 'IEProject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '',
+            'PORT': '3306',
+            'USER': 'root',
+            'PASSWORD': '803615Aa',
+            'NAME':'MarineAnimal',
+        }
 }
 
+
+import pymysql  # noqa: 402
+pymysql.install_as_MySQLdb()
+
+if os.getenv('GAE_APPLICATION', None):
+    # Running on production App Engine, so connect to Google Cloud SQL using
+    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/fit5120-ta15:us-central1:instance3',
+            'USER': 'Roya',
+            'PASSWORD': '803615',
+            'NAME':'IEProject',
+        }
+    }
+else:
+    # Running locally so connect to either a local MySQL instance or connect to
+    # Cloud SQL via the proxy. To start the proxy via command line:
+    #
+    #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
+    #
+    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '',
+            'PORT': '3306',
+            'USER': 'root',
+            'PASSWORD': '803615Aa',
+            'NAME':'MarineAnimal',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -120,7 +163,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-StATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# StATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR,'static'),
 )

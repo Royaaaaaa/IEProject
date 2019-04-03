@@ -28,23 +28,10 @@ def game(request):
 def aboutUs(request):
     return render(request,'app01/aboutUs.html')
 
-# def search(request):
-#     if request.method == "GET":
-#         typelist = Type.objects.all()
-#     # for type in typelist:
-#     #     animalList = type.animal_set.all()
-#     #     animaldir[type.id]=animalList
-#         context={"typeList":typelist}
-#         return render(request,'app01/search.html',context)
-#     elif request.method == 'POST':
-#         id = request.POST.get('name')
 def search(request):
-
     typelist = Type.objects.all()
     context={"typeList":typelist}
     return render(request,'app01/search.html',context)
-
-
 
 def searchtype(req):
     type_id = req.GET.get('type')

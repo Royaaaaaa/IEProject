@@ -33,8 +33,6 @@ class ImageAdmin(admin.ModelAdmin):
 class LocationAdmin(admin.ModelAdmin):
     list_display = ['id','latAnimal','lonAnimal']
 
-
-
 class TypeAdmin(admin.ModelAdmin):
     list_display = ['id','tName']
     search_fields = ['tName']

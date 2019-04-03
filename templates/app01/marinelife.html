@@ -5,31 +5,36 @@
 <style>
     div.gallery {
         margin: 5px;
-        border: 0px solid #ccc;
+        border: 1px solid #ccc;
         float: left;
-        width: 250px;
-        height: 300px;
+        width: 30%;
+        height: 250px;
         justify-content: center;
+        background-color: #1b1e21;
+
     }
 
     div.gallery:hover {
-        border: 0px solid #777;
+        border: 2px solid #777;
         }
 
     div.gallery img {
         cursor: pointer;
          transition: all 1s;
-         border-radius: 50%;
+         {#border-radius: 50%;#}
 
     }
     div.gallery img:hover{
         transform: scale(1.2);
+
     }
 
 
     div.desc {
         padding: 15px;
         text-align: center;
+        color: white;
+
         }
 
 </style>
@@ -99,7 +104,7 @@
             <a target="_blank" href="{{ animal.id }}">
              {% if animal.aName == "shark" %}
                  <div class="gallery">
-                     <img src="static/app01/img/shark1.jpg" width="200" height="200" class="center-block">
+                     <img src="static/app01/img/shark1.jpg" width=100% height="200" class="center-block">
                      <div class="desc"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
                  </div>
              {% endif %}
@@ -107,8 +112,8 @@
 
              {% if animal.aName == "Flatback turtle" %}
                  <div class="gallery">
-                 <img src="static/app01/img/Flatback turtle1.jpg" width="200" height="200" class="center-block">
-                     <div class="desc"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
+                 <img src="static/app01/img/Flatback turtle1.jpg" width=100% height="200" class="center-block">
+                     <div class="desc" style="text-decoration-color: white"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
                  </div>
              {% endif %}
              </a>

@@ -25,7 +25,7 @@ SECRET_KEY = '4t7f!9@3)n^c=+_#xt9k%r#i^k72c=r7(603r)_4af02f%wv-l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['marinelife-236514.appspot.com']
 
 
 # Application definition
@@ -81,16 +81,16 @@ WSGI_APPLICATION = 'IEProject.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '',
-            'PORT': '3306',
-            'USER': 'root',
-            'PASSWORD': '803615Aa',
-            'NAME':'MarineAnimal',
-        }
-}
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'HOST': '',
+#             'PORT': '3306',
+#             'USER': 'root',
+#             'PASSWORD': '803615Aa',
+#             'NAME':'MarineAnimal',
+#         }
+# }
 
 
 import pymysql  # noqa: 402
@@ -102,10 +102,10 @@ if os.getenv('GAE_APPLICATION', None):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/fit5120-ta15:us-central1:instance3',
-            'USER': 'Roya',
+            'HOST': '/cloudsql/marinelife-236514:us-central1:instance4',
+            'USER': 'roya',
             'PASSWORD': '803615',
-            'NAME':'IEProject',
+            'NAME':'marine',
         }
     }
 else:
@@ -163,7 +163,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# StATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = 'static'
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR,'static'),
 )

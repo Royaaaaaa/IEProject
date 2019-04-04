@@ -113,22 +113,23 @@
 
   <section class="row tm-section">
 
-  <ur>
+
       {% if animal.aName == "shark" %}
           <div class="gallery">
           <img src="static/app01/img/shark1.jpg" width="300" height="300" class="center-block"></a>
-              <div class="desc"><h1 class="tm-text-color-primary tm-site-name">Shark</h1></div>
+              <div class="desc"><h1 class="tm-md-align-center">Shark</h1></div>
           </div>
+
       {% endif %}
 
       {% if animal.aName == "Flatback turtle" %}
           <div class="gallery">
           <img src="static/app01/img/Flatback turtle1.jpg" width="300" height="300" class="center-block"></a>
-              <div class="desc"><h1 class="tm-text-color-primary tm-site-name">&nbsp;Flatback turtle</h1></div>
+              <div class="desc"><h1 class="tm-md-align-center">&nbsp;Flatback turtle</h1></div>
           </div>
       {% endif %}
 
-  </ur>
+
   <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
 
     <div class="tm-flex-center p-5">
@@ -138,6 +139,22 @@
     </div>
   </div>
 </section>
+
+
+
+  {% if animal.aName == "shark" %}
+      <video width=100% height=600px autoplay muted loop>
+        <source src="{% static 'app01/video/shark.mp4'%}" type="video/mp4">
+         <source src="movie.ogg" type="video/ogg">
+        </video>
+
+  {% endif %}
+  {% if animal.aName == "Flatback turtle" %}
+      <video width=100% height=600px autoplay muted loop>
+      <source src="{% static 'app01/video/flatbackTurtle.mp4'%}" type="video/mp4">
+      <source src="movie.ogg" type="video/ogg">
+      </video>
+  {% endif %}
 
  <!-- 2nd section --> <!-- slide secion -->
  <section class="row tm-section tm-col-md-reverse">

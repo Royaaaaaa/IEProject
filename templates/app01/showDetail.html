@@ -228,19 +228,19 @@
   </div>
 
   <!--The div element for the map -->
-    <div id="map"></div>
-    <script>
+<div id="map"></div>
+   <script>
     // Initialize and add the map
     function initMap() {
         // The location of Uluru
-        {#var locationlist= "{{ context.locationList }}";#}
+        {#var locationlist= '{{ context.locationList }}';#}
         {#for(var i=0;i< locationlist.length;i++)#}
         {#{#}
-        {#    var uluru = {lat:locationlist[i].latAnimal, lng: locationlist[i].lonAnimal};#}
-        {#    var map = new google.maps.Map(document.getElementById('map'), {zoom:4, center: uluru});#}
-        {#    var marker = new google.maps.Marker({position: uluru, map: map});#}
-        {##}
-        {#}#}
+            {#var uluru = {lat:locationlist[i].latAnimal, lng: locationlist[i].lonAnimal};#}
+            {#var map = new google.maps.Map(document.getElementById('map'), {zoom:4, center: uluru});#}
+            {#var marker = new google.maps.Marker({position: uluru, map: map})#}
+
+
 
         var uluru1 = {lat:-25.501890, lng: 152.928131};
          var uluru2 = {lat:-18.172710, lng: 142.223100};
@@ -251,9 +251,9 @@
         // The marker, positioned at Uluru
         var marker1 = new google.maps.Marker({position: uluru1, map: map});
         var marker2 = new google.maps.Marker({position: uluru2, map: map});
-        var marker3 = new google.maps.Marker({position: uluru3, map: map});
+        var marker3 = new google.maps.Marker({position: uluru3, map: map})
     }
-    </script>
+</script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
     * The key parameter will contain your own API key (which is not needed for this tutorial)

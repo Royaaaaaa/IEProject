@@ -11,6 +11,8 @@ class Animal(models.Model):
   aName=models.CharField(max_length=28)
   aType=models.ForeignKey(Type,on_delete=models.CASCADE)
   aHabitat=models.CharField(max_length=1000)
+  aPopulation=models.IntegerField(null=True, blank=True,default=None)
+  aFamily=models.CharField(max_length=50,default='')
   aSize=models.CharField(max_length=20)
   aDetail=models.CharField(max_length=10000,default='hhhh')
 

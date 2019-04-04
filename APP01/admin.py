@@ -17,7 +17,7 @@ class AnimalAdmin(admin.ModelAdmin):
     list_display = ['id','aName']
     search_fields = ['aName']
     list_filter = ['aName']
-    list_per_page = 1
+    list_per_page = 20
     # fieldsets = [
     #     ('base',{'fields':['id','btitle']}),
     #     ('super',{'field':['bpub_date']})
@@ -31,7 +31,7 @@ class ImageAdmin(admin.ModelAdmin):
     search_fields = ['iName']
 
 class LocationAdmin(admin.ModelAdmin):
-    list_display = ['id','latAnimal','lonAnimal']
+    list_display = ['id','latAnimal','lonAnimal','lAnimal']
 
 class TypeAdmin(admin.ModelAdmin):
     list_display = ['id','tName']

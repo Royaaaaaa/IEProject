@@ -25,7 +25,7 @@ SECRET_KEY = '4t7f!9@3)n^c=+_#xt9k%r#i^k72c=r7(603r)_4af02f%wv-l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['marinelife-236514.appspot.com']
+ALLOWED_HOSTS = ['marinelife-236514.appspot.com','127.0.0.1']
 
 
 # Application definition
@@ -163,7 +163,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+# STATIC_ROOT = 'static'
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR,'static'),
 )

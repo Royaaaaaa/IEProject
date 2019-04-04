@@ -10,7 +10,7 @@ class Type(models.Model):
 class Animal(models.Model):
   aName=models.CharField(max_length=28)
   aType=models.ForeignKey(Type,on_delete=models.CASCADE)
-  aHabitat=models.CharField(max_length=40)
+  aHabitat=models.CharField(max_length=1000)
   aSize=models.CharField(max_length=20)
   aDetail=models.CharField(max_length=10000,default='hhhh')
 

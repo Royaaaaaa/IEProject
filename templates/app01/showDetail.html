@@ -139,8 +139,8 @@
   </div>
 </section>
 
- <!-- slide secion -->
- <section class="row tm-section">
+ <!-- 2nd section --> <!-- slide secion -->
+ <section class="row tm-section tm-col-md-reverse">
 
 <div class="Picturecontainer">
   <section id="intro">
@@ -180,39 +180,60 @@
 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 
     <div class="tm-flex-center p-5">
-      <q class="tm-quote tm-text-color-primary"><b>{{ animal.aDetail }}{{ animal.aDetail }}</b></q>
-    </div>
+
+        <div class="tm-md-flex-center">
+
+            <h2 class="tm-align-left">Shark picture part</h2>
+
+                <p class="mb-4">{{ animal.aDetail }}</p>
+
+                     <a href="#" class="'btn btn-primary float-lg-left tm-md-align-center"> Read More</a>
+
+        </div>
+
+  </div>
 </div>
+
 </section>
 
-
-     <!--- google map secion -->
+     <!-- 3rd Section --><!--- google map secion -->
  <section class="row tm-section">
 
   <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 
     <div class="tm-flex-center p-5">
-          <q class="tm-quote tm-text-color-primary"><b>{{ animal.aHabitat }}</b></q>
+        <div class="tm-flex-center tm-flex-col">
+
+        <h2 class="tm-align-right">Habitat</h2>
+            <p>{{ animal.aHabitat }}</p>
+       </div>
     </div>
   </div>
 
   <!--The div element for the map -->
     <div id="map"></div>
     <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru1 = {lat:-25.501890, lng: 152.928131};
-  var uluru2 = {lat:-18.172710, lng: 142.223100};
-  var uluru3 = {lat:-18.491380, lng: 133.499910};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom:4, center: uluru1});
-  // The marker, positioned at Uluru
-  var marker1 = new google.maps.Marker({position: uluru1, map: map});
-  var marker2 = new google.maps.Marker({position: uluru2, map: map});
-  var marker3 = new google.maps.Marker({position: uluru3, map: map});
-}
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        {#var locationlist={{ context.locationList }}#}
+        for(var i=0;i< {{ context.locationList }}.length;i++)
+        {
+
+
+        }
+
+        var uluru1 = {lat:-25.501890, lng: 152.928131};
+         var uluru2 = {lat:-18.172710, lng: 142.223100};
+        var uluru3 = {lat:-18.491380, lng: 133.499910};
+        // The map, centered at Uluru
+         var map = new google.maps.Map(
+         document.getElementById('map'), {zoom:4, center: uluru1});
+        // The marker, positioned at Uluru
+        var marker1 = new google.maps.Marker({position: uluru1, map: map});
+        var marker2 = new google.maps.Marker({position: uluru2, map: map});
+        var marker3 = new google.maps.Marker({position: uluru3, map: map});
+    }
     </script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads

@@ -294,7 +294,7 @@ select:focus {
     position: fixed;
     top: 0;
     width: 51%;
-    height: 60%;
+    height: 30%;
     background: #222222;
     z-index: 1000;
     -webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */

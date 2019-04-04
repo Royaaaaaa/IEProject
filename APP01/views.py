@@ -46,7 +46,8 @@ def searchtype(req):
 def showDetail(request,id):
     animal = Animal.objects.get(pk=id)
     imageList = animal.image_set.all()
-    context={'animal': animal, 'imageList': imageList}
+    locationList = animal.location_set.all()
+    context={'animal': animal, 'imageList': imageList,'locationList':locationList}
     return render(request,'app01/showDetail.html',context)
 
 def yellow(request):

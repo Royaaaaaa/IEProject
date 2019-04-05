@@ -21,7 +21,7 @@ class Animal(models.Model):
       return self.aName
 
 class Image(models.Model):
-    iName=models.CharField(max_length=20)
+    iName=models.CharField(max_length=50)
     iAnimal=models.ForeignKey(Animal,on_delete=models.CASCADE)
 
 class Location(models.Model):

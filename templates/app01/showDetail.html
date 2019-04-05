@@ -126,59 +126,26 @@
   </div>
 </section>
 
-
-
-  {% if animal.aName == "shark" %}
-      <video width=100% height=600px autoplay muted loop>
-        <source src="{% static 'app01/video/shark.mp4'%}" type="video/mp4">
-         <source src="movie.ogg" type="video/ogg">
-        </video>
-
-  {% endif %}
-  {% if animal.aName == "Flatback turtle" %}
-      <video width=100% height=600px autoplay muted loop>
-      <source src="{% static 'app01/video/flatbackTurtle.mp4'%}" type="video/mp4">
-      <source src="movie.ogg" type="video/ogg">
-      </video>
-  {% endif %}
-
+<video width=100% height=600px autoplay muted loop>
+    <source src="static/app01/video/{{ animal.aName }}.mp4" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+</video>
  <!-- 2nd section --> <!-- slide secion -->
  <section class="row tm-section tm-col-md-reverse">
 
 <div class="Picturecontainer">
   <section id="intro">
-    {% if animal.aName == "shark" %}
 			<ul id="slippry-slider">
+             {% for name in list1 %}
+                 <li>
+				<a ><img  src="static/app01/img/animal/{{animal.aName}}.png" width="200px" height="300px"></a>
+                </li>#}
+                 </a>
+            {% endfor %}
 
-			  <li>
-				<a ><img  src="{% static 'app01/img/shark1.jpg' %}" width="200px" height="300px"></a>
-
-			  </li>
-			  <li>
-				<a><img src="{% static 'app01/img/shark2.jpg' %}" width="200px" height="300px"></a>
-			  </li>
-			  <li>
-				<a><img src="{% static 'app01/img/portfolio/pollution_shark1.jpg' %}" width="100%" height="100%"></a>
-			  </li>
-              <li>
-				<a><img src="{% static 'app01/img/portfolio/pollution_shark2.jpg' %}" width="100%" height="100%"></a>
-			  </li>
 
 			</ul>
-    {% endif %}
 
-    {% if animal.aName == "Flatback turtle" %}
-			<ul id="slippry-slider">
-            <div class="Picturecontainer">
-			  <li>
-				<a ><img src="{% static 'app01/img/Flatback turtle1.jpg' %}" width="100%" height="100%"></a>
-			  </li>
-			  <li>
-				<a><img src="{% static 'app01/img/Flatback turtle2.jpg' %}" width="100%" height="100%"></a>
-			  </li>
-            </div>
-			</ul>
-    {% endif %}
 </section>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -220,7 +187,9 @@
     function initMap() {
         // The location of Uluru
         var c = {{ x|safe }};
-        list = c.locationList
+        list = c.locationList;
+        list1=c.imagelist;
+        console.log(list1)
         var marker,i;
         var lo = {lat:list[0][0], lng: list[0][1]}
         var map = new google.maps.Map(document.getElementById('map'), {zoom:5, center: lo});

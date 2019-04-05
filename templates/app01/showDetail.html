@@ -3,6 +3,9 @@
 
 <head>
 <style>
+    div.gallery {
+        width:50%
+    }
     div.gallery img {
         cursor: pointer;
          transition: all 1s;
@@ -93,7 +96,7 @@
 </div>
 
 </header>
-
+<br/>
 <div id="loader-wrapper">
 
     <div id="loader"></div>
@@ -108,25 +111,12 @@
     <!-- 1st section -->
 
   <section class="row tm-section">
+      <div class="gallery">
+          <img src="static/app01/img/animal/{{ animal.aName }}.png" width="300" height="300" class="center-block"></a>
+              <div class="desc"><h1 class="tm-md-align-center">{{ animal.aName }}</h1></div>
+      </div>
 
-
-      {% if animal.aName == "shark" %}
-          <div class="gallery">
-          <img src="static/app01/img/shark1.jpg" width="300" height="300" class="center-block"></a>
-              <div class="desc"><h1 class="tm-md-align-center">Shark</h1></div>
-          </div>
-
-      {% endif %}
-
-      {% if animal.aName == "Flatback turtle" %}
-          <div class="gallery">
-          <img src="static/app01/img/Flatback turtle1.jpg" width="300" height="300" class="center-block"></a>
-              <div class="desc"><h1 class="tm-md-align-center">&nbsp;Flatback turtle</h1></div>
-          </div>
-      {% endif %}
-
-
-  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
+  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 
     <div class="tm-flex-center p-5">
 
@@ -197,7 +187,7 @@
 
         <div class="tm-md-flex-center">
 
-            <h2 class="tm-align-left">Shark picture part</h2>
+            <h2 class="tm-align-left">picture part</h2>
 
                 <p class="mb-4">{{ animal.aDetail }}</p>
 
@@ -233,7 +223,7 @@
         list = c.locationList
         var marker,i;
         var lo = {lat:list[0][0], lng: list[0][1]}
-        var map = new google.maps.Map(document.getElementById('map'), {zoom:4, center: lo});
+        var map = new google.maps.Map(document.getElementById('map'), {zoom:5, center: lo});
 
         for(i=0;i< list.length;i++)
         {

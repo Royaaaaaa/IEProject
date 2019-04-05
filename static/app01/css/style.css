@@ -138,7 +138,7 @@ blockquote {
 }
 
 .row{
-	margin-bottom:40px;
+	margin-bottom:10px;
 }
 
 .row .row, .row-fluid .row{
@@ -192,9 +192,9 @@ section.dark .sub-heading p {
 /* =======================================
 1. Header
 ======================================== */
-header{
-	position:relative;
-}
+/*header{*/
+	/*position:relative;*/
+/*}*/
 
 /* --- menu --- */
 
@@ -210,7 +210,7 @@ header{
 }
 
 .navbar.navbar-inverse {
-	padding:10px 0;
+	padding:initial;
 	margin:0;
 	
 }
@@ -223,7 +223,7 @@ header{
 }
 
 .navbar-collapse {
-  max-height: 100%;
+  max-height: 60%;
   overflow-x: hidden;
   overflow-y: hidden;
 }

@@ -3,8 +3,9 @@
 <head>
     {% load staticfiles %}
 <style>
+
     div.gallery {
-        margin: 5px;
+        margin: 20px;
         border: 1px solid #ccc;
         float: left;
         width: 30%;
@@ -12,6 +13,7 @@
         justify-content: center;
         background-color: #FFFFFF;
         overflow: hidden;
+
 
     }
 
@@ -36,7 +38,7 @@
         height: 50px;
         overflow: hidden;
         position:relative;
-        background-color: #FFFFFF;
+        background-color: #2a2a2a;
         {#border-bottom:2px solid #1b1e21;#}
         border: 1px solid #6c757d;
         z-index: 2;
@@ -111,21 +113,13 @@
     <ur>
     {% for animal in animalList %}
             <a target="_blank" href="{{ animal.id }}">
-             {% if animal.aName == "shark" %}
+
                  <div class="gallery">
-                     <img src="static/app01/img/shark1.jpg" width=100% height="200" class="center-block">
-{#                     <div class="textcontainer">#}
+                     <img src="static/app01/img/animal/{{ animal.aName }}.png" width=100% height="200" class="center-block">
+
                         <div class="textcontainer"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
                  </div>
-             {% endif %}
 
-
-             {% if animal.aName == "Flatback turtle" %}
-                 <div class="gallery">
-                 <img src="static/app01/img/Flatback turtle1.jpg" width=100% height="200" class="center-block">
-                     <div class="textcontainer"><a href="{{ animal.id }}"><b>&nbsp;{{animal.aName}}</b></a></div>
-                 </div>
-             {% endif %}
              </a>
     {% endfor %}
   </ur>

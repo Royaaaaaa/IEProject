@@ -232,26 +232,20 @@
    <script>
     // Initialize and add the map
     function initMap() {
+        console.log(1111)
         // The location of Uluru
-        {#var locationlist= '{{ context.locationList }}';#}
-        {#for(var i=0;i< locationlist.length;i++)#}
-        {#{#}
-            {#var uluru = {lat:locationlist[i].latAnimal, lng: locationlist[i].lonAnimal};#}
-            {#var map = new google.maps.Map(document.getElementById('map'), {zoom:4, center: uluru});#}
-            {#var marker = new google.maps.Marker({position: uluru, map: map})#}
+        var c = {{ x|safe }};
+        list = c.locationList
+        var marker,i;
+        var lo = {lat:list[0][0], lng: list[0][1]}
+        var map = new google.maps.Map(document.getElementById('map'), {zoom:4, center: lo});
 
+        for(i=0;i< list.length;i++)
+        {
+            marker = new google.maps.Marker({position: new google.maps.LatLng(list[i][0],list[i][1]), map: map});
+            {#markerlist.append(new google.maps.Marker({position: uluru, map: map}))#}
 
-
-        var uluru1 = {lat:-25.501890, lng: 152.928131};
-         var uluru2 = {lat:-18.172710, lng: 142.223100};
-        var uluru3 = {lat:-18.491380, lng: 133.499910};
-        // The map, centered at Uluru
-         var map = new google.maps.Map(
-         document.getElementById('map'), {zoom:4, center: uluru1});
-        // The marker, positioned at Uluru
-        var marker1 = new google.maps.Marker({position: uluru1, map: map});
-        var marker2 = new google.maps.Marker({position: uluru2, map: map});
-        var marker3 = new google.maps.Marker({position: uluru3, map: map})
+        }
     }
 </script>
     <!--Load the API from the specified URL

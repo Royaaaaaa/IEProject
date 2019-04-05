@@ -45,10 +45,16 @@ def searchtype(req):
 
 def showDetail(request,id):
     animal = Animal.objects.get(pk=id)
-    imageList = animal.image_set.all()
     locationList = animal.location_set.all()
-    context={'animal': animal, 'imageList': imageList,'locationList':locationList}
-    return render(request,'app01/showDetail.html',context)
+    list = []
+    for location in locationList:
+        lat = location.latAnimal
+        lon = location.lonAnimal
+        s=(lat,lon)
+        list.append(s)
+    context={'animal': animal.id,'locationList':list}
+    x = json.dumps(context)
+    return render(request,'app01/showDetail.html',locals())
 
 def yellow(request):
     return render(request,'app01/giftest.html')

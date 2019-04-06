@@ -18,7 +18,7 @@ def marinelife(request,id):
     type = Type.objects.get(pk=id)
     animalList = type.animal_set.all()
     # context={'animalList':animalList}
-    context={'animalList':animalList,'typeid':id}
+    context={'animalList':animalList,'typeid':type.id}
     return render(request,'app01/marinelife.html',context)
 
 def recyclevideo(request):
@@ -56,8 +56,9 @@ def showDetail(request,id):
         list.append(s)
     for image in imagelist:
         list1.append(image.iName)
-    context={'animal': animal.id,'locationList':list,'imagelist':list1}
+    context={'locationList':list}
     x = json.dumps(context)
+    # context={'animal': animal,'locationList':list,'imagelist':list1}
     return render(request,'app01/showDetail.html',locals())
 
 def yellow(request):

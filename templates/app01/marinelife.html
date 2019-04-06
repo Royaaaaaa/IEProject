@@ -12,13 +12,13 @@
         height: 250px;
         justify-content: center;
         background-color: #FFFFFF;
-        overflow: hidden;
+        {#overflow: hidden;#}
 
 
     }
 
     div.gallery:hover {
-        border: 2px solid #777;
+        border: 0px solid #777;
         }
 
     div.gallery img {
@@ -111,8 +111,17 @@
     <br/>
     <br/>
 </ur>
- <h1 align="center" > Fishes around Victoria.</h1>
- <h4 align="center"> Top 20 sightings </h4>
+{#<ur>#}
+{% if typeid == 1 %}
+    <h1 align="center" > Fishes around Victoria.</h1>
+    <h4 align="center"> Top 20 sightings </h4>
+{% endif %}
+{##}
+{% if typeid == 2 %}
+     <h1 align="center" > Turtles around Victoria.</h1>
+     <h4 align="center"> Top 20 sightings </h4>
+{% endif %}
+</ur>
  <br/>
 
     <ur>

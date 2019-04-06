@@ -7,7 +7,7 @@
         margin: 5px;
         border: 0px solid #ccc;
         float: left;
-        width: 25%;
+        width: 20%;
         height: 300px;
         justify-content: center;
     }
@@ -116,6 +116,19 @@
                  <div class="gallery">
                  <img src="static/app01/img/type/turtle.png" width="200" height="180" class="center-block">
                      <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"><b>&nbsp;Ninja Warriors.</b></font></a></div>
+                 </div>
+             {% endif %}
+            {% if type.id == 6 %}
+                 <div class="gallery">
+                     <img src="static/app01/img/type/seacowsdp.png" width="200" height="180" class="center-block">
+                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Sea Cows.</b></font></a></div>
+                 </div>
+             {% endif %}
+
+             {% if type.id == 7 %}
+                 <div class="gallery">
+                 <img src="static/app01/img/type/waterdragonsdp.png" width="200" height="180" class="center-block">
+                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"><b>Water Dragons.</b></font></a></div>
                  </div>
              {% endif %}
 

@@ -3,6 +3,11 @@
 
 <head>
 <style>
+     {% load staticfiles %}
+    *{
+        margin:0;
+        padding:0;
+    }
     div.gallery {
         width:50%
     }
@@ -26,15 +31,26 @@
         width: 100%;
         height: 250px;
     }
+    {#.header-title{#}
+    {#    background-color: #2a6496;#}
+    {#    display: table;#}
+    {#    position: relative;#}
+    {#    z-index: 4;#}
+    {#    text-align: center;#}
+    {#    padding-top: 100px;#}
+    {#    margin: auto;#}
+    {#    line-height: 54px;#}
+    {#}#}
+
 
 
     #map {
-        height: 200px;  /* The height is 400 pixels */
+        height: 20%;  /* The height is 400 pixels */
         width: 50%;  /* The width is the width of the web page */
         align-content: center;
        }
 </style>
-    {% load staticfiles %}
+
     <meta charset="utf-8">
     <title>DetailInformation</title>
 
@@ -49,6 +65,7 @@
     <link href="{% static 'app01/css/bootstrap-theme.css'%}" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'app01/css/slippry.css' %}">
     <link href="{% static 'app01/css/style.css'%}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
     <script>
 
     var renderPage = true;
@@ -67,7 +84,11 @@
 </head>
 
 <body>
-<header>
+<header style="background-color: rgba(247,247,247,.5);position: relative">
+    <video width=100% height=450px autoplay muted loop style="object-fit: fill">
+    <source src="static/app01/video/{{ animal.aName }}.mp4" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+   </video>
   <div id="navigation" class="navbar navbar-inverse navbar-fixed-top default" role="navigation">
   <div class="container">
 
@@ -93,12 +114,14 @@
 
         <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
 
+
   </ul>
 
   </div>
 </div>
 
 </header>
+
 <br/>
 <div id="loader-wrapper">
 
@@ -113,72 +136,78 @@
 
     <!-- 1st section -->
 
-  <section class="row tm-section">
+  <section class="row tm-section" style="padding-top: 10px; padding-bottom: 4px">
       <div class="gallery">
           <img src="static/app01/img/animal/{{ animal.aName }}.png" width="300" height="300" class="center-block"></a>
-              <div class="desc"><h1 class="tm-md-align-center">{{ animal.aName }}</h1></div>
+              <div class="desc"><b><h1 class="tm-md-align-center" style="padding:0;color:#ad3729;font-family: 'Comic Sans MS'">{{ animal.aName }}</h1></b></div>
       </div>
 
   <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 
     <div class="tm-flex-center p-5">
 
-      <q class="tm-quote tm-text-color-primary"><b>{{ animal.aDetail }}</b></q>
+      <q style="font-family: 'Comic Sans MS'; color: #fd7e14; font-size: 20px">
+          <b>{{ animal.aDetail }}</b>
+          </q>
 
-    </div>
-  </div>
-</section>
-
-<video width=100% height=600px autoplay muted loop>
-    <source src="static/app01/video/{{ animal.aName }}.mp4" type="video/mp4">
-    <source src="movie.ogg" type="video/ogg">
-</video>
- <!-- 2nd section --> <!-- slide secion -->
- <section class="row tm-section tm-col-md-reverse">
-
-<div class="Picturecontainer">
-  <section id="intro">
-			<ul id="slippry-slider">
-             {% for name in list1 %}
-                 <li>
-				<a ><img  src="static/app01/img/animal/{{animal.aName}}.png" width="200px" height="300px"></a>
-                </li>#}
-                 </a>
-            {% endfor %}
-
-
-			</ul>
-
-</section>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-
-    <div class="tm-flex-center p-5">
-
-        <div class="tm-md-flex-center">
-
-            <h2 class="tm-align-left">picture part</h2>
-
-                <p class="mb-4">{{ animal.aDetail }}</p>
-
-                     <a href="#" class="'btn btn-primary float-lg-left tm-md-align-center"> Read More</a>
         </div>
-
   </div>
-</div>
-
 </section>
+<h1 style="padding-top: 20px; padding-bottom: 60px;font-family: 'Comic Sans MS';font-size: 30px;color: #0590B8 ">We are {{ animal.aPopulation}} in count now!</h1>
+
+<hr style="height:1px; border:none; color:#2a6496; background-color:#000;">
+
+{#<hr style="height:1px; border:none; color:#2a6496; background-color:#000;">#}
+ <!-- 2nd section --> <!-- slide secion -->
+ <div class="container" style="height: 400px">
+    <b style="margin-left:auto;   padding-top: 20px; padding-bottom: 60px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b>
+
+ </div>
+ <hr style="height:1px; border:none; color:#2a6496; background-color:#000;">
+ <section class="row tm-section tm-col-md-reverse" style="padding-top: 20px">
+
+{#<div class="Picturecontainer">#}
+{#  <section id="intro">#}
+{#			<ul id="slippry-slider">#}
+{#             {% for name in list1 %}#}
+{#                 <li>#}
+{#				<a ><img src="static/app01/img/animal/{{ name }}" width="200px" height="300px"></a>#}
+{#                </li>#}
+{#                 </a>#}
+{#            {% endfor %}#}
+{#			</ul>#}
+{##}
+{#</section>#}
+{#</div>#}
+{#<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">#}
+{##}
+{#    <div class="tm-flex-center p-5">#}
+{##}
+{#        <div class="tm-md-flex-center">#}
+{##}
+{#            <h2 class="tm-align-left">picture part</h2>#}
+{##}
+{#                <p class="mb-4">{{ animal.aDetail }}</p>#}
+{##}
+{#                     <a href="#" class="'btn btn-primary float-lg-left tm-md-align-center"> Read More</a>#}
+{#        </div>#}
+{##}
+{#  </div>#}
+{#</div>#}
+{##}
+{#</section>#}
 
      <!-- 3rd Section --><!--- google map secion -->
- <section class="row tm-section">
+ <section class="row tm-section" style="padding-top: 10px">
 
   <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 
     <div class="tm-flex-center p-5">
         <div class="tm-flex-center tm-flex-col">
 
-        <h2 class="tm-align-right">Habitat</h2>
-            <p>{{ animal.aHabitat }}</p>
+        <b class="tm-align-right" style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" >LOCATE ME AT: </b>
+
+            <p style="font-family: 'Comic Sans MS'; color: #2a6496; font-size: 20px">{{ animal.aHabitat }}</p>
        </div>
     </div>
   </div>
@@ -191,8 +220,8 @@
         // The location of Uluru
         var c = {{ x|safe }};
         list = c.locationList;
-        list1=c.imagelist;
-        console.log(list1)
+
+        console.log(list)
         var marker,i;
         var lo = {lat:list[0][0], lng: list[0][1]}
         var map = new google.maps.Map(document.getElementById('map'), {zoom:5, center: lo});
@@ -243,7 +272,7 @@
 
 
 <!-- load JS -->
- </div>
+{# </div>#}
 <script>
 
   /* DOM is ready

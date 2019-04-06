@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{% static 'app01/color/default.css'%}">
     <script src="{% static 'app01/js/modernizr.custom.js'%} "></script>
 </head>
-<body>
+<body style="background-image: url(static/app01/img/giphy.gif); background-size: 100%; background-repeat: no-repeat">
 <header>
 
 <div id="navigation" class="navbar navbar-inverse navbar-fixed-top default" role="navigation">
@@ -42,7 +42,7 @@
     </div>
 
   <ul class="nav nav-pills">
-        <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
+        <li> class="active"<a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
         <li><a href="marinefamily">Discover</a></li>
         <li><a href="recyclevideo">Play & Win</a></li>
         <li><a href="#">Stories & Facts</a></li>
@@ -56,11 +56,12 @@
 </div>
 </header>
 
-<video width=100% height=80% autoplay muted loop>
-  <source src="{% static 'app01/video/home turtle.mp4'%}" type="video/mp4">
+{#<video width=100% height=80% autoplay muted loop>#}
+{#  <source src="{% static 'app01/video/home turtle.mp4'%}" type="video/mp4">#}
 {#  <source src="movie.ogg" type="video/ogg">#}
 {#  Your browser does not support the video tag.#}
-</video>
+{#</video>#}
+
 
 </body>
 </html>

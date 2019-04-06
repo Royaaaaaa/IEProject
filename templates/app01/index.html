@@ -46,11 +46,11 @@
     </div>
 
     <ul class="nav nav-pills">
-        <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
+        <li class="active"><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
         <li><a href="marinefamily">Discover</a></li>
         <li><a href="recyclevideo">Play & Win</a></li>
         <li><a href="#">Stories & Facts</a></li>
-        <li class="active"><a href="aboutUs">About Us</a></li>
+        <li><a href="aboutUs">About Us</a></li>
 
         <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
 
@@ -64,15 +64,23 @@
 <section id="intro">
 
 			<ul id="slippry-slider">
-			  <li>
-				<a href="#slide1"><img src="{% static 'app01/img/slide/fish1.jpg' %}" alt="Welcome to MarineLife World!"></a>
+{#			  <li>#}
+{#				<a href="#slide1"><img src="{% static 'app01/img/slide/fish1.jpg' %}" alt="Welcome to MarineLife World!"></a>#}
+{#			  </li>#}
+
+{#			  <li>#}
+{#				<a href="#slide2"><img src="{% static 'app01/img/slide/fish2.jpg' %}" alt="This is an awesome website!"></a>#}
+{#			  </li>#}
+              <li>
+				<a href="#slide1"><img src="{% static 'app01/img/slide/person.gif' %}"  ></a>
 			  </li>
-			  <li>
-				<a href="#slide2"><img src="{% static 'app01/img/slide/fish2.jpg' %}" alt="This is an awesome website!"></a>
+                 <li>
+				<a href="#slide2"><img src="{% static 'app01/img/slide/heart.png' %}" ></a>
 			  </li>
-			  <li>
-				<a href="#slide3"><img src="{% static 'app01/img/slide/fish3.jpg' %}" alt="Hope you can <span class='red'>♥</span> it :)"></a>
+                <li>
+				<a href="#slide3"><img src="{% static 'app01/img/slide/sea.gif' %}"></a>
 			  </li>
+
 			</ul>
 </section>
 <!-- end intro -->

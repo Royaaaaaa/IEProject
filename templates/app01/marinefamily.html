@@ -18,13 +18,13 @@
 
     div.gallery img {
         cursor: pointer;
-        border: 2px solid black;
+        border: 0px solid black;
          transition: all 1s;
-         border-radius: 50%;
+         {#border-radius: 60%;#}
 
     }
     div.gallery img:hover{
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
 
@@ -79,10 +79,10 @@
 
     <ul class="nav nav-pills">
         <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
-        <li><a href="marinefamily">Discover</a></li>
+        <li  class="active"><a href="marinefamily">Discover</a></li>
         <li><a href="recyclevideo">Play & Win</a></li>
         <li><a href="#">Stories & Facts</a></li>
-        <li class="active"><a href="aboutUs">About Us</a></li>
+        <li><a href="aboutUs">About Us</a></li>
 
         <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
 
@@ -107,15 +107,15 @@
             <a target="_blank" href="typeid={{ type.id }}">
              {% if type.id == 1 %}
                  <div class="gallery">
-                     <img src="static/app01/img/type/fish.png" width="200" height="200" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"> <b>&nbsp;{{type.tName}}</b></font></a></div>
+                     <img src="static/app01/img/type/fishnewdp.png" width="200" height="180" class="center-block">
+                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Go Nemo.</b></font></a></div>
                  </div>
              {% endif %}
 
              {% if type.id == 2 %}
                  <div class="gallery">
-                 <img src="static/app01/img/type/2.jpg" width="200" height="200" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"><b>&nbsp;{{type.tName}}</b></font></a></div>
+                 <img src="static/app01/img/type/turtle.png" width="200" height="180" class="center-block">
+                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"><b>&nbsp;Ninja Warriors.</b></font></a></div>
                  </div>
              {% endif %}
 

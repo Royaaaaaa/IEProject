@@ -13,3 +13,10 @@ handlers:
 - url: /.*
   script: auto
 # [END django_app]
+
+env_variables:
+  # Replace USER, PASSWORD, DATABASE, and CONNECTION_NAME with the
+  # values obtained when configuring your Cloud SQL instance.
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/marinelife-236514:us-central1:instance4;dbname=marine
+  MYSQL_USER: roya
+  MYSQL_PASSWORD: 803615

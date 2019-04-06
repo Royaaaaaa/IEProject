@@ -21,7 +21,7 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="MarineAnimal@localhost" uuid="b8ade5f1-2c67-4cdf-b5aa-228da0573bc4">
+    <data-source source="LOCAL" name="MarineAnimal" uuid="b8ade5f1-2c67-4cdf-b5aa-228da0573bc4">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
-<style>
+<style type="text/css">
     div.gallery {
         margin: 5px;
         border: 0px solid #ccc;
@@ -18,6 +18,7 @@
 
     div.gallery img {
         cursor: pointer;
+        border: 2px solid black;
          transition: all 1s;
          border-radius: 50%;
 
@@ -28,9 +29,12 @@
 
 
     div.desc {
-        padding: 15px;
+        padding: 10px;
         text-align: center;
+        color: #FFFFFF;
         }
+
+
 
 </style>
 
@@ -54,7 +58,7 @@
 
     <script src="{% static 'app01/js/modernizr.custom.js'%} "></script>
 </head>
-<body>
+<body style="background-image: url(/static/app01/img/background.jpg); background-size:100%; background-repeat:no-repeat;">
 <header>
 
 <div id="navigation" class="navbar navbar-inverse navbar-fixed-top default" role="navigation">
@@ -67,17 +71,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">MarineLife</a>
+      <a class="navbar-brand" href="index">
+          <li style="list-style-type: none"> The </li>
+          <li style="list-style-type: none"> Marine</li>
+          <li style="list-style-type: none">      World</li></a>
     </div>
 
-  <ul class="nav nav-pills">
+    <ul class="nav nav-pills">
         <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
-        <li class="active"><a href="/marinefamily">MarineLife World</a></li>
-        <li><a href="/recyclevideo">Recycle Video</a></li>
-        <li><a href="/game">Small Games</a></li>
-        <li><a href="/aboutUs">About Us</a></li>
-        <li><a href="#">   </a></li>
-        <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search Animal</a></li>
+        <li><a href="marinefamily">Discover</a></li>
+        <li><a href="recyclevideo">Play & Win</a></li>
+        <li><a href="#">Stories & Facts</a></li>
+        <li class="active"><a href="aboutUs">About Us</a></li>
+
+        <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
 
   </ul>
 
@@ -93,7 +100,7 @@
     <br/>
 </ur>
 
-<h3 align="center" > We are focusing on these specises.</h3>
+<h1 style="padding:0;color:#FFFFFF;font-family: cursive;font-size:40px;line-height:27px;text-align:center;"><b> Life under water around Victoria.</b></h1>
 <br/>
     <ur>
     {% for type in typelist %}
@@ -101,14 +108,14 @@
              {% if type.id == 1 %}
                  <div class="gallery">
                      <img src="static/app01/img/type/fish.png" width="200" height="200" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><b>&nbsp;{{type.tName}}</b></a></div>
+                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"> <b>&nbsp;{{type.tName}}</b></font></a></div>
                  </div>
              {% endif %}
 
              {% if type.id == 2 %}
                  <div class="gallery">
                  <img src="static/app01/img/type/2.jpg" width="200" height="200" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><b>&nbsp;{{type.tName}}</b></a></div>
+                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"><b>&nbsp;{{type.tName}}</b></font></a></div>
                  </div>
              {% endif %}
 

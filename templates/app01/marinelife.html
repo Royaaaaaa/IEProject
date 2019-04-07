@@ -92,9 +92,9 @@
     <ul class="nav nav-pills">
         <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
         <li><a href="marinefamily">Discover</a></li>
-        <li><a href="recyclevideo">Play & Win</a></li>
+        <li><a href="playAndWin">Play & Win</a></li>
         <li><a href="#">Stories & Facts</a></li>
-        <li><a href="aboutUs">About Us</a></li>
+        <li><a href="#">About Us</a></li>
 
         <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
 
@@ -113,13 +113,13 @@
 </ur>
 {#<ur>#}
 {% if typeid == 1 %}
-    <h1 align="center" > Fishes around Victoria.</h1>
-    <h4 align="center"> Top 20 sightings </h4>
+    <h1 style="padding:0;color:#FFFFFF;font-family: 'Comic Sans MS';font-size:40px;line-height:27px;text-align:center;" > Fishes around Victoria.</h1>
+    <h4 style="padding:0;color:#FFFFFF;font-family: 'Comic Sans MS';text-align:center;"> Top 20 sightings </h4>
 {% endif %}
 {##}
 {% if typeid == 2 %}
-     <h1 align="center" > Turtles around Victoria.</h1>
-     <h4 align="center"> Top 20 sightings </h4>
+     <h1 style="padding:0;color:#FFFFFF;font-family: 'Comic Sans MS';font-size:40px;line-height:27px;text-align:center;" > Turtles around Victoria.</h1>
+     <h4 style="padding:0;color:#FFFFFF;font-family: 'Comic Sans MS';text-align:center;"> Top 20 sightings </h4>
 {% endif %}
 </ur>
  <br/>
@@ -131,7 +131,7 @@
                  <div class="gallery">
                      <img src="static/app01/img/animal/{{ animal.aName }}.png" width=200px height="200px" class="center-block">
 
-                     <div class="textcontainer"><a href="{{ animal.id }}"><font color="black"><b>&nbsp;{{animal.aName}}</b></font></a></div>
+                     <div class="textcontainer"><a href="{{ animal.id }}"><font color="black"; style="font-family: 'Comic Sans MS'"><b>&nbsp;{{animal.aName}}</b></font></a></div>
                  </div>
 
              </a>

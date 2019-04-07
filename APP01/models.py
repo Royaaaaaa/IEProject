@@ -13,7 +13,7 @@ class Animal(models.Model):
   aHabitat=models.CharField(max_length=1000)
   aPopulation=models.IntegerField(null=True, blank=True,default=None)
   aFamily=models.CharField(max_length=50,default='')
-  aSize=models.CharField(max_length=20)
+  aFact=models.CharField(max_length=1000, default="")
   aDetail=models.CharField(max_length=10000,default='hhhh')
 
 

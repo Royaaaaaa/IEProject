@@ -108,9 +108,9 @@
     <ul class="nav nav-pills">
         <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
         <li><a href="marinefamily">Discover</a></li>
-        <li><a href="recyclevideo">Play & Win</a></li>
+        <li><a href="playAndWin">Play & Win</a></li>
         <li><a href="#">Stories & Facts</a></li>
-        <li><a href="aboutUs">About Us</a></li>
+        <li><a href="#">About Us</a></li>
 
         <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
 
@@ -132,7 +132,7 @@
     <div class="loader-section section-right"></div>
 
   </div>
- <div class="container">
+ <ul class="container">
 
     <!-- 1st section -->
 
@@ -153,15 +153,19 @@
         </div>
   </div>
 </section>
-<h1 style="padding-top: 20px; padding-bottom: 60px;font-family: 'Comic Sans MS';font-size: 30px;color: #0590B8 ">We are {{ animal.aPopulation}} in count now!</h1>
 
 <hr style="height:1px; border:none; color:#2a6496; background-color:#000;">
 
 {#<hr style="height:1px; border:none; color:#2a6496; background-color:#000;">#}
  <!-- 2nd section --> <!-- slide secion -->
- <div class="container" style="height: 400px">
-    <b style="margin-left:auto;   padding-top: 20px; padding-bottom: 60px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b>
-
+ <div class="container" style="height: 200px;vertical-align: center">
+     <ul>
+    <li style="list-style-type: none"><b style="margin-left:auto;   padding-top: 20px; padding-bottom: 40px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b></li>
+     <br/>
+      <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #2a6496; font-size: 20px" >We are {{ animal.aPopulation}} in count now!</b> </li>
+     <br/>
+     <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #2a6496; font-size: 20px">{{ animal.aFact }}</b></li>
+     </ul>
  </div>
  <hr style="height:1px; border:none; color:#2a6496; background-color:#000;">
 {# <section class="row tm-section tm-col-md-reverse" style="padding-top: 20px">#}
@@ -207,7 +211,7 @@
 
         <b class="tm-align-right" style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" >LOCATE ME AT: </b>
 
-            <p style="font-family: 'Comic Sans MS'; color: #2a6496; font-size: 20px">{{ animal.aHabitat }}</p>
+{#            <p style="font-family: 'Comic Sans MS'; color: #2a6496; font-size: 20px">{{ animal.aHabitat }}</p>#}
        </div>
     </div>
   </div>

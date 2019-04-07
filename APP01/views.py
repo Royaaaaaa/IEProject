@@ -21,12 +21,10 @@ def marinelife(request,id):
     context={'animalList':animalList,'typeid':type.id}
     return render(request,'app01/marinelife.html',context)
 
-def recyclevideo(request):
-    return render(request,'app01/recyclevideo.html')
-def game(request):
-    return render(request,'app01/game.html')
+def playAndWin(request):
+    return render(request, 'app01/playAndWin.html')
 def aboutUs(request):
-    return render(request,'app01/aboutUs.html')
+    return render(request, 'app01/aboutUs.html')
 
 def search(request):
     typelist = Type.objects.all()
@@ -61,5 +59,3 @@ def showDetail(request,id):
     # context={'animal': animal,'locationList':list,'imagelist':list1}
     return render(request,'app01/showDetail.html',locals())
 
-def yellow(request):
-    return render(request,'app01/giftest.html')

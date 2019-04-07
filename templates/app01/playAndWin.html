@@ -3,27 +3,106 @@
 <head>
     {% load staticfiles %}
     <meta charset="utf-8">
-    <title>Video</title>
+    <title>PLAY & WIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!-- styles -->
+    <link rel="stylesheet" href="{% static 'app01/css/index.css'%}">
     <link rel="stylesheet" href="{% static 'app01/css/bootstrap.min.css'%}">
     <link href="{% static 'app01/css/bootstrap.css'%}" rel="stylesheet" />
     <link href="{% static 'app01/css/bootstrap-theme.css'%}" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'app01/css/slippry.css' %}">
     <link href="{% static 'app01/css/style.css'%}" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'app01/color/default.css'%}">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+
 
     <script src="{% static 'app01/js/modernizr.custom.js'%} "></script>
+
+    <style>
+
+        .video{
+            width:600px;
+            height:400px;
+        }
+        .outerV,.descV{
+            display:inline-block;
+            line-height:400px;
+            width:600px;
+            height:400px;
+            overflow:hidden;
+
+        }
+        .allV{
+            text-align:center;
+            height:400px;
+        }
+
+        /*遮罩层+答题css####################################*/
+        .id2{
+            /*遮罩层占满屏，位置fixed*/
+            top:0px;
+            bottom:0px;
+            right:0px;
+            left:0px;
+            position:fixed;
+            /*调节透明度*/
+            opacity: 0.7;
+            z-index:10000;
+            background-color: lightgray;
+            }
+
+        .id3{
+            height:300px;
+            width:400px;
+            background-color: white;
+            position:fixed;
+            top:180px;
+            left:550px;
+            z-index:10001;
+            padding:5px;
+            }
+
+
+        .quizPart{
+            margin-left:500px;
+            font-family: "Comic Sans MS";
+        }
+
+        .hide{
+            display:None;
+        }
+
+
+        .question{
+            padding:5px;
+            /*text-align:center;*/
+            position:absolute;
+            /*padding:15px;*/
+            /*padding:30px;*/
+            width:400px;
+            height:300px;
+            }
+        .nex{
+            margin-top:150px;
+            margin-left:300px;
+            margin-bottom:100px;
+            }
+        #closeBtn{
+            z-index:10010;
+            margin-top:35px;
+            margin-left:330px;
+        }
+/*遮罩层+答题css结束######################################*/
+
+
+
+    </style>
 </head>
-<body>
+<body style="background-image: url(static/app01/img/quizBackground.jpg); background-size: 100% 100%; background-repeat: no-repeat">
 <header>
 
+{#    导航条#######################################################################}
 <div id="navigation" class="navbar navbar-inverse navbar-fixed-top default" role="navigation">
   <div class="container">
 
@@ -34,13 +113,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index">
-          <li style="list-style-type: none"> The </li>
-          <li style="list-style-type: none"> Marine</li>
-          <li style="list-style-type: none">      World</li></a>
+      <a class="navbar-brand" href="index.html">MarineLife</a>
     </div>
 
-    <ul class="nav nav-pills">
+  <ul class="nav nav-pills">
         <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
         <li><a href="marinefamily">Discover</a></li>
         <li  class="active"><a href="playAndWin">Play & Win</a></li>
@@ -53,9 +129,430 @@
 
   </div>
 </div>
+{#    导航条结束########################################################################}
+
+{#########开始###############################################################################################    #}
+{#<div style="text-align:center;clear:both">#}
+{#<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>#}
+{#<script src="/follow.js" type="text/javascript"></script>#}
+{#</div>#}
+<br/>
+<br/>
+    <br/>
+<div class="carousel content-main" style="background: none!important;">
+<ul class="list">
+	<li><img src="{% static 'app01/img/quiz/8.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/7.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/6.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/5.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/4.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/2.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/8.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/7.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/6.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/5.jpg'%}"></li>
+	<li><img src="{% static 'app01/img/quiz/4.jpg'%}"></li>
+</ul>
+</div>
+<script type="text/javascript" src="{% static 'app01/js/jquery.min.js'%}"></script>
+<script>
+    ;(function($){
+    //创建类
+    var Carousel = function(con){
+        var self = this;
+        this.con = con;
+        this.setDirect();
+        this.conItem = con.find("ul.list");
+        this.prev = con.find(".prev-btn");
+        this.next = con.find(".next-btn");
+        this.conItems = con.find("li");
+        this.conItemFirst = this.conItems.first();
+        this.conItemLast = this.conItems.last();
+        this.flag = true;
+        //默认配置参数
+        this.settings = {
+            width:900,             //幻灯片的宽度
+            height:4110,             //幻灯片的高度
+            postWidth:658,          //第一帧的宽度
+            postHeight:411,         //第一帧的高度
+            scale:0.8,
+            speed:500,
+            verticalAlign:'center',
+            autoPlay:false,
+            delay:1000
+        }
+        $.extend(this.settings,this.getSetting());
+        this.setSettingValue();
+        this.setPostOther();
+        this.next.on("click",function(){
+            if(self.flag){
+                self.flag = false;
+                self.rotate("left");
+            }
+
+        });
+        this.prev.on("click",function(){
+            if(self.flag){
+                self.flag = false;
+                self.rotate("right");
+            }
+        });
+        if(this.settings.autoPlay){
+            this.autoPlay();
+            this.con.hover(function(){
+                window.clearInterval(self.timer);
+            },function(){
+                self.autoPlay();
+            });
+        }
+
+    }
+
+    //原型方法
+    Carousel.prototype = {
+        //设置上一张和下一张大小
+        setDirect:function(){
+            var prev = $("<div></div>").addClass("content-btn prev-btn").append($("<img/>").attr("src","{% static 'app01/img/quiz/left.png'%}").addClass("btn-img"));
+            this.con.prepend(prev);
+            var next = $("<div></div>").addClass("content-btn next-btn").append($("<img/>").attr("src","{% static 'app01/img/quiz/right.png'%}").addClass("btn-img"));
+            this.con.append(next);
+        },
+        //自动播放函数
+        autoPlay:function(){
+            var self = this;
+            this.timer = window.setInterval(function(){
+                self.next.click();
+            },this.settings.delay);
+        },
+
+        //旋转函数
+        rotate:function(dir){
+            var _this = this;
+            var zIndex = []
+            if(dir === "left"){
+                this.conItems.each(function(){
+                    var prev = $(this).prev().get(0)?$(this).prev():_this.conItemLast;
+                    zIndex.push(prev.css("zIndex"));
+                    $(this).animate({
+                        width:prev.width(),
+                        height:prev.height(),
+                        top:prev.css("top"),
+                        left:prev.css("left"),
+                        opacity:prev.css("opacity")
+                    },_this.settings.speed,function(){
+                        _this.flag = true;
+                    });
+                });
+                this.conItems.each(function(i){
+                    $(this).css({zIndex:zIndex[i]})
+                });
+            }else  if(dir === "right"){
+                this.conItems.each(function(){
+                    var next = $(this).next().get(0)?$(this).next():_this.conItemFirst;
+                    zIndex.push(next.css("zIndex"));
+                    $(this).animate({
+                        width:next.width(),
+                        height:next.height(),
+                        top:next.css("top"),
+                        left:next.css("left"),
+                        opacity:next.css("opacity")
+                    },_this.settings.speed,function(){
+                        _this.flag = true;
+                    });
+                });
+                this.conItems.each(function(i){
+                    $(this).css({zIndex:zIndex[i]})
+                });
+            }
+        },
+
+        //设置剩余帧位置关系
+        setPostOther:function(){
+            var self =this,
+                sliceItem = this.conItems.slice(1),
+                sliceLength = sliceItem.length,
+                rightItem = sliceItem.slice(0,sliceLength/2),
+                leftItem = sliceItem.slice(sliceLength/2),
+                level = Math.floor(sliceLength/2),
+                llevel = level,
+                rw = this.settings.postWidth,
+                rh = this.settings.postHeight,
+                gap = (this.settings.width - this.settings.postWidth)/2/level;
+            rightItem.each(function(i){
+                rw = rw*self.settings.scale;
+                rh = rh*self.settings.scale;
+                var j = i;
+                $(this).css({
+                    zIndex:--level,
+                    width:rw,
+                    height:rh,
+                    left:(self.settings.width + self.settings.postWidth)/2 + gap*(++i) - rw,
+                    top:self.setVerticalAlign(rh),
+                    opacity:1/(++j)
+                });
+            });
+            var lw = rightItem.last().width(),
+                lh = rightItem.last().height();
+            leftItem.each(function(i){
+                $(this).css({
+                    zIndex:level++,
+                    width:lw,
+                    height:lh,
+                    left:gap*i,
+                    top:self.setVerticalAlign(lh),
+                    opacity:1/llevel--
+                });
+                lw = lw/self.settings.scale;
+                lh = lh/self.settings.scale;
+            });
+        },
+        //设置对齐方式
+        setVerticalAlign:function(h){
+            if(this.settings.verticalAlign === "middle"){
+                return (this.settings.height - h)/2;
+            }else if(this.settings.verticalAlign === "top"){
+                return 0;
+            }else if(this.settings.verticalAlign === "bottom"){
+                return this.settings.height - h;
+            }else {
+                return (this.settings.height - h)/2;
+            }
+        },
+        //设置配置参数控制幻灯片显示
+        setSettingValue:function(){
+            this.con.css({
+                width:this.settings.width,
+                height:this.settings.height
+            });
+            this.conItem.css({
+                width:this.settings.width,
+                height:this.settings.height
+            });
+            var w = (this.settings.width - this.settings.postWidth)/2;
+            this.prev.css({
+                width:w,
+                height:this.settings.height,
+                zIndex:Math.ceil((this.conItems.length)/2)
+            });
+            this.prev.find("img").css({
+                width:w,
+                height:w,
+            });
+            this.next.css({
+                width:w,
+                height:this.settings.height,
+                zIndex:Math.ceil((this.conItems.length)/2)
+            });
+            this.next.find("img").css({
+                width:w,
+                height:w
+            });
+            this.conItemFirst.css({
+                top:0,
+                left:w,
+                width:this.settings.postWidth,
+                height:this.settings.postHeight,
+                zIndex:this.conItems.length
+            });
+        },
+        //接收配置参数
+        getSetting:function(){
+            var con = this.con.attr("data-setting");
+            if(con && con!==""){
+                return $.parseJSON(con);
+            }else {
+                return "";
+            }
+        }
+    }
+
+    //初始化
+    Carousel.init = function(carousel){
+        var _this = this;
+        carousel.each(function(){
+            new _this($(this));
+        });
+    }
+    window.Carousel = Carousel;
+})(jQuery)
+
+
+
+</script>
+<script type="text/javascript">
+var setting = {
+	width:1000,
+	height:270,
+	postWidth:658,
+	postHeight:270,
+	scale:0.8,
+	speed:500,
+	verticalAlign:"center"
+}
+$(".carousel").attr("data-setting",'{ "width":900,"height":411,"postWidth":658}')
+Carousel.init($(".carousel"))
+</script>
+
+{#<div style="text-align:center;clear:both">#}
+{#<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>#}
+{#<script src="/follow.js" type="text/javascript"></script>#}
+{#</div>#}
+
+
+<div style = 'width:100%;height:100px'></div>
+
+<!--####################内容区+视频区开始#########################-->
+<div class = 'allV'>
+	<div class = 'outerV'>
+		<video class = 'video' controls="controls">
+			<source src="{% static 'app01/img/quiz/shark1.mp4'%}" type="video/mp4" />
+		</video>
+
+	</div>
+	<div class = 'descV'>
+        <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF;line-height:400px">this is a shark</h1>
+	</div>
+</div>
+
+
+<div class ='allV'>
+	<div class = 'descV'>
+		<h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF;line-height:400px">please enter the desc</h1>
+	</div>
+	<div class = 'outerV'>
+		<video class = 'video' controls="controls">
+			<source src="{% static 'app01/img/quiz/shark2.mp4'%}" type="video/mp4" />
+		</video>
+	</div>
+</div>
+
+<!--####################内容区+视频区结束#########################-->
+
+<!--####################答题+遮罩开始########################-->
+<div style = 'width:100%;height:100px'></div>
+
+
+<a class = 'quizPart' href="javascript:void(0)" onclick= change()>
+	<h5 style = "text-decoration:none; font-family:'Comic Sans MS'; color: #fd7e14;"><b> Quiz for reward </b></h5>
+	<img src = "{% static 'app01/img/quiz/3d.gif'%}">
+</a>
+<div class = 'id2 hide'></div>
+
+<div class = 'id3 hide' style="background-image: url(static/app01/img/questionImage.jpg)">
+	<div class = 'question firstQ' style="font-family: 'Comic Sans MS';color: #fd7e14"><b>
+        1.what is the biggest shark in the world?
+        <p>A: shark1<input type = 'radio' name = 'q1' value = 'shark1' onchange = changeValue(this)></p>
+        <p>B: shark2<input type = 'radio' name = 'q1' value = 'shark2' onchange = changeValue(this)></p>
+        <p>C: shark3<input type = 'radio' name = 'q1' value = 'shark3' onchange = changeValue(this)></p>
+        <p>D: shark4<input type = 'radio' name = 'q1' value = 'shark4' onchange = changeValue(this)></p></b>
+        <input class = 'nex' style="background: none!important; font-weight: bold; border: 0px" type = 'button' value = 'next question' onclick = nextOne(this)>
+    </div>
+    <div class = 'question hide' style="font-family: 'Comic Sans MS';color: #fd7e14"><b>
+        2.what is the biggest turtle in the world?
+        <p>A: turtle1<input type = 'radio' name = 'q2' value = 'turtle1' onchange = changeValue(this)></p>
+        <p>B: turtle2<input type = 'radio' name = 'q2' value = 'turtle2' onchange = changeValue(this)></p>
+        <p>C: turtle3<input type = 'radio' name = 'q2' value = 'turtle3' onchange = changeValue(this)></p>
+        <p>D: turtle4<input type = 'radio' name = 'q2' value = 'turtle4' onchange = changeValue(this)></p></b>
+        <input class = 'nex' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'next question' onclick = nextOne(this)>
+    </div>
+    <div class = 'question hide' style="font-family: 'Comic Sans MS';color: #fd7e14"><b>
+        3.what is the wheal turtle in the world?
+        <p>A: wheal1<input type = 'radio' name = 'q3' value = 'wheal1' onchange = changeValue(this)></p>
+        <p>B: wheal2<input type = 'radio' name = 'q3' value = 'wheal2' onchange = changeValue(this)></p>
+        <p>C: wheal3<input type = 'radio' name = 'q3' value = 'wheal3' onchange = changeValue(this)></p>
+        <p>D: wheal4<input type = 'radio' name = 'q3' value = 'wheal4' onchange = changeValue(this)></p></b>
+        <input class = 'nex' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'get result' onclick = finalOne(this)>
+    </div>
+    <div class = 'question final hide' style="font-family: 'Comic Sans MS';">
+        <div class ='score' style="font-weight: bold; color: #ad3729">
+            Your final score is:
+        </div>
+        <img class = 'reward' src = "{% static 'app01/img/quiz/0point.jpg'%}">
+        <input  id = 'closeBtn'  style="background: none!important; font-weight: bold;border: 0px; color: #ffffff" type = 'button' value = 'close' onclick = recover()>
+    </div>
+
+    <!--<input  id = 'closeBtn' type = 'button' value = 'close' onclick = recover()>-->
+</div>
+
+
+<!--#####################答题+遮罩结束##################-->
+
+
 
 </header>
 </body>
+<script>
 
+	var answer = [];
+	var correctAnswer = ['shark1','turtle2','wheal2'];
+    var score = 0;
+// 遮罩层js########################
+	function change(){
+        var ele = document.getElementsByClassName('id2')[0];
+        var ele2 = document.getElementsByClassName('id3')[0];
+        ele.classList.remove('hide');
+        ele2.classList.remove('hide');
+    }
+
+	function recover(){
+        var ele3 = document.getElementsByClassName('id3')[0];
+        var ele4 = document.getElementsByClassName('id2')[0];
+        ele3.classList.add('hide');
+        ele4.classList.add('hide');
+        $('.final').addClass('hide');
+        $('.firstQ').removeClass('hide');
+        answer = [];
+        score = 0;
+        $('.id3').find(':radio').each(function(){
+        	if($(this).prop('checked')){
+        		$(this).prop('checked',false)
+			}
+		})
+    }
+// 遮罩层js结束########################
+
+// 答题js########################
+    function nextOne(arg){
+        // console.log($(arg).parents())
+        $(arg).parent().addClass('hide');
+        $(arg).parent().next('.question').removeClass('hide');
+    }
+
+    function changeValue(arg){
+        var ele = $(arg).val();
+        answer.push(ele);
+    }
+
+    function finalOne(arg){
+
+        for(var i = 0; i < answer.length;i++) {
+            if(answer[i] == correctAnswer[i]) {
+                score++;
+            }
+        }
+        if(score == 0){
+            var srcc = "{% static 'app01/img/quiz/0point.png'%}";
+            $('.reward').prop('src',srcc);
+        }
+        else if(score == 1){
+            var srcc = "{% static 'app01/img/quiz/1point.png'%}";
+            $('.reward').prop('src',srcc);
+        }
+        else if(score == 2){
+            var srcc = "{% static 'app01/img/quiz/2point.png'%}";
+            $('.reward').prop('src',srcc);
+        }
+        else if(score == 3){
+            var srcc = "{% static 'app01/img/quiz/3point.png'%}";
+            $('.reward').prop('src',srcc);
+        }
+
+        $(arg).parent().next('.final').children('.score').text('Your final score is:' + score);
+        $(arg).parent().addClass('hide');
+        $(arg).parent().next('.question').removeClass('hide');
+    }
+
+// 答题js结束####################
+</script>
 
 </html>

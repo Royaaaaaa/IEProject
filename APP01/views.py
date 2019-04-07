@@ -25,6 +25,8 @@ def playAndWin(request):
     return render(request, 'app01/playAndWin.html')
 def aboutUs(request):
     return render(request, 'app01/aboutUs.html')
+def storyAndFact(request):
+    return render(request,'app01/storyAndFact.html')
 
 def search(request):
     typelist = Type.objects.all()

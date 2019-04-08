@@ -1,10 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    {% load staticfiles %}
+    <style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        padding-top: 28px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+/* 下拉内容 (默认隐藏) */
+    .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #000000;
+        {#min-width: 160px;#}
+        {#box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);#}
+    }
+
+/* 下拉菜单的链接 */
+    .dropdown-content a {
+         color: #FFFFFF;
+         padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+    .dropdown-content a:hover {
+        color: #5C9F24}
+
+/* 在鼠标移上去后显示下拉菜单 */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    </style>
+    <meta charset="utf-8">
+    <title>Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- styles -->
+    <link rel="stylesheet" href="{% static 'app01/css/bootstrap.min.css'%}">
+    <link href="{% static 'app01/css/bootstrap.css'%}" rel="stylesheet" />
+    <link href="{% static 'app01/css/bootstrap-theme.css'%}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'app01/css/slippry.css' %}">
+    <link href="{% static 'app01/css/style.css'%}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'app01/color/default.css'%}">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    <script src="{% static 'app01/js/modernizr.custom.js'%} "></script>
 </head>
 <body>
+<header>
 
+<div id="navigation" class="navbar navbar-inverse navbar-fixed-top default" role="navigation">
+  <div class="container">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index">eAqualLifeBunj</a>
+    </div>
+
+    <ul class="nav nav-pills">
+        <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
+        <li><a href="marinefamily">Discover</a></li>
+        <div class="dropdown" >
+            <li  class="active"> <a>Play & Win</a></li>
+            <div class="dropdown-content">
+                <a href="quiz">Quiz</a>
+                <a href="game">Game</a>
+            </div>
+        </div>
+        <li><a href="storyAndFact">Stories & Facts</a></li>
+        <li><a href="#">About Us</a></li>
+
+        <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
+
+  </ul>
+
+  </div>
+</div>
+
+</header>
 </body>
+
+
 </html>

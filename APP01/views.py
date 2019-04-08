@@ -21,8 +21,11 @@ def marinelife(request,id):
     context={'animalList':animalList,'typeid':type.id}
     return render(request,'app01/marinelife.html',context)
 
-def playAndWin(request):
+def quiz(request):
     return render(request, 'app01/quiz.html')
+
+def game(request):
+    return render(request, 'app01/game.html')
 def aboutUs(request):
     return render(request, 'app01/aboutUs.html')
 def storyAndFact(request):

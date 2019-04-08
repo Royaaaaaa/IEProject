@@ -478,7 +478,9 @@ Carousel.init($(".carousel"))
         <div class ='score' style="font-weight: bold; color: #ad3729">
             Your final score is:
         </div>
-        <img class = 'reward' src = "{% static 'app01/img/quiz/0point.jpg'%}">
+         <a class='download' href="/" download="sticker">
+            <img class = 'reward' src = "{% static 'app01/img/quiz/0point.jpg'%}"></a>
+            <p style="font-family: 'Comic Sans MS'; color: #ffffff;"><b>Click sticker to download.</b></p>
         <input  id = 'closeBtn'  style="background: none!important; font-weight: bold;border: 0px; color: #ffffff" type = 'button' value = 'close' onclick = recover()>
     </div>
 
@@ -544,18 +546,22 @@ Carousel.init($(".carousel"))
         if(score == 0){
             var srcc = "{% static 'app01/img/quiz/0point.png'%}";
             $('.reward').prop('src',srcc);
+            $('.download').prop('href',srcc);
         }
         else if(score == 1){
             var srcc = "{% static 'app01/img/quiz/1point.png'%}";
             $('.reward').prop('src',srcc);
+            $('.download').prop('href',srcc);
         }
         else if(score == 2){
             var srcc = "{% static 'app01/img/quiz/2point.png'%}";
             $('.reward').prop('src',srcc);
+            $('.download').prop('href',srcc);
         }
         else if(score == 3){
             var srcc = "{% static 'app01/img/quiz/3point.png'%}";
             $('.reward').prop('src',srcc);
+            $('.download').prop('href',srcc);
         }
 
         $(arg).parent().next('.final').children('.score').text('Your final score is:' + score);

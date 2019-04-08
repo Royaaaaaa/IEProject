@@ -33,6 +33,42 @@
         text-align: center;
         color: #FFFFFF;
         }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        padding-top: 28px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+/* 下拉内容 (默认隐藏) */
+    .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #000000;
+        {#min-width: 160px;#}
+        {#box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);#}
+    }
+
+/* 下拉菜单的链接 */
+    .dropdown-content a {
+         color: #FFFFFF;
+         padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+    .dropdown-content a:hover {
+        color: #5C9F24}
+
+/* 在鼠标移上去后显示下拉菜单 */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 
 
 
@@ -77,7 +113,13 @@
     <ul class="nav nav-pills">
         <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
         <li  class="active"><a href="marinefamily">Discover</a></li>
-        <li><a href="playAndWin">Play & Win</a></li>
+        <div class="dropdown">
+            <li><a  class="active" style="padding: 28px 13px 27px; font-family: 'Montserrat', sans-serif; font-size: 12px;font-weight: 400;text-transform: uppercase;color: #fff; "><b>Play & Win</b></a></li>
+            <div class="dropdown-content">
+                <a href="playAndWin"><b>Quiz</b></a>
+                <a href="#"><b>Game</b></a>
+            </div>
+        </div>
         <li><a href="storyAndFact">Stories & Facts</a></li>
         <li><a href="#s">About Us</a></li>
 

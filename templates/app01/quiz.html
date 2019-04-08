@@ -131,6 +131,11 @@
             bottom:10px;
 
         }
+        .prev{
+            position:absolute;
+            bottom:10px;
+            left:10px;
+        }
 /*遮罩层+答题css结束######################################*/
 
 
@@ -510,6 +515,7 @@ Carousel.init($(".carousel"))
         <p>B: hundreds of thousands<input type = 'radio' name = 'q2' value = 'hth' onchange = changeValue(this)></p>
         <p>C: not sure, there could be millions<input type = 'radio' name = 'q2' value = 'mill' onchange = changeValue(this)></p>
         <p>D: billions<input type = 'radio' name = 'q2' value = 'bil' onchange = changeValue(this)></p></b>
+        <input class = 'prev' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'review question' onclick = prevOne(this)>
         <input class = 'nex' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'next question' onclick = nextOne(this)>
     </div>
     <div class = 'question hide' style="font-family: 'Comic Sans MS';color: #000000"><b>
@@ -519,6 +525,7 @@ Carousel.init($(".carousel"))
         <p>B: 4.5 billion kg<input type = 'radio' name = 'q3' value = '4.5b' onchange = changeValue(this)></p>
         <p>C: 6 billion kg<input type = 'radio' name = 'q3' value = '6b' onchange = changeValue(this)></p>
         <p>D: 8 billion kg<input type = 'radio' name = 'q3' value = '8b' onchange = changeValue(this)></p></b>
+        <input class = 'prev' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'review question' onclick = prevOne(this)>
         <input class = 'nex' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'get result' onclick = finalOne(this)>
     </div>
     <div class = 'question final hide' style="font-family: 'Comic Sans MS';">
@@ -543,8 +550,8 @@ Carousel.init($(".carousel"))
 </body>
 <script>
 
-	var answer = [];
-	var correctAnswer = ['bw','mill','6b'];
+	var answer = new Array();
+	var correctAnswer = {q1:'bw',q2:'mill',q3:'6b'};
     var score = 0;
 // 遮罩层js########################
 	function change(){
@@ -578,18 +585,33 @@ Carousel.init($(".carousel"))
         $(arg).parent().next('.question').removeClass('hide');
     }
 
+    function prevOne(arg){
+        // console.log($(arg).parents())
+        $(arg).parent().addClass('hide');
+        $(arg).parent().prev('.question').removeClass('hide');
+    }
+
+
     function changeValue(arg){
         var ele = $(arg).val();
-        answer.push(ele);
+        var ques = $(arg).prop('name');
+        answer[ques] = ele;
     }
 
     function finalOne(arg){
 
-        for(var i = 0; i < answer.length;i++) {
-            if(answer[i] == correctAnswer[i]) {
+        {#for(var i = 0; i < answer.length;i++) {#}
+        {#    if(answer[i] == correctAnswer[i]) {#}
+        {#        score++;#}
+        {#    }#}
+
+        for(var key in answer){
+            if(answer[key]==correctAnswer[key]){
                 score++;
             }
         }
+
+
         if(score == 0){
             var srcc = "{% static 'app01/img/quiz/0point.png'%}";
             $('.reward').prop('src',srcc);

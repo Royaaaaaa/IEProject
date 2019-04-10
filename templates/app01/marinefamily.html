@@ -6,10 +6,12 @@
     div.gallery {
         margin: 5px;
         border: 0px solid #ccc;
-        float: left;
         width: 20%;
-        height: 300px;
+
         justify-content: center;
+        align-content: center;
+
+
     }
 
     div.gallery:hover {
@@ -19,7 +21,12 @@
     div.gallery img {
         cursor: pointer;
         border: 0px solid black;
-         transition: all 1s;
+        transition: all 1s;
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 20px;
+
+
          {#border-radius: 60%;#}
 
     }
@@ -28,11 +35,18 @@
     }
 
 
-    div.desc {
-        padding: 10px;
+    div.textcontainer {
+        padding-top: 15px;
+        height: 50px;
+        overflow: hidden;
+        position:relative;
+        background:none!important;
+        {#border-bottom:2px solid #1b1e21;#}
+        border: 0px solid #6c757d;
+        z-index: 2;
         text-align: center;
-        color: #FFFFFF;
-        }
+
+    }
 {#    .dropdown {#}
 {#        position: relative;#}
 {#        display: inline-block;#}
@@ -84,7 +98,7 @@
     <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
     <!-- styles -->
 </head>
-<body style="background-image: url(/static/app01/img/background2.png); background-size:100%; background-repeat:no-repeat;">
+<body style="background-color: #ffffff">
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
 		<div id="logo" style="top:10px; left: 10px">
@@ -101,45 +115,33 @@
 		</div>
 	</div>
 </div>
-<ur id = 'id1'>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-</ur>
-
-<h1 style="padding-bottom: 40px;color:#0b2e13F;font-family: 'Comic Sans MS';font-size:40px;line-height:27px;text-align:center;"><b> Life under water around Victoria.</b></h1>
-<br/>
+<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%">
+	<div id="banner-wrapper">
+		<div id="banner" class="container">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <p style="font-family: 'Comic Sans MS'; color: #ffffff; font-size: 2em">Life under water around Victoria.</p></div>
+	</div>
+</div>
     <ur>
     {% for type in typelist %}
             <a target="_blank">
              {% if type.id == 1 %}
                  <div class="gallery">
-                     <img src="static/app01/img/type/fishnewdp.png" width="200" height="180" class="center-block">
-                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Go Nemo.</b></font></a></div>
+                     <a href="typeid={{ type.id }}"><img src="static/app01/img/type/fishnewdp.png" width="60%" height="180" class="center-block"></a>
+                     <div class="textcontainer" style="font-family: 'Comic Sans MS'"><font color="black" size="5px"> <b>&nbsp;Go Nemo.</b></font></div>
                  </div>
              {% endif %}
 
              {% if type.id == 2 %}
                  <div class="gallery">
-                 <img src="static/app01/img/type/turtle.png" width="200" height="180" class="center-block">
-                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"><b>&nbsp;Ninja Warriors.</b></font></a></div>
+                     <a href="typeid={{ type.id }}"><img src="static/app01/img/type/turtle.png" width="60%" height="180" class="center-block"></a>
+                     <div class="textcontainer"><font color="black" size="5px"><b>&nbsp;Ninja Warriors.</b></font></div>
                  </div>
              {% endif %}
-{#            {% if type.id == 6 %}#}
-{#                 <div class="gallery">#}
-{#                     <img src="static/app01/img/type/seacowsdp.png" width="200" height="180" class="center-block">#}
-{#                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Sea Cows.</b></font></a></div>#}
-{#                 </div>#}
-{#             {% endif %}#}
-{##}
-{#             {% if type.id == 7 %}#}
-{#                 <div class="gallery">#}
-{#                 <img src="static/app01/img/type/waterdragonsdp.png" width="200" height="180" class="center-block">#}
-{#                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"><b>Water Dragons.</b></font></a></div>#}
-{#                 </div>#}
-{#             {% endif %}#}
 
              </a>
     {% endfor %}

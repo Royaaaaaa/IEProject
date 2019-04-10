@@ -42,6 +42,46 @@
 {#    .dropdown:hover .dropdown-content {#}
 {#        display: block;#}
 {#    }#}
+
+.arrow{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #06A8FF;
+    border-right: 5px solid #06A8FF;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(20px,20px);
+    }
+}
+   #next {
+
+  }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>vwb.ml</title>
@@ -84,17 +124,21 @@
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-{#			<div class="carousel-caption">#}
-				<h2 style="font-family: 'Comic Sans MS'">Welcome to the Marine world!</h2>
-{#		    </div>#}
-{#            <h2 style="font-family: 'Comic Sans MS'">Welcome to the Marine world!</h2>#}
+            <h2 style="font-family: 'Comic Sans MS'">Welcome to the Marine world!</h2>
 			<p style="font-family: 'Comic Sans MS'; color: #FFFFFF"> Explore the magical world under water in and around the state of Victoria. Get access to videos, pictures and a bunch of fun activities to engage in.:) </p>
 			<a href="marinefamily" class="button" style="font-family: 'Comic Sans MS';font-size: 15px">Discover our Marine friends.</a>
+            <br/>
+            <br/>
+            <br/>
+            <a href="#next"> <div class="arrow">
+                <span></span>
+                <span></span>
+            </div></a>
 		</div>
+
 	</div>
 </div>
+<div id="next"></div>
 <div id="wrapper" style="width: 100%">
 <div id="page" class="container">
 		<div id="content">

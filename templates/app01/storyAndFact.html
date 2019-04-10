@@ -60,42 +60,22 @@
     <script src="{% static 'app01/js/modernizr.custom.js'%} "></script>
 </head>
 <body>
-<header>
-
-<div id="navigation" class="navbar navbar-inverse navbar-fixed-top default" role="navigation">
-  <div class="container">
-
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index" style="align-content:">eAqualLifeBunj</a>
-    </div>
-
-    <ul class="nav nav-pills">
-        <li><a href="index"><i class="fa fa-fw fa-home"></i>Home</a></li>
-        <li><a href="marinefamily">Discover</a></li>
-        <div class="dropdown" >
-            <li> <a>Play & Win</a></li>
-            <div class="dropdown-content">
-                <a href="quiz">Quiz</a>
-{#                <a href="game">Game</a>#}
-            </div>
-        </div>
-{#        <li class="active"><a href="storyAndFact">Stories & Facts</a></li>#}
-{#        <li><a href="#">About Us</a></li>#}
-
-        <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
-
-  </ul>
-
-  </div>
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
+		<div id="logo" style="top:10px; left: 10px">
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+{#			<h2><a href="index">VWB</a></h2>#}
+		</div>
+		<div id="menu" style="height: 300px">
+			<ul>
+				<li><a href="index" accesskey="1" title="">Homepage</a></li>
+				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
+				<li><a href="search" accesskey="3" title="">Search</a></li>
+                <li><a href="quiz" accesskey="4" title="">Quiz</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
-
-</header>
 </body>
 
 

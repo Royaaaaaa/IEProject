@@ -1,59 +1,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
-
-Name       : Untamed 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20131220
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     {% load staticfiles %}
 <style>
-    .teamlogo{
-        float: left;
-    }
-    .dropdown {
-        position: relative;
-        display: inline-block;
+{##}
+{#    .dropdown {#}
+{#        position: relative;#}
+{#        display: inline-block;#}
         {#padding-top: 28px;#}
         {#font-family: 'Montserrat', sans-serif;#}
         {#font-size: 12px;#}
         {#font-weight: 400;#}
         {#text-transform: uppercase;#}
         {#color: #fff;#}
-    }
-
-/* 下拉内容 (默认隐藏) */
-    .dropdown-content {
-         display: none;
-         position: absolute;
-         background-color: #000000;
-         width: inherit;
+{#    }#}
+{##}
+{#/* 下拉内容 (默认隐藏) */#}
+{#    .dropdown-content {#}
+{#         display: none;#}
+{#         position: absolute;#}
+{#         background-color: #000000;#}
+{#         width: inherit;#}
         {#min-width: 160px;#}
         {#box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);#}
-    }
-
-/* 下拉菜单的链接 */
-    .dropdown-content a {
-         color: #FFFFFF;
-         padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-/* 鼠标移上去后修改下拉菜单链接颜色 */
-    .dropdown-content a:hover {
-        color: #5C9F24}
-
-/* 在鼠标移上去后显示下拉菜单 */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
+{#    }#}
+{##}
+{#/* 下拉菜单的链接 */#}
+{#    .dropdown-content a {#}
+{#         color: #FFFFFF;#}
+         {#padding: 12px 16px;#}
+{#        text-decoration: none;#}
+{#        display: block;#}
+{#    }#}
+{##}
+{#/* 鼠标移上去后修改下拉菜单链接颜色 */#}
+{#    .dropdown-content a:hover {#}
+{#        color: #5C9F24#}
+{#    }#}
+{##}
+{#/* 在鼠标移上去后显示下拉菜单 */#}
+{#    .dropdown:hover .dropdown-content {#}
+{#        display: block;#}
+{#    }#}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>vwb.ml</title>
@@ -62,7 +50,7 @@ Released   : 20131220
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
-
+ 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
@@ -73,18 +61,19 @@ Released   : 20131220
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
 {#			<h2><a href="index">VWB</a></h2>#}
 		</div>
-		<div id="menu">
+		<div id="menu" style="height: 300px">
 			<ul>
 				<li class="current_page_item"><a href="index" accesskey="1" title="">Homepage</a></li>
 				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
 				<li><a href="search" accesskey="3" title="">Search</a></li>
-                <div class="dropdown" >
-                    <li><a accesskey="4">Play & Win</a></li>
-                    <div class="dropdown-content">
-                        <li><a href="quiz">Quiz</a></li>
+                <li><a href="quiz" accesskey="4" title="">Quiz</a></li>
+{#                <div class="dropdown" >#}
+{#                    <li><a accesskey="4">Play & Win</a></li>#}
+{#                    <div class="dropdown-content">#}
+{#                        <li><a href="quiz" accesskey="5">Quiz</a></li>#}
 {#                <a href="game">Game</a>#}
-                    </div>
-                </div>
+{#                    </div>#}
+{#                </div>#}
 			</ul>
 		</div>
 	</div>
@@ -97,7 +86,10 @@ Released   : 20131220
             <br/>
             <br/>
             <br/>
-			<h2 style="font-family: 'Comic Sans MS'">Welcome to the Marine world!</h2>
+{#			<div class="carousel-caption">#}
+				<h2 style="font-family: 'Comic Sans MS'">Welcome to the Marine world!</h2>
+{#		    </div>#}
+{#            <h2 style="font-family: 'Comic Sans MS'">Welcome to the Marine world!</h2>#}
 			<p style="font-family: 'Comic Sans MS'; color: #FFFFFF"> Explore the magical world under water in and around the state of Victoria. Get access to videos, pictures and a bunch of fun activities to engage in.:) </p>
 			<a href="marinefamily" class="button" style="font-family: 'Comic Sans MS';font-size: 15px">Discover our Marine friends.</a>
 		</div>
@@ -127,7 +119,7 @@ Released   : 20131220
 				<li>
 					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Is plastic fantastic?</h3>
 					<p style="font-family: 'Comic Sans MS'">Plastic is made from oil, a limited resource. When we design one-time use items with plastic, we are using a valuable material in an irresponsible way. Choose reusable items today. We all can do something to help.</p>
-				    <img src="static/app01/index11/images/pf.png"/>
+				    <img src="static/app01/index11/images/pf.PNG"/>
                 </li>
 
 			</ul>

@@ -14,6 +14,9 @@ Released   : 20131220
 <head>
     {% load staticfiles %}
 <style>
+    .teamlogo{
+        float: left;
+    }
     .dropdown {
         position: relative;
         display: inline-block;
@@ -64,18 +67,18 @@ Released   : 20131220
 
 </head>
 <body>
-<div id="header-wrapper" style="background:none!important; padding: 0em 0em;color: #ffffff">
-	<div id="header" class="container">
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="height: 50px; font-family: 'Comic Sans MS';background-color: #FFFFFF; width: 100%">
 		<div id="logo">
-			<h1><span class="fa fa-bug"></span><a href="#">VWB</a></h1>
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+{#			<h2><a href="index">VWB</a></h2>#}
 		</div>
 		<div id="menu">
 			<ul>
 				<li class="current_page_item"><a href="index" accesskey="1" title="">Homepage</a></li>
 				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
 				<li><a href="search" accesskey="3" title="">Search</a></li>
-                <div class="dropdown" >
-                    <li> <a accesskey="4">Play & Win</a></li>
+                <div class="dropdown" ><a accesskey="4">Play & Win</a>
                     <div class="dropdown-content">
                         <a href="quiz">Quiz</a>
 {#                <a href="game">Game</a>#}
@@ -102,7 +105,7 @@ Released   : 20131220
 				<span class="byline"> </span> </div>
 			<p><img src="static/app01/index11/images/332.jpg" alt="" class="image image-full" />
 			</p>
-
+            <img src="static/app01/index11/images/saynotoplastics.jpg" width="100%">
 
 		</div>
 		<div id="sidebar">

@@ -383,8 +383,9 @@ ul.contact li a.icon-rss:before
 #logo
 {
 	position: absolute;
-	top: 2em;
+	top: 0em;
 	width: 100%;
+
 }
 
 #logo h1
@@ -433,7 +434,7 @@ ul.contact li a.icon-rss:before
 {
 	position: absolute;
 	right: 0;
-	top: 1.6em;
+	top: 0em;
 }
 
 #menu ul

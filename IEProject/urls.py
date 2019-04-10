@@ -25,7 +25,7 @@ urlpatterns = [
     # url(r'^index',views.yellow),
     url(r'^marinefamily$',views.marinefamily),
     url(r'^quiz$',views.quiz),
-    url(r'^game$',views.game),
+    # url(r'^game$',views.game),
     url(r'^storyAndFact$',views.storyAndFact),
     # url(r'^aboutUs$',views.aboutUs),
     url(r'^search$',views.search),

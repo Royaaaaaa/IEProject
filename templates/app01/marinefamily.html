@@ -117,11 +117,11 @@
             <li> <a>Play & Win</a></li>
             <div class="dropdown-content">
                 <a href="quiz">Quiz</a>
-                <a href="game">Game</a>
+{#                <a href="game">Game</a>#}
             </div>
         </div>
-        <li><a href="storyAndFact">Stories & Facts</a></li>
-        <li><a href="#s">About Us</a></li>
+{#        <li><a href="storyAndFact">Stories & Facts</a></li>#}
+{#        <li><a href="#s">About Us</a></li>#}
 
         <li><a href="/search"><i class="fa fa-fw fa-search"></i> Search</a></li>
 
@@ -143,33 +143,33 @@
 <br/>
     <ur>
     {% for type in typelist %}
-            <a target="_blank" href="typeid={{ type.id }}">
+            <a target="_blank">
              {% if type.id == 1 %}
                  <div class="gallery">
                      <img src="static/app01/img/type/fishnewdp.png" width="200" height="180" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Go Nemo.</b></font></a></div>
+                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Go Nemo.</b></font></a></div>
                  </div>
              {% endif %}
 
              {% if type.id == 2 %}
                  <div class="gallery">
                  <img src="static/app01/img/type/turtle.png" width="200" height="180" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"><b>&nbsp;Ninja Warriors.</b></font></a></div>
+                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"><b>&nbsp;Ninja Warriors.</b></font></a></div>
                  </div>
              {% endif %}
-            {% if type.id == 6 %}
-                 <div class="gallery">
-                     <img src="static/app01/img/type/seacowsdp.png" width="200" height="180" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Sea Cows.</b></font></a></div>
-                 </div>
-             {% endif %}
-
-             {% if type.id == 7 %}
-                 <div class="gallery">
-                 <img src="static/app01/img/type/waterdragonsdp.png" width="200" height="180" class="center-block">
-                     <div class="desc"><a href="{{ type.id }}"><font color="black" size="5px"><b>Water Dragons.</b></font></a></div>
-                 </div>
-             {% endif %}
+{#            {% if type.id == 6 %}#}
+{#                 <div class="gallery">#}
+{#                     <img src="static/app01/img/type/seacowsdp.png" width="200" height="180" class="center-block">#}
+{#                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"> <b>&nbsp;Sea Cows.</b></font></a></div>#}
+{#                 </div>#}
+{#             {% endif %}#}
+{##}
+{#             {% if type.id == 7 %}#}
+{#                 <div class="gallery">#}
+{#                 <img src="static/app01/img/type/waterdragonsdp.png" width="200" height="180" class="center-block">#}
+{#                     <div class="desc"><a href="typeid={{ type.id }}"><font color="black" size="5px"><b>Water Dragons.</b></font></a></div>#}
+{#                 </div>#}
+{#             {% endif %}#}
 
              </a>
     {% endfor %}

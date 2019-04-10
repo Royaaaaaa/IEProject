@@ -8,10 +8,12 @@
         margin: 20px;
         border: 0px solid #ccc;
         float: left;
-        width: 20%;
+        width: 25%;
         height: 250px;
         justify-content: center;
         background:none!important;
+        margin-left: 5%;
+
         {#overflow: hidden;#}
 
 
@@ -23,8 +25,11 @@
 
     div.gallery img {
         cursor: pointer;
+        position: relative;
          transition: all 0.5s;
          border-radius: 50%;
+         align-content: center;
+         margin-left: 40px;
 
     }
     div.gallery img:hover{
@@ -82,6 +87,10 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
+    #logo:after{
+      content: "VMB";
+      color: #FFFFFF;
+    }
 
 
 
@@ -96,7 +105,7 @@
     <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-<body style="background-image: url(/static/app01/img/background2.png); background-size:100%; background-repeat:repeat;">
+<body style="background-color: #FFFFFF">
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
 		<div id="logo" style="top:10px; left: 10px">
@@ -113,40 +122,34 @@
 		</div>
 	</div>
 </div>
-<ur id = 'id1'>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-</ur>
-{#<ur>#}
-{% if typeid == 1 %}
-    <h1 style="padding:0;color:#0b2e13F;font-family: 'Comic Sans MS';font-size:40px;line-height:27px;text-align:center;" > Fishes around Victoria.</h1>
-    <h4 style="padding:0;color:#0b2e13F;font-family: 'Comic Sans MS';text-align:center;"> Top 20 sightings </h4>
-{% endif %}
+<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 70px">
+	<div id="banner-wrapper" >
+		<div id="banner" class="container">
+            <br/>
+            <br/>
+            <br/>
+            {% if typeid == 1 %}
+                <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 0;">Fishes around Victoria.</h1>
+                <h4 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 0.5em;width: fit-content; margin-left: 20%;">Top 20 sightings </h4>
+            {% endif %}
 {##}
-{% if typeid == 2 %}
-     <h1 style="padding:0;color:#000000;font-family: 'Comic Sans MS';font-size:40px;line-height:27px;text-align:center;" > Turtles around Victoria.</h1>
-     <h4 style="padding:0;color:#000000;font-family: 'Comic Sans MS';text-align:center;"> Top 20 sightings </h4>
-{% endif %}
+            {% if typeid == 2 %}
+                <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 0;">Turtles around Victoria.</h1>
+                <h4 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 0.5em;width: fit-content; margin-left: 20%;">Top 20 sightings </h4>
+            {% endif %}
+        </div>
+	</div>
+</div>
+
 </ur>
  <br/>
-
     <ur>
     {% for animal in animalList %}
-            <a target="_blank" href="{{ animal.id }}">
-
-                 <div class="gallery">
-                     <img src="static/app01/img/animal/{{ animal.aName }}.png" width=200px height="200px" class="center-block">
-
-                     <div class="textcontainer"><a href="{{ animal.id }}"><font color="black"; style="font-family: 'Comic Sans MS'"><b>&nbsp;{{animal.aName}}</b></font></a></div>
-                 </div>
-
-             </a>
+        <div class="gallery">
+            <a href="{{ animal.id }}"><img src="static/app01/img/animal/{{ animal.aName }}.png" width=200px height="200px" class="center-block"></a>
+            <div class="textcontainer"><font color="black"; style="font-family: 'Comic Sans MS'"><b>&nbsp;{{animal.aName}}</b></font></div>
+        </div>
     {% endfor %}
   </ur>
 </body>
-
-
 </html>

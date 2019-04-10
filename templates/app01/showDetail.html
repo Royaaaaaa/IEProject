@@ -4,6 +4,10 @@
 <head>
 <style>
      {% load staticfiles %}
+     #logo:after{
+      content: "VMB";
+      color: #FFFFFF;
+  }
     *{
         margin:0;
         padding:0;
@@ -79,17 +83,14 @@
 
     <meta charset="utf-8">
     <title>DetailInformation</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
     <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!-- styles -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="{% static 'app01/css/bootstrap.min.css'%}">
      <link rel="stylesheet" href="{% static 'app01/css/templatemo-style.css'%}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
-    <link href="{% static 'app01/css/bootstrap.css'%}" rel="stylesheet" />
-    <link href="{% static 'app01/css/bootstrap-theme.css'%}" rel="stylesheet" />
-    <link rel="stylesheet" href="{% static 'app01/css/slippry.css' %}">
     <link href="{% static 'app01/css/style.css'%}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans" />
     <script>
@@ -129,8 +130,17 @@
 		</div>
 	</div>
 </div>
-
-<br/>
+<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 70px">
+	<div id="banner-wrapper" >
+		<div id="banner" class="container">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h1 style="font-family: 'Comic Sans MS'; margin-left:40%;color: #ffffff; font-size: 1.5em ;background-color: #fd7e14;width: fit-content; height: 60px">{{ animal.aName }}</h1></div>
+	</div>
+</div>
 <div id="loader-wrapper">
 
     <div id="loader"></div>
@@ -144,10 +154,10 @@
 
     <!-- 1st section -->
 
-  <section class="row tm-section" style="padding-top: 10px; padding-bottom: 4px; background: none!important">
+  <section class="row tm-section" style="margin-left:10%;padding-top: 10px; padding-bottom: 4px; background: none!important">
       <div class="gallery">
           <img src="static/app01/img/animal/{{ animal.aName }}.png" width="300" height="300" class="center-block"></a>
-              <div class="desc"><b><h1 class="tm-md-align-center" style="padding:0;color:#ad3729;font-family: 'Comic Sans MS'">{{ animal.aName }}</h1></b></div>
+{#              <div class="desc"><b><h1 class="tm-md-align-center" style="padding:0;color:#ad3729;font-family: 'Comic Sans MS'">{{ animal.aName }}</h1></b></div>#}
       </div>
 
   <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">

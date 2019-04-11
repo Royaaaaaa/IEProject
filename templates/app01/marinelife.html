@@ -16,6 +16,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="static/app01/index11/assets/css/main.css" />
 	    </head>
+    <style>
+    #box img {
+        cursor: pointer;
+        position: relative;
+        transition: all 0.5s;
+         {#border-radius: 50%;#}
+         {#align-content: center;#}
+         {#margin-left: 40px;#}
+
+    }
+    #box img:hover{
+        transform: scale(1.2);
+        position: relative;
+        z-index: 1;
+
+    }
+
+    </style>
 <body id="top" style="background-color: #FFFFFF">
     <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
@@ -57,7 +75,7 @@
         <div class="thumbnails">
             {% for animal in animalList %}
                 <div class="box" style="width: 20%;border: 2px">
-                    <a href="static/app01/img/animal/{{ animal.aName }}.png" class="image fit"><img src="static/app01/img/animal/{{ animal.aName }}.png" alt="" style="width: 100%;height: 200px"/></a>
+                    <a href="static/app01/img/animal/{{ animal.aName }}.jpg" class="image fit"><img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" style="width: 100%;height: 200px"/></a>
                     <div class="inner">
                         <h3>{{ animal.aName }}</h3>
 {#                        <p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>#}

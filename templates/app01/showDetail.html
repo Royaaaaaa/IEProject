@@ -18,7 +18,7 @@
     div.gallery img {
         cursor: pointer;
          transition: all 1s;
-         border-radius: 50%;
+         {#border-radius: 50%;#}
 
     }
 
@@ -76,7 +76,7 @@
 
     #map {
         height: 20%;  /* The height is 400 pixels */
-        width: 50%;  /* The width is the width of the web page */
+        width: 100%;  /* The width is the width of the web page */
         align-content: center;
        }
 </style>
@@ -150,42 +150,62 @@
     <div class="loader-section section-right"></div>
 
   </div>
+
+<div id="wrapper" style="width: 100%">
+<div id="page" class="container">
+		<div id="content" style="width: 50%">
+			<p><img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" class="image image-full" style="width: 90%"/>
+			</p>
+            <div class="container" style="height: 200px;vertical-align: center; margin-top: 100px">
+            <ul>
+            <li style="list-style-type: none"><b style="margin-left:auto;   padding-top: 20px; padding-bottom: 40px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b></li>
+                <br/>
+            <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px" >We are {{ animal.aPopulation}} in count now!</b> </li>
+             <br/>
+             <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px">{{ animal.aFact }}</b></li>
+                <br/>
+                 <br/>
+                 <br/>
+                 <br/>
+                <br/>
+                 <br/>
+             <li><b class="tm-align-right" style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" >Find me here </b></li>
+                <li><b class="tm-align-right" style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" > -------------> </b></li>
+             </ul>
+            </div>
+		</div>
+		<div id="sidebar" style="width: 45%">
+			<ul class="style1">
+{#				<li class="first">#}
+{#					<p style="font-family: 'Comic Sans MS'">The word 'Bunj'is an Aboriginal word for 'Mate', usually used when addressing a friend. Sometimes used as 'Bunji/Bunjee'.</p>#}
+{#				</li>#}
+				<li style="margin-top: 80px">
+{#					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Do Marine animals need our help?</h3>#}
+                    <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px" >{{ animal.aDetail }}</p>
+				</li>
+                <div id="map" style="margin-top: 80px"></div>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
  <div class="container">
 
-    <!-- 1st section -->
-
-  <section class="row tm-section" style="margin-left:10%;padding-top: 10px; padding-bottom: 4px; background: none!important">
-      <div class="gallery">
-          <img src="static/app01/img/animal/{{ animal.aName }}.png" width="300" height="300" class="center-block"></a>
-{#              <div class="desc"><b><h1 class="tm-md-align-center" style="padding:0;color:#ad3729;font-family: 'Comic Sans MS'">{{ animal.aName }}</h1></b></div>#}
-      </div>
-
-  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-
-    <div class="tm-flex-center p-5">
-
-      <q style="font-family: 'Comic Sans MS'; color: #fd7e14; font-size: 20px">
-          <b>{{ animal.aDetail }}</b>
-          </q>
-
-        </div>
-  </div>
-</section>
-
-<hr style="height:1px; border:none; color:#2a6496; background-color:#000;">
+{#<hr style="height:1px; border:none; color:#2a6496; background-color:#000;">#}
 
 {#<hr style="height:1px; border:none; color:#2a6496; background-color:#000;">#}
  <!-- 2nd section --> <!-- slide secion -->
- <div class="container" style="height: 200px;vertical-align: center">
-     <ul>
-    <li style="list-style-type: none"><b style="margin-left:auto;   padding-top: 20px; padding-bottom: 40px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b></li>
-     <br/>
-      <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px" >We are {{ animal.aPopulation}} in count now!</b> </li>
-     <br/>
-     <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px">{{ animal.aFact }}</b></li>
-     </ul>
- </div>
- <hr style="height:1px; border:none; color:#2a6496; background-color:#000;">
+{# <div class="container" style="height: 200px;vertical-align: center">#}
+{#     <ul>#}
+{#    <li style="list-style-type: none"><b style="margin-left:auto;   padding-top: 20px; padding-bottom: 40px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b></li>#}
+{#     <br/>#}
+{#      <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px" >We are {{ animal.aPopulation}} in count now!</b> </li>#}
+{#     <br/>#}
+{#     <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px">{{ animal.aFact }}</b></li>#}
+{#     </ul>#}
+{# </div>#}
+{# <hr style="height:1px; border:none; color:#2a6496; background-color:#000;">#}
 {# <section class="row tm-section tm-col-md-reverse" style="padding-top: 20px">#}
 
 {#<div class="Picturecontainer">#}
@@ -220,22 +240,22 @@
 {#</section>#}
 
      <!-- 3rd Section --><!--- google map secion -->
- <section class="row tm-section" style="padding-top: 10px; background: none!important">
-
-  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-
-    <div class="tm-flex-center p-5">
-        <div class="tm-flex-center tm-flex-col">
-
-        <b class="tm-align-right" style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" >LOCATE ME AT: </b>
-
+{# <section class="row tm-section" style="padding-top: 10px; background: none!important">#}
+{##}
+{#  <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">#}
+{##}
+{#    <div class="tm-flex-center p-5">#}
+{#        <div class="tm-flex-center tm-flex-col">#}
+{##}
+{#        <b class="tm-align-right" style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" >LOCATE ME AT: </b>#}
+{##}
 {#            <p style="font-family: 'Comic Sans MS'; color: #2a6496; font-size: 20px">{{ animal.aHabitat }}</p>#}
-       </div>
-    </div>
-  </div>
+{#       </div>#}
+{#    </div>#}
+{#  </div>#}
 
   <!--The div element for the map -->
-<div id="map"></div>
+
    <script>
     // Initialize and add the map
     function initMap() {

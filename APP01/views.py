@@ -19,7 +19,7 @@ def marinelife(request,id):
     animalList = type.animal_set.all()
     # context={'animalList':animalList}
     context={'animalList':animalList,'typeid':type.id}
-    return render(request,'app01/marinelife.html',context)
+    return render(request, 'app01/marinelife.html', context)
 
 def quiz(request):
     return render(request, 'app01/quiz.html')

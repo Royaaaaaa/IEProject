@@ -22,7 +22,7 @@ def marinelife(request,id):
     return render(request, 'app01/marinelife.html', context)
 
 def quiz(request):
-    return render(request, 'app01/quiz1.html')
+    return render(request, 'app01/quiz.html')
 #
 # def game(request):
 #     return render(request, 'app01/fishgame.html')

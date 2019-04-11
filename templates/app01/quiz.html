@@ -1,121 +1,94 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
 <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <title>PLAY & WIN</title>
-
-    <meta charset="utf-8">
-    <title>Discover</title>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-        <!-- styles -->
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
     <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="stylesheet" href="{% static 'app01/css/index.css'%}">
 
-
-
+{#    <link href="default_ie6.css" rel="stylesheet" type="text/css"/>#}
 
     <style>
-        .video{
-            width:600px;
-            height:400px;
-        }
-        .outerV,.descV{
-            display:inline-block;
-            line-height:400px;
-            width:600px;
-            height:400px;
-            overflow:hidden;
 
-        }
-        .allV{
-            {#text-align:center;#}
-            height:400px;
+        {#模板css开始####################################}
+        #videoLeft {
+            width: 600px;
+            float: left;
+            display: block;
         }
 
-        /*遮罩层+答题css####################################*/
-        .id2{
-            /*遮罩层占满屏，位置fixed*/
-            top:0px;
-            bottom:0px;
-            right:0px;
-            left:0px;
-            position:fixed;
-            /*调节透明度*/
-            opacity: 0.7;
-            z-index:10000;
-            background-color: lightgray;
-            }
-
-        .id3{
-            height:300px;
-            width:400px;
-            background-color: white;
-            position:fixed;
-            top:180px;
-            left:550px;
-            z-index:10001;
-            padding:5px;
-            }
-
-
-        .quizPart{
-            margin-left:500px;
-            font-family: "Comic Sans MS";
+        #videoRight {
+            width: 600px;
+            float: right;
+            display: block;
         }
 
-        .hide{
-            display:None;
+        .desc {
+            width: 550px;
+            height: 150px;
         }
 
-
-        .question{
-            padding:5px;
-            /*text-align:center;*/
-            position:absolute;
-            /*padding:15px;*/
-            /*padding:30px;*/
-            width:400px;
-            height:300px;
-            }
-        {#.nex{#}
-        {#    margin-top:150px;#}
-        {#    margin-left:300px;#}
-        {#    margin-bottom:100px;#}
-        {#    }#}
-        .nex, #closeBtn{
-            position: absolute;
-            right:10px;
-            bottom:10px;
+        video {
+            width: 550px;
+        }
+        .shark{
+            margin-top:20px;
 
         }
-        .prev{
-            position:absolute;
-            bottom:10px;
-            left:10px;
+
+        {#模板css结束######################################}
+        .btn-info,.btn-success,.btn-danger,.btn-warning{
+            text-align:left;
+            width:100%;
+        }
+        .btn-default{
+            float:left;
+        }
+        .hideQues,.hideBtn{
+            display:none;
+        }
+        .modal-body{
+            height:280px;
+        }
+        .textQues,.ansQues,.wroQues{
+            width:320px;
+            float:left;
+            margin-left:20px;
+
+        }
+        #sticker{
+            border:10px solid lightskyblue;
+            text-align:center;
+        }
+        .modal-content{
+            font-family:"Comic Sans MS";
+        }
+        .quizBtn{
+            margin-left: 44%;
         }
 
-        #logo:after{
+         #logo:after{
             content: "savingnemo.com";
-            color: #FFFFFF;
-        }
-/*遮罩层+答题css结束######################################*/
-
-
+             color: #FFFFFF;
+         }
 
     </style>
+
 </head>
-<body style="background-color: #FFFFFF ">
+<body style="background-color: #FFFFFF">
+{#模板body开始##################################}
+
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
-		<div id="logo" style="top:10px; left: 10px; ">
+		<div id="logo" style="top:10px; left: 10px">
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
-{#			<p><a href="index">savingnemo.com</a></p>#}
+{#			<h2><a href="index">VWB</a></h2>#}
 		</div>
-		<div id="menu" style="height: 200px">
+		<div id="menu" style="height: 300px">
 			<ul>
 				<li><a href="index" accesskey="1" title="">Homepage</a></li>
 				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
@@ -127,463 +100,303 @@
 </div>
 <div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 70px">
 	<div id="banner-wrapper" >
-		<div id="banner" class="container">
+        <div id="banner" class="container">
             <br/>
             <br/>
-            <br/>
-            <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 20%;">Play and Win !</h1></div>
-	</div>
-</div>
-<br/>
-<br/>
-    <br/>
-<div class="carousel content-main" style="background: none!important;">
-<ul class="list">
-	<li><img src="{% static 'app01/img/quiz/8.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/7.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/6.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/5.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/4.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/2.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/8.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/7.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/6.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/5.jpg'%}"></li>
-	<li><img src="{% static 'app01/img/quiz/4.jpg'%}"></li>
-</ul>
-</div>
-<script type="text/javascript" src="{% static 'app01/js/jquery.min.js'%}"></script>
-<script>
-    ;(function($){
-    //创建类
-    var Carousel = function(con){
-        var self = this;
-        this.con = con;
-        this.setDirect();
-        this.conItem = con.find("ul.list");
-        this.prev = con.find(".prev-btn");
-        this.next = con.find(".next-btn");
-        this.conItems = con.find("li");
-        this.conItemFirst = this.conItems.first();
-        this.conItemLast = this.conItems.last();
-        this.flag = true;
-        //默认配置参数
-        this.settings = {
-            width:900,             //幻灯片的宽度
-            height:4110,             //幻灯片的高度
-            postWidth:658,          //第一帧的宽度
-            postHeight:411,         //第一帧的高度
-            scale:0.8,
-            speed:500,
-            verticalAlign:'center',
-            autoPlay:false,
-            delay:1000
-        }
-        $.extend(this.settings,this.getSetting());
-        this.setSettingValue();
-        this.setPostOther();
-        this.next.on("click",function(){
-            if(self.flag){
-                self.flag = false;
-                self.rotate("left");
-            }
 
-        });
-        this.prev.on("click",function(){
-            if(self.flag){
-                self.flag = false;
-                self.rotate("right");
-            }
-        });
-        if(this.settings.autoPlay){
-            this.autoPlay();
-            this.con.hover(function(){
-                window.clearInterval(self.timer);
-            },function(){
-                self.autoPlay();
-            });
-        }
-
-    }
-
-    //原型方法
-    Carousel.prototype = {
-        //设置上一张和下一张大小
-        setDirect:function(){
-            var prev = $("<div></div>").addClass("content-btn prev-btn").append($("<img/>").attr("src","{% static 'app01/img/quiz/left.png'%}").addClass("btn-img"));
-            this.con.prepend(prev);
-            var next = $("<div></div>").addClass("content-btn next-btn").append($("<img/>").attr("src","{% static 'app01/img/quiz/right.png'%}").addClass("btn-img"));
-            this.con.append(next);
-        },
-        //自动播放函数
-        autoPlay:function(){
-            var self = this;
-            this.timer = window.setInterval(function(){
-                self.next.click();
-            },this.settings.delay);
-        },
-
-        //旋转函数
-        rotate:function(dir){
-            var _this = this;
-            var zIndex = []
-            if(dir === "left"){
-                this.conItems.each(function(){
-                    var prev = $(this).prev().get(0)?$(this).prev():_this.conItemLast;
-                    zIndex.push(prev.css("zIndex"));
-                    $(this).animate({
-                        width:prev.width(),
-                        height:prev.height(),
-                        top:prev.css("top"),
-                        left:prev.css("left"),
-                        opacity:prev.css("opacity")
-                    },_this.settings.speed,function(){
-                        _this.flag = true;
-                    });
-                });
-                this.conItems.each(function(i){
-                    $(this).css({zIndex:zIndex[i]})
-                });
-            }else  if(dir === "right"){
-                this.conItems.each(function(){
-                    var next = $(this).next().get(0)?$(this).next():_this.conItemFirst;
-                    zIndex.push(next.css("zIndex"));
-                    $(this).animate({
-                        width:next.width(),
-                        height:next.height(),
-                        top:next.css("top"),
-                        left:next.css("left"),
-                        opacity:next.css("opacity")
-                    },_this.settings.speed,function(){
-                        _this.flag = true;
-                    });
-                });
-                this.conItems.each(function(i){
-                    $(this).css({zIndex:zIndex[i]})
-                });
-            }
-        },
-
-        //设置剩余帧位置关系
-        setPostOther:function(){
-            var self =this,
-                sliceItem = this.conItems.slice(1),
-                sliceLength = sliceItem.length,
-                rightItem = sliceItem.slice(0,sliceLength/2),
-                leftItem = sliceItem.slice(sliceLength/2),
-                level = Math.floor(sliceLength/2),
-                llevel = level,
-                rw = this.settings.postWidth,
-                rh = this.settings.postHeight,
-                gap = (this.settings.width - this.settings.postWidth)/2/level;
-            rightItem.each(function(i){
-                rw = rw*self.settings.scale;
-                rh = rh*self.settings.scale;
-                var j = i;
-                $(this).css({
-                    zIndex:--level,
-                    width:rw,
-                    height:rh,
-                    left:(self.settings.width + self.settings.postWidth)/2 + gap*(++i) - rw,
-                    top:self.setVerticalAlign(rh),
-                    opacity:1/(++j)
-                });
-            });
-            var lw = rightItem.last().width(),
-                lh = rightItem.last().height();
-            leftItem.each(function(i){
-                $(this).css({
-                    zIndex:level++,
-                    width:lw,
-                    height:lh,
-                    left:gap*i,
-                    top:self.setVerticalAlign(lh),
-                    opacity:1/llevel--
-                });
-                lw = lw/self.settings.scale;
-                lh = lh/self.settings.scale;
-            });
-        },
-        //设置对齐方式
-        setVerticalAlign:function(h){
-            if(this.settings.verticalAlign === "middle"){
-                return (this.settings.height - h)/2;
-            }else if(this.settings.verticalAlign === "top"){
-                return 0;
-            }else if(this.settings.verticalAlign === "bottom"){
-                return this.settings.height - h;
-            }else {
-                return (this.settings.height - h)/2;
-            }
-        },
-        //设置配置参数控制幻灯片显示
-        setSettingValue:function(){
-            this.con.css({
-                width:this.settings.width,
-                height:this.settings.height
-            });
-            this.conItem.css({
-                width:this.settings.width,
-                height:this.settings.height
-            });
-            var w = (this.settings.width - this.settings.postWidth)/2;
-            this.prev.css({
-                width:w,
-                height:this.settings.height,
-                zIndex:Math.ceil((this.conItems.length)/2)
-            });
-            this.prev.find("img").css({
-                width:w,
-                height:w,
-            });
-            this.next.css({
-                width:w,
-                height:this.settings.height,
-                zIndex:Math.ceil((this.conItems.length)/2)
-            });
-            this.next.find("img").css({
-                width:w,
-                height:w
-            });
-            this.conItemFirst.css({
-                top:0,
-                left:w,
-                width:this.settings.postWidth,
-                height:this.settings.postHeight,
-                zIndex:this.conItems.length
-            });
-        },
-        //接收配置参数
-        getSetting:function(){
-            var con = this.con.attr("data-setting");
-            if(con && con!==""){
-                return $.parseJSON(con);
-            }else {
-                return "";
-            }
-        }
-    }
-
-    //初始化
-    Carousel.init = function(carousel){
-        var _this = this;
-        carousel.each(function(){
-            new _this($(this));
-        });
-    }
-    window.Carousel = Carousel;
-})(jQuery)
-
-
-
-</script>
-<script type="text/javascript">
-var setting = {
-	width:1000,
-	height:270,
-	postWidth:658,
-	postHeight:270,
-	scale:0.8,
-	speed:500,
-	verticalAlign:"center"
-}
-$(".carousel").attr("data-setting",'{ "width":900,"height":411,"postWidth":658}')
-Carousel.init($(".carousel"))
-</script>
-
-{#<div style="text-align:center;clear:both">#}
-{#<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>#}
-{#<script src="/follow.js" type="text/javascript"></script>#}
-{#</div>#}
-
-
-<div style = 'width:100%;height:100px'></div>
-
-<!--####################内容区+视频区开始#########################-->
-<div class = 'allV'>
-	<div class = 'outerV'>
-		<video class = 'video' controls="controls">
-			<source src="{% static 'app01/video/white.mp4'%}" type="video/mp4" />
-		</video>
-
-	</div>
-	<div class = 'descV'>
-
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>As the global population continues to grow, so does the amount of waste</b></p></li>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>people produce. Busy lifestyles require easily discarded products, such as</b></p></li>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>cans or bottled water,but the accumulation of these products has led to </b></p></li>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>increasing plastic pollution around the world. Since plastic is the main </b></p></li>
-	    <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>toxic pollutant,it is likely to do great harm to the environment in the</b></p></li>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>form of air, water and land pollution.</b></p></li>
-    </div>
-</div>
-
-
-<div class ='allV'>
-	<div class = 'descV'>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>White pollution, has swept the world. </b></p></li>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>Most of our most direct feelings about the dangers of plastic come from bleak</b></p></li>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>little animals. Because it is not easily degradable, plastic waste is often eaten </b></p></li>
-        <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000;height:20px;text-align: left;padding-left: 20px"><b>by animals as food, and some animals are even killed by plastic.</b></p></li>
-
-	</div>
-	<div class = 'outerV'>
-		<video class = 'video' controls="controls">
-			<source src="{% static 'app01/video/white1.mp4'%}" type="video/mp4" />
-		</video>
-	</div>
-</div>
-
-<!--####################内容区+视频区结束#########################-->
-
-<!--####################答题+遮罩开始########################-->
-<div style = 'width:100%;height:100px'></div>
-
-
-<a class = 'quizPart' href="javascript:void(0)" onclick= change()>
-	<h5 style = "text-decoration:none; font-family:'Comic Sans MS'; color: #fd7e14;"><b> Quiz for reward </b></h5>
-	<img src = "{% static 'app01/img/quiz/3d.gif'%}">
-</a>
-<div class = 'id2 hide'></div>
-
-<div class = 'id3 hide' style="background-image: url(static/app01/img/questionImage.jpg)">
-	<div class = 'question firstQ' style="font-family: 'Comic Sans MS';color: #000000"><b>
-        1.What is the largest animal in the world?
-        <p>A: blue whale<input type = 'radio' name = 'q1' value = 'bw' onchange = changeValue(this)></p>
-        <p>B: whale shark<input type = 'radio' name = 'q1' value = 'ws' onchange = changeValue(this)></p>
-        <p>C: humpback whale<input type = 'radio' name = 'q1' value = 'hw' onchange = changeValue(this)></p>
-        <p>D: elephant<input type = 'radio' name = 'q1' value = 'el' onchange = changeValue(this)></p></b>
-        <input class = 'nex' style="background: none!important; font-weight: bold; border: 0px" type = 'button' value = 'next question' onclick = nextOne(this)>
-    </div>
-    <div class = 'question hide' style="font-family: 'Comic Sans MS';color: #000000"><b>
-        2.How many known marine life forms are there in the ocean?
-        <p>A: thousands<input type = 'radio' name = 'q2' value = 'th' onchange = changeValue(this)></p>
-        <p>B: hundreds of thousands<input type = 'radio' name = 'q2' value = 'hth' onchange = changeValue(this)></p>
-        <p>C: not sure, there could be millions<input type = 'radio' name = 'q2' value = 'mill' onchange = changeValue(this)></p>
-        <p>D: billions<input type = 'radio' name = 'q2' value = 'bil' onchange = changeValue(this)></p></b>
-        <input class = 'prev' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'review question' onclick = prevOne(this)>
-        <input class = 'nex' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'next question' onclick = nextOne(this)>
-    </div>
-    <div class = 'question hide' style="font-family: 'Comic Sans MS';color: #000000"><b>
-        3.One of the biggest threats to the ocean is pollution. How much garbage - mostly plastic - is dumped into
-        the ocean every year?
-        <p>A: 3 billion kg<input type = 'radio' name = 'q3' value = '3b' onchange = changeValue(this)></p>
-        <p>B: 4.5 billion kg<input type = 'radio' name = 'q3' value = '4.5b' onchange = changeValue(this)></p>
-        <p>C: 6 billion kg<input type = 'radio' name = 'q3' value = '6b' onchange = changeValue(this)></p>
-        <p>D: 8 billion kg<input type = 'radio' name = 'q3' value = '8b' onchange = changeValue(this)></p></b>
-        <input class = 'prev' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'review question' onclick = prevOne(this)>
-        <input class = 'nex' style="background: none!important; font-weight: bold;border: 0px" type = 'button' value = 'get result' onclick = finalOne(this)>
-    </div>
-    <div class = 'question final hide' style="font-family: 'Comic Sans MS';">
-        <div class ='score' style="font-weight: bold; color: #ad3729">
-            Your final score is:
+            <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 10%;">Play and Win !</h1></div>
         </div>
-        <a class='download' href="/" download="sticker">
-            <img class = 'reward' src = "{% static 'app01/img/quiz/0point.jpg'%}"></a>
-            <p style="font-family: 'Comic Sans MS'; color: #ffffff;"><b>Click sticker to download.</b></p>
-        <input  id = 'closeBtn'  style="background: none!important; font-weight: bold;border: 0px; color: #ffffff" type = 'button' value = 'close' onclick = recover()>
-    </div>
+	</div>
+</div>
+<div id="wrapper" >
+    <div id="page" class="container">
+        <div id="videoLeft">
+            <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls"></video>
+            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px">
+                <p class = 'shark'>
+                    <h3 style="margin-left: 5%; color: #0590B8" >It is hard to see in the murky waters of the deep, but sharks have excellent vision. Their night vision is better than a cat's or a wolf's.</h3>
+                </p>
 
-    <!--<input  id = 'closeBtn' type = 'button' value = 'close' onclick = recover()>-->
+            </div>
+        </div>
+        <div id='videoRight'>
+            <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls"></video>
+            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px">
+                <p class = 'plastic'>
+                    <h3 style="font-family: 'Comic Sans MS';margin-left: 7%; color: #0590B8">Plastic is an artificial material. It does not decompose in nature or ocean. It contains chemicals that are harmful to the enormous creatures living under water.</h3>
+                </p>
+            </div>
+        </div>
+    </div>
+{#    <input type="button" value = 'Quiz!!!!!!!!!!!!!!!!!!' onclick=showHide()>#}
+    <a class = 'quizBtn' href="javascript:void(0);" onclick = showHide() ><img style = 'width:200px;height:100px' src = '/static/app01/img/quiz/quizclickbtn.jpg'></a >
+
 </div>
 
+{#模板body结束#################################}
+<!-- Button trigger modal -->
+{#<input type='button' value='Quiz' onclick=showHide()>#}
 
-<!--#####################答题+遮罩结束##################-->
+<!-- Modol -->
+<div class="modal fade" id="quizPart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div  class="modal-content" style="background-image: url('/static/app01/img/quiz/quizbackground/Quizbg2.jpg')">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <img src='/static/app01/img/quiz/QuizTitle.png' class="img-responsive center-block"
+                     style='width:400px;height:100px'>
+            </div>
+            <div class="modal-body">
+                <div class = 'contentQues'>
+                    <div class = 'quesPic' style='width:220px;float:left;margin-top:20px'>
+                      <img src='/static/app01/img/quiz/quizpic1.jpg' class="img-responsive center-block img-circle">
+                    </div>
+                    <div class = 'textQues'>
+                      <p class="text-left"><h4 style='font-weight:bold'>1.What is the largest type of shark in the world?</h4></p>
+                      <p><input type="button" class="btn btn-info" name = 'q1' value = 'A.the whale shark' onclick = selectOpt(this)></p>
+                      <p><input type="button" class="btn btn-danger" name = 'q1' value = 'B.great white shark' onclick = selectOpt(this)></p>
+                      <p><input type="button" class="btn btn-success" name = 'q1' value = 'C.hammerhead shark' onclick = selectOpt(this)></p>
+                      <p><input type="button" class="btn btn-warning" name = 'q1' value = 'D.the dwarf lantern shark' onclick = selectOpt(this)></p>
+                    </div>
+
+                    <div class = 'ansQues hideQues'>
+                        <h4 style='font-weight:bold'>Correct</h4>
+                        <div style = 'font-weight:bold'>A whale shark can weight as much as 13 tons, which is the same as two African elephants!</div>
+                    </div>
+                    <div class = 'wroQues hideQues'>
+                        <h4 style = 'color:red;font-weight:bold'>Nice try</h4>
+                        <div style = 'font-weight:bold'>A whale shark can weight as much as 13 tons, which is the same as two African elephants!</div>
+                    </div>
 
 
+                    <div class = 'quesPic hideQues' style='width:220px;float:left;margin-top:20px'>
+                        <img src='/static/app01/img/quiz/quizpic2.jpg' class="img-responsive center-block img-circle">
+                    </div>
+                    <div class = 'textQues hideQues'>
+                        <p class="text-left"><h4 style='font-weight:bold'>2.What is the smallest types of shark in the world?</h4></p>
+                        <p><input type="button" class="btn btn-info" name = 'q2' value = 'A.the whale shark' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-danger" name = 'q2' value = 'B.great white shark' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-success" name = 'q2' value = 'C.hammerhead shark' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-warning" name = 'q2' value = 'D.the dwarf lantern shark' onclick = selectOpt(this)></p>
+                    </div>
 
-</header>
+                    <div class = 'ansQues hideQues'>
+                        <h4 style='font-weight:bold'>Correct</h4>
+                        <div style = 'font-weight:bold'>The dwarf lanternshark is a little-known species of dogfish shark in the family Etmopteridae and possibly the smallest shark in the world.</div>
+                    </div>
+                    <div class = 'wroQues hideQues'>
+                        <h4 style = 'color:red;font-weight:bold'>Nice try</h4>
+                        <div style = 'font-weight:bold'>The dwarf lanternshark is a little-known species of dogfish shark in the family Etmopteridae and possibly the smallest shark in the world.</div>
+                    </div>
+
+
+                    <div class = 'quesPic hideQues' style='width:220px;float:left;margin-top:20px'>
+                        <img src='/static/app01/img/quiz/quizpic3.jpg' class="img-responsive center-block img-circle">
+                    </div>
+                    <div class = 'textQues hideQues'>
+                        <p class="text-left"><h4 style='font-weight:bold'>3.Globally ____ million metrics tons of plastics enters the ocean per year.</h4></p>
+                        <p><input type="button" class="btn btn-info" name = 'q3' value = 'A.5' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-danger" name = 'q3' value = 'B.6' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-success" name = 'q3' value = 'C.7' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-warning" name = 'q3' value = 'D.8' onclick = selectOpt(this)></p>
+                    </div>
+
+                    <div class = 'ansQues hideQues'>
+                        <h4 style='font-weight:bold'>Correct</h4>
+                        <div style = 'font-weight:bold'>About 8 million metric tons of plastic are thrown into the ocean annually tiny pieces of broken-down plastic smaller than your little fingernail</div>
+                    </div>
+                    <div class = 'wroQues hideQues'>
+                        <h4 style = 'color:red;font-weight:bold'>Nice try</h4>
+                        <div style = 'font-weight:bold'>About 8 million metric tons of plastic are thrown into the ocean annually tiny pieces of broken-down plastic smaller than your little fingernail</div>
+                    </div>
+
+
+                    <div class = 'quesPic hideQues' style='width:220px;float:left;margin-top:20px'>
+                        <img src='/static/app01/img/quiz/quizpic4.jpg' class="img-responsive center-block img-circle">
+                    </div>
+                    <div class = 'textQues hideQues'>
+                        <p class="text-left"><h4 style='font-weight:bold'>4.____ sea mammals are killed each year from consuming plastic.</h4></p>
+                        <p><input type="button" class="btn btn-info" name = 'q4' value = 'A.100,000' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-danger" name = 'q4' value = 'B.10,000' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-success" name = 'q4' value = 'C.1,000' onclick = selectOpt(this)></p>
+                        <p><input type="button" class="btn btn-warning" name = 'q4' value = 'D.100' onclick = selectOpt(this)></p>
+                    </div>
+
+                    <div class = 'ansQues hideQues'>
+                        <h4 style='font-weight:bold'>Correct</h4>
+                        <div style = 'font-weight:bold'>Globally, 100,000 marine mammals die every year as a result of plastic pollution.</div>
+                    </div>
+                    <div class = 'wroQues hideQues'>
+                        <h4 style = 'color:red;font-weight:bold'>Nice try</h4>
+                        <div style = 'font-weight:bold'>Globally, 100,000 marine mammals die every year as a result of plastic pollution.</div>
+                    </div>
+
+
+                    <div class = 'showRes hideQues' style = 'text-align:center;margin-top:30px'>
+                        <a  class = 'rewardStic' href="#" download = "sticker">
+                            <button type="button" id = 'sticker' class="btn btn-info"  onclick = getSticker(this)>
+                                <h3 class = 'finalTit' style = 'color:red;font-weight:bold;margin-top:10px'>Nice!</h3>
+                                <div class = 'finalScore' style = 'font-weight:bold'>You got</div>
+                                <div style = 'font-weight:bold'>Click for reward!</div>
+                            </button>
+                        </a>
+                    </div>
+
+
+                    <div style = 'clear:both'></div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                <button type="button" class="btn btn-primary lastChange" onclick = getAnswer(this)>Save changes</button>
+                <button type="button" class="btn btn-primary nextOne hideBtn" onclick = nextQues(this)>Next one</button>
+                <button type="button" class="btn btn-primary tryAgain hideBtn" onclick = tryAgain(this)>Try again</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="copyright" class="container" >
+	<p style="color: #6c757d">&copy; Victorian wildlife bunj. All rights reserved. | Photos by VWB, Microsoft, Pixels | Design by <a href="#" style="color: #ad3729">VWB Team</a>.</p>
+</div>
 </body>
+<script src='/static/app01/js/jquery-3.3.1.js'></script>
+<script src='/static/app01/js/bootstrap.js'></script>
+
 <script>
-
-	var answer = new Array();
-	var correctAnswer = {q1:'bw',q2:'mill',q3:'6b'};
+    var selectAns = {};
     var score = 0;
-// 遮罩层js########################
-	function change(){
-        var ele = document.getElementsByClassName('id2')[0];
-        var ele2 = document.getElementsByClassName('id3')[0];
-        ele.classList.remove('hide');
-        ele2.classList.remove('hide');
-    }
+    var count = 0;
+    var correctAns = {q1:'A.the whale shark',q2:'D.the dwarf lantern shark',q3:'D.8',q4:'A.100,000'};
 
-	function recover(){
-        var ele3 = document.getElementsByClassName('id3')[0];
-        var ele4 = document.getElementsByClassName('id2')[0];
-        ele3.classList.add('hide');
-        ele4.classList.add('hide');
-        $('.final').addClass('hide');
-        $('.firstQ').removeClass('hide');
-        answer = [];
+    function showHide() {
+        $('#quizPart').modal('show');
         score = 0;
-        $('.id3').find(':radio').each(function(){
-        	if($(this).prop('checked')){
-        		$(this).prop('checked',false)
-			}
-		})
-    }
-// 遮罩层js结束########################
+        selectAns = {};
+        count = 0;
 
-// 答题js########################
-    function nextOne(arg){
-        // console.log($(arg).parents())
-        $(arg).parent().addClass('hide');
-        $(arg).parent().next('.question').removeClass('hide');
-    }
+        $('.showRes').addClass('hideQues');
+        $('.ansQues').addClass('hideQues');
+        $('.wroQues').addClass('hideQues');
+        $('.quesPic').addClass('hideQues');
+        $('.textQues').addClass('hideQues');
+        $('.quesPic').eq(0).removeClass('hideQues');
+        $('.textQues').eq(0).removeClass('hideQues');
+        $('.lastChange').removeClass('hideBtn');
+        $('.nextOne').addClass('hideBtn');
+        $('.tryAgain').addClass('hideBtn');
 
-    function prevOne(arg){
-        // console.log($(arg).parents())
-        $(arg).parent().addClass('hide');
-        $(arg).parent().prev('.question').removeClass('hide');
     }
 
-
-    function changeValue(arg){
-        var ele = $(arg).val();
-        var ques = $(arg).prop('name');
-        answer[ques] = ele;
+    function selectOpt(arg){
+        $(arg).addClass('active');
+        $(arg).siblings().removeClass('active');
+        var que = $(arg).attr('name');
+        var ans = $(arg).val();
+        selectAns[que] = ans;
     }
 
-    function finalOne(arg){
 
-        {#for(var i = 0; i < answer.length;i++) {#}
-        {#    if(answer[i] == correctAnswer[i]) {#}
-        {#        score++;#}
-        {#    }#}
-
-        for(var key in answer){
-            if(answer[key]==correctAnswer[key]){
+    function getAnswer(arg){
+        var ques = $('.textQues').eq(count).find('.btn').eq(0).attr('name');
+        if(selectAns[ques] != undefined){
+            $('.textQues').eq(count).addClass('hideQues');
+            if(selectAns[ques] == correctAns[ques]){
+                $('.ansQues').eq(count).removeClass('hideQues');
                 score++;
+                $(arg).addClass('hideBtn');
+                $(arg).next().removeClass('hideBtn');
+                count++;
+            }
+            else{
+                $('.wroQues').eq(count).removeClass('hideQues');
+                $(arg).addClass('hideBtn');
+                $(arg).next().removeClass('hideBtn');
+                count++;
             }
         }
+    }
 
 
+    function nextQues(arg){
+
+        var previous = count - 1;
+        $('.quesPic').eq(previous).addClass('hideQues');
+        $('.ansQues').eq(previous).addClass('hideQues');
+        $('.wroQues').eq(previous).addClass('hideQues');
+
+        $('.quesPic').eq(count).removeClass('hideQues');
+        $('.textQues').eq(count).removeClass('hideQues');
+
+        $(arg).addClass('hideBtn');
+        $(arg).prev().removeClass('hideBtn');
+        console.log(count);
+        if(count == 4){
+            $('.showRes').removeClass('hideQues');
+            $('.lastChange').addClass('hideBtn');
+            $('.getRes').removeClass('hideBtn');
+            $('.tryAgain').removeClass('hideBtn');
+            var finalS = 'You got ' + score + ' out of 4';
+            $('.finalScore').html(finalS);
+            if(score == 0 ){
+                $('.finalTit').text('Can do better!');
+            }
+            else if(score == 1){
+                $('.finalTit').text('Not bad!');
+            }
+            else if(score == 2){
+                $('.finalTit').text('Doing well!');
+            }
+            else if(score == 3){
+                $('.finalTit').text('Good job');
+            }
+            else if(score == 4){
+
+               $('.finalTit').text('Genius');
+            }
+
+        }
+    }
+
+    function getSticker(arg){
         if(score == 0){
-            var srcc = "{% static 'app01/img/quiz/0point.png'%}";
-            $('.reward').prop('src',srcc);
-            $('.download').prop('href',srcc);
+            var src = '/static/app01/img/quiz/0point.png';
         }
         else if(score == 1){
-            var srcc = "{% static 'app01/img/quiz/1point.png'%}";
-            $('.reward').prop('src',srcc);
-            $('.download').prop('href',srcc);}
+            var src = '/static/app01/img/quiz/1point.png';
+        }
         else if(score == 2){
-            var srcc = "{% static 'app01/img/quiz/2point.png'%}";
-            $('.reward').prop('src',srcc);
-            $('.download').prop('href',srcc);
+            var src = '/static/app01/img/quiz/2point.png';
         }
         else if(score == 3){
-            var srcc = "{% static 'app01/img/quiz/3point.png'%}";
-            $('.reward').prop('src',srcc);
-            $('.download').prop('href',srcc);
+            var src = '/static/app01/img/quiz/3point.png';
         }
-
-        $(arg).parent().next('.final').children('.score').text('Your final score is:' + score);
-        $(arg).parent().addClass('hide');
-        $(arg).parent().next('.question').removeClass('hide');
+        else if(score == 4){
+            var src = '/static/app01/img/quiz/4point.png';
+        }
+        $(arg).parent('a').prop('href',src);
+        console.log($(arg).children('a')[0]);
     }
 
-// 答题js结束####################
-</script>
+    function tryAgain(arg){
+        score = 0;
+        selectAns = {};
+        count = 0;
 
+        $('.showRes').addClass('hideQues');
+        $('.ansQues').addClass('hideQues');
+        $('.wroQues').addClass('hideQues');
+        $('.quesPic').addClass('hideQues');
+        $('.textQues').addClass('hideQues');
+        $('.quesPic').eq(0).removeClass('hideQues');
+        $('.textQues').eq(0).removeClass('hideQues');
+        $('.lastChange').removeClass('hideBtn');
+        $('.nextOne').addClass('hideBtn');
+        $('.tryAgain').addClass('hideBtn');
+
+    }
+
+</script>
 </html>

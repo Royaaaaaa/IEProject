@@ -79,6 +79,10 @@
         width: 100%;  /* The width is the width of the web page */
         align-content: center;
        }
+    #logo:after{
+      content: "savingnemo.com";
+      color: #FFFFFF;
+    }
 </style>
 
     <meta charset="utf-8">
@@ -122,10 +126,12 @@
 		</div>
 		<div id="menu" style="height: 300px">
 			<ul>
-				<li><a href="index" accesskey="1" title="">Homepage</a></li>
-				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
-				<li><a href="search" accesskey="3" title="">Search</a></li>
-                <li><a href="quiz" accesskey="4" title="">Quiz</a></li>
+
+                <li><a href="typeid={{ animal.aType.id }}" accesskey="1" title="">Back<<</a></li>
+				<li><a href="index" accesskey="2" title="">Homepage</a></li>
+				<li><a href="marinefamily" accesskey="3" title="">Discover</a></li>
+				<li><a href="search" accesskey="4" title="">Search</a></li>
+                <li><a href="quiz" accesskey="5" title="">Quiz</a></li>
 			</ul>
 		</div>
 	</div>

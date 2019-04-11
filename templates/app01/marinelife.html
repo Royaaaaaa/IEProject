@@ -17,6 +17,10 @@
 		<link rel="stylesheet" href="static/app01/index11/assets/css/main.css" />
 	    </head>
     <style>
+    #logo:after{
+      content: "savingnemo.com";
+      color: #FFFFFF;
+    }
     #box img {
         cursor: pointer;
         position: relative;
@@ -56,10 +60,10 @@
 
             <br/>
             <br/>
-            <br/>
+
             {% if typeid == 1 %}
                 <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 15%;">Fishes around Victoria.</h1>
-                <h4 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 0.8em;width: fit-content; margin-left: 15%;">Top 20 sightings </h4>
+{#                <h4 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 1em;width: fit-content; margin-left: 20%;">Top 20 sightings </h4>#}
             {% endif %}
             {% if typeid == 2 %}
                 <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 0;">Turtles around Victoria.</h1>

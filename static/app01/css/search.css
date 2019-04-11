@@ -843,7 +843,7 @@ legend {
   content: '';
   width: 12px;
   height: 12px;
-  background-image: url("/static/app01/img/slide/fish1.jpg");
+  background-image: url("/static/app01/img/searchbackground.jpg");
   position: absolute;
   top: 4px;
   left: 4px;
@@ -869,7 +869,7 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-  background: url("/static/app01/img/slide/fish1.jpg");
+  background: url("/static/app01/img/searchbackground.jpg");
   background-size: cover;
   background-position: center center;
   padding: 15px;

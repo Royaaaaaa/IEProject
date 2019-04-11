@@ -10,12 +10,7 @@
     div.gallery {
         margin: 5px;
         border: 0px solid #ccc;
-        width: 20%;
-
-        justify-content: center;
-        align-content: center;
-
-
+        width: 60%;
     }
 
     div.gallery:hover {
@@ -26,9 +21,11 @@
         cursor: pointer;
         border: 0px solid black;
         transition: all 1s;
-        width: 100%;
-        padding-top: 20px;
-        padding-left: 20px;
+        width: 80%;
+        margin-left: 80px;
+
+
+
 
 
          {#border-radius: 60%;#}
@@ -36,20 +33,6 @@
     }
     div.gallery img:hover{
         transform: scale(1.1);
-    }
-
-
-    div.textcontainer {
-        padding-top: 15px;
-        height: 50px;
-        overflow: hidden;
-        position:relative;
-        background:none!important;
-        {#border-bottom:2px solid #1b1e21;#}
-        border: 0px solid #6c757d;
-        z-index: 2;
-        text-align: center;
-
     }
 {#    .dropdown {#}
 {#        position: relative;#}
@@ -109,7 +92,7 @@
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
 {#			<h2><a href="index">VWB</a></h2>#}
 		</div>
-		<div id="menu" style="height: 300px">
+		<div id="menu" style="height: 100px">
 			<ul>
 				<li><a href="index" accesskey="1" title="">Homepage</a></li>
 				<li  class="current_page_item"><a href="marinefamily" accesskey="2" title="">Discover</a></li>
@@ -128,27 +111,48 @@
             <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 0;">Life under water around Victoria.</h1></div>
 	</div>
 </div>
-    <ur>
-    {% for type in typelist %}
-            <a target="_blank">
-             {% if type.id == 1 %}
-                 <div class="gallery">
-                     <a href="typeid={{ type.id }}"><img src="static/app01/img/type/fishnewdp.png" width="60%" height="180" class="center-block"></a>
-                     <div class="textcontainer" style="font-family: 'Comic Sans MS'"><font color="black" size="5px"> <b>&nbsp;Go Nemo.</b></font></div>
-                 </div>
-             {% endif %}
+<div id="wrapper" style="width: 100%">
+<div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%">
+		<div id="content" style="width: 30%">
+{#			<p><img src="static/app01/index11/images/332.jpg" alt="" class="image image-full" />#}
+			<ur>
+              {% for type in typelist %}
+                  {% if type.id == 1 %}
+                      <div class="title">
+				          <h2 style="font-family: 'Comic Sans MS'">Go Nemo.</h2>
+				            <span class="byline"> </span> </div>
+                      <p><div class="gallery">
+                         <a href="typeid={{ type.id }}"><img src="static/app01/img/type/fishnewdp.png" width="60%" height="180"></a>
+                      </div></p>
+                  {% endif %}
 
              {% if type.id == 2 %}
-                 <div class="gallery">
-                     <a href="typeid={{ type.id }}"><img src="static/app01/img/type/turtle.png" width="60%" height="180" class="center-block"></a>
-                     <div class="textcontainer"><font color="black" size="5px"><b>&nbsp;Ninja Warriors.</b></font></div>
-                 </div>
+                 <div class="title">
+				          <h2 style="font-family: 'Comic Sans MS'">Go Nemo.</h2>
+				            <span class="byline"> </span> </div>
+                 <p><div class="gallery">
+                     <a href="typeid={{ type.id }}"><img src="static/app01/img/type/turtle.png" width="60%" height="180"></a>
+                 </div></p>
              {% endif %}
+             {% endfor %}
+            </ur>
+		</div>
 
-             </a>
-    {% endfor %}
+		<div id="sidebar" style="width: 65%">
+			<ul class="style1" >
+				<li class="first" style="height: ">
+					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Be a friend of the Marine animals, be a Victorian Wildlife Bunj!</h3>
+					<p style="font-family: 'Comic Sans MS'">The word 'Bunj'is an Aboriginal word for 'Mate', usually used when addressing a friend. Sometimes used as 'Bunji/Bunjee'.</p>
+				</li>
+				<li>
+					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Do Marine animals need our help?</h3>
+                    <p style="font-family: 'Comic Sans MS'">Animals are found trapped in plastics in beach clean-ups. Five trillion pieces of plastics are floating in our sea.</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 
-  </ur>
 </body>
 
 

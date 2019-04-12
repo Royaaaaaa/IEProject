@@ -103,7 +103,7 @@
 		</div>
 	</div>
 </div>
-<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 70px">
+<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 20px">
 	<div id="banner-wrapper" >
 		<div id="banner" class="container">
             <br/>
@@ -114,7 +114,7 @@
 </div>
 <div id="wrapper" style="width: 100%">
 <div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%">
-		<div id="content" style="width: 40%">
+		<div id="content" style="width: 50%">
 {#			<p><img src="static/app01/index11/images/332.jpg" alt="" class="image image-full" />#}
 			<p>
               {% for type in typelist %}
@@ -128,23 +128,29 @@
                       <div class="title">
 				          <h2 style="font-family: 'Comic Sans MS';font-size: 2em">Click on me.</h2>
 				            <span class="byline"> </span> </div>
-                      <img src="static/app01/img/abc.PNG" style="margin-left: 15%">
+                      <img src="static/app01/img/abc.PNG" style="width: 100%;margin-left: 10%">
                       <p><a href="static/app01/pdf/Paper1.pdf"  style="font-family: 'Comic Sans MS';font-size:1em;color:#6f42c1; margin-left: 10%">Click here to download games & activities.</a></p>
                   {% endif %}
 
-             {% if type.id == 2 %}
-                 <div class="title">
-				          <h2 style="font-family: 'Comic Sans MS'">Go Nemo.</h2>
+             {% if type.id == 8 %}
+                  <div class="title" style="font-size: 0.7em">
+				          <h2 style="font-family: 'Comic Sans MS';color: #6f42c1 ">Explore the Turtles here.</h2>
 				            <span class="byline"> </span> </div>
-                 <p><div class="gallery">
-                     <a href="typeid={{ type.id }}"><img src="static/app01/img/type/turtle.png" width="60%" height="180"></a>
-                 </div></p>
+                  <p><div class="gallery">
+                 <a href="typeid={{ type.id }}"><img src="static/app01/img/type/turtle.png" width="60%" height="180"></a>
+             </div></p>
+                 <div class="title">
+                     <h2 style="font-family: 'Comic Sans MS';font-size: 2em">Click on me.</h2>
+                     <span class="byline"> </span> </div>
+{#                 <img src="static/app01/img/abc.PNG" style="width: 100%;margin-left: 10%">#}
+{#                 <p><a href="static/app01/pdf/Paper1.pdf"  style="font-family: 'Comic Sans MS';font-size:1em;color:#6f42c1; margin-left: 10%">Click here to download games & activities.</a></p>#}
+
              {% endif %}
              {% endfor %}
             </ur>
 		</div>
 
-		<div id="sidebar" style="width: 58%">
+		<div id="sidebar" style="width: 50%">
 			<ul class="style1" >
 				<li class="first" style="padding-bottom: 1em">
 					<h3 style="font-family: 'Comic Sans MS';font-size: 1.2em; color: #0590B8">85% of Australian Marine species are affected by plastic pollution.</h3>

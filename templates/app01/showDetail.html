@@ -36,43 +36,49 @@
         height: 250px;
     }
     .dropdown {
-        position: relative;
-        display: inline-block;
-        padding-top: 28px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 12px;
-        font-weight: 400;
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+        font-size: 1em;
+        font-family: "Comic Sans MS";
+        border: none;
+         outline: none;
+        color: white;
+        padding: 16px 16px;
+        background-color: inherit;
+        margin: 0;
         text-transform: uppercase;
-        color: #fff;
     }
 
-/* 下拉内容 (默认隐藏) */
     .dropdown-content {
-         display: none;
-         position: absolute;
-         background-color: #000000;
-        {#min-width: 160px;#}
-        {#box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);#}
+        display: none;
+        position: absolute;
+        background:none!important;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+
     }
 
-/* 下拉菜单的链接 */
     .dropdown-content a {
-         color: #FFFFFF;
-         padding: 12px 16px;
+        float: none;
+        padding: 20px 16px;
         text-decoration: none;
         display: block;
+        text-align: left;
+        color: #FFFFFF;
     }
 
-/* 鼠标移上去后修改下拉菜单链接颜色 */
     .dropdown-content a:hover {
-        color: #5C9F24}
+        background:none!important;
+        color: #fd7e14;
+    }
 
-/* 在鼠标移上去后显示下拉菜单 */
     .dropdown:hover .dropdown-content {
         display: block;
     }
-
-
 
     #map {
         height: 20%;  /* The height is 400 pixels */
@@ -127,7 +133,15 @@
 				<li><a href="index" accesskey="2" title="">Homepage</a></li>
 				<li><a href="marinefamily" accesskey="3" title="">Discover</a></li>
 				<li><a href="search" accesskey="4" title="">Search</a></li>
-                <li><a href="quiz" accesskey="5" title="">Quiz</a></li>
+                <div class="dropdown" >
+                     <li><button class="dropbtn" accesskey="4">Play & Win
+                     </button></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="quiz">Quiz</a>
+                          <a href="game">Game</a>
+                     </div>
+                </div>
 			</ul>
 		</div>
 	</div>

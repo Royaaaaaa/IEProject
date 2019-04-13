@@ -32,6 +32,50 @@
         z-index: 1;
 
     }
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+        font-size: 1em;
+        font-family: "Comic Sans MS";
+        border: none;
+         outline: none;
+        color: white;
+        padding: 16px 16px;
+        background-color: inherit;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background:none!important;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+
+    }
+
+    .dropdown-content a {
+        float: none;
+        padding: 20px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .dropdown-content a:hover {
+        background:none!important;
+        color: #fd7e14;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 
     </style>
 <body id="top" style="background-color: #f2dede">
@@ -43,10 +87,18 @@
 		</div>
 		<div id="menu" style="height: 300px">
 			<ul>
-				<li><a href="index" accesskey="1" title="">Homepage</a></li>
-				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
-				<li><a href="search" accesskey="3" title="">Search</a></li>
-                <li><a href="quiz" accesskey="4" title="">Quiz</a></li>
+				<li><a href="index" accesskey="1" style="margin-top: 10px">Homepage</a></li>
+				<li><a href="marinefamily" accesskey="2" style="margin-top: 10px">Discover</a></li>
+				<li><a href="search" accesskey="3" style="margin-top: 10px">Search</a></li>
+                <div class="dropdown" >
+                     <li><button class="dropbtn" accesskey="4" style="text-transform: uppercase">Play & Win
+                     </button></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="quiz">Quiz</a>
+                          <a href="game">Game</a>
+                     </div>
+                </div>
 			</ul>
 		</div>
 	</div>

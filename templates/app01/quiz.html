@@ -73,36 +73,21 @@
         .quizBtn{
             margin-left: 44%;
         }
-    .dropdown {
-        float: left;
-        overflow: hidden;
-    }
 
-    .dropdown .dropbtn {
-        font-size: 1em;
-        font-family: "Comic Sans MS";
-        border: none;
-         outline: none;
-        color: white;
-        padding: 16px 16px;
-        background-color: inherit;
-        margin: 0;
-        text-transform: uppercase;
-    }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background:none!important;
+            min-width: 160px;
+            z-index: 1;
+        }
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background:none!important;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
 
-    }
-
-    .dropdown-content a {
+        .dropdown-content a {
         float: none;
-        padding: 20px 16px;
+        padding: 18px 16px;
+        padding-left: 23px;
+        text-transform: uppercase;
         text-decoration: none;
         display: block;
         text-align: left;
@@ -110,6 +95,7 @@
     }
 
     .dropdown-content a:hover {
+        border: 0px;
         background:none!important;
         color: #fd7e14;
     }
@@ -135,9 +121,8 @@
 				<li><a href="index" accesskey="1" title="">Homepage</a></li>
 				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
 				<li><a href="search" accesskey="3" title="">Search</a></li>
-                <div class="dropdown" >
-                     <li ><button class="dropbtn" accesskey="4">Play & Win
-                     </button></li>
+                <div class="dropdown" style="float: left;">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase">Play & Win</a></li>
                      <div class="dropdown-content">
                           <a href="#"></a>
                           <a href="quiz">Quiz</a>

@@ -654,7 +654,7 @@ document.write('<div id=\'en\' style=\'' + bq + 'color:#ffffff;font-family:Arial
 if ((g == ae) || (g == at))
     eg('en', "7f4f00");
 document.write('<div id=\'t1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
-document.write('<div id=\'g1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'>游戏结束</div>');
+document.write('<div id=\'g1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'>Game Over</div>');
 document.write('<img id=\'ti\' style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:0;\' src=\'' + ds + '\' >');
 document.write('<img id=\'ba\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:0px;left:0px;visibility:hidden;opacity:0.5;-moz-opacity:0.6;filter:alpha(opacity=60);z-Index:7;\' src=\'' + ej + '\' >');
 document.write('<img id=\'bka\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:6;\' src=\'' + ci + '\' >');
@@ -947,7 +947,7 @@ function fx() {
             if (ac == ar) {
                 if (R == 1) {
                     document.getElementById("ng").src = bP;
-                    document.getElementById("hi").src = bN;
+                    // document.getElementById("hi").src = bN;
                 }
                 t("f_li", 0, 0, 11);
                 o("f_li", -1000, -1000);
@@ -1046,7 +1046,7 @@ function fm() {
     }
 };
 var aw;
-var fy = "你的分数";
+var fy = "Your Score:";
 var fY = "Insert your name: ";
 var fJ = "The name must be at least 4 characters!<br>Please insert only charachers and numbers!";
 function fI(bn) {

@@ -51,6 +51,10 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
+
+    div.content{
+
+    }
     </style>
     <meta charset="UTF-8">
     {% load staticfiles %}
@@ -65,6 +69,7 @@
     <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body style="background-image: url(static/app01/img/searchbackground.jpg)">
+
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
 		<div id="logo" style="top:10px; left: 10px">
@@ -90,7 +95,7 @@
 	</div>
 </div>
 
-<div class="s013" style="background-image: url(static/app01/img/searchbackground.jpg);background-size: 100%;background-repeat: no-repeat">
+<div class="s013" style="background-image: url(static/app01/img/searchbackground.jpg);background-size: 100%;background-repeat: no-repeat;">
 
       <form >
 
@@ -100,8 +105,8 @@
 
         </fieldset>
 
-        <div class="inner-form" style="margin-bottom: 10px; height: 100px">
-           <div class = "container" align="center" style="height: 100px">
+        <div class="inner-form" style="margin-bottom: 10px; height: 100px;">
+           <div class = "container" align="center" style="height: 300px; width: 100%">
 
             <select  name = 'type' class = 'type'>
              <option value = 'choose_type'>Please choose the type</option>
@@ -170,5 +175,6 @@
     })
 
 </script>
+
 </body>
 </html>

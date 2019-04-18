@@ -10,74 +10,257 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+
+    <style>
+        #logo:after{
+            content: "savingnemo";
+             color: #FFFFFF;
+         }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background:none!important;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+
+        .dropdown-content a {
+        float: none;
+        padding: 18px 16px;
+        padding-left: 23px;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .dropdown-content a:hover {
+        border: 0px;
+        background:none!important;
+        color: #fd7e14;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    {#模板css结束######################################}
+        .btn-info,.btn-success,.btn-danger,.btn-warning{
+            text-align:left;
+            width:100%;
+        }
+        .btn-default{
+            float:left;
+        }
+        .hideGame,.hideBtn{
+            display:none;
+        }
+        .modal-body{
+            height:280px;
+        }
+        .textQues,.ansQues,.wroQues{
+            width:320px;
+            float:left;
+            margin-left:20px;
+
+        }
+        #sticker{
+            border:10px solid lightskyblue;
+            text-align:center;
+        }
+        .modal-content{
+            font-family:"Comic Sans MS";
+        }
+        .gameBtn1{
+            margin-left: 10%;
+        }
+        .gameBtn2{
+            margin-right: 10%;
+        }
+
+    </style>
 </head>
 
-<body  style="-webkit-user-select: none;background-color: #000000;	">
+<body  style="-webkit-user-select: none;background-color: #ffffff;">
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
+		<div id="logo" style="top:10px; left: 10px">
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+{#			<h2><a href="index">VWB</a></h2>#}
+		</div>
+		<div id="menu" style="height: 100px">
+			<ul>
+				<li><a href="index" accesskey="1" title="">Homepage</a></li>
+				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
+				<li><a href="search" accesskey="3" title="">Search</a></li>
+                <div class="dropdown" style="float: left;">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase">Play & Win</a></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="quiz">Quiz</a>
+                          <a href="game">Game</a>
+                     </div>
+                </div>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 100px">
+	<div id="banner-wrapper" >
+        <div id="banner" class="container">
+            <br/>
+            <br/>
 
-	<script language="JavaScript">function clickIE(){if(document.all)return false;}function clickNS(e){if(document.layers||(document.getElementById&&!document.all)){
-		if(e.which==2||e.which==3)return false;}}if(document.layers){document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}document.oncontextmenu=new Function("return false");
-		if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;}
-		if(window.innerWidth<600){var gW=384;var gH=60;}
-		else {var gW=768;gH=120;}
-	</script>
+            <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 10%;">Play and Win !</h1></div>
+        </div>
+	</div>
+</div>
+<div id="wrapper" style="width: 100%">
+<div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%">
+		<div id="content" style="width: 40%; margin-left: 5%">
 
-	<script>
-		var par_level;
-		var par_score;
-		var par_game;var par_ad2=1;
-		var par_ad3=1;
-		var par_ad4=1;
-		var par_adx2;
-		var par_adx3;
-		var par_adx4;
+            <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 100%"></video>
 
-		if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}
-		else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ;}
+			<a class = 'gameBtn1' href="javascript:void(0);" onclick = showGame1() ><img style = 'width:150px;height:50px' src = '/static/app01/img/game/gamePlay.png'></a >
 
-		var ds_urlhiscore="http://www.6m5m.com/"; 
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 100%"></video>
+			<a class = 'gameBtn2' href="javascript:void(0);" onclick = showGame2() ><img style = 'width:150px;height:50px' src = '/static/app01/img/game/gamePlay.png'></a >
+        </div>
+		<div id="sidebar" style="width: 40%;margin-right: 5%">
+            <ul class="style1">
+				<li class="first">
+					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Be a friend of the Marine animals, be a Victorian Wildlife Bunj!</h3>
+					<p style="font-family: 'Comic Sans MS'">The word 'Bunj'is an Aboriginal word for 'Mate', usually used when addressing a friend. Sometimes used as 'Bunji/Bunjee'.</p>
+				</li>
+				<li>
+					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Do Marine animals need our help?</h3>
+                    <p style="font-family: 'Comic Sans MS'">Animals are found trapped in plastics in beach clean-ups. Five trillion pieces of plastics are floating in our sea.</p>
+				</li>
+				<li>
+					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Is plastic fantastic?</h3>
+					<p style="font-family: 'Comic Sans MS'">Plastic is made from oil, a limited resource. When we design one-time use items with plastic, we are using a valuable material in an irresponsible way. Choose reusable items today. We all can do something to help.</p>
+                </li>
 
-		function ds_SHS(){return "";}
-		function ds_HS(){}
+			</ul>
+        </div>
+	</div>
+</div>
 
-		var dsp="dse.jpg";
-		var dsp=new Array("=0",
-			"static/app01/img/game/dse.jpg",
-			"http://www.6m5m.com/",
-			1,
-			0,
-			0,
-			0,
-			"",
-			"http://www.6m5m.com/",
-			1,
-			0,
-			0,
-			1,
-			0,
-			"http://www.6m5m.com/",
-			"/ad1.jpg",
-			"_self",
-			"udf23hh3r62srayd4",
-			0,
-			250,
-			16,
-			1,
-			"Loading ...",
-			"ffffff",
-			"000000",
-			"00bfdf",
-			0,
-			1,
-			0,
-			"",
-			1,
-			1);
-	</script>  
-	<script src="static/app01/img/game/GoldNuggets_x.js?v=14502aa">
-
-
-    </script>
+<div class="modal fade" id="game1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div  class="modal-content" style="background-image: url('/static/app01/img/quiz/quizbackground/Quizbg2.jpg')">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <img src='/static/app01/img/quiz/QuizTitle.png' class="img-responsive center-block"
+                     style='width:400px;height:100px'>
+            </div>
+            <div class="modal-body">
+                <div class = 'contentQues'>
+                    <div class = 'quesPic' style='width:220px;float:left;margin-top:20px'>
+                      <img src='/static/app01/img/quiz/quizpic1.jpg' class="img-responsive center-block img-circle">
+                    </div>
+                    <div class = 'textQues'>
+                      <p class="text-left"><h4 style='font-weight:bold'>1.What is the largest type of shark in the world?</h4></p>
+                      <p><input type="button" class="btn btn-info" name = 'q1' value = 'A.the whale shark' onclick = selectOpt(this)></p>
+                      <p><input type="button" class="btn btn-danger" name = 'q1' value = 'B.great white shark' onclick = selectOpt(this)></p>
+                      <p><input type="button" class="btn btn-success" name = 'q1' value = 'C.hammerhead shark' onclick = selectOpt(this)></p>
+                      <p><input type="button" class="btn btn-warning" name = 'q1' value = 'D.the dwarf lantern shark' onclick = selectOpt(this)></p>
+                    </div>
+                </div>
+             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                <button type="button" class="btn btn-primary lastChange" onclick = getAnswer(this)>Save changes</button>
+                <button type="button" class="btn btn-primary nextOne hideBtn" onclick = nextQues(this)>Next one</button>
+                <button type="button" class="btn btn-primary tryAgain hideBtn" onclick = tryAgain(this)>Try again</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
+{#<script>#}
+{#    function clickIE(){if(document.all)return false;}#}
+{#        function clickNS(e){if(document.layers||(document.getElementById&&!document.all)){#}
+{#		if(e.which==2||e.which==3)return false;}}#}
+{#		if(document.layers){document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}#}
+{#		else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}#}
+{#		document.oncontextmenu=new Function("return false");#}
+{#		if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;}#}
+{#		if(window.innerWidth<600){var gW=384;var gH=60;}#}
+{#		else {var gW=768;gH=120;}#}
+{#</script>#}
+{##}
+{##}
+{##}
+{#	<script>#}
+{#		var par_level;#}
+{#		var par_score;#}
+{#		var par_game;var par_ad2=1;#}
+{#		var par_ad3=1;#}
+{#		var par_ad4=1;#}
+{#		var par_adx2;#}
+{#		var par_adx3;#}
+{#		var par_adx4;#}
+{##}
+{#		if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}#}
+{#		else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ;}#}
+{##}
+{#		var ds_urlhiscore="http://www.6m5m.com/";#}
+{##}
+{#		function ds_SHS(){return "";}#}
+{#		function ds_HS(){}#}
+{##}
+{#		var dsp="dse.jpg";#}
+{#		var dsp=new Array("=0",#}
+{#			"static/app01/img/game/dse.jpg",#}
+{#			"http://www.6m5m.com/",#}
+{#			1,#}
+{#			0,#}
+{#			0,#}
+{#			0,#}
+{#			"",#}
+{#			"http://www.6m5m.com/",#}
+{#			1,#}
+{#			0,#}
+{#			0,#}
+{#			1,#}
+{#			0,#}
+{#			"http://www.6m5m.com/",#}
+{#			"/ad1.jpg",#}
+{#			"_self",#}
+{#			"udf23hh3r62srayd4",#}
+{#			0,#}
+{#			250,#}
+{#			16,#}
+{#			1,#}
+{#			"Loading ...",#}
+{#			"ffffff",#}
+{#			"000000",#}
+{#			"00bfdf",#}
+{#			0,#}
+{#			1,#}
+{#			0,#}
+{#			"",#}
+{#			1,#}
+{#			1);#}
+{#	</script>#}
+{#	<script src="static/app01/img/game/GoldNuggets_x.js?v=14502aa">#}
+{##}
+{##}
+{#    </script>#}
 </body>
+<script src='/static/app01/js/jquery-3.3.1.js'></script>
+<script src='/static/app01/js/bootstrap.js'></script>
 </html>

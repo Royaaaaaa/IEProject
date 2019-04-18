@@ -126,15 +126,18 @@
 		<div id="content" style="width: 40%; margin-left: 5%">
 
             <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 100%"></video>
-
-			<a class = 'gameBtn1' href="javascript:void(0);" onclick = showGame1() ><img style = 'width:150px;height:50px' src = '/static/app01/img/game/gamePlay.png'></a >
+            <br/>
+            <br/>
+			<a class = 'gameBtn1' href="javascript:void(0);" onclick = showGame1() ><img style = 'width:150px;height:50px; ' src = '/static/app01/img/game/gamePlay.png'></a >
 
             <br/>
             <br/>
             <br/>
             <br/>
             <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 100%"></video>
-			<a class = 'gameBtn2' href="javascript:void(0);" onclick = showGame2() ><img style = 'width:150px;height:50px' src = '/static/app01/img/game/gamePlay.png'></a >
+			<br/>
+            <br/>
+            <a class = 'gameBtn2' href="javascript:void(0);" onclick = showGame2() ><img style = 'width:150px;height:50px;margin-left: 15%' src = '/static/app01/img/game/gamePlay.png'></a >
         </div>
 		<div id="sidebar" style="width: 40%;margin-right: 5%">
             <ul class="style1">
@@ -154,39 +157,6 @@
 			</ul>
         </div>
 	</div>
-</div>
-
-<div class="modal fade" id="game1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div  class="modal-content" style="background-image: url('/static/app01/img/quiz/quizbackground/Quizbg2.jpg')">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <img src='/static/app01/img/quiz/QuizTitle.png' class="img-responsive center-block"
-                     style='width:400px;height:100px'>
-            </div>
-            <div class="modal-body">
-                <div class = 'contentQues'>
-                    <div class = 'quesPic' style='width:220px;float:left;margin-top:20px'>
-                      <img src='/static/app01/img/quiz/quizpic1.jpg' class="img-responsive center-block img-circle">
-                    </div>
-                    <div class = 'textQues'>
-                      <p class="text-left"><h4 style='font-weight:bold'>1.What is the largest type of shark in the world?</h4></p>
-                      <p><input type="button" class="btn btn-info" name = 'q1' value = 'A.the whale shark' onclick = selectOpt(this)></p>
-                      <p><input type="button" class="btn btn-danger" name = 'q1' value = 'B.great white shark' onclick = selectOpt(this)></p>
-                      <p><input type="button" class="btn btn-success" name = 'q1' value = 'C.hammerhead shark' onclick = selectOpt(this)></p>
-                      <p><input type="button" class="btn btn-warning" name = 'q1' value = 'D.the dwarf lantern shark' onclick = selectOpt(this)></p>
-                    </div>
-                </div>
-             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-                <button type="button" class="btn btn-primary lastChange" onclick = getAnswer(this)>Save changes</button>
-                <button type="button" class="btn btn-primary nextOne hideBtn" onclick = nextQues(this)>Next one</button>
-                <button type="button" class="btn btn-primary tryAgain hideBtn" onclick = tryAgain(this)>Try again</button>
-            </div>
-        </div>
-    </div>
 </div>
 
 

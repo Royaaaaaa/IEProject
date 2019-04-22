@@ -50,32 +50,126 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
-    {#模板css结束######################################}
-        .btn-info,.btn-success,.btn-danger,.btn-warning{
-            text-align:left;
-            width:100%;
-        }
-        .btn-default{
-            float:left;
-        }
-        .hideGame,.hideBtn{
-            display:none;
-        }
-        .modal-body{
-            height:280px;
-        }
-        .textQues,.ansQues,.wroQues{
-            width:320px;
-            float:left;
-            margin-left:20px;
 
+
+    {#game1css样式！！#}
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            outline: none;
         }
-        #sticker{
-            border:10px solid lightskyblue;
+        html,body{
+            height:100%;
+            height:100%;
+        }
+        .wrap{
+            padding:20px 0;
+        }
+        .btnBbox{
+            margin:0 auto;
+            width:600px;
             text-align:center;
         }
-        .modal-content{
-            font-family:"Comic Sans MS";
+        .btnBbox .selectbox{
+            display:inline-block;
+            vertical-align: top;
+        }
+        .btnBbox .selectbox{
+            display:inline-block;
+            position: relative;
+            width:120px;
+
+        }
+        .btnBbox .selectbox .text{
+            width:100%;
+            height:40px;
+            text-align:center;
+            border:none;
+            background:#ececec;
+            border-radius:5px;
+            display: block;
+            line-height:40px;
+            color:rgb(63, 63, 63);
+            cursor:pointer;
+            font-size:16px;
+            transition:all ease 0.2s;
+        }
+        .btnBbox .selectbox .text:hover{
+            background:#e4e4e4;
+        }
+        .btnBbox .selectbox .box{
+            position: absolute;
+            width:100%;
+            padding:5px 0;
+            background:#ececec;
+            color:rgb(102, 102, 102);
+            border-radius:5px;
+            z-index: 10000;
+            margin-top:5px;
+            display:none;
+            font-size:14px;
+        }
+        .btnBbox .selectbox .box li{
+            width:100%;
+            height:30px;
+            text-align:center;
+            line-height:30px;
+            transition:all ease 0.2s;
+            cursor:pointer;
+        }
+        .btnBbox .selectbox .box li:hover{
+            background:rgb(26, 187, 133);
+            color:#fff;
+        }
+        .btnBbox .selectbox.active .text{
+            background:rgb(26, 187, 133);
+            color:#fff;
+        }
+        .btnBbox .btn{
+            width:120px;
+            border:none;
+            background:rgb(51, 134, 230);
+            color:#fff;
+            border-radius:5px;
+            height:40px;
+            cursor:pointer;
+            font-size:16px;
+            margin-right:10px;
+        }
+        .btnBbox .btn:hover{
+            background:rgb(56, 140, 236);
+        }
+        .picBox{
+            text-align:center;
+            margin-top:30px;
+        }
+        .picBox .list{
+            display:inline-block;
+            width:600px;
+            height:400px;
+            position:relative;
+            {#background-image:url('/static/app01/img/game/afe1.jpg');#}
+        }
+        .picBox .list li{
+            position: absolute;
+            overflow: hidden;
+            border-radius:0;
+            background-image:url('/static/app01/img/game/afe1.jpg');
+            box-shadow:0 0px 6px rgba(255,255,255,0.6);
+            cursor:pointer;
+            overflow: hidden;
+        }
+
+        .center-block {
+              display: block;
+              margin:auto;
+            vertical-align: middle;
+
+        }
+
+        .hidden{
+            display:none;
         }
         .gameBtn1{
             margin-left: 10%;
@@ -128,8 +222,41 @@
             <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 100%"></video>
             <br/>
             <br/>
-			<a class = 'gameBtn1' href="javascript:void(0);" onclick = showGame1() ><img style = 'width:150px;height:50px; ' src = '/static/app01/img/game/gamePlay.png'></a >
+            <a class = 'gameBtn1' href="javascript:void(0);" onclick = start() >
+               <img style = 'width:150px;height:50px;' src = '/static/app01/img/game/gamePlay.png'></a >
 
+            <div class="modal fade puzzle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
+                <div class="modal-dialog modal-lg" role="document">
+                     <div class="modal-content" style="background-image: url('/static/app01/img/quiz/quizbackground/Quizbg2.jpg')">
+                          <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                             <img src='/static/app01/img/game/puzzleCornerTitle.png' style="height:130px" class="img-responsive center-block" >
+                         </div>
+
+                         <div class="wrap">
+                            <div class="btnBbox">
+                             <button class="btn" type="button">Start</button>
+                            <div class="selectbox">
+                                 <button class="text">easy</button>
+                                <ul class="box">
+                                <li>easy</li>
+                                 <li>basic</li>
+                                 <li>normal</li>
+                                 <li>hard</li>
+                                 <li>crazy</li>
+                                 </ul>
+                             </div>
+                          </div>
+                             <div class="picBox">
+                                 <ul class="list"></ul>
+                             </div>
+                         </div>
+                         <div class = 'container hidden' style="width:898px;height:525px">
+                             <img class = 'goodjob img-responsive center-block' src='/static/app01/img/game/goodjob.gif' style="height:330px;margin-top:80px"  >
+                         </div>
+                     </div>
+                 </div>
+            </div>
             <br/>
             <br/>
             <br/>
@@ -137,7 +264,11 @@
             <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 100%"></video>
 			<br/>
             <br/>
-            <a class = 'gameBtn2' href="javascript:void(0);" onclick = showGame2() ><img style = 'width:150px;height:50px;margin-left: 15%' src = '/static/app01/img/game/gamePlay.png'></a >
+            <a class = 'gameBtn2' href="javascript:void(0);" onclick = "window.location='testgame.html'" >
+               <img style = 'width:150px;height:50px;' src = '/static/app01/img/game/gamePlay.png'></a >
+
+
+
         </div>
 		<div id="sidebar" style="width: 40%;margin-right: 5%">
             <ul class="style1">
@@ -160,77 +291,27 @@
 </div>
 
 
-{#<script>#}
-{#    function clickIE(){if(document.all)return false;}#}
-{#        function clickNS(e){if(document.layers||(document.getElementById&&!document.all)){#}
-{#		if(e.which==2||e.which==3)return false;}}#}
-{#		if(document.layers){document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}#}
-{#		else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}#}
-{#		document.oncontextmenu=new Function("return false");#}
-{#		if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;}#}
-{#		if(window.innerWidth<600){var gW=384;var gH=60;}#}
-{#		else {var gW=768;gH=120;}#}
-{#</script>#}
-{##}
-{##}
-{##}
-{#	<script>#}
-{#		var par_level;#}
-{#		var par_score;#}
-{#		var par_game;var par_ad2=1;#}
-{#		var par_ad3=1;#}
-{#		var par_ad4=1;#}
-{#		var par_adx2;#}
-{#		var par_adx3;#}
-{#		var par_adx4;#}
-{##}
-{#		if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}#}
-{#		else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ;}#}
-{##}
-{#		var ds_urlhiscore="http://www.6m5m.com/";#}
-{##}
-{#		function ds_SHS(){return "";}#}
-{#		function ds_HS(){}#}
-{##}
-{#		var dsp="dse.jpg";#}
-{#		var dsp=new Array("=0",#}
-{#			"static/app01/img/game/dse.jpg",#}
-{#			"http://www.6m5m.com/",#}
-{#			1,#}
-{#			0,#}
-{#			0,#}
-{#			0,#}
-{#			"",#}
-{#			"http://www.6m5m.com/",#}
-{#			1,#}
-{#			0,#}
-{#			0,#}
-{#			1,#}
-{#			0,#}
-{#			"http://www.6m5m.com/",#}
-{#			"/ad1.jpg",#}
-{#			"_self",#}
-{#			"udf23hh3r62srayd4",#}
-{#			0,#}
-{#			250,#}
-{#			16,#}
-{#			1,#}
-{#			"Loading ...",#}
-{#			"ffffff",#}
-{#			"000000",#}
-{#			"00bfdf",#}
-{#			0,#}
-{#			1,#}
-{#			0,#}
-{#			"",#}
-{#			1,#}
-{#			1);#}
-{#	</script>#}
-{#	<script src="static/app01/img/game/GoldNuggets_x.js?v=14502aa">#}
-{##}
-{##}
-{#    </script>#}
+
 </body>
 <script src='/static/app01/js/jquery-3.3.1.js'></script>
 <script src='/static/app01/js/bootstrap.js'></script>
+<script src='/static/app01/js/jquery-3.3.1.js'></script>
+<script src='/static/app01/js/bootstrap.js'></script>
+<script type="text/javascript" src="/static/app01/js/puzzle.js"></script>
+<script src="static/app01/img/game/GoldNuggets_x.js?v=14502aa"></script>
+
+
+
+
+
+<script>
+    function start(){
+        $('.puzzle').modal('show');
+
+    }
+    $('.puzzle').on('hidden.bs.modal',function(){
+        window.location.reload();
+    });
+
+</script>
 </html>

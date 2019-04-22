@@ -396,7 +396,7 @@ function eg(C, col) {
     document.getElementById(C).style.fontWeight = "bold";
     document.getElementById(C).style.filter = "alpha(opacity=50)";
 };
-document.write('<div id=\'all\' style=\'position:absolute;left:0px;top:0px;clip:rect(0px,' + r + 'px,' + (D) + 'px,0px);\'>');
+document.write('<div id=\'all\' style=\'position:absolute;left:0px;top:180px;clip:rect(0px,' + r + 'px,' + (D) + 'px,0px);\'>');
 if ((F < ai) && ((g == bf) || (g == af) || (g == be) || bL))
     ef("all", 0, 0, F / (r), ai / (D));
 else
@@ -545,8 +545,8 @@ m += 17;
 if (cS) {
 }
 if ((g != ae) && (g != be)) {
-    document.write('<div style=\'position:absolute;top:0px;left:' + (r) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background-Color:#000000;visibility:visible;z-Index:10000;\'></div>');
-    document.write('<div style=\'position:absolute;top:0px;left:' + ( - r * 2) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background-Color:#000000;visibility:visible;z-Index:10000;\'></div>');
+    document.write('<div style=\'position:absolute;top:150px;left:' + (r) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background:none! important;visibility:visible;z-Index:10000;\'></div>');
+    document.write('<div style=\'position:absolute;top:150px;left:' + ( - r * 2) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background-Color:#ffffff;visibility:visible;z-Index:10000;\'></div>');
 }
 function fl() {
     location.href = '/';
@@ -642,7 +642,7 @@ if (ac == ar) {
     }
     document.write('<img id=\'f_p0\' style="' + aN + '"  width=' + (50 * f) + ' height=' + (50 * f) + ' border=1>');
     document.write('<div id=\'f_n0\' style=\'' + bq + 'font-family:Arial;font-size:' + (16 * f) + 'px;color:#4fefff;\'></div>');
-    document.write('<div id=\'f_ba\' style=\'position:absolute;top:0px;left:0px;width:' + (r) + 'px;height:' + (42 * f) + 'px;background-Color:#000000;visibility:hidden;z-Index:1;\'></div>');
+    document.write('<div id=\'f_ba\' style=\'position:absolute;top:100px;left:0px;width:' + (r) + 'px;height:' + (42 * f) + 'px;background-Color:#ffffff;visibility:hidden;z-Index:1;\'></div>');
     document.write('<img id=\'f_li\' style=\'' + aN + '\' ' + Q + '=\'fu()\'  src=\'' + dk + '\' >');
     document.write('<img id=\'f_lo\' style=\'' + aN + '\' ' + Q + '=\'fi()\'  src=\'' + dj + '\' >');
     bQ("f_ba", 0.7);
@@ -655,17 +655,17 @@ if ((g == ae) || (g == at))
     eg('en', "7f4f00");
 document.write('<div id=\'t1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
 document.write('<div id=\'g1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'>Game Over</div>');
-document.write('<img id=\'ti\' style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:0;\' src=\'' + ds + '\' >');
-document.write('<img id=\'ba\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:0px;left:0px;visibility:hidden;opacity:0.5;-moz-opacity:0.6;filter:alpha(opacity=60);z-Index:7;\' src=\'' + ej + '\' >');
-document.write('<img id=\'bka\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:6;\' src=\'' + ci + '\' >');
-document.write('<img id=\'bkb\' ' + P + '=\'cR()\'   style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:4;\' src=\'' + cc + '\' >');
+document.write('<img id=\'ti\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:0;\' src=\'' + ds + '\' >');
+document.write('<img id=\'ba\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;opacity:0.5;-moz-opacity:0.6;filter:alpha(opacity=60);z-Index:7;\' src=\'' + ej + '\' >');
+document.write('<img id=\'bka\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:6;\' src=\'' + ci + '\' >');
+document.write('<img id=\'bkb\' ' + P + '=\'cR()\'   style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:4;\' src=\'' + cc + '\' >');
 for (var i = 0; i < 8; i++)
     document.write('<img id=\'spr' + i + '\'  ' + P + '=\'bt()\' ' + aq + '=\'bt()\'    style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[i] + '\' >');
-document.write('<img id=\'ten\'   style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[8] + '\' >');
+document.write('<img id=\'ten\'   style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[8] + '\' >');
 var aH = 20;
 for (var i = 0; i < aH; i++)
-    document.write('<img id=\'bou' + i + '\'  ' + P + '=\'cR()\' ' + P + '=\'cR()\'   style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[i % 17] + '\' >');
-document.write('<div id=\'li\' style=\'position:absolute;top:0px;left:0px;width:' + (1 * f) + 'px;height:' + (1 * f) + 'px;color:#7f7f7f;border-Width:' + (2 * f) + 'px 0px 0px 0px;border-Style:solid;visibility:hidden;z-Index:90;\'></div>');
+    document.write('<img id=\'bou' + i + '\'  ' + P + '=\'cR()\' ' + P + '=\'cR()\'   style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[i % 17] + '\' >');
+document.write('<div id=\'li\' style=\'position:absolute;top:150px;left:0px;width:' + (1 * f) + 'px;height:' + (1 * f) + 'px;color:#7f7f7f;border-Width:' + (2 * f) + 'px 0px 0px 0px;border-Style:solid;visibility:hidden;z-Index:90;\'></div>');
 document.write('</div>');
 function B(C) {
     document.getElementById(C).style.visibility = 'hidden';
@@ -1084,7 +1084,7 @@ function fL() {
         par_level = aL;
         par_game = bs;
         ds_HS();
-        var aO = '<center><font color=\'#ff0000\'><b>' + fy + '</b></font><br><br><font color=\'#ffff00\'>' + L + '</font>';
+        var aO = '<center><font color=\'#000000\'><b>' + fy + '</b></font><br><br><font color=\'#000000\'>' + L + '</font>';
         if (ac == gm) {
             //aO += '<br><br>' + fY + '<input style\'font-size:' + (14 * f) + 'px;\' type=text id=\'user\' name=\'user\' size=\'12\' value=\'' + bi + '\' style=\'font-size:' + (16 * f) + 'px;\' /><input type=\'button\'  value=\'OK\'  ' + P + '=\'go()\' style=\'background-color:#dddddd;font-size:' + (16 * f) + 'px;\' /><br><br><small><font color=\'#bfffff\'>' + fJ + '</font></small></center>';
             document.getElementById("hs").innerHTML = aO;
@@ -1648,14 +1648,14 @@ function test() {
     if ((g == af) && (eK))
     ;
     else
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'true';
     if ((g != 3) && (g != 6))
         document.addEventListener(cf, fz, false);
     for (i = 0; i < 200; i++)
         window.scroll(0, 1);
     cW();
     ab = cA;
-    document.body.style.backgroundColor = "#000000";
+    document.body.style.backgroundColor = "#ffffff";
     ed();
 };
 function fQ() {

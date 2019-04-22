@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+    <meta name="viewport" content="width=device-width initial-scale=1.0, user-scalable=no" />
+    <title>Game</title>
+    <meta name='robots' content='noindex,follow' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+    <style>
+        #logo:after{
+            content: "savingnemo";
+             color: #FFFFFF;
+         }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background:none!important;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+
+        .dropdown-content a {
+        float: none;
+        padding: 18px 16px;
+        padding-left: 23px;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .dropdown-content a:hover {
+        border: 0px;
+        background:none!important;
+        color: #fd7e14;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    </style>
+</head>
+<body style="background-color: #FFFFFF; ">
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
+		<div id="logo" style="top:10px; left: 10px">
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+{#			<h2><a href="index">VWB</a></h2>#}
+		</div>
+		<div id="menu" style="height: 50px">
+			<ul>
+				<li><a href="index" accesskey="1" title="">Homepage</a></li>
+				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
+				<li><a href="search" accesskey="3" title="">Search</a></li>
+                <div class="dropdown" style="float: left;">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase">Play & Win</a></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="quiz">Quiz</a>
+                          <a href="game">Game</a>
+                     </div>
+                </div>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 20px">
+{#    <div id="banner-wrapper" >#}
+{#        <div id="banner" class="container">#}
+{#            <br/>#}
+{#            <br/>#}
+{##}
+{#            <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 10%;">Play and Win !</h1></div>#}
+{#        </div>#}
+{#	</div>#}
+</div>
+<script>
+    function clickIE(){if(document.all)return false;}
+    function clickNS(e){if(document.layers||(document.getElementById&&!document.all)){
+		if(e.which==2||e.which==3)return false;}}
+
+		if(document.layers){document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+		else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+		document.oncontextmenu=new Function("return false");
+		{#if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;}#}
+		{#if(window.innerWidth<600){var gW=384;var gH=60;}#}
+		{#else {var gW=768;gH=120;}#}
+</script>
+
+
+
+	<script>
+		var par_level;
+		var par_score;
+		var par_game;
+		var par_ad2=1;
+		var par_ad3=1;
+		var par_ad4=1;
+		var par_adx2;
+		var par_adx3;
+		var par_adx4;
+
+		if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}
+		else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ;}
+
+		var ds_urlhiscore="http://www.6m5m.com/";
+
+		function ds_SHS(){return "";}
+		function ds_HS(){}
+
+		var dsp="dse.jpg";
+		var dsp=new Array("=0",
+			"static/app01/img/game/dse.jpg",
+			"http://www.6m5m.com/",
+			1,
+			0,
+			0,
+			0,
+			"",
+			"http://www.6m5m.com/",
+			1,
+			0,
+			0,
+			1,
+			0,
+			"http://www.6m5m.com/",
+			"/ad1.jpg",
+			"_self",
+			"udf23hh3r62srayd4",
+			0,
+			250,
+			16,
+			1,
+			"Loading ...",
+			"ffffff",
+			"000000",
+			"00bfdf",
+			0,
+			1,
+			0,
+			"",
+			1,
+			1);
+	</script>
+	<script src="static/app01/img/game/GoldNuggets_x.js?v=14502aa">
+
+
+    </script>
+{#<div id="copyright" class="container" >#}
+{#	<p style="color: #6c757d">&copy; Victorian wildlife bunj. All rights reserved. | Photos by VWB, Microsoft, Pixels | Design by <a href="#" style="color: #ad3729">VWB Team</a>.</p>#}
+{#</div>#}
+</body>
+
+</html>

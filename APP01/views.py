@@ -26,6 +26,8 @@ def quiz(request):
 
 def game(request):
     return render(request, 'app01/game.html')
+def testgame(request):
+    return render(request, 'app01/testgame.html')
 
 def aboutUs(request):
     return render(request, 'app01/aboutUs.html')

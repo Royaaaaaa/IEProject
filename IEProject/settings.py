@@ -25,7 +25,7 @@ SECRET_KEY = '4t7f!9@3)n^c=+_#xt9k%r#i^k72c=r7(603r)_4af02f%wv-l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['marinelife-236514.appspot.com','127.0.0.1','savingnemo.tk']
+ALLOWED_HOSTS = ['marinelife2.appspot.com','127.0.0.1','savingnemo.ml']
 
 
 # Application definition
@@ -102,10 +102,10 @@ if os.getenv('GAE_APPLICATION', None):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/marinelife-236514:us-central1:instance4',
+            'HOST': '/cloudsql/marinelife2:us-central1:instance5',
             'USER': 'roya',
             'PASSWORD': '803615',
-            'NAME':'marine',
+            'NAME':'marine2',
         }
     }
 else:

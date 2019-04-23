@@ -396,7 +396,7 @@ function eg(C, col) {
     document.getElementById(C).style.fontWeight = "bold";
     document.getElementById(C).style.filter = "alpha(opacity=50)";
 };
-document.write('<div id=\'all\' style=\'position:absolute;left:0px;top:180px;clip:rect(0px,' + r + 'px,' + (D) + 'px,0px);\'>');
+document.write('<div id=\'all\' style=\'position:absolute;left:0px;top:0px;clip:rect(0px,' + r + 'px,' + (D) + 'px,0px);\'>');
 if ((F < ai) && ((g == bf) || (g == af) || (g == be) || bL))
     ef("all", 0, 0, F / (r), ai / (D));
 else
@@ -1467,7 +1467,7 @@ function fs(d) {
             else {
                 // document.getElementById("t1").innerText = "+" + bT[d];
                 document.getElementById("t1").innerText = "";
-                document.getElementById("t11").innerText = "GOOD Job!";
+                document.getElementById("t11").innerText = "Good job!";
                 bZ--;
 
             }
@@ -1675,7 +1675,7 @@ function test() {
     if ((g == af) && (eK))
     ;
     else
-        document.body.style.overflow = 'true';
+        document.body.style.overflow = 'hidden';
     if ((g != 3) && (g != 6))
         document.addEventListener(cf, fz, false);
     for (i = 0; i < 200; i++)

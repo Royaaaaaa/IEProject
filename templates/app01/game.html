@@ -264,8 +264,26 @@
             <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 100%"></video>
 			<br/>
             <br/>
-            <a class = 'gameBtn2' href="javascript:void(0);" onclick = "window.location='testgame.html'" >
-               <img style = 'width:150px;height:50px; margin-left: 15%' src = '/static/app01/img/game/gamePlay.png'></a >
+{#            <a class = 'gameBtn2' href="javascript:void(0);" onclick = "window.location='testgame.html'" >#}
+{#               <img style = 'width:150px;height:50px; margin-left: 15%' src = '/static/app01/img/game/gamePlay.png'></a >#}
+            <a class = 'gameBtn2' href="javascript:void(0);" onclick = loadNew() >
+                <img style = 'width:150px;height:50px; margin-left: 15%' src = '/static/app01/img/game/gamePlay.png'></a >
+             <div id = "game" class="modal fade game" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
+                <div class="modal-dialog modal-lg" role="document"  style="width: 700px;height: 900px">
+                     <div class="modal-content" style="background-image: url('/static/app01/img/quizBackground.jpg'); text-align: center">
+                          <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                         </div>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <div id = "viewDiv" style="width: 768px;height: 1024px" >
+                         </div>
+                     </div>
+                 </div>
+            </div>
+
 
 
 
@@ -312,6 +330,13 @@
     $('.puzzle').on('hidden.bs.modal',function(){
         window.location.reload();
     });
+
+    function loadNew(){
+         $('#game').modal('show');
+         document.getElementById("viewDiv").innerHTML = '<object type="text/html" data="testgame.html" width="70%" height="70%"></object>';
+
+
+    }
 
 </script>
 </html>

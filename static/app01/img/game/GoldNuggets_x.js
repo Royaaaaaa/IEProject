@@ -545,8 +545,8 @@ m += 17;
 if (cS) {
 }
 if ((g != ae) && (g != be)) {
-    document.write('<div style=\'position:absolute;top:150px;left:' + (r) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background:none! important;visibility:visible;z-Index:10000;\'></div>');
-    document.write('<div style=\'position:absolute;top:150px;left:' + ( - r * 2) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background-Color:#ffffff;visibility:visible;z-Index:10000;\'></div>');
+    document.write('<div style=\'position:absolute;top:0px;left:' + (r) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background:none! important;visibility:visible;z-Index:10000;\'></div>');
+    document.write('<div style=\'position:absolute;top:0px;left:' + ( - r * 2) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background-Color:#ffffff;visibility:visible;z-Index:10000;\'></div>');
 }
 function fl() {
     location.href = '/';
@@ -555,12 +555,13 @@ if (aW) {
     var ah = aP + "&hi=1";
     if (dO)
         ah = ds_urlhiscore + dY;
-    document.write('<img id=\'hi\' style=\'' + aN + 'opacity:0.6;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fl()\' src=\'' + bY + '\' >');
+    document.write('<img id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fl()\' src=\'' + bY + '\' >');
 }
 document.write('<div id=\'hs\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;\'></div>');
-document.write('<img id=\'ng\' style=\'' + aN + 'opacity:0.6;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
+document.write('<img id=\'ng\' style=\'' + aN + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
 document.write('<div id=\'su\' style=\'' + aN + '\'><a href=\'#\' ' + P + '=\'go()\'><img  src=\'' + bv + '\' border=0></a></div>');
 document.write('<img id=\'co\' style=\'' + aN + '\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
+// document.write('<div id=\'co\' style=\'' + aN + '\' ' + Q + '=\'testgame.html\'  >Exit</div>');
 if (eN) {
 }
 
@@ -650,9 +651,17 @@ if (ac == ar) {
 document.write('<div id=\'s1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #5f0000;\'></div>');
 if ((g == ae) || (g == at))
     eg('s1', "7f007f");
-document.write('<div id=\'en\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #00005f;\'></div>');
+document.write('<div id=\'en\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #00005f;\' '+ Q + '=\'window.location.reload()\'></div>');
 if ((g == ae) || (g == at))
     eg('en', "7f4f00");
+
+function tg(){
+
+}
+// document.write('<img id=\'co\' style=\'' + aN + '\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
+// // document.write('<div id=\'close\' style=\'margin-left: 600px;position:absolute;float: right;' + 'color:#ffffff;font-family:Arial;z-Index:1;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #00005f;\'>Exit</div>');
+
+
 document.write('<div id=\'t1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
 document.write('<div id=\'g1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'>Game Over</div>');
 document.write('<img id=\'ti\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:0;\' src=\'' + ds + '\' >');
@@ -862,6 +871,7 @@ function cP(fC) {
         aV = "" + L;
     var gP = 'Score: ' + aV;
     document.getElementById("s1").innerText = gP;
+    // document.getElementById("close").innerText = "Exit"
 };
 var bh;
 function fN() {
@@ -1176,6 +1186,7 @@ function bm() {
     B("su");
     B("co");
     B("hs");
+    // B("en");
     t("ti", 0, 0, 1);
     o("ti", 0, 0);
     t("ng", 0, 0, 11);
@@ -1417,10 +1428,13 @@ function ec() {
     dz = (new Date()).getTime();
     bH = setInterval('cl(' + as + ')', 1000);
     if (as < 10)
-        document.getElementById("en").innerHTML = "TIME: 0" + as;
+        // document.getElementById("en").innerHTML = "TIME: 0" + as;
+        document.getElementById("en").innerHTML = "   Exit";
     else
-        document.getElementById("en").innerHTML = "TIME: " + as;
+        // document.getElementById("en").innerHTML = "TIME: " + as;
+        document.getElementById("en").innerHTML = "   Exit";
     t("en", r - document.getElementById("en").offsetWidth - 2, 2, 1001);
+    // t("close")
 };
 function fp(d) {
     if (Math.abs(aJ[d] - (bd - V)) < ((bo[d] >> 1) + V) && Math.abs(aK[d] - (bW - ad) + 12) < ((bo[d] >> 1) + ad)) {
@@ -1564,13 +1578,13 @@ function cl(as) {
         else
             bJ = "TIME: " + bM;
     }
-    document.getElementById("en").innerHTML = bJ;
+    document.getElementById("en").innerHTML = "   Exit";
 };
 function fO() {
     clearInterval(bH);
     bH = null;
     bJ = "TIME: 00";
-    document.getElementById("en").innerHTML = bJ;
+    document.getElementById("en").innerHTML = "   Exit";
     ab = dm;
     var di = 0;
     var dr = 0;
@@ -1655,7 +1669,8 @@ function test() {
         window.scroll(0, 1);
     cW();
     ab = cA;
-    document.body.style.backgroundColor = "#ffffff";
+    ///Background
+    document.body.style.backgroundColor = "#fffffff";
     ed();
 };
 function fQ() {

@@ -549,13 +549,16 @@ if ((g != ae) && (g != be)) {
     document.write('<div style=\'position:absolute;top:0px;left:' + ( - r * 2) + 'px;width:' + (r * 2) + 'px;height:' + (D) + 'px;background-Color:#000000;visibility:visible;z-Index:10000;\'></div>');
 }
 function fl() {
-    location.href = '/';
+    // do
+    //  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    // location.href = '/game';
 };
 if (aW) {
     var ah = aP + "&hi=1";
     if (dO)
         ah = ds_urlhiscore + dY;
-    document.write('<img id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fl()\' src=\'' + bY + '\' >');
+    document.write('<button type=\'button\' id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' class=\'close\' data-dismiss=\'modal\' aria-label=\'Close\' src=\'' + bY + '\' ></button>');
+    // document.write('<img id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fl()\' src=\'' + bY + '\' >');
 }
 document.write('<div id=\'hs\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;\'></div>');
 document.write('<img id=\'ng\' style=\'' + aN + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');

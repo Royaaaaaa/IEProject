@@ -662,7 +662,8 @@ function tg(){
 // // document.write('<div id=\'close\' style=\'margin-left: 600px;position:absolute;float: right;' + 'color:#ffffff;font-family:Arial;z-Index:1;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #00005f;\'>Exit</div>');
 
 
-document.write('<div id=\'t1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
+document.write('<div id=\'t1\' style=\'' + bq + 'color:#f9293a ;font-family:Arial;font-size:' + (30 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
+document.write('<div id=\'t11\' style=\'' + bq + 'color:#5C9F24 ;font-family:Arial;font-size:' + (30 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
 document.write('<div id=\'g1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'>Game Over</div>');
 document.write('<img id=\'ti\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:0;\' src=\'' + ds + '\' >');
 document.write('<img id=\'ba\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;opacity:0.5;-moz-opacity:0.6;filter:alpha(opacity=60);z-Index:7;\' src=\'' + ej + '\' >');
@@ -871,7 +872,6 @@ function cP(fC) {
         aV = "" + L;
     var gP = 'Score: ' + aV;
     document.getElementById("s1").innerText = gP;
-    // document.getElementById("close").innerText = "Exit"
 };
 var bh;
 function fN() {
@@ -914,6 +914,7 @@ function ca() {
     B("ten");
     B("li");
     B("t1");
+    B("t11");
     B("g1");
     B("en");
     B("s1");
@@ -1246,7 +1247,7 @@ function fg() {
     if (bZ <= 0) {
         aL++;
         ca();
-        cP(bM * 10);
+        cP(bM);
         ab = dE;
         return;
     }
@@ -1457,12 +1458,22 @@ function fs(d) {
             cP(ek[d]);
             cr += bT[d];
             if (bT[d] < 0)
-                document.getElementById("t1").innerText = "" + bT[d];
-            else {
-                document.getElementById("t1").innerText = "+" + bT[d];
-                bZ--;
+                // document.getElementById("t1").innerText = "" + bT[d];
+            {
+                document.getElementById("t1").innerText = "Don't catch them!";
+                document.getElementById("t11").innerText = ""
             }
-            t("t1", aJ[d], aK[d], 100);
+
+            else {
+                // document.getElementById("t1").innerText = "+" + bT[d];
+                document.getElementById("t1").innerText = "";
+                document.getElementById("t11").innerText = "GOOD Job!";
+                bZ--;
+
+            }
+             t("t1", aJ[d], aK[d], 100);
+             t("t11", aJ[d], aK[d], 100);
+
         }
         o('bou' + d, aJ[d], aK[d]);
     } else if (ba[d] == 3) {
@@ -1523,6 +1534,7 @@ function fA() {
             bw = 1;
             ag = bb;
             B("t1");
+            B("t11");
         }
         break;
     }
@@ -1592,6 +1604,7 @@ function fO() {
     dr = gV - (document.getElementById("g1").offsetHeight >> 1);
     t("g1", di, dr, 1001);
     B("t1");
+    B("t11");
     aY = 0;
 };
 var eo = 0;

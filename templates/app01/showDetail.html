@@ -169,13 +169,13 @@
   </div>
 
 <div id="wrapper" style="width: 100%">
-<div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%">
+<div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%; text-align: left">
 		<div id="content" style="width: 50%">
 			<p><img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" class="image image-full" style="width: 90%"/></p>
             <b style="margin-left:auto; padding-top:50px; padding-bottom: 40px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b>
             <br/>
             <br/>
-            <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px" >We are {{ animal.aPopulation}} in count now!</p> </li>
+{#            <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px" >We are {{ animal.aPopulation}} in count now!</p> </li>#}
             <br/>
             <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px">{{ animal.aFact }}</p></li>
             <br/>
@@ -186,14 +186,18 @@
              <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" > -------------> </b></li>
 
 		</div>
-		<div id="sidebar" style="width: 45%">
-			<ul class="style1">
-				<li class="first" style="padding-top: 100px">
-                        <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px" >{{ animal.aDetail }}</p>
-				</li>
+		<div id="sidebar" style="width: 45%; ">
+
+            <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" > Family: {{ animal.aFamily }}</p>
+            <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" > Weight: {{ animal.aWeight }}</p>
+            <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" > Length: {{ animal.aLength }}</p>
+            <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" > Lifespan: {{ animal.aLifespan }}</p>
+            <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" >	Special design feature: : {{ animal.aFeature }}</p>
+            <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" >	Population : {{ animal.aPopulation }}</p>
+
 
                 <div id="map" style="margin-top: 80px"></div>
-			</ul>
+
 
 
 
@@ -276,7 +280,7 @@
         console.log(list)
         var marker,i;
         var lo = {lat:list[0][0], lng: list[0][1]}
-        var map = new google.maps.Map(document.getElementById('map'), {zoom:5, center: lo});
+        var map = new google.maps.Map(document.getElementById('map'), {zoom:6, center: lo});
 
         for(i=0;i< list.length;i++)
         {

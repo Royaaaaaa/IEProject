@@ -7,12 +7,12 @@
         width: 100%;
         height: 100%;
     }
-.dropdown {
+.dropdown2 {
   float: left;
   overflow: hidden;
 }
 
-.dropdown .dropbtn {
+.dropdown2 .dropbtn {
   font-size: 1em;
   font-family: "Comic Sans MS";
   border: none;
@@ -48,7 +48,7 @@
     color: #fd7e14;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown2:hover .dropdown-content {
   display: block;
 }
 
@@ -105,7 +105,9 @@
 {#<meta name="google-site-verification" content="kf9l0W2vUKJF5WFoKSDXb0IXedsULUdjxjYR9LlHeq4" />#}
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
-
+<link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
@@ -118,12 +120,18 @@
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px" />
 {#			<h2><a href="index">VWB</a></h2>#}
 		</div>
+
 		<div id="menu" style="height: 300px">
-			<ul>
+         <div class="dropdown">
+                <a id="dLabe1" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dLabe1">
 				<li class="current_page_item"><a href="index" accesskey="1" title="">Homepage</a></li>
 				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
 				<li><a href="search" accesskey="3" title="">Search</a></li>
-                <div class="dropdown" >
+                <div class="dropdown2" >
                      <li><button class="dropbtn" accesskey="4" style="text-transform: uppercase">Play & Win
                      </button></li>
                      <div class="dropdown-content">
@@ -134,6 +142,7 @@
                 </div>
 			</ul>
 		</div>
+        </div>
 	</div>
 </div>
 <div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%">
@@ -157,53 +166,8 @@
 	</div>
 </div>
 <div id="next"></div>
-<div id="wrapper" style="width: 100%">
-<div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%">
-		<div id="content" style="width: 50%">
-			<div class="title">
-				<h2 style="font-family: 'Comic Sans MS'">Welcome to our website</h2>
-				<span class="byline"> </span> </div>
-			<p><img src="static/app01/index11/images/332.jpg" alt="" class="image image-full" />
-			</p>
-            <div class="title" style="margin-bottom: 0.8em">
-				<h2 style="font-family: 'Comic Sans MS';font-size: 30px">There are so many species under water!</h2>
-                <br/>
-                <span class="byline" style="font-size: 10px; color: #fd7e14"><a href="https://vnpa.org.au/programs/great-victorian-fish-count/" style="color: #fd7e14;font-family: 'Comic Sans MS'">To learn more, click here.</a> </span> </div>
-			    <br/>
-            <p><img src="static/app01/index11/images/animalHome.png" width="30%"; />
-			</p>
-{#            <div class="title">#}
-{#					<h2 style="font-family: 'Comic Sans MS';font-size: 30px"> View Marine fishes profiles.</h2>#}
-{#					<span class="byline" style="font-size: 15px">Top 20 sightings across Victoria.</span>#}
-{#            </div>#}
-                <p style="font-family: 'Comic Sans MS'">Oceans cover two thirds of our planet and they are teening with Marine animals. From fishes to sharks and whales to turtles, marine wildlife is highly diverse and contains the highest amount of life on Earth.</p>
-                <a href="typeid=1" class="button" style="margin-top: 0.5em">Check out fishes.</a>
-		</div>
-		<div id="sidebar" style="width: 50%">
-			<ul class="style1">
-				<li class="first">
-					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Be a friend of the Marine animals, be a Victorian Wildlife Bunj!</h3>
-					<p style="font-family: 'Comic Sans MS'">The word 'Bunj'is an Aboriginal word for 'Mate', usually used when addressing a friend. Sometimes used as 'Bunji/Bunjee'.</p>
-				</li>
-				<li>
-					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Do Marine animals need our help?</h3>
-                    <p style="font-family: 'Comic Sans MS'">Animals are found trapped in plastics in beach clean-ups. Five trillion pieces of plastics are floating in our sea.</p>
-				</li>
-				<li>
-					<h3 style="font-family: 'Comic Sans MS';font-size: 1em">Is plastic fantastic?</h3>
-					<p style="font-family: 'Comic Sans MS'">Plastic is made from oil, a limited resource. When we design one-time use items with plastic, we are using a valuable material in an irresponsible way. Choose reusable items today. We all can do something to help.</p>
-				    <img src="static/app01/index11/images/pf.PNG"/>
-                </li>
-
-			</ul>
-
-        
-		</div>
-	</div>
-</div>
-<div id="copyright" class="container" style="width: 100%">
-	<p style="color: #6c757d">&copy; Victorian wildlife bunj. All rights reserved. | Photos by VWB, Microsoft, Pixels | Design by <a href="#" style="color: #ad3729">VWB Team</a>.</p>
-</div>
-</div>
 </body>
+<script>
+    $('.dropdown-toggle').dropdown()
+</script>
 </html>

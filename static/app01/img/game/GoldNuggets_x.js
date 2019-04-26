@@ -1100,7 +1100,7 @@ function fL() {
         ds_HS();
         var aO = '<center><font color=\'#000000\'><b>' + fy + '</b></font><br><br><font color=\'#000000\'>' + L + '</font>';
         if (ac == gm) {
-            aO += '<br><br>' + fY + '<input style\'font-size:' + (14 * f) + 'px;\' type=text id=\'user\' name=\'user\' size=\'12\' value=\'' + bi + '\' style=\'font-size:' + (16 * f) + 'px;\' /><input type=\'button\'  value=\'OK\'  ' + P + '=\'go()\' style=\'background-color:#dddddd;font-size:' + (16 * f) + 'px;\' /><br><br><small><font color=\'#bfffff\'>' + fJ + '</font></small></center>';
+            // aO += '<br><br>' + fY + '<input style\'font-size:' + (14 * f) + 'px;\' type=text id=\'user\' name=\'user\' size=\'12\' value=\'' + bi + '\' style=\'font-size:' + (16 * f) + 'px;\' /><input type=\'button\'  value=\'OK\'  ' + P + '=\'go()\' style=\'background-color:#dddddd;font-size:' + (16 * f) + 'px;\' /><br><br><small><font color=\'#bfffff\'>' + fJ + '</font></small></center>';
             document.getElementById("hs").innerHTML = aO;
             t("hs", 0, 0, 200);
             t('co', 0, 0, 200);
@@ -1463,7 +1463,7 @@ function fs(d) {
             if (bT[d] < 0)
                 // document.getElementById("t1").innerText = "" + bT[d];
             {
-                document.getElementById("t1").innerText = "Don't catch them!";
+                document.getElementById("t1").innerText = "Don't catch it!";
                 document.getElementById("t11").innerText = ""
             }
 

@@ -273,15 +273,12 @@
                 <img style = 'width:150px;height:50px; margin-left: 15%' src = '/static/app01/img/game/gamePlay.png'></a >
              <div id = "game" class="modal fade game" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
                 <div class="modal-dialog modal-lg" role="document"  style="width: 700px;height: 900px">
-                     <div class="modal-content" style="background-image: url('/static/app01/img/quizBackground.jpg'); text-align: center">
+                     <div class="modal-content" style="background-image: url('/static/app01/img/background1.png'); text-align: center">
                           <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
                          </div>
-                         <br/>
-                         <br/>
-                         <br/>
-                         <div id = "viewDiv" style="width: 768px;height: 1024px; margin-left: -30px" >
+                         <div id = "viewDiv" style="width: 768px;height: 800px; margin-left: -30px" >
                          </div>
                      </div>
                  </div>
@@ -315,7 +312,7 @@
 
     function loadNew(){
          $('#game').modal('show');
-         document.getElementById("viewDiv").innerHTML = '<object type="text/html" data="testgame.html" width="70%" height="70%"></object>';
+         document.getElementById("viewDiv").innerHTML = '<object type="text/html" data="testgame.html" width="70%" height="90%"></object>';
 
 
     }

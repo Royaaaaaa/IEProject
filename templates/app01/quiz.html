@@ -103,6 +103,13 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
+        @media screen and (max-width: 600px) {
+
+        #videoLeft {
+            margin-left: 200px;
+        }
+
+    }
 
     </style>
 
@@ -145,27 +152,27 @@
 </div>
 <div id="wrapper"  style="background-color: #FFFFFF">
     <div id="page" class="container" style="width: 100%">
-        <div id="videoLeft" style="width: 600px">
+        <div id="videoLeft" style="width: 100%; text-align: center">
             <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls"></video>
-            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px">
-                <p class = 'shark'>
-                    <h3 style="margin-left: 5%; color: #0590B8" >It is hard to see in the murky waters of the deep, but sharks have excellent vision. Their night vision is better than a cat's or a wolf's.</h3>
-                </p>
-
-            </div>
+{#            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px;text-align: center">#}
+{#                <p class = 'shark'>#}
+{#                    <h3 style="margin-left: 5%; color: #0590B8" >It is hard to see in the murky waters of the deep, but sharks have excellent vision. Their night vision is better than a cat's or a wolf's.</h3>#}
+{#                </p>#}
+{##}
+{#            </div>#}
         </div>
-        <div id='videoRight' style="width: 600px">
+        <div id='videoRight' style="width: 100%; margin-top: 80px">
             <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls"></video>
-            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px">
-                <p class = 'plastic'>
-                    <h3 style="font-family: 'Comic Sans MS';margin-left: 7%; color: #0590B8">Plastic is an artificial material. It does not decompose in nature or ocean. It contains chemicals that are harmful to the enormous creatures living under water.</h3>
-                </p>
-            </div>
+{#            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px">#}
+{#                <p class = 'plastic'>#}
+{#                    <h3 style="font-family: 'Comic Sans MS';margin-left: 7%; color: #0590B8">Plastic is an artificial material. It does not decompose in nature or ocean. It contains chemicals that are harmful to the enormous creatures living under water.</h3>#}
+{#                </p>#}
+{#            </div>#}
         </div>
     </div>
 {#    <input type="button" value = 'Quiz!!!!!!!!!!!!!!!!!!' onclick=showHide()>#}
     <a class = 'quizBtn' href="javascript:void(0);" onclick = showHide() >
-        <img style = 'aligh: center; width:200px;height:60px' src = '/static/app01/img/quiz/quizclickbtn.png'></a >
+        <img style = 'margin-left:-50px;width:200px;height:60px; margin-top: 50px' src = '/static/app01/img/quiz/quizclickbtn.png'></a >
 
 </div>
 

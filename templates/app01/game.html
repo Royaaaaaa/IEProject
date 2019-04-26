@@ -50,6 +50,31 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
+    @media screen and (max-width: 600px) {
+
+        #menu {
+
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            text-align: right;
+            margin-left: 50px;
+            font-size: 10px
+        }
+
+        #banner {
+            padding-top: 20px;
+            font-size: 15px;
+        }
+
+        #logo:after {
+            content: "";
+            color: #FFFFFF;
+        }
+        #left  {
+            width: 100%;
+        }
+    }
 
 
     {#game1css样式！！#}
@@ -60,7 +85,7 @@
             outline: none;
         }
         html,body{
-            height:100%;
+            width:100%;
             height:100%;
         }
         .wrap{
@@ -217,13 +242,14 @@
 </div>
 <div id="wrapper" style="width: 100%">
 <div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%">
-		<div id="content" style="width: 40%; margin-left: 5%">
+	<div id ="left"	>
+    <div id="content" style="width: 70%; margin-left: 15%">
 
             <img src="/static/app01/img/game/puzzleExample.png" style="width: 100%; height: 400px">
             <br/>
             <br/>
             <a class = 'gameBtn1' href="javascript:void(0);" onclick = start() >
-               <img style = 'margin-left: -80px;width:150px;height:50px;' src = '/static/app01/img/game/gamePlay.png'></a >
+               <img style = 'width:150px;height:50px;' src = '/static/app01/img/game/gamePlay.png'></a >
 
             <div class="modal fade puzzle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
                 <div class="modal-dialog modal-lg" role="document">
@@ -261,11 +287,9 @@
             <br/>
             <br/>
             <br/>
-
-
-
         </div>
-		<div id="content" style="width: 40%; margin-left: 100px">
+        </div>
+		<div id="content" style="width: 70%; margin-left: 15%">
             <img src="/static/app01/img/game/rubbishExample.png" style="width: 100%; height: 400px">
 			<br/>
             <br/>

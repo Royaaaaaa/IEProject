@@ -29,12 +29,12 @@
         transform: scale(1.1);
     }
 
-    .dropdown {
+    .dropdown2 {
         float: left;
         overflow: hidden;
     }
 
-    .dropdown .dropbtn {
+    .dropdown2 .dropbtn {
         font-size: 1em;
         font-family: "Comic Sans MS";
         border: none;
@@ -46,7 +46,7 @@
         text-transform: uppercase;
     }
 
-    .dropdown-content {
+    .dropdown-content2 {
         display: none;
         position: absolute;
         background:none!important;
@@ -56,7 +56,7 @@
 
     }
 
-    .dropdown-content a {
+    .dropdown-content2 a {
         float: none;
         padding: 20px 16px;
         text-decoration: none;
@@ -66,13 +66,14 @@
         text-transform: uppercase;
     }
 
-    .dropdown-content a:hover {
+    .dropdown-content2 a:hover {
         background:none!important;
-        color: #fd7e14;
+        {#color: #fd7e14;#}
     }
 
-    .dropdown:hover .dropdown-content {
+    .dropdown2:hover .dropdown-content2 {
         display: block;
+        {#color: #fd7e14;#}
     }
 
     @media screen and (max-width: 700px)
@@ -135,7 +136,7 @@
     <meta name="description" content="" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
     <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+{#    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />#}
     <link rel="stylesheet" href="static/app01/css/bootstrap.min.css">
 
     <!-- FontAwesome CSS -->
@@ -167,12 +168,12 @@
 				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
 				<li  class="current_page_item"><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
 				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
-                <div class="dropdown" style="float: left;" id="drop">
+                <div class="dropdown2" style="float: left;" id="drop">
                     <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
-                     <div class="dropdown-content">
+                     <div class="dropdown-content2">
                           <a href="#"></a>
-                          <a href="puzzle" >Puzzle</a>
-                          <a href="testgame">Picking Rubbish</a>
+                          <a href="puzzle" style="color: #FFFFFF; " >Puzzle</a>
+                          <a href="testgame" style="color: #FFFFFF">Picking Rubbish</a>
                      </div>
                 </div>
 			</ul>

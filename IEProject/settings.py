@@ -102,10 +102,10 @@ if os.getenv('GAE_APPLICATION', None):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/marinelife2:us-central1:instance5',
+            'HOST': '/cloudsql/marinelife3:us-central1:instance6',
             'USER': 'roya',
             'PASSWORD': '803615',
-            'NAME':'marine2',
+            'NAME':'marine3',
         }
     }
 else:

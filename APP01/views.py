@@ -7,7 +7,7 @@ from .models import *
 import json
 
 def index(request):
-    return render(request, 'app01/fact.html')
+    return render(request, 'app01/index.html')
 
 def marinefamily(request):
     typelist= Type.objects.all()

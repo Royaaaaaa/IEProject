@@ -94,7 +94,7 @@
 
   #logo:after{
       content: "savingnemo";
-      color: #FFFFFF;
+      color: #000000;
 
   }
     @media screen and (max-width: 700px)
@@ -130,25 +130,22 @@
 
 </head>
 <body style="background-color: #FFFFFF;" >
-{#<div class="content">#}
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
-	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
+	<div id="header" class="container" style="color: black;height: 55px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
 		<div id="logo" style="top:10px; left: 10px">
-            <img src="static/app01/index11/images/logo.png" width="40px" height="40px" />
-{#			<h2><a href="index">VWB</a></h2>#}
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
 		</div>
-		<div id="menu" style="height: 300px">
+		<div id="menu" style="height: 100px; padding-right: 50px">
 			<ul>
-				<li class="current_page_item"><a href="index" accesskey="1" title="">Homepage</a></li>
-				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
-				<li><a href="search" accesskey="3" title="">Search</a></li>
-                <div class="dropdown" id="drop">
-                     <li><button class="dropbtn" accesskey="4" style="text-transform: uppercase">Play & Win
-                     </button></li>
+				<li class="current_page_item"><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
+				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
+				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
+                <div class="dropdown" style="float: left;" id="drop">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
                      <div class="dropdown-content">
                           <a href="#"></a>
-                          <a href="quiz">Quiz</a>
-                          <a href="game">Game</a>
+                          <a href="puzzle" >Puzzle</a>
+                          <a href="testgame">Picking Rubbish</a>
                      </div>
                 </div>
 			</ul>

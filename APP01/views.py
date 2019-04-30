@@ -27,12 +27,14 @@ def quiz(request):
 def game(request):
     return render(request, 'app01/game.html')
 def testgame(request):
-    return render(request, 'app01/testgame.html')
+    return render(request, 'app01/pickingrubbish.html')
 
 def aboutUs(request):
     return render(request, 'app01/aboutUs.html')
 def storyAndFact(request):
     return render(request,'app01/storyAndFact.html')
+def puzzle(request):
+    return render(request,'app01/puzzle.html')
 
 def search(request):
     typelist = Type.objects.all()

@@ -14,9 +14,27 @@
 {#    <link href="default_ie6.css" rel="stylesheet" type="text/css"/>#}
 
     <style>
+        div.img-container{
+            position: relative;
+            padding:0;
+            width:100%;
+            height: 100%
+        }
+        .img-container .mask{
+            position: absolute;
+            top:0;
+            left:0;
+            height:100%;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: #f5f1e5;
+            line-height: 250px;
+            text-align: center;
+            display: none;
+        }
         #logo:after{
              content: "savingnemo";
-             color: #FFFFFF;
+             color: #000000;
              vertical-align: bottom;
          }
         {#模板css开始####################################}
@@ -80,7 +98,7 @@
             display: none;
             position: absolute;
             background:none!important;
-            min-width: 160px;
+            min-width: 200px;
             z-index: 1;
         }
 
@@ -124,6 +142,45 @@
 
 
 }
+        .arrow{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #d9534f;
+    border-right: 5px solid #d9534f;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(20px,20px);
+    }
+}
+  #next {
+
+  }
 
     </style>
 
@@ -132,61 +189,85 @@
 {#模板body开始##################################}
 <body style="background-color: #ffffff">
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
-	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
+	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
 		<div id="logo" style="top:10px; left: 10px">
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
-{#			<h2><a href="index">VWB</a></h2>#}
 		</div>
-		<div id="menu" style="height: 100px">
+		<div id="menu" style="height: 100px; padding-right: 50px">
 			<ul>
-				<li><a href="index" accesskey="1" title="">Homepage</a></li>
-				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>
-				<li><a href="search" accesskey="3" title="">Search</a></li>
+				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
+				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
+				<li class="current_page_item"><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
                 <div class="dropdown" style="float: left;" id="drop">
-                    <li><a href="#" accesskey="4" style="text-transform: uppercase">Play & Win</a></li>
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
                      <div class="dropdown-content">
                           <a href="#"></a>
-                          <a href="quiz">Quiz</a>
-                          <a href="game">Game</a>
+                          <a href="puzzle" class="current_page_item">Puzzle</a>
+                          <a href="testgame">Picking Rubbish</a>
                      </div>
                 </div>
 			</ul>
 		</div>
 	</div>
 </div>
-<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 100px">
-	<div id="banner-wrapper" >
-        <div id="banner" class="container">
+<div class="img-container">
+<div id="header-featured"  style="background-image: url(static/app01/img/quiz/quizbackground/quizback.jpg);padding-top: 0px;width:100%;height:100%;background-repeat: repeat">
+	<div id="banner-wrapper">
+		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
             <br/>
             <br/>
-            <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 1.5em;width: fit-content; margin-left: 10%;">Play and Win!</h1></div>
-        </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <p style="font-family: 'Comic Sans MS'; font-size: 4em;color: #fd7e14">Quiz Time!</p>
+            <br/>
+            <br/>
+            <br/>
+            <a href="#wrapper"> <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div></a>
+		</div>
+
 	</div>
 </div>
-<div id="wrapper"  style="background-color: #FFFFFF">
-    <div id="page" class="container" style="width: 100%">
-        <div id="videoLeft" style="width: 100%; text-align: center">
-            <video src="/static/app01/img/quiz/videoLeft.mp4" controls="controls"></video>
-{#            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px;text-align: center">#}
+{#<div class="mask">#}
+{#   HAHAHHAAH#}
+{#</div>#}
+</div>
+<div id="wrapper"  >
+    <div id="page" class="container" style="background-image: url(static/app01/img/quiz/quizbackground/quiz33.jpg); width: 100%;height: 100%">
+        <img src="static/app01/img/quiz/quizbackground/watch-this-video.png" style="height: 80%"/>
+        <div id="videoLeft" style="width: 100%; text-align: center; margin-top: -20px">
+
+            <video src="static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 40%; height: 350px;"></video>
+             <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls" style="width: 40%; height: 340px"></video>
+            {#            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px;text-align: center">#}
 {#                <p class = 'shark'>#}
 {#                    <h3 style="margin-left: 5%; color: #0590B8" >It is hard to see in the murky waters of the deep, but sharks have excellent vision. Their night vision is better than a cat's or a wolf's.</h3>#}
 {#                </p>#}
 {##}
 {#            </div>#}
         </div>
-        <div id='videoRight' style="width: 100%; margin-top: 80px">
-            <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls"></video>
+
+{#        <div id='videoRight' style="width: 100%; margin-top: 80px">#}
+{#            <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls"></video>#}
 {#            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px">#}
 {#                <p class = 'plastic'>#}
 {#                    <h3 style="font-family: 'Comic Sans MS';margin-left: 7%; color: #0590B8">Plastic is an artificial material. It does not decompose in nature or ocean. It contains chemicals that are harmful to the enormous creatures living under water.</h3>#}
 {#                </p>#}
 {#            </div>#}
-        </div>
+{#        </div>#}
     </div>
+    <div style="background-image: url(static/app01/img/quiz/quizbackground/quiz33.jpg);height: 600px">
+    <img src="static/app01/img/quiz/quizbackground/quiz.jpg" style="width:50%;margin-left: 25%" />
 {#    <input type="button" value = 'Quiz!!!!!!!!!!!!!!!!!!' onclick=showHide()>#}
     <a class = 'quizBtn' href="javascript:void(0);" onclick = showHide() >
         <img style = 'margin-left:-50px;width:200px;height:60px; margin-top: 50px' src = '/static/app01/img/quiz/quizclickbtn.png'></a >
-
+    </div>
 </div>
 
 {#模板body结束#################################}

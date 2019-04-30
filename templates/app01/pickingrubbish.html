@@ -16,14 +16,15 @@
     <style>
         #logo:after{
             content: "savingnemo";
-             color: #FFFFFF;
+             color: #000000;
+            vertical-align: bottom;
          }
 
         .dropdown-content {
             display: none;
             position: absolute;
             background:none!important;
-            min-width: 160px;
+            min-width: 200px;
             z-index: 1;
         }
 
@@ -48,42 +49,92 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
+    .arrow{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #d9534f;
+    border-right: 5px solid #d9534f;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(20px,20px);
+    }
+}
+  #next {
+
+  }
     </style>
 </head>
-<body style="background-color: #FFFFFF; ">
-{#<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">#}
-{#	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">#}
-{#		<div id="logo" style="top:10px; left: 10px">#}
-{#            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>#}
-{#			<h2><a href="index">VWB</a></h2>#}
-{#		</div>#}
-{#		<div id="menu" style="height: 50px">#}
-{#			<ul>#}
-{#				<li><a href="index" accesskey="1" title="">Homepage</a></li>#}
-{#				<li><a href="marinefamily" accesskey="2" title="">Discover</a></li>#}
-{#				<li><a href="search" accesskey="3" title="">Search</a></li>#}
-{#                <div class="dropdown" style="float: left;">#}
-{#                    <li><a href="#" accesskey="4" style="text-transform: uppercase">Play & Win</a></li>#}
-{#                     <div class="dropdown-content">#}
-{#                          <a href="#"></a>#}
-{#                          <a href="quiz">Quiz</a>#}
-{#                          <a href="game">Game</a>#}
-{#                     </div>#}
-{#                </div>#}
-{#			</ul>#}
-{#		</div>#}
-{#	</div>#}
-{#</div>#}
-{#<div id="header-featured"  style="background-image: url(static/app01/index11/images/background.jpg);padding-top: 0px; width: 100%; height: 20px">#}
-{#    <div id="banner-wrapper" >#}
-{#        <div id="banner" class="container">#}
-{#            <br/>#}
-{#            <br/>#}
-{##}
-{#            <h1 style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 2em;width: fit-content; margin-left: 10%;">Play and Win !</h1></div>#}
-{#        </div>#}
-{#	</div>#}
-{#</div>#}
+<body style="background-color: #ffffff; ">
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
+		<div id="logo" style="top:10px; left: 10px">
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+		</div>
+		<div id="menu" style="height: 100px; padding-right: 50px">
+			<ul>
+				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
+				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
+				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
+                <div class="dropdown" style="float: left;" id="drop">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="puzzle" style="color: black">Puzzle</a>
+                          <a href="testgame" style="color: black">Picking Rubbish</a>
+                     </div>
+                </div>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="header-featured"  style="background-image: url(static/app01/img/game/rubbish.jpg);padding-top: 0px; width: 100%; height: 100%">
+    <div id="banner-wrapper">
+		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
+            <br/>
+            <br/>
+            <br/>
+            <p style="font-family: 'Comic Sans MS'; font-size: 2em">Welcome to protect animals with us!</p>
+			<p style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 1.5em"> This game has three levels in total, to pass each level of this game, you need to pick up all the rubbish</p>
+            <p style="font-family: 'Comic Sans MS'; color: darkred;font-size: 1.5em; font-weight: bold">Please don't catch animals.</p>
+            <br/>
+            <br/>
+            <br/>
+            <a href="#next"> <div class="arrow">
+                <span></span>
+                <span></span>
+            </div></a>
+		</div>
+
+	</div>
+</div>
+<div id="next" style="height: 720px; width: 100%;background-color: #31708f;margin-top: 0"></div>
+
 <script>
     function clickIE(){if(document.all)return false;}
     function clickNS(e){if(document.layers||(document.getElementById&&!document.all)){

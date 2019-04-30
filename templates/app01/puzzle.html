@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+    <meta name="viewport" content="width=device-width initial-scale=1.0, user-scalable=no" />
+    <title>Game</title>
+    <meta name='robots' content='noindex,follow' />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+    <style>
+        #logo:after{
+            content: "savingnemo";
+             color: #000000;
+            vertical-align: bottom;
+         }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background:none!important;
+            min-width: 200px;
+            z-index: 1;
+        }
+
+
+        .dropdown-content a {
+        float: none;
+        padding: 18px 16px;
+        padding-left: 23px;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .dropdown-content a:hover {
+        border: 0px;
+        background:none!important;
+        color: #fd7e14;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .arrow{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #d9534f;
+    border-right: 5px solid #d9534f;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(20px,20px);
+    }
+}
+  #next {
+
+  }
+
+    {#game1css样式！！#}
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            outline: none;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        .wrap{
+            padding:20px 0;
+        }
+        .btnBbox{
+            margin:0 auto;
+            width:600px;
+            text-align:center;
+        }
+        .btnBbox .selectbox{
+            display:inline-block;
+            vertical-align: top;
+        }
+        .btnBbox .selectbox{
+            display:inline-block;
+            position: relative;
+            width:120px;
+
+        }
+        .btnBbox .selectbox .text{
+            width:100%;
+            height:40px;
+            text-align:center;
+            border:none;
+            background:#ececec;
+            border-radius:5px;
+            display: block;
+            line-height:40px;
+            color:rgb(63, 63, 63);
+            cursor:pointer;
+            font-size:16px;
+            transition:all ease 0.2s;
+        }
+        .btnBbox .selectbox .text:hover{
+            background:#e4e4e4;
+        }
+        .btnBbox .selectbox .box{
+            position: absolute;
+            width:100%;
+            padding:5px 0;
+            background:#ececec;
+            color:rgb(102, 102, 102);
+            border-radius:5px;
+            z-index: 10000;
+            margin-top:5px;
+            display:none;
+            font-size:14px;
+        }
+        .btnBbox .selectbox .box li{
+            width:100%;
+            height:30px;
+            text-align:center;
+            line-height:30px;
+            transition:all ease 0.2s;
+            cursor:pointer;
+        }
+        .btnBbox .selectbox .box li:hover{
+            background:rgb(26, 187, 133);
+            color:#fff;
+        }
+        .btnBbox .selectbox.active .text{
+            background:rgb(26, 187, 133);
+            color:#fff;
+        }
+        .btnBbox .btn{
+            width:120px;
+            border:none;
+            background:rgb(51, 134, 230);
+            color:#fff;
+            border-radius:5px;
+            height:40px;
+            cursor:pointer;
+            font-size:16px;
+            margin-right:10px;
+        }
+        .btnBbox .btn:hover{
+            background:rgb(56, 140, 236);
+        }
+        .picBox{
+            text-align:center;
+            margin-top:30px;
+        }
+        .picBox .list{
+            display:inline-block;
+            width:600px;
+            height:400px;
+            position:relative;
+            {#background-image:url('/static/app01/img/game/afe1.jpg');#}
+        }
+        .picBox .list li{
+            position: absolute;
+            overflow: hidden;
+            border-radius:0;
+            background-image:url('/static/app01/img/game/afe1.jpg');
+            box-shadow:0 0px 6px rgba(255,255,255,0.6);
+            cursor:pointer;
+            overflow: hidden;
+        }
+
+        .center-block {
+              display: block;
+              margin:auto;
+            vertical-align: middle;
+
+        }
+
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff; ">
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
+		<div id="logo" style="top:10px; left: 10px">
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+		</div>
+		<div id="menu" style="height: 100px; padding-right: 50px">
+			<ul>
+				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
+				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
+				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
+                <div class="dropdown" style="float: left;" id="drop">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="puzzle" class="current_page_item">Puzzle</a>
+                          <a href="testgame">Picking Rubbish</a>
+                     </div>
+                </div>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="header-featured"  style="background-image: url(static/app01/img/game/puzzle.jpg);padding-top: 0px; ">
+    <div id="banner-wrapper">
+		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
+            <br/>
+            <br/>
+            <br/>
+            <p style="font-family: 'Comic Sans MS'; font-size: 2em">Welcome to protect animals with us!</p>
+			<p style="font-family: 'Comic Sans MS'; color: #FFFFFF; font-size: 1.5em"> This game has three levels in total, to pass each level of this game, you need to pick up all the rubbish</p>
+            <p style="font-family: 'Comic Sans MS'; color: darkred;font-size: 1.5em; font-weight: bold">Please don't catch animals.</p>
+            <br/>
+            <br/>
+            <br/>
+            <a href="#next"> <div class="arrow">
+                <span></span>
+                <span></span>
+            </div></a>
+		</div>
+
+	</div>
+</div>
+<div id="next" style="height: 700px; width: 100%;background-color: #f6f6f6;">
+{# <div class="modal fade puzzle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >#}
+{#                <div class="modal-dialog modal-lg" role="document">#}
+                     <div class="modal-content" style="background-image: url('/static/app01/img/quiz/quizbackground/Quizbg2.jpg')">
+                          <div class="modal-header">
+{#                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+                             <img src='/static/app01/img/game/puzzleCornerTitle.png' style="height:130px" class="img-responsive center-block" >
+                         </div>
+
+                         <div class="wrap">
+                            <div class="btnBbox">
+                             <button class="btn" type="button">Start</button>
+                            <div class="selectbox">
+                                 <button class="text">easy</button>
+                                <ul class="box">
+                                <li>easy</li>
+                                 <li>basic</li>
+                                 <li>normal</li>
+                                 <li>hard</li>
+                                 <li>crazy</li>
+                                 </ul>
+                             </div>
+                          </div>
+                             <div class="picBox" style="width: 100%">
+                                 <ul class="list"></ul>
+                             </div>
+                         </div>
+                         <div class = 'container hidden' style="width:898px;height:525px">
+                             <img class = 'goodjob img-responsive center-block' src='/static/app01/img/game/goodjob.gif' style="height:330px;margin-top:80px"  >
+                         </div>
+                     </div>
+                 </div>
+{#            </div>#}
+{#    </div>#}
+</body>
+<script src='/static/app01/js/jquery-3.3.1.js'></script>
+<script src='/static/app01/js/bootstrap.js'></script>
+<script src='/static/app01/js/jquery-3.3.1.js'></script>
+<script src='/static/app01/js/bootstrap.js'></script>
+<script type="text/javascript" src="/static/app01/js/puzzle.js"></script>
+</html>

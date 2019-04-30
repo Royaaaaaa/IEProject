@@ -32,7 +32,8 @@ urlpatterns = [
     url(r'^searchtype$',views.searchtype),
     url(r'^(\d+)$',views.showDetail),
     url(r'^typeid=(\d+)$',views.marinelife),
-    url(r'^testgame',views.testgame)
+    url(r'^testgame',views.testgame),
+    url(r'^puzzle',views.puzzle)
     # url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':'/static/'}),
 
 

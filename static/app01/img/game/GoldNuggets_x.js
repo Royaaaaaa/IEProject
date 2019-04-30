@@ -396,7 +396,8 @@ function eg(C, col) {
     document.getElementById(C).style.fontWeight = "bold";
     document.getElementById(C).style.filter = "alpha(opacity=50)";
 };
-document.write('<div id=\'all\' style=\'position:absolute;left:0px;top:0px;clip:rect(0px,' + r + 'px,' + (D) + 'px,0px);\'>');
+///Change the padding top
+document.write('<div id=\'all\' style=\'position:absolute;left:0px;top:' + (ai+100) + 'px;clip:rect(0px,' + r + 'px,' + (D) + 'px,0px);\'>');
 if ((F < ai) && ((g == bf) || (g == af) || (g == be) || bL))
     ef("all", 0, 0, F / (r), ai / (D));
 else
@@ -1678,7 +1679,7 @@ function test() {
     if ((g == af) && (eK))
     ;
     else
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'show';
     if ((g != 3) && (g != 6))
         document.addEventListener(cf, fz, false);
     for (i = 0; i < 200; i++)

@@ -51,10 +51,11 @@ body::-webkit-scrollbar { display: none; }
   position:fixed; 
   z-index:9; 
   top:50%; 
-  cursor:pointer; 
-  color:#fff; 
-  opacity:0.7; 
-  transition: all 0.66s ease; -webkit-transition: all 0.66s ease; 
+  cursor:pointer;
+  color:#fff;
+  opacity:0.7;
+  transition: all 0.66s ease; -webkit-transition: all 0.66s ease;
+
   }
 
 .nav:hover { opacity:1.0; }

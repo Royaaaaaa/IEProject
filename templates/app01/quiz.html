@@ -94,6 +94,12 @@
             margin-left: 44%;
         }
 
+        .tracker{
+            width:42.5px;
+            height:42.5px;
+        }
+
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -111,7 +117,7 @@
         text-decoration: none;
         display: block;
         text-align: left;
-        color: #FFFFFF;
+        color: #000000;
     }
 
     .dropdown-content a:hover {
@@ -187,7 +193,7 @@
 </head>
 {#<body style="background-color: #f2dede">#}
 {#模板body开始##################################}
-<body style="background-color: #ffffff">
+<body style="background-color: #ffffff; font-family: 'Comic Sans MS'">
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
 		<div id="logo" style="top:10px; left: 10px">
@@ -210,8 +216,8 @@
 		</div>
 	</div>
 </div>
-<div class="img-container">
-<div id="header-featured"  style="background-image: url(static/app01/img/quiz/quizbackground/quizback.jpg);padding-top: 0px;width:100%;background-repeat: repeat">
+<div class="img-container" >
+<div id="header-featured"  style="background-image: url(static/app01/img/quiz/quizbackground/quiz.jpg);background-size: 55%;background-repeat: no-repeat">
 	<div id="banner-wrapper">
 		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
             <br/>
@@ -221,38 +227,35 @@
             <br/>
             <br/>
             <br/>
-            <p style="font-family: 'Comic Sans MS'; font-size: 4em;color: #fd7e14">Quiz Time!</p>
             <br/>
             <br/>
-            <br/>
-            <a href="#wrapper"> <div class="arrow">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div></a>
 		</div>
+        <a class = 'quizBtn' style="margin-left: 55%" href="javascript:void(0);" onclick = showHide() >
+        <img style = 'width:20%;height:60px; margin-top: 0' src = '/static/app01/img/quiz/quizclickbtn.png'></a >
 
 	</div>
+
 </div>
+
 {#<div class="mask">#}
 {#   HAHAHHAAH#}
 {#</div>#}
 </div>
-<div id="wrapper"  >
-    <div id="page" class="container" style="background-image: url(static/app01/img/quiz/quizbackground/quiz33.jpg); width: 100%;height: 100%">
-        <img src="static/app01/img/quiz/quizbackground/watch-this-video.png" style="height: 80%"/>
-        <div id="videoLeft" style="width: 100%; text-align: center; margin-top: -20px">
-
-            <video src="static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 40%; height: 350px;"></video>
-             <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls" style="width: 40%; height: 340px"></video>
+{#<div id="wrapper"  >#}
+{#    <div id="page" class="container" >#}
+{#        <img src="static/app01/img/quiz/quizbackground/watch-this-video.png" style="height: 80%"/>#}
+{#        <div id="videoLeft" style="width: 100%; text-align: center; margin-top: -20px">#}
+{##}
+{#            <video src="static/app01/img/quiz/videoLeft.mp4" controls="controls" style="width: 40%; height: 350px;"></video>#}
+{#             <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls" style="width: 40%; height: 340px"></video>#}
             {#            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px;text-align: center">#}
 {#                <p class = 'shark'>#}
 {#                    <h3 style="margin-left: 5%; color: #0590B8" >It is hard to see in the murky waters of the deep, but sharks have excellent vision. Their night vision is better than a cat's or a wolf's.</h3>#}
 {#                </p>#}
 {##}
 {#            </div>#}
-        </div>
-
+{#        </div>#}
+{##}
 {#        <div id='videoRight' style="width: 100%; margin-top: 80px">#}
 {#            <video src="/static/app01/img/quiz/videoRight.mp4" controls="controls"></video>#}
 {#            <div class='desc' style="font-family: 'Comic Sans MS';margin-top: 10px">#}
@@ -261,14 +264,13 @@
 {#                </p>#}
 {#            </div>#}
 {#        </div>#}
-    </div>
-    <div style="background-image: url(static/app01/img/quiz/quizbackground/quiz33.jpg);height: 600px">
-    <img src="static/app01/img/quiz/quizbackground/quiz.jpg" style="width:50%;margin-left: 25%" />
+{#    </div>#}
+{#    <div>#}
+{#    <img src="static/app01/img/quiz/quizbackground/quiz.jpg" style="width:50%;margin-left: 25%" />#}
 {#    <input type="button" value = 'Quiz!!!!!!!!!!!!!!!!!!' onclick=showHide()>#}
-    <a class = 'quizBtn' href="javascript:void(0);" onclick = showHide() >
-        <img style = 'margin-left:-50px;width:200px;height:60px; margin-top: 50px' src = '/static/app01/img/quiz/quizclickbtn.png'></a >
-    </div>
-</div>
+
+{#    </div>#}
+{#</div>#}
 
 {#模板body结束#################################}
 <!-- Button trigger modal -->
@@ -285,8 +287,22 @@
                 <img src='/static/app01/img/quiz/QuizTitle.png' class="img-responsive center-block"
                      style='width:400px;height:100px'>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style = 'height:350px'>
                 <div class = 'contentQues'>
+                    <div class = 'trackerBox' style ='height:60px;width:100%;text-align:center'>
+   <div>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+   </div>
+</div>
 {#                    问题1！！！！！！！！！！！！#}
                     <div class = 'quesPic' style='width:220px;float:left;margin-top:20px'>
                       <img src='/static/app01/img/quiz/quizpic/q1.jpg' class="img-responsive center-block img-circle">
@@ -304,7 +320,7 @@
                         <div style = 'font-weight:bold'>A whale shark can weight as much as 13 tons, which is the same as two African elephants!</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is A</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is A</h4>
                         <div style = 'font-weight:bold'>A whale shark can weight as much as 13 tons, which is the same as two African elephants!</div>
                     </div>
 
@@ -322,11 +338,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>About 8 million metric tons of plastic are thrown into the ocean annually tiny pieces of broken-down plastic smaller than your little fingernail.</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is D</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is D</h4>
                         <div style = 'font-weight:bold'>About 8 million metric tons of plastic are thrown into the ocean annually tiny pieces of broken-down plastic smaller than your little fingernail.</div>
                     </div>
 
@@ -343,11 +359,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>Globally, 100,000 marine mammals die every year as a result of plastic pollution.</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is A</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is A</h4>
                         <div style = 'font-weight:bold'>Globally, 100,000 marine mammals die every year as a result of plastic pollution.</div>
                     </div>
 
@@ -365,11 +381,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>Bull sharks have developed special adaptations that keep salt in their bodies, enabling them to live in freshwater.</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is A</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is A</h4>
                         <div style = 'font-weight:bold'>Bull sharks have developed special adaptations that keep salt in their bodies, enabling them to live in freshwater.</div>
                     </div>
 
@@ -386,11 +402,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>The hammerhead shark pins stingrays (its favorite food) to the seafloor with its wide, flat head.</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is B</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is B</h4>
                         <div style = 'font-weight:bold'>The hammerhead shark pins stingrays (its favorite food) to the seafloor with its wide, flat head.</div>
                     </div>
 
@@ -407,11 +423,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>Scientists have identified about 370 species of sharks, but there may be many more species out there to discover!</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is B</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is B</h4>
                         <div style = 'font-weight:bold'>Scientists have identified about 370 species of sharks, but there may be many more species out there to discover!</div>
                     </div>
 
@@ -428,11 +444,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>Sailfish are the fastest known marine animals which have been clocked at speeds of more than 110 kilometers an hour!</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is A</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is A</h4>
                         <div style = 'font-weight:bold'>Sailfish are the fastest known marine animals which have been clocked at speeds of more than 110 kilometers an hour!</div>
                     </div>
 
@@ -449,11 +465,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>The Great Barrier Reef, which is really a complex of over 2000 reefs, is made of coral.</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is A</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is A</h4>
                         <div style = 'font-weight:bold'>The Great Barrier Reef, which is really a complex of over 2000 reefs, is made of coral.</div>
                     </div>
 
@@ -470,11 +486,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>Sea animals sometimes swallow plastic bags because they mistake them for drifting jellyfish. The plastic can block their stomachs.</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is A</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is A</h4>
                         <div style = 'font-weight:bold'>Sea animals sometimes swallow plastic bags because they mistake them for drifting jellyfish. The plastic can block their stomachs.</div>
                     </div>
 
@@ -491,11 +507,11 @@
                     </div>
 
                     <div class = 'ansQues hideQues'>
-                        <h4 style='color:red;font-weight:bold'>Correct</h4>
+                        <h4 style='color:green;font-weight:bold'>Correct</h4>
                         <div style = 'font-weight:bold'>The pufferfish gulps water to turn into a difficult-to-eat spikeball when it feels threatened.</div>
                     </div>
                     <div class = 'wroQues hideQues'>
-                        <h4 style = 'color:red;font-weight:bold'>The correct answer is B</h4>
+                        <h4 style = 'color:red;font-weight:bold'>Incorrect,the correct answer is B</h4>
                         <div style = 'font-weight:bold'>The pufferfish gulps water to turn into a difficult-to-eat spikeball when it feels threatened.</div>
                     </div>
 
@@ -539,6 +555,8 @@
         ,q6:'B.About 370',q7:'A.Sailfish',q8:'A.Coral',q9:'A.Jellyfish',q10:'B.Pufferfish'};
 
     function showHide() {
+        $('.trackerBox').removeClass('hideBtn');
+        $('.trackerBox').find('.tracker').prop('src','/static/app01/img/quiz/quiztracker/tracker_empty.png');
         $('#quizPart').modal('show');
         $('.textQues .btn').removeClass('active');
         score = 0;
@@ -572,6 +590,7 @@
         if(selectAns[ques] != undefined){
             $('.textQues').eq(count).addClass('hideQues');
             if(selectAns[ques] == correctAns[ques]){
+                $('.trackerBox').find('.tracker').eq(count).prop('src','/static/app01/img/quiz/quiztracker/tracker_right.png');
                 $('.ansQues').eq(count).removeClass('hideQues');
                 score++;
                 $(arg).addClass('hideBtn');
@@ -579,6 +598,7 @@
                 count++;
             }
             else{
+                $('.trackerBox').find('.tracker').eq(count).prop('src','/static/app01/img/quiz/quiztracker/tracker_wrong.png');
                 $('.wroQues').eq(count).removeClass('hideQues');
                 $(arg).addClass('hideBtn');
                 $(arg).next().removeClass('hideBtn');
@@ -640,7 +660,8 @@
         selectAns = {};
         count = 0;
         $('.textQues .btn').removeClass('active');
-
+        $('.trackerBox').removeClass('hideBtn');
+        $('.trackerBox').find('.tracker').prop('src','/static/app01/img/quiz/quiztracker/tracker_empty.png');
 
         $('.showRes').addClass('hideQues');
         $('.ansQues').addClass('hideQues');

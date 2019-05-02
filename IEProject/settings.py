@@ -25,7 +25,7 @@ SECRET_KEY = '4t7f!9@3)n^c=+_#xt9k%r#i^k72c=r7(603r)_4af02f%wv-l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['marinelife2.appspot.com','127.0.0.1','savingnemo.ml']
+ALLOWED_HOSTS = ['marinelife3.appspot.com','127.0.0.1','savingnemo.ga']
 
 
 # Application definition

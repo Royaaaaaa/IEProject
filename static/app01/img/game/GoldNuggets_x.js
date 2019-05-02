@@ -561,10 +561,10 @@ if (aW) {
     document.write('<button type=\'button\' id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' class=\'close\' data-dismiss=\'modal\' aria-label=\'Close\' src=\'' + bY + '\' ></button>');
     // document.write('<img id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fl()\' src=\'' + bY + '\' >');
 }
-document.write('<div id=\'hs\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;\'></div>');
-document.write('<img id=\'ng\' style=\'' + aN + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
+document.write('<div id=\'hs\' style=\'' + bq + 'color:#ffffff;font-family:"Comic Sans MS";font-size:' + (20 * f) + 'px;\'></div>');
+document.write('<img id=\'ng\' style=\'' + aN + 'opacity:1;-moz-opacity:0.6;cursor:pointer;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
 document.write('<div id=\'su\' style=\'' + aN + '\'><a href=\'#\' ' + P + '=\'go()\'><img  src=\'' + bv + '\' border=0></a></div>');
-document.write('<img id=\'co\' style=\'' + aN + '\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
+document.write('<img id=\'co\' style=\'' + aN + 'cursor: pointer;\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
 // document.write('<div id=\'co\' style=\'' + aN + '\' ' + Q + '=\'testgame.html\'  >Exit</div>');
 if (eN) {
 }
@@ -652,10 +652,10 @@ if (ac == ar) {
     document.write('<img id=\'f_lo\' style=\'' + aN + '\' ' + Q + '=\'fi()\'  src=\'' + dj + '\' >');
     bQ("f_ba", 0.7);
 }
-document.write('<div id=\'s1\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #5f0000;\'></div>');
+document.write('<div id=\'s1\' style=\'' + bq + 'color:#ffffff;font-family:"Comic Sans MS";font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #5f0000;\'></div>');
 if ((g == ae) || (g == at))
     eg('s1', "7f007f");
-document.write('<div id=\'en\' style=\'' + bq + 'color:#ffffff;font-family:Arial;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #00005f;\' '+ Q + '=\'window.location.reload()\'></div>');
+document.write('<div id=\'en\' style=\'' + bq + 'color:#ffffff;font-family:"Comic Sans MS";cursor:pointer;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #00005f;\' '+ Q + '=\'window.location.reload()\'></div>');
 if ((g == ae) || (g == at))
     eg('en', "7f4f00");
 
@@ -666,9 +666,9 @@ function tg(){
 // // document.write('<div id=\'close\' style=\'margin-left: 600px;position:absolute;float: right;' + 'color:#ffffff;font-family:Arial;z-Index:1;font-size:' + (14 * f) + 'px;text-shadow: 2px 2px 2px #00005f;\'>Exit</div>');
 
 
-document.write('<div id=\'t1\' style=\'' + bq + 'color:#f9293a ;font-family:Arial;font-size:' + (30 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
-document.write('<div id=\'t11\' style=\'' + bq + 'color:#5C9F24 ;font-family:Arial;font-size:' + (30 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
-document.write('<div id=\'g1\' style=\'' + bq + 'color:#000000;font-family:Arial;font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'>Game Over</div>');
+document.write('<div id=\'t1\' style=\'' + bq + 'color:#f9293a ;font-family:"Comic Sans MS";font-size:' + (25 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
+document.write('<div id=\'t11\' style=\'' + bq + 'color:#5C9F24 ;font-family:"Comic Sans MS";font-size:' + (25 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
+document.write('<div id=\'g1\' style=\'' + bq + 'color:#000000;font-family:"Comic Sans MS";font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #ffffff;\'>Game Over</div>');
 document.write('<img id=\'ti\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:0;\' src=\'' + ds + '\' >');
 document.write('<img id=\'ba\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;opacity:0.5;-moz-opacity:0.6;filter:alpha(opacity=60);z-Index:7;\' src=\'' + ej + '\' >');
 document.write('<img id=\'bka\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:6;\' src=\'' + ci + '\' >');
@@ -1061,7 +1061,7 @@ function fm() {
     }
 };
 var aw;
-var fy = "Your Score:";
+var fy = "Your Total Score:";
 var fY = "Insert your name: ";
 var fJ = "The name must be at least 4 characters!<br>Please insert only charachers and numbers!";
 function fI(bn) {
@@ -1099,7 +1099,7 @@ function fL() {
         par_level = aL;
         par_game = bs;
         ds_HS();
-        var aO = '<center><font color=\'#000000\'><b>' + fy + '</b></font><br><br><font color=\'#000000\'>' + L + '</font>';
+        var aO = '<center><font color=\'#ffffff\'><b>' + fy + '</b></font><br><br><font color=\'#ffffff\'>' + L + '</font>';
         if (ac == gm) {
             // aO += '<br><br>' + fY + '<input style\'font-size:' + (14 * f) + 'px;\' type=text id=\'user\' name=\'user\' size=\'12\' value=\'' + bi + '\' style=\'font-size:' + (16 * f) + 'px;\' /><input type=\'button\'  value=\'OK\'  ' + P + '=\'go()\' style=\'background-color:#dddddd;font-size:' + (16 * f) + 'px;\' /><br><br><small><font color=\'#bfffff\'>' + fJ + '</font></small></center>';
             document.getElementById("hs").innerHTML = aO;

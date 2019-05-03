@@ -4,6 +4,12 @@
 <head>
 <style>
      {% load staticfiles %}
+     .back_to_previous{
+         position: fixed;
+        left:30px;
+        top: 50%;
+        border:1px solid #888;
+        }
      #logo:after{
       content: "savingnemo";
       color: #FFFFFF;
@@ -12,15 +18,7 @@
         margin:0;
         padding:0;
     }
-    div.gallery {
-        width:50%
-    }
-    div.gallery img {
-        cursor: pointer;
-         transition: all 1s;
-         {#border-radius: 50%;#}
 
-    }
 
     h1 {
         font-size: 40px;
@@ -118,6 +116,7 @@
 
 
 <body style="font-family: 'Comic Sans MS'">
+<button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;"onclick="javascript:history.go(-1)"><</button>
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="height: 0px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
 		<div id="logo" style="top:10px; left: 10px">

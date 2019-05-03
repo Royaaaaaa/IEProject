@@ -88,6 +88,12 @@
   #next {
 
   }
+        .back_to_previous{
+         position: fixed;
+        left:30px;
+        top: 50%;
+        border:1px solid #888;
+        }
     </style>
 </head>
 <body style="background-color: #ffffff;font-family: 'Comic Sans MS' ">
@@ -213,6 +219,7 @@
 <div id="copyright" class="container" style="width: 100%;bottom: 30px">
 	<p style="color: #6c757d">&copy; Victorian wildlife bunj. All rights reserved. | Photos by VWB, Microsoft, Pixels | Design by <a href="#" style="color: #ad3729">VWB Team</a>.</p>
 </div>
+<button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;"onclick="javascript:history.go(-1)"><</button>
 </body>
 
 </html>

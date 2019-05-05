@@ -343,8 +343,27 @@
   });
 
 </script>
+<script>
+    var backButton=$('.back_to_top');
+    function backToTop() {
+        $('html,body').animate({
+            scrollTop: 0
+        }, 800);
+    }
+    backButton.on('click', backToTop);
+
+    $(window).on('scroll', function () {/*当滚动条的垂直位置大于浏览器所能看到的页面的那部分的高度时，回到顶部按钮就显示 */
+        if ($(window).scrollTop() > $(window).height())
+            backButton.fadeIn();
+        else
+            backButton.fadeOut();
+    });
+    $(window).trigger('scroll');
+    </script>
+{#<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>#}
 <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
 </div>
 </body>
+
 </html>

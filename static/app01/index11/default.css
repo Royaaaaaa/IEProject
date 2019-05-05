@@ -611,7 +611,7 @@ ul.contact li a.icon-rss:before
 #copyright
 {
 	overflow: hidden;
-	padding: 6em 0em 10em 0em;
+	padding: 20px 0px 10px 0px;
 	border-top: 1px solid rgba(255,255,255,0.08);
 }
 

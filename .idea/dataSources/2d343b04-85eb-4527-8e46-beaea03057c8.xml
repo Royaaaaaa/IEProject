@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Django default">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.14">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.15">
     <root id="1">
       <ServerVersion>3.25.1</ServerVersion>
     </root>
@@ -58,7 +58,6 @@
     </column>
     <index id="26" parent="6" name="APP01_animal_aType_id_386a4e59">
       <ColNames>aType_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="27" parent="6">
       <ColNames>id</ColNames>
@@ -89,7 +88,6 @@
     </column>
     <index id="32" parent="7" name="APP01_image_iAnimal_id_c387b01c">
       <ColNames>iAnimal_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="33" parent="7">
       <ColNames>id</ColNames>
@@ -136,7 +134,6 @@
     <index id="41" parent="9" name="sqlite_autoindex_auth_group_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="42" parent="9">
@@ -166,16 +163,13 @@
     <index id="47" parent="10" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
       <ColNames>group_id
 permission_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="48" parent="10" name="auth_group_permissions_group_id_b120cbf9">
       <ColNames>group_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="49" parent="10" name="auth_group_permissions_permission_id_84c5c92e">
       <ColNames>permission_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="50" parent="10">
       <ColNames>id</ColNames>
@@ -219,12 +213,10 @@ permission_id</ColNames>
     <index id="57" parent="11" name="auth_permission_content_type_id_codename_01ab375a_uniq">
       <ColNames>content_type_id
 codename</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="58" parent="11" name="auth_permission_content_type_id_2f476e4b">
       <ColNames>content_type_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="59" parent="11">
       <ColNames>id</ColNames>
@@ -295,7 +287,6 @@ codename</ColNames>
     <index id="72" parent="12" name="sqlite_autoindex_auth_user_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="73" parent="12">
@@ -325,16 +316,13 @@ codename</ColNames>
     <index id="78" parent="13" name="auth_user_groups_user_id_group_id_94350c0c_uniq">
       <ColNames>user_id
 group_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="79" parent="13" name="auth_user_groups_user_id_6a12ed8b">
       <ColNames>user_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="80" parent="13" name="auth_user_groups_group_id_97559544">
       <ColNames>group_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="81" parent="13">
       <ColNames>id</ColNames>
@@ -373,16 +361,13 @@ group_id</ColNames>
     <index id="87" parent="14" name="auth_user_user_permissions_user_id_permission_id_14a6b632_uniq">
       <ColNames>user_id
 permission_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="88" parent="14" name="auth_user_user_permissions_user_id_a95ead1b">
       <ColNames>user_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="89" parent="14" name="auth_user_user_permissions_permission_id_1fbb5f2c">
       <ColNames>permission_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="90" parent="14">
       <ColNames>id</ColNames>
@@ -443,11 +428,9 @@ permission_id</ColNames>
     </column>
     <index id="101" parent="15" name="django_admin_log_content_type_id_c4bce8eb">
       <ColNames>content_type_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="102" parent="15" name="django_admin_log_user_id_c564eba6">
       <ColNames>user_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="103" parent="15">
       <ColNames>id</ColNames>
@@ -486,7 +469,6 @@ permission_id</ColNames>
     <index id="109" parent="16" name="django_content_type_app_label_model_76bd3d3b_uniq">
       <ColNames>app_label
 model</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="110" parent="16">
@@ -536,12 +518,10 @@ model</ColNames>
     <index id="119" parent="18" name="sqlite_autoindex_django_session_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>session_key</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="120" parent="18" name="django_session_expire_date_a5c62663">
       <ColNames>expire_date</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="121" parent="18">
       <ColNames>session_key</ColNames>

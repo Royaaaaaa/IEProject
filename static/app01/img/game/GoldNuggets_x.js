@@ -390,6 +390,7 @@ if (F / ai > r / (D)) {
     I = F / (r);
 }
 var aN = "position:absolute;top:0px;left:0px;z-Index:1;visibility:hidden;";
+var button_flow = "position:absolute;top:-100px;left:-100px;z-Index:1;visibility:hidden;";
 var bq = aN + "white-space:nowrap;";
 function eg(C, col) {
     document.getElementById(C).style.color = "#" + col;
@@ -562,7 +563,7 @@ if (aW) {
     // document.write('<img id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fl()\' src=\'' + bY + '\' >');
 }
 document.write('<div id=\'hs\' style=\'' + bq + 'color:#ffffff;font-family:"Comic Sans MS";font-size:' + (20 * f) + 'px;\'></div>');
-document.write('<img id=\'ng\' style=\'' + aN + 'opacity:1;-moz-opacity:0.6;cursor:pointer;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
+document.write('<img id=\'ng\' style=\'' + button_flow + 'opacity:1;-moz-opacity:0.6;cursor:pointer;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
 document.write('<div id=\'su\' style=\'' + aN + '\'><a href=\'#\' ' + P + '=\'go()\'><img  src=\'' + bv + '\' border=0></a></div>');
 document.write('<img id=\'co\' style=\'' + aN + 'cursor: pointer;\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
 // document.write('<div id=\'co\' style=\'' + aN + '\' ' + Q + '=\'testgame.html\'  >Exit</div>');
@@ -669,7 +670,7 @@ function tg(){
 document.write('<div id=\'t1\' style=\'' + bq + 'color:#f9293a ;font-family:"Comic Sans MS";font-size:' + (25 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
 document.write('<div id=\'t11\' style=\'' + bq + 'color:#5C9F24 ;font-family:"Comic Sans MS";font-size:' + (25 * f) + 'px;text-shadow: 2px 2px 2px #000000;\'></div>');
 document.write('<div id=\'g1\' style=\'' + bq + 'color:#000000;font-family:"Comic Sans MS";font-size:' + (42 * f) + 'px;text-shadow: 2px 2px 2px #ffffff;\'>Game Over</div>');
-document.write('<img id=\'ti\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:0;\' src=\'' + ds + '\' >');
+document.write('<img id=\'ti\' style=\'position:absolute;top:-100px;left:0px;visibility:hidden;z-Index:0; height:900px;\' src=\'' + ds + '\' >');
 document.write('<img id=\'ba\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;opacity:0.5;-moz-opacity:0.6;filter:alpha(opacity=60);z-Index:7;\' src=\'' + ej + '\' >');
 document.write('<img id=\'bka\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:6;\' src=\'' + ci + '\' >');
 document.write('<img id=\'bkb\' ' + P + '=\'cR()\'   style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:4;\' src=\'' + cc + '\' >');

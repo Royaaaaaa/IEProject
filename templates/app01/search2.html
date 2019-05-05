@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+    <link rel='stylesheet' href='/static/app01/css/bootstrap.min.css'>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <style>
+
+        #logo:after{
+             content: "savingnemo";
+             color: #000000;
+             vertical-align: bottom;
+         }
+
+
+        video {
+            width: 550px;
+        }
+
+
+        .quizBtn{
+            margin-left: 44%;
+        }
+
+
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background:none!important;
+            min-width: 200px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+        float: none;
+        padding: 18px 16px;
+        padding-left: 23px;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        color: #000000;
+    }
+
+    .dropdown-content a:hover {
+        border: 0px;
+        background:none!important;
+        {#color: #fd7e14;#}
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    @media screen and (max-width: 700px)
+ {
+    #menu {
+
+    width:100%;
+    margin:0 auto;
+    position:relative;
+    text-align:right;
+    font-size: 8px}
+
+
+}
+        .arrow{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #d9534f;
+    border-right: 5px solid #d9534f;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(20px,20px);
+    }
+}
+        .back_to_previous{
+         position: fixed;
+        left:30px;
+        top: 50%;
+        border:1px solid #888;
+        }
+        @media screen and (max-width: 900px)
+ {
+    #menu {
+
+    width:100%;
+    margin:0 auto;
+    position:relative;
+    text-align:right;
+    font-size: 8px}
+    #logo img {
+        width: 20px;
+        height: 20px;
+    }
+    #logo:after{
+        font-size: 8px;
+    }
+
+}
+
+    </style>
+
+</head>
+{#模板body开始##################################}
+<body style="background-color: #ffffff; font-family: 'Comic Sans MS'">
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
+		<div id="logo" >
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+		</div>
+		<div id="menu" style="height: 100px;">
+			<ul>
+				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
+				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
+				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
+                <div class="dropdown" style="float: left;" id="drop">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="puzzle" class="current_page_item">Puzzle</a>
+                          <a href="pickingrubbish">Picking Rubbish</a>
+                     </div>
+                </div>
+                <li class="current_page_item"><a href="search2" accesskey="5" title="" style="color: black">Search</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="header-featured"  style="background-image: url(static/app01/img/searchBack.gif);background-size: cover;background-repeat: no-repeat">
+	<div id="banner-wrapper">
+		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
+            <p style="font-family: 'Indie Flower', cursive; color: #000000;font-size: 2.5em;font-weight: bolder">PEEK A BOO!</p>
+			<p style="font-family: 'Indie Flower', cursive;color: #000000; font-size: 1em;font-weight: bolder">Don't remember the names yet? No worries! Make a selection below and find out.</p>
+            <br/>
+            <br/>
+		</div>
+            <div class="container-fluid bg-light " style="background: none!important">
+	    <div class="row align-items-center justify-content-center">
+            	        <div class="col-md-2 pt-3" >
+                           <div class="form-group " >
+                              <select id="inputState " class="form-control" style="font-size: 1em">
+                                <option selected>TYPE</option>
+                                <option>BMW</option>
+                                <option>Audi</option>
+                                <option>Maruti</option>
+                                <option>Tesla</option>
+                              </select>
+                           </div>
+                        </div>
+                		<div class="col-md-2 pt-3">
+                           <div class="form-group">
+                              <select id="inputState" class="form-control" style="font-size: 1em">
+                                <option selected>SIZE</option>
+                                <option>BMW</option>
+                                <option>Audi</option>
+                                <option>Maruti</option>
+                                <option>Tesla</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-md-2 pt-3">
+                            <div class="form-group">
+                              <select id="inputState" class="form-control" style="font-size: 1em">
+                                <option selected>COLOR</option>
+                                <option>BMW</option>
+                                <option>Audi</option>
+                                <option>Maruti</option>
+                                <option>Tesla</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+            	           <button type="button" class="fa fa-search" style="font-size: 1.5em;width: 100%;background: none!important;border: 0;color: black" onclick="javascript:history.go(-1)"></button>
+
+{#                            <a style="width:100%;cursor:pointer;text-align: center"><i class="fa fa-search" style="font-size: 1.5em;color: black;"></i></a>#}
+            	        </div>
+                	</div>
+</div>
+	</div>
+</div>
+<button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;background:none!important;color: black;"onclick="javascript:history.go(-1)"><</button>
+<div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
+        <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
+    </div>
+</body>
+<script src='/static/app01/js/jquery-3.3.1.js'></script>
+<script src='/static/app01/js/bootstrap.js'></script>
+
+</html>

@@ -138,6 +138,24 @@
         bottom:30px;
         right: 30px;
         border:1px solid #888;}
+    @media screen and (max-width: 990px)
+ {
+    #menu {
+
+    width:100%;
+    margin:0 auto;
+    position:relative;
+    text-align:right;
+    font-size: 8px}
+    #logo img {
+        width: 20px;
+        height: 20px;
+    }
+    #logo:after{
+        font-size: 8px;
+    }
+
+}
 </style>
 
 
@@ -172,11 +190,11 @@
 <body style="background-color: #ffffff;font-family: 'Comic Sans MS'">
 <a class="back_to_top" style="z-index:9999;cursor:pointer;width: 60px;background-color: darkorange;color: black">TOP</a>
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
-	<div id="header" class="container" style="color: black;height: 60px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
-		<div id="logo" style="top:10px; left: 10px">
+	<div id="header" class="container" style="color: black;height: 55px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
+		<div id="logo" style="margin-left: -50px">
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
 		</div>
-		<div id="menu" style="height: 100px; padding-right: 50px">
+		<div id="menu" style="height: 100px;font-size: 0.9em">
 			<ul>
 				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
 				<li  class="current_page_item"><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
@@ -189,6 +207,7 @@
                           <a href="pickingrubbish" style="color: #FFFFFF">Picking Rubbish</a>
                      </div>
                 </div>
+                <li><a href="search" accesskey="5" title="" style="color: black">Search</a></li>
 			</ul>
 		</div>
 	</div>

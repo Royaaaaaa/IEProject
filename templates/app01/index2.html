@@ -36,11 +36,32 @@
     <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
     <link rel="stylesheet" href="static/app01/css/common.css">
 </head>
+<style>
+    @media screen and (max-width: 800px)
+ {
+    #menu {
 
+    width:100%;
+    margin:0 auto;
+    position:relative;
+    text-align:right;
+    font-size: 8px}
+    #logo img {
+        width: 20px;
+        height: 20px;
+    }
+    #logo:after{
+        font-size: 8px;
+    }
+    #drop{
+        margin-top: -8px;
+    }
+}
+</style>
 <body style="background-color: white;font-family: 'Comic Sans MS'">
     <div id="header-wrapper" style="background:none!important; padding: 0em 0em; width: 100%">
         <div id="header" class="container" style="height: 55px; font-family: 'Comic Sans MS';background: none!important; background-color: #FFFFFF; width: 100%">
-            <div id="logo" style="top:10px; left: 10px">
+            <div id="logo" style="margin-left: -40px;left: 10px">
                 <img src="static/app01/index11/images/logo.png" width="40px" height="40px" />
             </div>
             <div id="menu" style="height: 100px;color: black">
@@ -59,6 +80,7 @@
                             <a href="pickingrubbish" style="padding-top: 0px;color: white">Picking Rubbish</a>
                         </div>
                     </div>
+                    <li><a href="search" accesskey="5" title="" style="color: black">Search</a></li>
                 </ul>
             </div>
         </div>

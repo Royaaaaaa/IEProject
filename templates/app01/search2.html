@@ -244,9 +244,54 @@
 <div class="our-causes" style="background: url('static/app01/img/fact/fish1.jpg');backgournd-repeat: no-repeat; background-size: cover">
 {#       <span>#}
         <div class="container" >
+            {% if fish_list.length > 0 %}
+            <h1>Fishes</h1>
+            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden" >
+            {% for animal in fish_list %}
+                <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
+                        <figure class="m-0" style="height: 200px">
+                            <img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" style="height: 200px">
 
-            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden">
-            {% for animal in animal_list %}
+                            <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
+                                <a href="{{ animal.id }}" class="btn gradient-bg mr-2">See detail</a>
+                            </div><!-- .figure-overlay -->
+                        </figure>
+
+                    <div class="cause-content-wrap" style="height: 80px">
+                        <header class="entry-header d-flex flex-wrap align-items-center">
+                            <h3 class="entry-title w-100 m-0"><a href="{{ animal.id }}">{{ animal.aName }}</a></h3>
+                        </header><!-- .entry-header -->
+                    </div><!-- .cause-content-wrap -->
+                </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+            {% if turtle_list.count > 0 %}
+            <h1>Repities</h1>
+            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden" >
+            {% for animal in turtle_list %}
+                <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
+                        <figure class="m-0" style="height: 200px">
+                            <img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" style="height: 200px">
+
+                            <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
+                                <a href="{{ animal.id }}" class="btn gradient-bg mr-2">See detail</a>
+                            </div><!-- .figure-overlay -->
+                        </figure>
+
+                    <div class="cause-content-wrap" style="height: 80px">
+                        <header class="entry-header d-flex flex-wrap align-items-center">
+                            <h3 class="entry-title w-100 m-0"><a href="{{ animal.id }}">{{ animal.aName }}</a></h3>
+                        </header><!-- .entry-header -->
+                    </div><!-- .cause-content-wrap -->
+                </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+            {% if mammal_list.count > 0 %}
+            <h1>Mammals</h1>
+            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden" >
+            {% for animal in mammal_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
                             <img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" style="height: 200px">
@@ -264,6 +309,7 @@
                 </div>
             {% endfor %}
             <div>
+            {% endif %}
             {% if animal_list.count == 0 %}
                 <h2>No results found</h2>
             {% endif %}
@@ -309,7 +355,12 @@
 
     function slideDiv(divID,height){
     var obj=document.getElementById(divID).style;
-    {#var button=document.getElementById('button').style;#}
+    var button=document.getElementById('button').style;
+    {#var hei = $('.loadarea').height();#}
+    {#if(hei<650){#}
+    {#    button.display='none'#}
+    {#    button.visibility='blco';#}
+
     if(obj.height==""){
         obj.height=height+"px";
         obj.overflow="hidden";
@@ -319,6 +370,7 @@
         obj.overflow="";
         {#button.display='none';#}
     }
+
 }
 
     //方法二：全局变量，不建议用

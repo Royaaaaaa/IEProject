@@ -69,7 +69,9 @@ def advsearch(req,*args,**kwargs):
     ##kwargs拿到的是{'type_id': '0', 'colour_id': '0', 'size_id': '0'},用户搜索输入
     input_list = {}
     condition = {}
-
+    fish_list=[]
+    turtle_list=[]
+    mammal_list=[]
     for k,v in kwargs.items():
         input_list[k] = int(v)
         if int(v):  ###如果输入为0，则取所有,便可以忽略这个条件
@@ -80,7 +82,14 @@ def advsearch(req,*args,**kwargs):
     colour_list = Color.objects.all()
     size_list = Size.objects.all()
     animal_list = Animal.objects.filter(**condition)
-    context = {'input_list':input_list,"animal_list":animal_list,'type_list':type_list,'colour_list':colour_list,'size_list':size_list}
+    for animal in animal_list:
+        if animal.aType_id==1:
+            fish_list.append(animal)
+        elif animal.aType_id==8:
+            turtle_list.append(animal)
+        else:
+            mammal_list.append(animal)
+    context = {'input_list':input_list,"animal_list":animal_list,"fish_list":fish_list,"turtle_list":turtle_list,"mammal_list":mammal_list,'type_list':type_list,'colour_list':colour_list,'size_list':size_list}
     return render(req,'app01/search2.html',context)
 
 

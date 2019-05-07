@@ -24,17 +24,18 @@ urlpatterns = [
     url(r'^index',views.index),
     url(r'^marinefamily$',views.marinefamily),
     url(r'^quiz$',views.quiz),
-    url(r'^game$',views.game),
-    url(r'^storyAndFact$',views.storyAndFact),
+    # url(r'^game$',views.game),
+    # url(r'^storyAndFact$',views.storyAndFact),
     url(r'^search$',views.advsearch),
-    url(r'^searchtype$',views.searchtype),
+    # url(r'^searchtype$',views.searchtype),
     url(r'advsearch-(?P<aType_id>(\d+))-(?P<aColor_id>(\d+))-(?P<aSize_id>(\d+))', views.advsearch),
     # url(r'^search?type=(?P<type_id>(\d+))&size=(?P<size_id>(\d+))&colour=(?P<colour_id>(\d+))$', views.advsearch),
     # url(r'getimg', views.getimg),
     url(r'^(\d+)$',views.showDetail),
     url(r'^typeid=(\d+)$',views.marinelife),
     url(r'^pickingrubbish',views.pickingrubbish),
-    url(r'^puzzle',views.puzzle)
+    url(r'^puzzle',views.puzzle),
+    url(r'^nearbyAnimal',views.findNearbyAnimals)
     # url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':'/static/'}),
 
 

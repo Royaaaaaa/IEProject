@@ -23,16 +23,16 @@ def marinelife(request,id):
 
 def quiz(request):
     return render(request, 'app01/quiz.html')
-
-def game(request):
-    return render(request, 'app01/game.html')
+#
+# def game(request):
+#     return render(request, 'app01/game.html')
 def pickingrubbish(request):
     return render(request, 'app01/pickingrubbish.html')
-
-def aboutUs(request):
-    return render(request, 'app01/aboutUs.html')
-def storyAndFact(request):
-    return render(request,'app01/storyAndFact.html')
+#
+# def aboutUs(request):
+#     return render(request, 'app01/aboutUs.html')
+# def storyAndFact(request):
+#     return render(request,'app01/storyAndFact.html')
 def puzzle(request):
     return render(request,'app01/puzzle.html')
 
@@ -43,17 +43,17 @@ def puzzle(request):
 #     context={"typeList":typelist,"colorList":colorlist,"sizeList":sizelist}
 #     return render(request,'app01/search2.html',context)
 
-def searchtype(req):
-    type_id = req.GET.get('type')
-    size_id = req.GET.get('size')
-
-    type = Type.objects.get(pk=type_id)
-    life_list = type.animal_set.all()
-    life_dic = {}
-    for animal in life_list:
-        life_dic[animal.id] = animal.aName
-    life_dic = json.dumps(life_dic)
-    return HttpResponse(life_dic)
+# def searchtype(req):
+#     type_id = req.GET.get('type')
+#     size_id = req.GET.get('size')
+#
+#     type = Type.objects.get(pk=type_id)
+#     life_list = type.animal_set.all()
+#     life_dic = {}
+#     for animal in life_list:
+#         life_dic[animal.id] = animal.aName
+#     life_dic = json.dumps(life_dic)
+#     return HttpResponse(life_dic)
 
 # def searchColor(req):
 #     color_id = req.GET.get('color')
@@ -113,3 +113,18 @@ def showDetail(request,id):
     x = json.dumps(context)
     # context={'animal': animal,'locationList':list,'imagelist':list1}
     return render(request,'app01/showDetail.html',locals())
+
+def findNearbyAnimals(request):
+    animal_locationlist=[]
+    locationlist=Location.objects.all()
+    for location in locationlist:
+        lat = location.latAnimal
+        lon = location.lonAnimal
+        aId = location.lAnimal_id
+        s=(lat,lon)
+        animal_locationlist.append(s)
+        # animal_locationlist[aId]=s
+    context = {'animal_locationlist': animal_locationlist}
+    x = json.dumps(context)
+    # context={'locationlist':locationlist}
+    return render(request,'app01/Location.html',locals())

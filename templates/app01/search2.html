@@ -3,7 +3,7 @@
 <head>
     {% load staticfiles %}
     <meta charset="UTF-8">
-    <title>Quiz</title>
+    <title>Find Animal</title>
     <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
     <link rel='stylesheet' href='/static/app01/css/bootstrap.min.css'>
     <meta name="keywords" content="" />
@@ -14,6 +14,23 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+     <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="static/app01/css/font-awesome.min.css">
+
+    <!-- ElegantFonts CSS -->
+    <link rel="stylesheet" href="static/app01/css/fact/elegant-fonts.css">
+
+    <!-- themify-icons CSS -->
+    <link rel="stylesheet" href="static/app01/css/fact/themify-icons.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="static/app01/css/fact/swiper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="static/app01/css/fact/style.css">
+
+  <link rel="stylesheet" href="static/app01/index11/assets/css/main.css" />
     <style>
 
         #logo:after{
@@ -141,6 +158,7 @@
 </head>
 {#模板body开始##################################}
 <body style="background-color: #ffffff; font-family: 'Comic Sans MS'">
+<button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;background:none!important;color: black;"onclick="javascript:history.go(-1)"><</button>
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
 		<div id="logo" >
@@ -159,7 +177,7 @@
                           <a href="pickingrubbish">Picking Rubbish</a>
                      </div>
                 </div>
-                <li class="current_page_item"><a href="search2" accesskey="5" title="" style="color: black">Search</a></li>
+                <li class="current_page_item"><a href="search2" accesskey="5" title="" style="color: black">Identify</a></li>
 			</ul>
 		</div>
 	</div>
@@ -167,61 +185,300 @@
 <div id="header-featured"  style="background-image: url(static/app01/img/searchBack.gif);background-size: cover;background-repeat: no-repeat">
 	<div id="banner-wrapper">
 		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
-            <p style="font-family: 'Indie Flower', cursive; color: #000000;font-size: 2.5em;font-weight: bolder">PEEK A BOO!</p>
+            <p style="font-family: 'Indie Flower', cursive; color: #000000;font-size: 2.5em;font-weight: bolder">REMEMBER ME?</p>
 			<p style="font-family: 'Indie Flower', cursive;color: #000000; font-size: 1em;font-weight: bolder">Don't remember the names yet? No worries! Make a selection below and find out.</p>
             <br/>
             <br/>
 		</div>
             <div class="container-fluid bg-light " style="background: none!important">
-	    <div class="row align-items-center justify-content-center">
-            	        <div class="col-md-2 pt-3" >
-                           <div class="form-group " >
-                              <select id="inputState " class="form-control" style="font-size: 1em">
-                                <option selected>TYPE</option>
-                                <option>BMW</option>
-                                <option>Audi</option>
-                                <option>Maruti</option>
-                                <option>Tesla</option>
-                              </select>
-                           </div>
-                        </div>
-                		<div class="col-md-2 pt-3">
-                           <div class="form-group">
-                              <select id="inputState" class="form-control" style="font-size: 1em">
-                                <option selected>SIZE</option>
-                                <option>BMW</option>
-                                <option>Audi</option>
-                                <option>Maruti</option>
-                                <option>Tesla</option>
-                              </select>
-                           </div>
-                        </div>
-                        <div class="col-md-2 pt-3">
-                            <div class="form-group">
-                              <select id="inputState" class="form-control" style="font-size: 1em">
-                                <option selected>COLOR</option>
-                                <option>BMW</option>
-                                <option>Audi</option>
-                                <option>Maruti</option>
-                                <option>Tesla</option>
-                              </select>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-            	           <button type="button" class="fa fa-search" style="font-size: 1.5em;width: 100%;background: none!important;border: 0;color: black" onclick="javascript:history.go(-1)"></button>
 
+{#	    <form id = 'fm' class="row align-items-center justify-content-center" method = 'get'>#}
+{#              <form id = 'fm' action ='' method = 'get'>#}
+{#            	        <div class="col-md-2 pt-3" >#}
+{#                           <div class="form-group " >#}
+{#                              <select id="inputState " class="form-control" style="font-size: 1em" name = 'type'>#}
+{#                                <option selected value=0>TYPE</option>#}
+{#                                {% for item in type_list %}#}
+{#                                     {% if item.id == input_list.type_id %}#}
+{#                                         <option value = {{ item.id }} selected>{{ item.tName }}</option>#}
+{#                                     {% else %}#}
+{#                                        <option value = {{ item.id }}>{{ item.tName }}</option>#}
+{#                                     {% endif %}#}
+{#                                {% endfor %}#}
+{#                              </select>#}
+{#                           </div>#}
+{#                        </div>#}
+{#                		<div class="col-md-2 pt-3">#}
+{#                           <div class="form-group">#}
+{#                              <select id="inputState" class="form-control" style="font-size: 1em" name = 'size'>#}
+{#                                <option selected value=0>SIZE</option>#}
+{#                                 {% for item in size_list %}#}
+{#                                     {% if item.id == input_list.size_id %}#}
+{#                                         <option value = {{ item.id }} selected>{{ item.sName }}</option>#}
+{#                                     {% else %}#}
+{#                                        <option value = {{ item.id }}>{{ item.sName }}</option>#}
+{#                                     {% endif %}#}
+{#                                {% endfor %}#}
+{#                              </select>#}
+{#                           </div>#}
+{#                        </div>#}
+{#                        <div class="col-md-2 pt-3">#}
+{#                            <div class="form-group">#}
+{#                              <select id="inputState" class="form-control" style="font-size: 1em" name="colour">#}
+{#                                <option selected value=0>COLOR</option>#}
+{#                                {% for item in colour_list %}#}
+{#                                     {% if item.id == input_list.colour_id %}#}
+{#                                         <option value = {{ item.id }} selected>{{ item.cName }}</option>#}
+{#                                     {% else %}#}
+{#                                        <option value = {{ item.id }}>{{ item.cName }}</option>#}
+{#                                     {% endif %}#}
+{#                                {% endfor %}#}
+{#                              </select>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-md-2">#}
+{#            	           <button type="button" class="fa fa-search" style="font-size: 1.5em;width: 100%;background: none!important;border: 0;color: black" onclick="searchAnimal()"></button>#}
+{##}
 {#                            <a style="width:100%;cursor:pointer;text-align: center"><i class="fa fa-search" style="font-size: 1.5em;color: black;"></i></a>#}
-            	        </div>
-                	</div>
+{#            	        </div>#}
+{#              </form>#}
+{#        </form>#}
+
+    <form id = 'fm' class="row align-items-center justify-content-center"action ='' method = 'get'>
+    <div class="col-md-2 pt-3" >
+    <select class="sel form-control type" name = 'type'>
+        <option value='0' disabled selected style='display:none;'>Animal type</option>
+{#        <option value = 0>Any</option>#}
+        {% for item in type_list %}
+            {% if item.id == input_list.aType_id %}
+                <option value = {{ item.id }} selected>{{ item.tName }}</option>
+            {% else %}
+                <option value = {{ item.id }}>{{ item.tName }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    </div>
+    <div class="col-md-2 pt-3" >
+    <select class="sel form-control colour" name = 'colour'>
+        <option value='0' disabled selected style='display:none;'>Colour</option>
+{#        <option value = 0>Any</option>#}
+        {% for item in colour_list %}
+            {% if item.id == input_list.aColour_id %}
+                <option value = {{ item.id }} selected>{{ item.cName }}</option>
+            {% else %}
+                <option value = {{ item.id }}>{{ item.cName }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    </div>
+    <div class="col-md-2 pt-3" >
+    <select class="sel form-control size" name = 'size'>
+        <option value='0' disabled selected style='display:none;'>SIZE</option>
+{#        <option value = 0>Any</option>#}
+        {% for item in size_list %}
+            {% if item.id == input_list.aSize_id %}
+                <option value = {{ item.id }} selected>{{ item.sName }}</option>
+            {% else %}
+                <option value = {{ item.id }}>{{ item.sName }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="fa fa-search" style="font-size: 1.5em;width: 100%;background: none!important;border: 0;color: black" onclick="searchAnimal()"></button>    </div>
+    </form>
+
+
 </div>
 	</div>
 </div>
-<button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;background:none!important;color: black;"onclick="javascript:history.go(-1)"><</button>
+
+{#<div  class = 'idlist hidden' >#}
+{#    {% for i in id_list %}#}
+{#        <div>{{ i }}</div>#}
+{#    {% endfor %}#}
+{#</div>#}
+
+<div class = 'loading-wrapper'>
+    <div class="loading sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+ </div>
+</div>
+
+
+{#<div class = 'box'>#}
+{#    <div class ='item'>#}
+{#    </div>#}
+{#    <div class ='item'>#}
+{#    </div>#}
+{#    <div class ='item'>#}
+{#    </div>#}
+{#    <div class ='item'>#}
+{#    </div>#}
+{#    <div style = 'clear:both'></div>#}
+{##}
+{#</div>#}
+{#<div class = 'loading-wrapper'>#}
+<div class="our-causes" style="background: url('static/app01/img/fact/fish1.jpg');backgournd-repeat: no-repeat; background-size: cover">
+        <div class="container">
+            <div class="thumbnails">
+            {% for animal in animal_list %}
+                <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
+                        <figure class="m-0" style="height: 200px">
+                            <img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" style="height: 200px">
+
+                            <div class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
+                                <a href="{{ animal.id }}" class="btn gradient-bg mr-2">See detail</a>
+                            </div><!-- .figure-overlay -->
+                        </figure>
+
+                    <div class="cause-content-wrap" style="height: 80px">
+                        <header class="entry-header d-flex flex-wrap align-items-center">
+                            <h3 class="entry-title w-100 m-0"><a href="{{ animal.id }}">{{ animal.aName }}</a></h3>
+                        </header><!-- .entry-header -->
+                    </div><!-- .cause-content-wrap -->
+                </div>
+            {% endfor %}
+           </div>
+        </div><!-- .container -->
+ </div>
+{#</div>#}
+<div class = 'result hidden'>
+    <h2>No results found</h2>
+</div>
 <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
     </div>
 </body>
 <script src='/static/app01/js/jquery-3.3.1.js'></script>
-<script src='/static/app01/js/bootstrap.js'></script>
+{#<script src='/static/app01/js/bootstrap.js'></script>#}
 
+ <script>
+
+    $(document).ready(function(){
+        setTimeout(function(){
+            $('.loading-wrapper').fadeOut(500);
+        },1000);
+    });
+
+    {#$(function(){#}
+    {#    var idlist = [];#}
+    {#    $('.idlist').children().each(function(){#}
+    {#        idlist.push($(this).text());#}
+    {#    });#}
+    {#    if(idlist.length == 0){#}
+    {#        $('.result').removeClass('hidden')#}
+    {#    };#}
+    {#    function ScrollImg(){#}
+    {##}
+    {#    this.Nid = idlist;#}
+    {#    this.LastPosition = -1;#}
+    {##}
+    {#    this.initImg = function(){#}
+    {#        //##########################this = obj##################################}
+    {#        var that = this;#}
+    {#        $.ajax({#}
+    {#        url:'/getimg',#}
+    {#        type:'GET',#}
+    {#        data:{'nid':that.Nid},#}
+    {#        traditional:true,#}
+    {#        dataType:'JSON',#}
+    {#        success:function(arg)#}
+    {#        {#}
+    {#            var animal_list = arg.data;#}
+    {#            $.each(idlist,function(index,val){#}
+    {#                var eqv = (index + that.LastPosition + 1) % 4;#}
+    {#                var tag = $('<img>');#}
+    {#                var nsrc = 'static/app01/img/animal/' + val.title + '.jpg';#}
+    {#                tag.prop('src',nsrc);#}
+    {#                var desc = $('<div>');#}
+    {#                desc.html(val.title);#}
+    {#                $('.box').children().eq(eqv).append(tag);#}
+    {#                $('.box').children().eq(eqv).append(desc);#}
+    {##}
+    {#            })#}
+    {##}
+    {#        }#}
+    {#    })#}
+    {#    };#}
+    {#    this.scrollEvent = function(){#}
+    {#        //this = obj#}
+    {#        var that = this;#}
+    {#        $(window).scroll(function(){#}
+    {#        //文档高度(body高度，最高的高度)#}
+    {#        var docHeight = $(document).height();#}
+    {#        //窗口高度(当前可见窗口高度)#}
+    {#        var winHeight = $(window).height();#}
+    {#        //滚动条可滑动高度,滑轮离最顶部的距离#}
+    {#        var scroTop = $(window).scrollTop();#}
+    {#        //当滚轮到达最底部时，再执行initImg，发送ajax#}
+    {#        if(winHeight + scroTop >= docHeight-1){#}
+    {#            console.log(winHeight,scroTop,docHeight);#}
+    {#            that.initImg();#}
+    {#        }#}
+    {#    })#}
+    {#    }#}
+    {#};#}
+    {#    var obj = new ScrollImg();#}
+    {#    obj.initImg();#}
+    {#    obj.scrollEvent();#}
+    {##}
+    {#});#}
+
+
+    //方法二：全局变量，不建议用
+    //$(function(){
+    //    initImg();
+    //    scrollEvent();
+    //});
+    //不建议定义全局变量，会弄混，可以将全局变量封装到一个类
+    //Nid = 0;
+    //LastPosition = -1;
+
+    //search animal####################################
+    function searchAnimal(){
+        $('.result').addClass('hidden')
+        var type;
+        var colour;
+        var size;
+        if($('.type').val() == null){
+            type = '0';
+        }else{
+            type = $('.type').val();
+        }
+
+        if($('.colour').val() == null){
+            colour = '0';
+        }else{
+            colour = $('.colour').val();
+        }
+
+        if($('.size').val() == null){
+            size = '0';
+        }else{
+            size = $('.size').val();
+        }
+        src = '/advsearch-' + type +'-'+ colour + '-'+ size;
+        $('#fm').prop('action',src);
+        $('#fm').submit();
+    }
+</script>
+{#<!-- Scripts -->#}
+    <script type='text/javascript' src='static/app01/js/fact/jquery.js'></script>
+<script type='text/javascript' src='static/app01/js/fact/jquery.collapsible.min.js'></script>
+<script type='text/javascript' src='static/app01/js/fact/swiper.min.js'></script>
+<script type='text/javascript' src='static/app01/js/fact/jquery.countdown.min.js'></script>
+<script type='text/javascript' src='static/app01/js/fact/circle-progress.min.js'></script>
+<script type='text/javascript' src='static/app01/js/fact/jquery.countTo.min.js'></script>
+<script type='text/javascript' src='static/app01/js/fact/jquery.barfiller.js'></script>
+<script type='text/javascript' src='static/app01/js/fact/custom.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 </html>

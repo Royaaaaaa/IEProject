@@ -18,11 +18,6 @@ class AnimalAdmin(admin.ModelAdmin):
     search_fields = ['aName']
     list_filter = ['aName']
     list_per_page = 20
-    # fieldsets = [
-    #     ('base',{'fields':['id','btitle']}),
-    #     ('super',{'field':['bpub_date']})
-    # ]
-
     inlines = [imageInline]
 
 
@@ -38,7 +33,17 @@ class TypeAdmin(admin.ModelAdmin):
     search_fields = ['tName']
     inlines = [animalInline]
 
+class SizeAdmin(admin.ModelAdmin):
+    list_display = ['id','sName']
+    inlines = [animalInline]
+
+class ColorAdmin(admin.ModelAdmin):
+    list_display = ['id','cName']
+    inlines = [animalInline]
+
 admin.site.register(Animal,AnimalAdmin)
 admin.site.register(Image,ImageAdmin)
 admin.site.register(Type,TypeAdmin)
+admin.site.register(Size,SizeAdmin)
+admin.site.register(Color,ColorAdmin)
 admin.site.register(Location,LocationAdmin)

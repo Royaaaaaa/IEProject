@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+    <link rel='stylesheet' href='/static/app01/css/loading.css'>
+
+    <style>
+        .title{
+            width:1200px;
+            text-align:center;
+            margin:0 auto;
+        }
+
+        .searchbox{
+            padding:30px 0;
+            width:1180.8px;
+            margin:25px auto;
+            background-color: yellow;
+
+        }
+        .sel{
+            display:inline-block;
+            margin-left:30px;
+            width:250px;
+        }
+        .searchBtn{
+            text-align:center;
+            color:white;
+            display:inline-block;
+            margin-left:30px;
+            width:250px;
+            padding:10px 15px;
+            background-color: #3875d7;
+            border-radius:30px;
+        }
+
+        .box{
+            width:1200px;
+            margin:0 auto;
+        }
+        .result{
+            text-align:center;
+            width:1200px;
+            margin:80px auto;
+        }
+        .hidden{
+            display:none;
+        }
+        .item{
+            width:24%;
+            float:left;
+            margin-left:9.6px;
+
+        }
+        .item img{
+            {#将img设置为display=block可以结局img和div之间的间隙#}
+            display:block;
+            width:100%
+        }
+        .item div{
+            width:100%;
+            height:50px;
+            background-color: black;
+            color:white;
+            text-align:center;
+            line-height:50px;
+            margin-bottom:20px;
+        }
+        .loading{
+            position:absolute;
+            width:80px;
+            height:80px;
+            top:15%;
+            left:50%;
+            margin-left:-40px;
+        }
+        .loading-wrapper{
+            position:absolute;
+            top:210px;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color: white;
+            z-index:9999;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class ='title'>
+    <h1>Search animal</h1>
+</div>
+<div class = 'searchbox'>
+<form id = 'fm' action ='' method = 'get'>
+    <select class="sel form-control type" name = 'type'>
+        <option value='' disabled selected style='display:none;'>Choose an animal type</option>
+{#        <option value = 0>Any</option>#}
+        {% for item in type_list %}
+            {% if item.id == input_list.type_id %}
+                <option value = {{ item.id }} selected>{{ item.tName }}</option>
+            {% else %}
+                <option value = {{ item.id }}>{{ item.tName }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+
+    <select class="sel form-control colour" name = 'colour'>
+        <option value='' disabled selected style='display:none;'>Choose the colour</option>
+{#        <option value = 0>Any</option>#}
+        {% for item in colour_list %}
+            {% if item.id == input_list.colour_id %}
+                <option value = {{ item.id }} selected>{{ item.cName }}</option>
+            {% else %}
+                <option value = {{ item.id }}>{{ item.cName }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+
+    <select class="sel form-control size" name = 'size'>
+        <option value='' disabled selected style='display:none;'>Choose the size</option>
+{#        <option value = 0>Any</option>#}
+        {% for item in size_list %}
+            {% if item.id == input_list.size_id %}
+                <option value = {{ item.id }} selected>{{ item.sName }}</option>
+            {% else %}
+                <option value = {{ item.id }}>{{ item.sName }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+
+    <input class = 'searchBtn' type = 'button' value = 'Search for an animal' onclick = searchAnimal()>
+</form>
+
+
+</div>
+
+<div  class = 'idlist hidden' >
+    {% for i in id_list %}
+        <div>{{ i }}</div>
+    {% endfor %}
+</div>
+
+<div class = 'loading-wrapper'>
+    <div class="loading sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+ </div>
+</div>
+
+
+<div class = 'box'>
+    <div class ='item'>
+    </div>
+    <div class ='item'>
+    </div>
+    <div class ='item'>
+    </div>
+    <div class ='item'>
+    </div>
+    <div style = 'clear:both'></div>
+
+</div>
+
+<div class = 'result hidden'>
+    <h2>No results found</h2>
+</div>
+
+
+</body>
+<script src ='/static/app01/js/jquery-3.3.1.js'></script>
+ <script>
+
+    $(document).ready(function(){
+        setTimeout(function(){
+            $('.loading-wrapper').fadeOut(500);
+        },1000);
+    });
+
+    $(function(){
+        var idlist = [];
+        $('.idlist').children().each(function(){
+            idlist.push(parseInt($(this).text()));
+        });
+        if(idlist.length == 0){
+            $('.result').removeClass('hidden')
+        };
+        function ScrollImg(){
+
+        this.Nid = idlist;
+        this.LastPosition = -1;
+        this.initImg = function(){
+            //##########################this = obj#################################
+            var that = this;
+            $.ajax({
+            url:'/getimg',
+            type:'GET',
+            data:{'nid':that.Nid},
+            traditional:true,
+            dataType:'JSON',
+            success:function(arg)
+            {
+                var img_list = arg.data;
+                $.each(img_list,function(index,val){
+                    var eqv = (index + that.LastPosition + 1) % 4;
+                    var tag = $('<img>');
+                    var nsrc = '/' + val.src;
+                    tag.prop('src',nsrc);
+                    var desc = $('<div>');
+                    desc.html(val.title);
+                    $('.box').children().eq(eqv).append(tag);
+                    $('.box').children().eq(eqv).append(desc);
+                    if(img_list.length == index + 1 ){
+                       //that.Nid = val.id;  数据不够多，重复这些数据
+                        that.LastPosition = eqv;
+                    }
+                })
+
+            }
+        })
+        };
+        this.scrollEvent = function(){
+            //this = obj
+            var that = this;
+            $(window).scroll(function(){
+            //文档高度(body高度，最高的高度)
+            var docHeight = $(document).height();
+            //窗口高度(当前可见窗口高度)
+            var winHeight = $(window).height();
+            //滚动条可滑动高度,滑轮离最顶部的距离
+            var scroTop = $(window).scrollTop();
+            //当滚轮到达最底部时，再执行initImg，发送ajax
+            if(winHeight + scroTop >= docHeight-1){
+                console.log(winHeight,scroTop,docHeight);
+                that.initImg();
+            }
+        })
+        }
+    };
+        var obj = new ScrollImg();
+        obj.initImg();
+        obj.scrollEvent();
+
+    });
+
+
+    //方法二：全局变量，不建议用
+    //$(function(){
+    //    initImg();
+    //    scrollEvent();
+    //});
+    //不建议定义全局变量，会弄混，可以将全局变量封装到一个类
+    //Nid = 0;
+    //LastPosition = -1;
+
+    //search animal####################################
+    function searchAnimal(){
+        $('.result').addClass('hidden')
+        var type;
+        var colour;
+        var size;
+        if($('.type').val() == null){
+            type = '0';
+        }else{
+            type = $('.type').val();
+        }
+
+        if($('.colour').val() == null){
+            colour = '0';
+        }else{
+            colour = $('.colour').val();
+        }
+
+        if($('.size').val() == null){
+            size = '0';
+        }else{
+            size = $('.size').val();
+        }
+        src = '/advsearch-' + type +'-'+ colour + '-'+ size;
+        $('#fm').prop('action',src);
+        $('#fm').submit();
+    }
+</script>
+</html>

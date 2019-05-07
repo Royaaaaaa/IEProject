@@ -36,13 +36,17 @@ def storyAndFact(request):
 def puzzle(request):
     return render(request,'app01/puzzle.html')
 
-def search(request):
-    typelist = Type.objects.all()
-    context={"typeList":typelist}
-    return render(request,'app01/search.html',context)
+# def search(request):
+#     typelist = Type.objects.all()
+#     colorlist = Color.objects.all()
+#     sizelist = Size.objects.all()
+#     context={"typeList":typelist,"colorList":colorlist,"sizeList":sizelist}
+#     return render(request,'app01/search2.html',context)
 
 def searchtype(req):
     type_id = req.GET.get('type')
+    size_id = req.GET.get('size')
+
     type = Type.objects.get(pk=type_id)
     life_list = type.animal_set.all()
     life_dic = {}
@@ -50,6 +54,35 @@ def searchtype(req):
         life_dic[animal.id] = animal.aName
     life_dic = json.dumps(life_dic)
     return HttpResponse(life_dic)
+
+# def searchColor(req):
+#     color_id = req.GET.get('color')
+#     color = Color.objects.get(pk=color_id)
+#     life_list = color.animal_set.all()
+#     life_dic = {}
+#     for animal in life_list:
+#         life_dic[animal.id] = animal.aName
+#     life_dic = json.dumps(life_dic)
+#     return HttpResponse(life_dic)
+
+def advsearch(req,*args,**kwargs):
+    ##kwargs拿到的是{'type_id': '0', 'colour_id': '0', 'size_id': '0'},用户搜索输入
+    input_list = {}
+    condition = {}
+
+    for k,v in kwargs.items():
+        input_list[k] = int(v)
+        if int(v):  ###如果输入为0，则取所有,便可以忽略这个条件
+            condition[k] = int(v)
+    print('前端数据是：', input_list)
+    print('条件是',condition)
+    type_list = Type.objects.all()
+    colour_list = Color.objects.all()
+    size_list = Size.objects.all()
+    animal_list = Animal.objects.filter(**condition)
+    context = {'input_list':input_list,"animal_list":animal_list,'type_list':type_list,'colour_list':colour_list,'size_list':size_list}
+    return render(req,'app01/search2.html',context)
+
 
 def showDetail(request,id):
     animal = Animal.objects.get(pk=id)
@@ -68,4 +101,3 @@ def showDetail(request,id):
     x = json.dumps(context)
     # context={'animal': animal,'locationList':list,'imagelist':list1}
     return render(request,'app01/showDetail.html',locals())
-

@@ -242,11 +242,17 @@
 	</div>
 </div>
 <div class="our-causes" style="background: url('static/app01/img/fact/fish1.jpg');backgournd-repeat: no-repeat; background-size: cover">
-{#       <span>#}
-        <div class="container" >
-            {% if fish_list.length > 0 %}
-            <h1>Fishes</h1>
-            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden" >
+        <div class="container">
+            {% if fishno > 0 %}
+             <div class="row">
+                <div class="coL-12">
+                    <div class="section-heading">
+                        <h2 class="entry-title" style="color: white;font-family: 'Comic Sans MS'">Fishes: {{ fishno }}</h2>
+                    </div><!-- .section-heading -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+
+            <div class="thumbnails" id="loadarea1" style="height: 350px;overflow: hidden" >
             {% for animal in fish_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
@@ -264,11 +270,22 @@
                     </div><!-- .cause-content-wrap -->
                 </div>
             {% endfor %}
+
+            </div>
+                <div id="button1" style="padding-top: 20px;margin-left: 40%">
+              <button href='#' onclick="slideDiv('loadarea1',350)">Click to view more or hide</button>
             </div>
             {% endif %}
-            {% if turtle_list.count > 0 %}
-            <h1>Repities</h1>
-            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden" >
+            {% if repno > 0 %}
+                <div class="row">
+                <div class="coL-12">
+                    <div class="section-heading">
+                        <h2 class="entry-title" style="color: white;font-family: 'Comic Sans MS'">Repities:{{ repno }}</h2>
+                    </div><!-- .section-heading -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+
+            <div class="thumbnails" id="loadarea2" style="height: 350px;overflow: hidden" >
             {% for animal in turtle_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
@@ -286,11 +303,22 @@
                     </div><!-- .cause-content-wrap -->
                 </div>
             {% endfor %}
+
+            </div>
+                <div id="button2" style="padding-top: 20px;margin-left: 40%">
+              <button href='#' onclick="slideDiv('loadarea2',350)">Click to view more or hide</button>
             </div>
             {% endif %}
-            {% if mammal_list.count > 0 %}
-            <h1>Mammals</h1>
-            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden" >
+            {% if mamno > 0 %}
+                <div class="row">
+                <div class="coL-12">
+                    <div class="section-heading">
+                        <h2 class="entry-title" style="color: white;font-family: 'Comic Sans MS'">Mammals:{{ mamno }}</h2>
+                    </div><!-- .section-heading -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+
+            <div class="thumbnails" id="loadarea3" style="height: 350px;overflow: hidden" >
             {% for animal in mammal_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
@@ -308,34 +336,17 @@
                     </div><!-- .cause-content-wrap -->
                 </div>
             {% endfor %}
-            <div>
+            </div>
+                <div id="button3" style="padding-top: 20px;margin-left: 40%">
+              <button href='#' onclick="slideDiv('loadarea3',350)">Click to view more or hide</button>
+               </div>
             {% endif %}
+
             {% if animal_list.count == 0 %}
                 <h2>No results found</h2>
             {% endif %}
-            </div>
 
-            </div>
-
-        <div id="button" style="padding-top: 50px;margin-left: 40%">
-         <button href='#' onclick="slideDiv('loadarea',350)">Click to view more or hide</button>
-        </div>
-
-{#        <div class = 'loading-wrapper' style="background: none!important">#}
-{#    <div class="loading sk-cube-grid">#}
-{#        <div class="sk-cube sk-cube1"></div>#}
-{#        <div class="sk-cube sk-cube2"></div>#}
-{#        <div class="sk-cube sk-cube3"></div>#}
-{#        <div class="sk-cube sk-cube4"></div>#}
-{#        <div class="sk-cube sk-cube5"></div>#}
-{#        <div class="sk-cube sk-cube6"></div>#}
-{#        <div class="sk-cube sk-cube7"></div>#}
-{#        <div class="sk-cube sk-cube8"></div>#}
-{#        <div class="sk-cube sk-cube9"></div>#}
-{# </div>#}
-{#           </div>#}
         </div><!-- .container -->
-</span>
 </div>
 <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
@@ -355,7 +366,7 @@
 
     function slideDiv(divID,height){
     var obj=document.getElementById(divID).style;
-    var button=document.getElementById('button').style;
+    {#var button=document.getElementById('button').style;#}
     {#var hei = $('.loadarea').height();#}
     {#if(hei<650){#}
     {#    button.display='none'#}

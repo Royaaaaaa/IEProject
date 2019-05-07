@@ -89,7 +89,10 @@ def advsearch(req,*args,**kwargs):
             turtle_list.append(animal)
         else:
             mammal_list.append(animal)
-    context = {'input_list':input_list,"animal_list":animal_list,"fish_list":fish_list,"turtle_list":turtle_list,"mammal_list":mammal_list,'type_list':type_list,'colour_list':colour_list,'size_list':size_list}
+    fishno=fish_list.__len__();
+    repno=turtle_list.__len__();
+    mamno=mammal_list.__len__();
+    context = {'fishno':fishno,'repno':repno,'mamno':mamno,'input_list':input_list,"animal_list":animal_list,"fish_list":fish_list,"turtle_list":turtle_list,"mammal_list":mammal_list,'type_list':type_list,'colour_list':colour_list,'size_list':size_list}
     return render(req,'app01/search2.html',context)
 
 

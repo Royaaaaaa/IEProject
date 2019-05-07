@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="static/app01/css/fact/style.css">
 
   <link rel="stylesheet" href="static/app01/index11/assets/css/main.css" />
+    <link rel='stylesheet' href='/static/app01/css/newindex/loading.css'>
     <style>
 
         #logo:after{
@@ -190,64 +191,12 @@
             <br/>
             <br/>
 		</div>
-            <div class="container-fluid bg-light " style="background: none!important">
-
-{#	    <form id = 'fm' class="row align-items-center justify-content-center" method = 'get'>#}
-{#              <form id = 'fm' action ='' method = 'get'>#}
-{#            	        <div class="col-md-2 pt-3" >#}
-{#                           <div class="form-group " >#}
-{#                              <select id="inputState " class="form-control" style="font-size: 1em" name = 'type'>#}
-{#                                <option selected value=0>TYPE</option>#}
-{#                                {% for item in type_list %}#}
-{#                                     {% if item.id == input_list.type_id %}#}
-{#                                         <option value = {{ item.id }} selected>{{ item.tName }}</option>#}
-{#                                     {% else %}#}
-{#                                        <option value = {{ item.id }}>{{ item.tName }}</option>#}
-{#                                     {% endif %}#}
-{#                                {% endfor %}#}
-{#                              </select>#}
-{#                           </div>#}
-{#                        </div>#}
-{#                		<div class="col-md-2 pt-3">#}
-{#                           <div class="form-group">#}
-{#                              <select id="inputState" class="form-control" style="font-size: 1em" name = 'size'>#}
-{#                                <option selected value=0>SIZE</option>#}
-{#                                 {% for item in size_list %}#}
-{#                                     {% if item.id == input_list.size_id %}#}
-{#                                         <option value = {{ item.id }} selected>{{ item.sName }}</option>#}
-{#                                     {% else %}#}
-{#                                        <option value = {{ item.id }}>{{ item.sName }}</option>#}
-{#                                     {% endif %}#}
-{#                                {% endfor %}#}
-{#                              </select>#}
-{#                           </div>#}
-{#                        </div>#}
-{#                        <div class="col-md-2 pt-3">#}
-{#                            <div class="form-group">#}
-{#                              <select id="inputState" class="form-control" style="font-size: 1em" name="colour">#}
-{#                                <option selected value=0>COLOR</option>#}
-{#                                {% for item in colour_list %}#}
-{#                                     {% if item.id == input_list.colour_id %}#}
-{#                                         <option value = {{ item.id }} selected>{{ item.cName }}</option>#}
-{#                                     {% else %}#}
-{#                                        <option value = {{ item.id }}>{{ item.cName }}</option>#}
-{#                                     {% endif %}#}
-{#                                {% endfor %}#}
-{#                              </select>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-md-2">#}
-{#            	           <button type="button" class="fa fa-search" style="font-size: 1.5em;width: 100%;background: none!important;border: 0;color: black" onclick="searchAnimal()"></button>#}
-{##}
-{#                            <a style="width:100%;cursor:pointer;text-align: center"><i class="fa fa-search" style="font-size: 1.5em;color: black;"></i></a>#}
-{#            	        </div>#}
-{#              </form>#}
-{#        </form>#}
+    <div class="container-fluid bg-light " style="background: none!important">
 
     <form id = 'fm' class="row align-items-center justify-content-center"action ='' method = 'get'>
     <div class="col-md-2 pt-3" >
     <select class="sel form-control type" name = 'type'>
-        <option value='0' disabled selected style='display:none;'>Animal type</option>
+        <option value='0' selected>Animal type</option>
 {#        <option value = 0>Any</option>#}
         {% for item in type_list %}
             {% if item.id == input_list.aType_id %}
@@ -285,51 +234,18 @@
     </select>
     </div>
     <div class="col-md-2">
-        <button type="button" class="fa fa-search" style="padding-top:10px;font-size: 1.5em;width: 100%;background: none!important;border: 1;color: black" onclick="searchAnimal()"> Search</button>    </div>
+        <button type="button" class="fa fa-search" style="font-family:'Comic Sans MS';padding-top:10px;font-size: 1.5em;width: 100%;background: none!important;border: 1px;color: black" onclick="searchAnimal()"> Search</button>    </div>
     </form>
 
 
 </div>
 	</div>
 </div>
-
-{#<div  class = 'idlist hidden' >#}
-{#    {% for i in id_list %}#}
-{#        <div>{{ i }}</div>#}
-{#    {% endfor %}#}
-{#</div>#}
-
-<div class = 'loading-wrapper'>
-    <div class="loading sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
- </div>
-</div>
-
-
-{#<div class = 'box'>#}
-{#    <div class ='item'>#}
-{#    </div>#}
-{#    <div class ='item'>#}
-{#    </div>#}
-{#    <div class ='item'>#}
-{#    </div>#}
-{#    <div class ='item'>#}
-{#    </div>#}
-{#    <div style = 'clear:both'></div>#}
-{##}
-{#</div>#}
-{#<div class = 'loading-wrapper'>#}
 <div class="our-causes" style="background: url('static/app01/img/fact/fish1.jpg');backgournd-repeat: no-repeat; background-size: cover">
-        <div class="container">
-            <div class="thumbnails">
+{#       <span>#}
+        <div class="container" >
+
+            <div class="thumbnails" id="loadarea" style="height: 350px;overflow: hidden">
             {% for animal in animal_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
@@ -347,12 +263,33 @@
                     </div><!-- .cause-content-wrap -->
                 </div>
             {% endfor %}
-           </div>
+            <div>
+            {% if animal_list.count == 0 %}
+                <h2>No results found</h2>
+            {% endif %}
+            </div>
+
+            </div>
+
+        <div id="button" style="padding-top: 50px;margin-left: 40%">
+         <button href='#' onclick="slideDiv('loadarea',350)">Click to view more or hide</button>
+        </div>
+
+{#        <div class = 'loading-wrapper' style="background: none!important">#}
+{#    <div class="loading sk-cube-grid">#}
+{#        <div class="sk-cube sk-cube1"></div>#}
+{#        <div class="sk-cube sk-cube2"></div>#}
+{#        <div class="sk-cube sk-cube3"></div>#}
+{#        <div class="sk-cube sk-cube4"></div>#}
+{#        <div class="sk-cube sk-cube5"></div>#}
+{#        <div class="sk-cube sk-cube6"></div>#}
+{#        <div class="sk-cube sk-cube7"></div>#}
+{#        <div class="sk-cube sk-cube8"></div>#}
+{#        <div class="sk-cube sk-cube9"></div>#}
+{# </div>#}
+{#           </div>#}
         </div><!-- .container -->
- </div>
-{#</div>#}
-<div class = 'result hidden'>
-    <h2>No results found</h2>
+</span>
 </div>
 <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
@@ -367,72 +304,22 @@
         setTimeout(function(){
             $('.loading-wrapper').fadeOut(500);
         },1000);
+
     });
 
-    {#$(function(){#}
-    {#    var idlist = [];#}
-    {#    $('.idlist').children().each(function(){#}
-    {#        idlist.push($(this).text());#}
-    {#    });#}
-    {#    if(idlist.length == 0){#}
-    {#        $('.result').removeClass('hidden')#}
-    {#    };#}
-    {#    function ScrollImg(){#}
-    {##}
-    {#    this.Nid = idlist;#}
-    {#    this.LastPosition = -1;#}
-    {##}
-    {#    this.initImg = function(){#}
-    {#        //##########################this = obj##################################}
-    {#        var that = this;#}
-    {#        $.ajax({#}
-    {#        url:'/getimg',#}
-    {#        type:'GET',#}
-    {#        data:{'nid':that.Nid},#}
-    {#        traditional:true,#}
-    {#        dataType:'JSON',#}
-    {#        success:function(arg)#}
-    {#        {#}
-    {#            var animal_list = arg.data;#}
-    {#            $.each(idlist,function(index,val){#}
-    {#                var eqv = (index + that.LastPosition + 1) % 4;#}
-    {#                var tag = $('<img>');#}
-    {#                var nsrc = 'static/app01/img/animal/' + val.title + '.jpg';#}
-    {#                tag.prop('src',nsrc);#}
-    {#                var desc = $('<div>');#}
-    {#                desc.html(val.title);#}
-    {#                $('.box').children().eq(eqv).append(tag);#}
-    {#                $('.box').children().eq(eqv).append(desc);#}
-    {##}
-    {#            })#}
-    {##}
-    {#        }#}
-    {#    })#}
-    {#    };#}
-    {#    this.scrollEvent = function(){#}
-    {#        //this = obj#}
-    {#        var that = this;#}
-    {#        $(window).scroll(function(){#}
-    {#        //文档高度(body高度，最高的高度)#}
-    {#        var docHeight = $(document).height();#}
-    {#        //窗口高度(当前可见窗口高度)#}
-    {#        var winHeight = $(window).height();#}
-    {#        //滚动条可滑动高度,滑轮离最顶部的距离#}
-    {#        var scroTop = $(window).scrollTop();#}
-    {#        //当滚轮到达最底部时，再执行initImg，发送ajax#}
-    {#        if(winHeight + scroTop >= docHeight-1){#}
-    {#            console.log(winHeight,scroTop,docHeight);#}
-    {#            that.initImg();#}
-    {#        }#}
-    {#    })#}
-    {#    }#}
-    {#};#}
-    {#    var obj = new ScrollImg();#}
-    {#    obj.initImg();#}
-    {#    obj.scrollEvent();#}
-    {##}
-    {#});#}
-
+    function slideDiv(divID,height){
+    var obj=document.getElementById(divID).style;
+    {#var button=document.getElementById('button').style;#}
+    if(obj.height==""){
+        obj.height=height+"px";
+        obj.overflow="hidden";
+        {#button.display='block';#}
+    }else{
+        obj.height="";
+        obj.overflow="";
+        {#button.display='none';#}
+    }
+}
 
     //方法二：全局变量，不建议用
     //$(function(){
@@ -445,6 +332,7 @@
 
     //search animal####################################
     function searchAnimal(){
+        $('.button').addClass('hidden')
         $('.result').addClass('hidden')
         var type;
         var colour;

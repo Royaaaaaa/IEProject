@@ -196,7 +196,7 @@
     <form id = 'fm' class="row align-items-center justify-content-center"action ='' method = 'get'>
     <div class="col-md-2 pt-3" >
     <select class="sel form-control type" name = 'type'>
-        <option value='0' selected>Animal type</option>
+        <option value='0' disabled selected style='display:none;'>Animal type</option>
 {#        <option value = 0>Any</option>#}
         {% for item in type_list %}
             {% if item.id == input_list.aType_id %}
@@ -252,7 +252,7 @@
                 </div><!-- .col -->
             </div><!-- .row -->
 
-            <div class="thumbnails" id="loadarea1" style="height: 350px;overflow: hidden" >
+            <div class="thumbnails" id="loadarea1"  >
             {% for animal in fish_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
@@ -285,7 +285,7 @@
                 </div><!-- .col -->
             </div><!-- .row -->
 
-            <div class="thumbnails" id="loadarea2" style="height: 350px;overflow: hidden" >
+            <div class="thumbnails" id="loadarea2"  >
             {% for animal in turtle_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
@@ -318,7 +318,7 @@
                 </div><!-- .col -->
             </div><!-- .row -->
 
-            <div class="thumbnails" id="loadarea3" style="height: 350px;overflow: hidden" >
+            <div class="thumbnails" id="loadarea3">
             {% for animal in mammal_list %}
                 <div class="cause-wrap" style="margin-left:5%;margin-top:0;width: 300px; height: 380px;">
                         <figure class="m-0" style="height: 200px">
@@ -341,10 +341,11 @@
               <button href='#' onclick="slideDiv('loadarea3',350)">Click to view more or hide</button>
                </div>
             {% endif %}
-
+            <div style="text-align: center">
             {% if animal_list.count == 0 %}
                 <h2>No results found</h2>
             {% endif %}
+            </div>
 
         </div><!-- .container -->
 </div>
@@ -363,6 +364,51 @@
         },1000);
 
     });
+    function showButton() {
+        if (document.getElementById('button1') != null) {
+            var obj1 = document.getElementById('button1').style;
+            var div1 = document.getElementById('loadarea1').style;
+            var hei1 = document.getElementById('loadarea1').offsetHeight;
+            console.log(hei1)
+            if (hei1 > 390) {
+                div1.height = "350px";
+                div1.overflow = "hidden"
+                obj1.display = 'true'
+            } else {
+                obj1.display = 'none'
+            }
+        }
+        if (document.getElementById('button2') != null){
+            var obj2=document.getElementById('button2').style;
+            var div2=document.getElementById('loadarea2').style;
+            var hei2 = document.getElementById('loadarea2').offsetHeight;
+            console.log(hei2)
+            if (hei2 > 390){
+                div2.height = "350px";
+                div2.overflow="hidden"
+                obj2.display = 'true'
+            }
+            else{
+                obj2.display = 'none'
+            }
+        }
+
+        if (document.getElementById('button3') != null) {
+            var obj3 = document.getElementById('button3').style;
+            var div3 = document.getElementById('loadarea3').style;
+            var hei3 = document.getElementById('loadarea3').offsetHeight;
+            console.log(hei3)
+            if (hei3 > 390) {
+                div3.height = "350px";
+                div3.overflow = "hidden"
+                obj3.display = 'true'
+            } else {
+                obj3.display = 'none'
+            }
+        }
+    }
+
+    window.onload = showButton;
 
     function slideDiv(divID,height){
     var obj=document.getElementById(divID).style;
@@ -375,7 +421,6 @@
     if(obj.height==""){
         obj.height=height+"px";
         obj.overflow="hidden";
-        {#button.display='block';#}
     }else{
         obj.height="";
         obj.overflow="";

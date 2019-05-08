@@ -133,6 +133,7 @@
         });
 
         var markers = [];
+        var bounds = new google.maps.LatLngBounds();
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
 
@@ -150,7 +151,6 @@
           markers = [];
 
           // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
             if (!place.geometry) {
               console.log("Returned place contains no geometry");
@@ -174,22 +174,19 @@
             markers.push(new google.maps.Marker({
               map: mapp,
               icon: icon,
-              title: getLatest(place.geometry.location.lat(),place.geometry.location.lng())[1],
+              title: getLatest(place.geometry.location.lat(),place.geometry.location.lng())[2],
               position: getLatest(place.geometry.location.lat(),place.geometry.location.lng())[0]
             }));
 
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
+            for(i=0;i<markers.length;i++) {
+                bounds.extend(markers[i].getPosition());
             }
+
             {#getLatest(place.geometry.location.lat(),place.geometry.location.lng(),mapp);#}
 
             console.log(place.geometry.location.lat());
             console.log(place.geometry.location.lng());
           });
-
           mapp.fitBounds(bounds);
         });
 
@@ -208,8 +205,13 @@
             markers.push(new google.maps.Marker({
               map: mapp,
               {#icon: icon,#}
-              title: getLatest(-37.813629, 144.963058)[1],
+              title: getLatest(-37.813629, 144.963058)[2],
               position: getLatest(-37.813629, 144.963058)[0]}));
+            for(i=0;i<markers.length;i++) {
+                bounds.extend(markers[i].getPosition());
+            }
+            mapp.fitBounds(bounds);
+            mapp.setCenter(getLatest(-37.813629, 144.963058)[0]);
         });
         document.getElementById("btn2").addEventListener("click",function(){
             markers.forEach(function(marker) {
@@ -225,8 +227,13 @@
             markers.push(new google.maps.Marker({
               map: mapp,
               {#icon: icon,#}
-              {#title: place.name,#}
+              title: getLatest(-33.868820, 151.209290)[2],
               position: getLatest(-33.868820, 151.209290)[0]}));
+            for(i=0;i<markers.length;i++) {
+                bounds.extend(markers[i].getPosition());
+            }
+            mapp.fitBounds(bounds);
+            mapp.setCenter(getLatest(-33.868820, 151.209290)[0]);
         });
         document.getElementById("btn3").addEventListener("click",function(){
             markers.forEach(function(marker) {
@@ -242,12 +249,14 @@
             markers.push(new google.maps.Marker({
               map: mapp,
               {#icon: icon,#}
-              {#title: place.name,#}
+              title: getLatest(-27.469770, 153.025131)[2],
               position: getLatest(-27.469770, 153.025131)[0]}));
+            for(i=0;i<markers.length;i++) {
+                bounds.extend(markers[i].getPosition());
+            }
+            mapp.fitBounds(bounds);
+            mapp.setCenter(getLatest(-27.469770, 153.025131)[0]);
         });
-
-
-
       }
 
       function getdistance(lat1, lon1, lat2, lon2) {
@@ -277,6 +286,7 @@
              list = c.animal_locationlist;
              var shortest = -1;
              var shortestLat,shortestLon,shortestid;
+             var shortestName,shortestFeature;
              for (var i in Object.keys(list)){
                  var key = Object.keys(list)[i];
                  var array = list[key];
@@ -286,16 +296,20 @@
                   shortestLat = array[0];
                   shortestLon = array[1];
                   shortestid = key;
+                  shortestName=array[2];
+                  shortestFeature=array[3];
               }
               else if (distance < shortest){
                    shortest = distance;
                    shortestLat = array[0];
                    shortestLon = array[1];
                    shortestid = key;
+                   shortestName=array[2];
+                   shortestFeature=array[3];
               }
              }
              {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
-             return [new google.maps.LatLng(shortestLat,shortestLon),shortestid];
+             return [new google.maps.LatLng(shortestLat,shortestLon),shortestid,shortestName,shortestFeature];
             }
 
     </script>

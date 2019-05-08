@@ -122,7 +122,9 @@ def findNearbyAnimals(request):
         lat = location.latAnimal
         lon = location.lonAnimal
         aId = location.lAnimal_id
-        s=[lat,lon]
+        aName=Animal.objects.get(pk=aId).aName;
+        aFeature=Animal.objects.get(pk=aId).aFeature;
+        s=[lat,lon,aName,aFeature]
         animal_locationlist[aId] = s
         # animal_locationlist.append(s)
         # animal_locationlist[aId]=s

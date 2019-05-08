@@ -196,23 +196,41 @@
                marker.setMap(null);
              });
             markers = [];
-            markers.push(new google.maps.Marker({
+
+            var infowindow1 = new google.maps.InfoWindow({
+               content: returnCityMessage("Melbourne")
+            });
+            var citymarker = new google.maps.Marker({
               map: mapp,
               {#icon: icon,#}
-              title: "Melbourne",
-              position: new google.maps.LatLng(-37.813629, 144.963058)}));
+              {#title: "Melbourne",#}
+              position: new google.maps.LatLng(-37.813629, 144.963058)});
+            markers.push(citymarker);
+            citymarker.addListener('click', function() {
+                infowindow1.open(mapp, citymarker);
+            });
 
-            markers.push(new google.maps.Marker({
+            var infowindow2 = new google.maps.InfoWindow({
+               content: returnpopmessage(getLatest(-37.813629, 144.963058)[2],getLatest(-37.813629, 144.963058)[1],getLatest(-37.813629, 144.963058)[3])
+            });
+            var animalMarker = new google.maps.Marker({
               map: mapp,
               {#icon: icon,#}
               title: getLatest(-37.813629, 144.963058)[2],
-              position: getLatest(-37.813629, 144.963058)[0]}));
+              position: getLatest(-37.813629, 144.963058)[0]});
+
+            markers.push(animalMarker);
+
+            animalMarker.addListener('click', function() {
+                infowindow2.open(mapp, animalMarker);
+            });
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
             mapp.fitBounds(bounds);
             mapp.setCenter(getLatest(-37.813629, 144.963058)[0]);
         });
+        
         document.getElementById("btn2").addEventListener("click",function(){
             markers.forEach(function(marker) {
                marker.setMap(null);
@@ -311,6 +329,32 @@
              {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
              return [new google.maps.LatLng(shortestLat,shortestLon),shortestid,shortestName,shortestFeature];
             }
+        function returnpopmessage(aName,aid,afeature) {
+          var contentString = "<div id='content'>"+
+                             "<div id=‘siteNotice’>"+
+                             "</div>"+
+                             "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
+                              aName + "</h2>" +
+                             "<div id=‘bodyContent'>" +
+                             "<p>"+ afeature + "</p>" +
+                             "<p>More Detail: <a href="+ aid +">link here</a></p>"+
+                             "</div>"+
+                             "</div>";
+           return contentString;
+        }
+        function returnCityMessage(cityname) {
+            var contentString = "<div id='content'>"+
+                             "<div id=‘siteNotice’>"+
+                             "</div>"+
+                             "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
+                              cityname + "</h2>" +
+                             "<div id=‘bodyContent'>" +
+                             "<p>body</p>" +
+                             "<p>Attribution: Uluru, <a href=>SEE DETAIL</a></p>"+
+                             "</div>"+
+                             "</div>";
+            return contentString;
+        }
 
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNjpszOJnJYenc_uZzNDvi4K0gYq6Xkw0&libraries=places&callback=initAutocomplete" async defer></script>

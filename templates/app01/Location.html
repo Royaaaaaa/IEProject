@@ -8,7 +8,9 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        width: 600px;
+        height: 400px;
+        margin-top: 50px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -16,22 +18,22 @@
         margin: 0;
         padding: 0;
       }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
+      {##description {#}
+      {#  font-family: Roboto;#}
+      {#  font-size: 15px;#}
+      {#  font-weight: 300;#}
+      {#}#}
 
       #infowindow-content .title {
         font-weight: bold;
       }
 
       #infowindow-content {
-        display: none;
+        display: block;
       }
 
       #map #infowindow-content {
-        display: inline;
+        display: block;
       }
 
       .pac-card {
@@ -42,7 +44,6 @@
         outline: none;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         background-color: #fff;
-        font-family: Roboto;
       }
 
       #pac-container {
@@ -69,26 +70,29 @@
         margin-left: 12px;
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
-        width: 400px;
+        width: 200px;
       }
 
       #pac-input:focus {
         border-color: #4d90fe;
       }
 
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
+      {##title {#}
+      {#  color: #fff;#}
+      {#  background-color: #4d90fe;#}
+      {#  font-size: 25px;#}
+      {#  font-weight: 500;#}
+      {#  padding: 6px 12px;#}
+      {#}#}
+      {##target {#}
+      {#  width: 345px;#}
+      {#}#}
     </style>
   </head>
   <body>
+    <button type="button" id="btn1">Melbourne</button>
+    <button type="button" id="btn2" >Sydney</button>
+    <button type="button" id="btn3">Brisbane</button>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
     <script>
@@ -99,35 +103,33 @@
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-      function initMap() {
+
+      function initAutocomplete() {
+
           var c = {{ x|safe }};
           list = c.animal_locationlist;
           console.log(list);
           var marker,i;
-          var map = new google.maps.Map(document.getElementById('map'), {
+          console.log("llll");
+          var mapp = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -37.813629, lng: 144.963058},
           zoom: 13,
           mapTypeId: 'roadmap'
-        });
-          console.log("llll");
+          });
 
-          for(i=0;i<list.length;i++){
-              console.log("kkkkkkk");
-              marker = new google.maps.Marker({position: new google.maps.LatLng(list[i][0],list[i][1]), map: map});
-
-          }
-          initAutocomplete(map);
-      }
-      function initAutocomplete(map) {
-
+          {#for(i=0;i<list.length;i++){#}
+          {#    console.log("kkkkkkk");#}
+          {#    marker = new google.maps.Marker({position: new google.maps.LatLng(list[i][0],list[i][1]), map: mapp});#}
+          {##}
+          {##}
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        mapp.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
         // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-          searchBox.setBounds(map.getBounds());
+        mapp.addListener('bounds_changed', function() {
+          searchBox.setBounds(mapp.getBounds());
         });
 
         var markers = [];
@@ -164,10 +166,16 @@
 
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
-              map: map,
+              map: mapp,
               icon: icon,
               title: place.name,
-              position: place.geometry.location
+              position: place.geometry.location}));
+
+            markers.push(new google.maps.Marker({
+              map: mapp,
+              icon: icon,
+              title: "hhhhh",
+              position: getLatest(place.geometry.location.lat(),place.geometry.location.lng())
             }));
 
             if (place.geometry.viewport) {
@@ -176,12 +184,122 @@
             } else {
               bounds.extend(place.geometry.location);
             }
+            {#getLatest(place.geometry.location.lat(),place.geometry.location.lng(),mapp);#}
+
+            console.log(place.geometry.location.lat());
+            console.log(place.geometry.location.lng());
           });
-          map.fitBounds(bounds);
+
+          mapp.fitBounds(bounds);
         });
+
+        document.getElementById("btn1").addEventListener("click",function(){
+            // Clear out the old markers.
+            markers.forEach(function(marker) {
+               marker.setMap(null);
+             });
+            markers = [];
+            markers.push(new google.maps.Marker({
+              map: mapp,
+              {#icon: icon,#}
+              title: "Melbourne",
+              position: new google.maps.LatLng(-37.813629, 144.963058)}));
+
+            markers.push(new google.maps.Marker({
+              map: mapp,
+              {#icon: icon,#}
+              {#title: place.name,#}
+              position: getLatest(-37.813629, 144.963058)}));
+        });
+        document.getElementById("btn2").addEventListener("click",function(){
+            markers.forEach(function(marker) {
+               marker.setMap(null);
+             });
+            markers = [];
+            markers.push(new google.maps.Marker({
+              map: mapp,
+              {#icon: icon,#}
+              title: "Sydney",
+              position: new google.maps.LatLng(-33.868820, 151.209290)}));
+
+            markers.push(new google.maps.Marker({
+              map: mapp,
+              {#icon: icon,#}
+              {#title: place.name,#}
+              position: getLatest(-33.868820, 151.209290)}));
+        });
+        document.getElementById("btn3").addEventListener("click",function(){
+            markers.forEach(function(marker) {
+               marker.setMap(null);
+             });
+            markers = [];
+            markers.push(new google.maps.Marker({
+              map: mapp,
+              {#icon: icon,#}
+              title: "Brisbane",
+              position: new google.maps.LatLng(-27.469770, 153.025131)}));
+
+            markers.push(new google.maps.Marker({
+              map: mapp,
+              {#icon: icon,#}
+              {#title: place.name,#}
+              position: getLatest(-27.469770, 153.025131)}));
+        });
+
+
+
       }
 
+      function getdistance(lat1, lon1, lat2, lon2) {
+          if ((lat1 == lat2) && (lon1 == lon2)) {
+              return 0;
+          } else {
+              var radlat1 = Math.PI * lat1 / 180;
+              var radlat2 = Math.PI * lat2 / 180;
+              var theta = lon1 - lon2;
+              var radtheta = Math.PI * theta / 180;
+              var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+              if (dist > 1) {
+                  dist = 1;
+              }
+              dist = Math.acos(dist);
+              dist = dist * 180 / Math.PI;
+              dist = dist * 60 * 1.1515;
+              {#if (unit=="K") { dist = dist * 1.609344 }#}
+              {#if (unit=="N") { dist = dist * 0.8684 }#}
+              return dist;
+          }
+      }
+
+      function getCityNearest(lat,lon) {
+
+      }
+
+		function getLatest(lat,lon) {
+	         var c = {{ x|safe }};
+             list = c.animal_locationlist;
+             var shortest = -1;
+             var shortestLat,shortestLon;
+             var marker,i;
+             for(i=0;i<list.length;i++){
+              console.log("kkkkkkk");
+              distance =  getdistance(lat,lon,list[i][0],list[i][1]);
+              if (shortest < 0){
+                  shortest = distance;
+                  shortestLat = list[i][0];
+                  shortestLon = list[i][1];
+              }
+              else if (distance < shortest){
+                   shortest = distance;
+                   shortestLat = list[i][0];
+                   shortestLon = list[i][1];
+              }
+             }
+             {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
+             return new google.maps.LatLng(shortestLat,shortestLon);
+            }
+
     </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNjpszOJnJYenc_uZzNDvi4K0gYq6Xkw0&libraries=places&callback=initMap" async defer></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNjpszOJnJYenc_uZzNDvi4K0gYq6Xkw0&libraries=places&callback=initAutocomplete" async defer></script>
   </body>
 </html>

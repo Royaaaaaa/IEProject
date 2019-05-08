@@ -195,58 +195,19 @@
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
-            markers = [];
-
-            var infowindow1 = new google.maps.InfoWindow({
-               content: returnCityMessage("Melbourne")
-            });
-            var citymarker = new google.maps.Marker({
-              map: mapp,
-              {#icon: icon,#}
-              {#title: "Melbourne",#}
-              position: new google.maps.LatLng(-37.813629, 144.963058)});
-            markers.push(citymarker);
-            citymarker.addListener('click', function() {
-                infowindow1.open(mapp, citymarker);
-            });
-
-            var infowindow2 = new google.maps.InfoWindow({
-               content: returnpopmessage(getLatest(-37.813629, 144.963058)[2],getLatest(-37.813629, 144.963058)[1],getLatest(-37.813629, 144.963058)[3])
-            });
-            var animalMarker = new google.maps.Marker({
-              map: mapp,
-              {#icon: icon,#}
-              title: getLatest(-37.813629, 144.963058)[2],
-              position: getLatest(-37.813629, 144.963058)[0]});
-
-            markers.push(animalMarker);
-
-            animalMarker.addListener('click', function() {
-                infowindow2.open(mapp, animalMarker);
-            });
+            markers = clickButtonGetNearestLocation("Melbourne",-37.813629,144.963058,mapp);
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
             mapp.fitBounds(bounds);
             mapp.setCenter(getLatest(-37.813629, 144.963058)[0]);
         });
-        
+
         document.getElementById("btn2").addEventListener("click",function(){
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
-            markers = [];
-            markers.push(new google.maps.Marker({
-              map: mapp,
-              {#icon: icon,#}
-              title: "Sydney",
-              position: new google.maps.LatLng(-33.868820, 151.209290)}));
-
-            markers.push(new google.maps.Marker({
-              map: mapp,
-              {#icon: icon,#}
-              title: getLatest(-33.868820, 151.209290)[2],
-              position: getLatest(-33.868820, 151.209290)[0]}));
+            markers = clickButtonGetNearestLocation("Sydeny",-33.868820,151.209290,mapp);
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
@@ -257,18 +218,7 @@
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
-            markers = [];
-            markers.push(new google.maps.Marker({
-              map: mapp,
-              {#icon: icon,#}
-              title: "Brisbane",
-              position: new google.maps.LatLng(-27.469770, 153.025131)}));
-
-            markers.push(new google.maps.Marker({
-              map: mapp,
-              {#icon: icon,#}
-              title: getLatest(-27.469770, 153.025131)[2],
-              position: getLatest(-27.469770, 153.025131)[0]}));
+            markers = clickButtonGetNearestLocation("Brisbane",-27.469770,153.025131,mapp);
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
@@ -354,6 +304,35 @@
                              "</div>"+
                              "</div>";
             return contentString;
+        }
+        function clickButtonGetNearestLocation(cityname,lat,lon,mapp) {
+          var pos;
+            var infowindow = new google.maps.InfoWindow({
+                 content: returnCityMessage(cityname)
+            });
+            var citymarker = new google.maps.Marker({
+                 map: mapp,
+      {#icon: icon,#}
+      {#title: "Melbourne",#}
+                 position: new google.maps.LatLng(lat, lon)});
+            citymarker.addListener('click', function() {
+                infowindow.open(mapp, citymarker);
+             });
+
+         var infowindow2 = new google.maps.InfoWindow({
+             content: returnpopmessage(getLatest(lat, lon)[2],getLatest(lat, lon)[1],getLatest(lat, lon)[3])
+          });
+         var animalMarker = new google.maps.Marker({
+             map: mapp,
+      {#icon: icon,#}
+              title: getLatest(lat, lon)[2],
+              position: getLatest(lat, lon)[0]});
+
+         animalMarker.addListener('click', function() {
+                infowindow2.open(mapp, animalMarker);
+          });
+          return [citymarker,animalMarker]
+
         }
 
     </script>

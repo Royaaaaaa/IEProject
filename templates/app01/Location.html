@@ -110,7 +110,7 @@
           list = c.animal_locationlist;
           console.log(list);
           var marker,i;
-          console.log("llll");
+
           var mapp = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -37.813629, lng: 144.963058},
           zoom: 13,
@@ -174,8 +174,8 @@
             markers.push(new google.maps.Marker({
               map: mapp,
               icon: icon,
-              title: "hhhhh",
-              position: getLatest(place.geometry.location.lat(),place.geometry.location.lng())
+              title: getLatest(place.geometry.location.lat(),place.geometry.location.lng())[1],
+              position: getLatest(place.geometry.location.lat(),place.geometry.location.lng())[0]
             }));
 
             if (place.geometry.viewport) {
@@ -208,8 +208,8 @@
             markers.push(new google.maps.Marker({
               map: mapp,
               {#icon: icon,#}
-              {#title: place.name,#}
-              position: getLatest(-37.813629, 144.963058)}));
+              title: getLatest(-37.813629, 144.963058)[1],
+              position: getLatest(-37.813629, 144.963058)[0]}));
         });
         document.getElementById("btn2").addEventListener("click",function(){
             markers.forEach(function(marker) {
@@ -226,7 +226,7 @@
               map: mapp,
               {#icon: icon,#}
               {#title: place.name,#}
-              position: getLatest(-33.868820, 151.209290)}));
+              position: getLatest(-33.868820, 151.209290)[0]}));
         });
         document.getElementById("btn3").addEventListener("click",function(){
             markers.forEach(function(marker) {
@@ -243,7 +243,7 @@
               map: mapp,
               {#icon: icon,#}
               {#title: place.name,#}
-              position: getLatest(-27.469770, 153.025131)}));
+              position: getLatest(-27.469770, 153.025131)[0]}));
         });
 
 
@@ -271,32 +271,31 @@
           }
       }
 
-      function getCityNearest(lat,lon) {
-
-      }
 
 		function getLatest(lat,lon) {
 	         var c = {{ x|safe }};
              list = c.animal_locationlist;
              var shortest = -1;
-             var shortestLat,shortestLon;
-             var marker,i;
-             for(i=0;i<list.length;i++){
-              console.log("kkkkkkk");
-              distance =  getdistance(lat,lon,list[i][0],list[i][1]);
+             var shortestLat,shortestLon,shortestid;
+             for (var i in Object.keys(list)){
+                 var key = Object.keys(list)[i];
+                 var array = list[key];
+                 distance =  getdistance(lat,lon,array[0],array[1]);
               if (shortest < 0){
                   shortest = distance;
-                  shortestLat = list[i][0];
-                  shortestLon = list[i][1];
+                  shortestLat = array[0];
+                  shortestLon = array[1];
+                  shortestid = key;
               }
               else if (distance < shortest){
                    shortest = distance;
-                   shortestLat = list[i][0];
-                   shortestLon = list[i][1];
+                   shortestLat = array[0];
+                   shortestLon = array[1];
+                   shortestid = key;
               }
              }
              {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
-             return new google.maps.LatLng(shortestLat,shortestLon);
+             return [new google.maps.LatLng(shortestLat,shortestLon),shortestid];
             }
 
     </script>

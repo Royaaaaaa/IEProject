@@ -115,14 +115,16 @@ def showDetail(request,id):
     return render(request,'app01/showDetail.html',locals())
 
 def findNearbyAnimals(request):
-    animal_locationlist=[]
+    # animal_locationlist=[]
+    animal_locationlist = {}
     locationlist=Location.objects.all()
     for location in locationlist:
         lat = location.latAnimal
         lon = location.lonAnimal
         aId = location.lAnimal_id
-        s=(lat,lon)
-        animal_locationlist.append(s)
+        s=[lat,lon]
+        animal_locationlist[aId] = s
+        # animal_locationlist.append(s)
         # animal_locationlist[aId]=s
     context = {'animal_locationlist': animal_locationlist}
     x = json.dumps(context)

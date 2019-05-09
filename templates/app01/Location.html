@@ -4,15 +4,19 @@
       {% load staticfiles %}
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-
-    <title>Places Search Box</title>
+      <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
+       <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
+    <title>Find Nearby Animals</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        width: 600px;
-        height: 400px;
+        width: 70%;
+        height: 80%;
         margin-top: 50px;
+        margin-left: 15%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -73,25 +77,150 @@
       #pac-input:focus {
         border-color: #4d90fe;
       }
+      #logo:after{
+            content: "savingnemo";
+             color: #000000;
+            vertical-align: bottom;
+         }
 
-      {##title {#}
-      {#  color: #fff;#}
-      {#  background-color: #4d90fe;#}
-      {#  font-size: 25px;#}
-      {#  font-weight: 500;#}
-      {#  padding: 6px 12px;#}
-      {#}#}
-      {##target {#}
-      {#  width: 345px;#}
-      {#}#}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background:none!important;
+            min-width: 200px;
+            z-index: 1;
+        }
+
+
+        .dropdown-content a {
+        float: none;
+        padding: 18px 16px;
+        padding-left: 23px;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .dropdown-content a:hover {
+        border: 0px;
+        background:none!important;
+        color: #fd7e14;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .arrow{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #d9534f;
+    border-right: 5px solid #d9534f;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg)
+        translate(20px,20px);
+    }
+
+}
+     @media screen and (max-width: 990px)
+ {
+    #menu {
+
+    width:100%;
+    margin:0 auto;
+    position:relative;
+    text-align:right;
+    font-size: 8px}
+    #logo img {
+        width: 20px;
+        height: 20px;
+    }
+    #logo:after{
+        font-size: 8px;
+    }
+
+}
+        .back_to_previous{
+         position: fixed;
+        left:30px;
+        top: 50%;
+        border:1px solid #888;
+        }
+
     </style>
   </head>
-  <body>
-    <button type="button" id="btn1">Melbourne</button>
-    <button type="button" id="btn2" >Sydney</button>
-    <button type="button" id="btn3">Brisbane</button>
-    <button type="button" onclick="reload()">All</button>
+  <body style="font-family: 'Comic Sans MS'">
+  <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
+		<div id="logo" style="width: 20%">
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
+		</div>
+		<div id="menu" style="height: 100px;">
+			<ul>
+				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
+				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
+				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
+                <div class="dropdown" style="float: left;" id="drop">
+                    <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
+                     <div class="dropdown-content">
+                          <a href="#"></a>
+                          <a href="puzzle">Puzzle</a>
+                          <a href="pickingrubbish" >Pick-it-right</a>
+                     </div>
+                </div>
+                <li><a href="search" accesskey="5" title="" style="color: black">Identify</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);padding-top: 0px; height: 30%">
+    <div id="banner-wrapper">
+		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
+            <br/>
+            <p style="font-family: 'Chicle', cursive;font-size: 2.5em; color: white">Do you want to see animals around you?</p>
+			<p style="font-family: 'Chicle', cursive;color: #FFFFFF; font-size: 1.5em">Choose or input a location then you can find which animal is nearest to you!</p>
+            <br/>
+            <br/>
+            <br/>
+		</div>
+
+	</div>
+</div>
+  <div style="margin-top: 50px;text-align: center">
+    <button type="button" class="btn btn-primary" id="btn1" style="font-size: 1.5em;cursor: pointer">Melbourne</button>
+    <button type="button" class="btn btn-success" id="btn2" style="font-size: 1.5em;cursor: pointer" >Sydney</button>
+    <button type="button" class="btn btn-info" id="btn3" style="font-size: 1.5em;cursor: pointer">Brisbane</button>
+    <button type="button" class="btn btn-default" style="font-size: 1.5em;cursor: pointer" onclick="reload()">See All</button>
+   </div>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
     <div id="map"></div>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
@@ -135,13 +264,13 @@
           for (var i in Object.keys(list)){
                  var key = Object.keys(list)[i];
                  var array = list[key];
-                 var srcImg ="<img src='static/app01/img/animal/" + array[2] + ".jpg' style='width:100px;height:100px'/>";
-                 var content ="<div id='content'>"+
+                 var srcImg ="<img src='static/app01/img/animal/" + array[2] + ".jpg' style='width:100px;height:100px;font-family: 'Comic Sans MS''/>";
+                 var content ="<div id='content' style='width:300px;text-align:center'>"+
                              "<div id=‘siteNotice’>"+
                              "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               array[2] + "</h2>" +
-                             "<div id=‘bodyContent' style='text-align:center'>" +
+                             "<div id=‘bodyContent'>" +
                              "<p>"+ array[3] + "</p>" + srcImg +
                              "<p>More Detail: <a href="+ key +">click here</a></p>"+
                              "</div>"+
@@ -307,12 +436,12 @@
         function returnpopmessage(aName,aid,afeature) {
           var srcImg ="<img src='static/app01/img/animal/" + aName + ".jpg' style='width:100px;height:100px'/>";
           console.log(srcImg);
-          var contentString = "<div id='content'>"+
-                             "<div id=‘siteNotice’>"+
-                             "</div>"+
+          var contentString = "<div id='content' style='width:300px;text-align:center;font-family: 'Comic Sans MS''>"+
+{#                             "<div id=‘siteNotice’>"+#}
+{#                             "</div>"+#}
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               aName + "</h2>" +
-                             "<div id=‘bodyContent' style='text-align:center'>" +
+                             "<div id=‘bodyContent'>" +
                              "<p>"+ afeature + "</p>" + srcImg +
                              "<p>More Detail: <a href="+ aid +">click here</a></p>"+
                              "</div>"+
@@ -320,7 +449,7 @@
            return contentString;
         }
         function returnCityMessage(cityname) {
-            var contentString = "<div id='content'>"+
+            var contentString = "<div id='content' style='font-family: 'Comic Sans MS''>"+
                              "<div id=‘siteNotice’>"+
                              "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
@@ -345,6 +474,7 @@
              });
 
          var infowindow2 = new google.maps.InfoWindow({
+             maxWidth: 320,
              content: returnpopmessage(getLatest(lat, lon)[2],getLatest(lat, lon)[1],getLatest(lat, lon)[3])
           });
          var typeName= getLatest(lat, lon)[4]

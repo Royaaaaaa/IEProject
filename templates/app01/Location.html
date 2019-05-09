@@ -104,6 +104,20 @@
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+      var icons = {
+          Fish: {
+            icon: 'static/app01/img/icon/fishicon.png'
+          },
+          Reptiles: {
+            icon: 'static/app01/img/icon/reptiesicon.png'
+          },
+          Mammal: {
+            icon: 'static/app01/img/icon/mammalicon.png'
+          },
+          city: {
+            icon: 'static/app01/img/icon/cityicon.png'
+          },
+        };
       function initAutocomplete() {
 
           var c = {{ x|safe }};
@@ -134,6 +148,8 @@
 
         var markers = [];
         var bounds = new google.maps.LatLngBounds();
+
+
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
 
@@ -156,27 +172,8 @@
               console.log("Returned place contains no geometry");
               return;
             }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
 
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: mapp,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location}));
-
-            markers.push(new google.maps.Marker({
-              map: mapp,
-              icon: icon,
-              title: getLatest(place.geometry.location.lat(),place.geometry.location.lng())[2],
-              position: getLatest(place.geometry.location.lat(),place.geometry.location.lng())[0]
-            }));
+            markers = clickButtonGetNearestLocation(place.name,place.geometry.location.lat(),place.geometry.location.lng(),mapp);
 
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
@@ -254,7 +251,7 @@
              list = c.animal_locationlist;
              var shortest = -1;
              var shortestLat,shortestLon,shortestid;
-             var shortestName,shortestFeature;
+             var shortestName,shortestFeature,shortesttypeName;
              for (var i in Object.keys(list)){
                  var key = Object.keys(list)[i];
                  var array = list[key];
@@ -266,6 +263,7 @@
                   shortestid = key;
                   shortestName=array[2];
                   shortestFeature=array[3];
+                  shortesttypeName=array[4];
               }
               else if (distance < shortest){
                    shortest = distance;
@@ -274,10 +272,11 @@
                    shortestid = key;
                    shortestName=array[2];
                    shortestFeature=array[3];
+                   shortesttypeName=array[4];
               }
              }
              {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
-             return [new google.maps.LatLng(shortestLat,shortestLon),shortestid,shortestName,shortestFeature];
+             return [new google.maps.LatLng(shortestLat,shortestLon),shortestid,shortestName,shortestFeature,shortesttypeName];
             }
         function returnpopmessage(aName,aid,afeature) {
           var contentString = "<div id='content'>"+
@@ -299,21 +298,19 @@
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               cityname + "</h2>" +
                              "<div id=‘bodyContent'>" +
-                             "<p>body</p>" +
-                             "<p>Attribution: Uluru, <a href=>SEE DETAIL</a></p>"+
+                             "<p> <a href=''>" + "SEE DETAIL</a></p>"+
                              "</div>"+
                              "</div>";
             return contentString;
         }
         function clickButtonGetNearestLocation(cityname,lat,lon,mapp) {
-          var pos;
+
             var infowindow = new google.maps.InfoWindow({
                  content: returnCityMessage(cityname)
             });
             var citymarker = new google.maps.Marker({
                  map: mapp,
-      {#icon: icon,#}
-      {#title: "Melbourne",#}
+                 icon: icons.city.icon,
                  position: new google.maps.LatLng(lat, lon)});
             citymarker.addListener('click', function() {
                 infowindow.open(mapp, citymarker);
@@ -322,9 +319,10 @@
          var infowindow2 = new google.maps.InfoWindow({
              content: returnpopmessage(getLatest(lat, lon)[2],getLatest(lat, lon)[1],getLatest(lat, lon)[3])
           });
+         var typeName= getLatest(lat, lon)[4]
          var animalMarker = new google.maps.Marker({
              map: mapp,
-      {#icon: icon,#}
+             icon: icons[typeName].icon,
               title: getLatest(lat, lon)[2],
               position: getLatest(lat, lon)[0]});
 

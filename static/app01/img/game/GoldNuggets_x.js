@@ -1632,7 +1632,7 @@ function cb(pos, fR, eS) {
     }
     return 0;
 };
-function cW() {
+ function cW() {
     for (i = 0; i < 100; i++)
         window.scroll(0, 1);
     if (aZ) {
@@ -1680,7 +1680,7 @@ function test() {
     if ((g == af) && (eK))
     ;
     else
-        document.body.style.overflow = 'show';
+        document.body.style.overflow = 'hidden';
     if ((g != 3) && (g != 6))
         document.addEventListener(cf, fz, false);
     for (i = 0; i < 200; i++)

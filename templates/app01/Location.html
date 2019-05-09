@@ -322,6 +322,7 @@
           markers.forEach(function(marker) {
             marker.setMap(null);
           });
+          bounds = new google.maps.LatLngBounds();
           markers = [];
 
           // For each place, get the icon, name and location.
@@ -348,6 +349,7 @@
 
         document.getElementById("btn1").addEventListener("click",function(){
             // Clear out the old markers.
+            bounds = new google.maps.LatLngBounds();
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
@@ -355,11 +357,12 @@
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
-            mapp.fitBounds(bounds);
             mapp.setCenter(getLatest(-37.813629, 144.963058)[0]);
+            mapp.fitBounds(bounds);
         });
 
         document.getElementById("btn2").addEventListener("click",function(){
+            bounds = new google.maps.LatLngBounds();
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
@@ -367,10 +370,12 @@
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
-            mapp.fitBounds(bounds);
             mapp.setCenter(getLatest(-33.868820, 151.209290)[0]);
+            mapp.fitBounds(bounds);
+
         });
         document.getElementById("btn3").addEventListener("click",function(){
+            bounds = new google.maps.LatLngBounds();
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
@@ -378,8 +383,8 @@
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
-            mapp.fitBounds(bounds);
             mapp.setCenter(getLatest(-27.469770, 153.025131)[0]);
+            mapp.fitBounds(bounds);
         });
       }
 

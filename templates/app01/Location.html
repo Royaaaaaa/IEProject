@@ -120,22 +120,51 @@
         };
       function initAutocomplete() {
 
-          var c = {{ x|safe }};
-          list = c.animal_locationlist;
-          console.log(list);
-          var marker,i;
+           var c = {{ x|safe }};
+           list = c.animal_locationlist;
+           console.log(list);
+
+          var markers = [];
+          var bounds = new google.maps.LatLngBounds();
 
           var mapp = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -37.813629, lng: 144.963058},
-          zoom: 13,
+          zoom: 5,
           mapTypeId: 'roadmap'
           });
 
-          {#for(i=0;i<list.length;i++){#}
-          {#    console.log("kkkkkkk");#}
-          {#    marker = new google.maps.Marker({position: new google.maps.LatLng(list[i][0],list[i][1]), map: mapp});#}
-          {##}
-          {##}
+          var infowindow = new google.maps.InfoWindow();
+          for (var i in Object.keys(list)){
+                 var key = Object.keys(list)[i];
+                 var array = list[key];
+                 var content ="<div id='content'>"+
+                             "<div id=‘siteNotice’>"+
+                             "</div>"+
+                             "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
+                              array[2] + "</h2>" +
+                             "<div id=‘bodyContent'>" +
+                             "<p>"+ array[3] + "</p>" +
+                             "<p>More Detail: <a href="+ key +">link here</a></p>"+
+                             "</div>"+
+                             "</div>";
+
+                 var marker = new google.maps.Marker({
+                     position: new google.maps.LatLng(array[0],array[1]),
+                     icon:icons[array[4]].icon,
+                     map: mapp,
+
+                 });
+                 {#infowindow.close();#}
+                 google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                       return function() {
+                           infowindow.setContent(content);
+                           infowindow.open(map,marker);
+                       };
+                 })(marker,content,infowindow));
+                 markers.push(marker)
+
+          }
+
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
@@ -145,9 +174,6 @@
         mapp.addListener('bounds_changed', function() {
           searchBox.setBounds(mapp.getBounds());
         });
-
-        var markers = [];
-        var bounds = new google.maps.LatLngBounds();
 
 
         // Listen for the event fired when the user selects a prediction and retrieve
@@ -183,6 +209,7 @@
 
             console.log(place.geometry.location.lat());
             console.log(place.geometry.location.lng());
+            console.log(place.geometry.location)
           });
           mapp.fitBounds(bounds);
         });
@@ -297,9 +324,9 @@
                              "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               cityname + "</h2>" +
-                             "<div id=‘bodyContent'>" +
-                             "<p> <a href=''>" + "SEE DETAIL</a></p>"+
-                             "</div>"+
+{#                             "<div id=‘bodyContent'>" +#}
+{#                             "<p> <a href=''>" + "SEE DETAIL</a></p>"+#}
+{#                             "</div>"+#}
                              "</div>";
             return contentString;
         }

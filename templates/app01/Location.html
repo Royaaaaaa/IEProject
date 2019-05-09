@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+      {% load staticfiles %}
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+
     <title>Places Search Box</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -18,11 +20,6 @@
         margin: 0;
         padding: 0;
       }
-      {##description {#}
-      {#  font-family: Roboto;#}
-      {#  font-size: 15px;#}
-      {#  font-weight: 300;#}
-      {#}#}
 
       #infowindow-content .title {
         font-weight: bold;
@@ -93,6 +90,7 @@
     <button type="button" id="btn1">Melbourne</button>
     <button type="button" id="btn2" >Sydney</button>
     <button type="button" id="btn3">Brisbane</button>
+    <button type="button" onclick="reload()">All</button>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
     <script>
@@ -137,14 +135,15 @@
           for (var i in Object.keys(list)){
                  var key = Object.keys(list)[i];
                  var array = list[key];
+                 var srcImg ="<img src='static/app01/img/animal/" + array[2] + ".jpg' style='width:100px;height:100px'/>";
                  var content ="<div id='content'>"+
                              "<div id=‘siteNotice’>"+
                              "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               array[2] + "</h2>" +
-                             "<div id=‘bodyContent'>" +
-                             "<p>"+ array[3] + "</p>" +
-                             "<p>More Detail: <a href="+ key +">link here</a></p>"+
+                             "<div id=‘bodyContent' style='text-align:center'>" +
+                             "<p>"+ array[3] + "</p>" + srcImg +
+                             "<p>More Detail: <a href="+ key +">click here</a></p>"+
                              "</div>"+
                              "</div>";
 
@@ -306,14 +305,16 @@
              return [new google.maps.LatLng(shortestLat,shortestLon),shortestid,shortestName,shortestFeature,shortesttypeName];
             }
         function returnpopmessage(aName,aid,afeature) {
+          var srcImg ="<img src='static/app01/img/animal/" + aName + ".jpg' style='width:100px;height:100px'/>";
+          console.log(srcImg);
           var contentString = "<div id='content'>"+
                              "<div id=‘siteNotice’>"+
                              "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               aName + "</h2>" +
-                             "<div id=‘bodyContent'>" +
-                             "<p>"+ afeature + "</p>" +
-                             "<p>More Detail: <a href="+ aid +">link here</a></p>"+
+                             "<div id=‘bodyContent' style='text-align:center'>" +
+                             "<p>"+ afeature + "</p>" + srcImg +
+                             "<p>More Detail: <a href="+ aid +">click here</a></p>"+
                              "</div>"+
                              "</div>";
            return contentString;
@@ -358,6 +359,9 @@
           });
           return [citymarker,animalMarker]
 
+        }
+        function reload() {
+            document.location.reload();
         }
 
     </script>

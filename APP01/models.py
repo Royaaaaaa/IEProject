@@ -43,3 +43,9 @@ class Location(models.Model):
     latAnimal = models.FloatField(null=True, blank=True,default=None)
     lonAnimal = models.FloatField(null=True, blank=True,default=None)
     lAnimal=models.ForeignKey(Animal,on_delete=models.CASCADE)
+
+class Score(models.Model):
+    score = models.IntegerField()
+
+    def __str__(self):
+        return self.score

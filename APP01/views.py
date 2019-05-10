@@ -7,7 +7,7 @@ from .models import *
 import json
 
 def index(request):
-    return render(request, 'app01/index2.html')
+    return render(request, 'app01/index.html')
 
 def marinefamily(request):
     typelist= Type.objects.all()
@@ -91,7 +91,7 @@ def advsearch(req,*args,**kwargs):
     repno=turtle_list.__len__();
     mamno=mammal_list.__len__();
     context = {'fishno':fishno,'repno':repno,'mamno':mamno,'input_list':input_list,"animal_list":animal_list,"fish_list":fish_list,"turtle_list":turtle_list,"mammal_list":mammal_list,'type_list':type_list,'colour_list':colour_list,'size_list':size_list}
-    return render(req,'app01/search2.html',context)
+    return render(req, 'app01/search.html', context)
 
 
 def showDetail(request,id):
@@ -137,3 +137,14 @@ def findNearbyAnimals(request):
     x = json.dumps(context)
     # context={'locationlist':locationlist}
     return render(request,'app01/Location.html',locals())
+
+def score(req):
+    newscore = int(req.GET.get('score'))
+    Score.objects.create(score = newscore)
+    total = Score.objects.all().count()
+    lower = Score.objects.filter(score__lt = newscore).count()
+    perc = '%.0f%%' % (lower/total * 100)
+    #print('总人数',total)
+    #print('低于你的分数人数', lower)
+    #print('打败百分比', perc,type(perc))
+    return HttpResponse(perc)

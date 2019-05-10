@@ -19,7 +19,8 @@ class AnimalAdmin(admin.ModelAdmin):
     list_filter = ['aName']
     list_per_page = 20
     inlines = [imageInline]
-
+class ScoreAdmin(admin.ModelAdmin):
+    list_display = ['id','score']
 
 class ImageAdmin(admin.ModelAdmin):
     list_display = ['id','iName']
@@ -46,4 +47,5 @@ admin.site.register(Image,ImageAdmin)
 admin.site.register(Type,TypeAdmin)
 admin.site.register(Size,SizeAdmin)
 admin.site.register(Color,ColorAdmin)
+admin.site.register(Score,ScoreAdmin)
 admin.site.register(Location,LocationAdmin)

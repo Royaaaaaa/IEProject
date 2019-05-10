@@ -4,6 +4,7 @@
     {% load staticfiles %}
     <meta charset="UTF-8">
     <title>Quiz</title>
+    <link rel="icon" href="/static/app01/img/head/head.ico" type="image/x-icon"/>
     <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -14,16 +15,53 @@
 {#    <link href="default_ie6.css" rel="stylesheet" type="text/css"/>#}
 
     <style>
-
+        {#div.img-container{#}
+        {#    position: relative;#}
+        {#    padding:0;#}
+        {#    width:100%;#}
+        {#    height: 100%#}
+        {#}#}
+        {#.img-container .mask{#}
+        {#    position: absolute;#}
+        {#    top:0;#}
+        {#    left:0;#}
+        {#    height:100%;#}
+        {#    width: 100%;#}
+        {#    background: rgba(0,0,0,0.7);#}
+        {#    color: #f5f1e5;#}
+        {#    line-height: 250px;#}
+        {#    text-align: center;#}
+        {#    display: none;#}
+        {#}#}
         #logo:after{
              content: "savingnemo";
              color: #000000;
              vertical-align: bottom;
          }
+        {#模板css开始####################################}
+        #videoLeft {
+            width: 600px;
+            float: left;
+            display: block;
+        }
 
+        #videoRight {
+            width: 600px;
+            float: right;
+            display: block;
+        }
+
+        .desc {
+            width: 550px;
+            height: 150px;
+        }
 
         video {
             width: 550px;
+        }
+        .shark{
+            margin-top:20px;
+
         }
 
         {#模板css结束######################################}
@@ -80,7 +118,7 @@
         text-decoration: none;
         display: block;
         text-align: left;
-        color: #000000;
+        color: #FFFFFF;
     }
 
     .dropdown-content a:hover {
@@ -99,7 +137,7 @@
         }
 
     }
-    @media screen and (max-width: 800px)
+    @media screen and (max-width: 950px)
  {
     #menu {
 
@@ -115,7 +153,6 @@
     #logo:after{
         font-size: 8px;
     }
-
 
 }
         .arrow{
@@ -154,24 +191,20 @@
         translate(20px,20px);
     }
 }
-        .back_to_previous{
-         position: fixed;
-        left:30px;
-        top: 50%;
-        border:1px solid #888;
-        }
+  #next {
+
+  }
 
     </style>
 
 </head>
-{#<body style="background-color: #f2dede">#}
 {#模板body开始##################################}
-<body style="background-color: #ffffff; font-family: 'Comic Sans MS'">
+<body style="background-color: #ffffff">
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
-		<div id="logo" style="top:10px;margin-left: -40px"><a href="index" accesskey="1" title="" style="color: black">
-            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
-        </a></div>
+		<div id="logo" style="top:10px; left: 10px"><a href="index">
+            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/></a>
+		</div>
 		<div id="menu" style="height: 100px; padding-right: 50px">
 			<ul>
 				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
@@ -182,12 +215,11 @@
                      <div class="dropdown-content">
                           <a href="#"></a>
                           <a href="puzzle" class="current_page_item">Puzzle</a>
-                          <a href="pickingrubbish">Pick-it-right</a>
+                          <a href="pickingrubbish">Picking Rubbish</a>
                      </div>
                 </div>
                 <li><a href="search" accesskey="5" title="" style="color: black">Identify</a></li>
                 <li><a href="nearbyAnimal" accesskey="6" title="" style="color: black">Nearby-animal</a></li>
-
 			</ul>
 		</div>
 	</div>
@@ -266,19 +298,19 @@
             <div class="modal-body" style = 'height:350px'>
                 <div class = 'contentQues'>
                     <div class = 'trackerBox' style ='height:60px;width:100%;text-align:center'>
-   <div>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-       <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
-   </div>
-</div>
+                       <div>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                           <img class = 'tracker' src = '/static/app01/img/quiz/quiztracker/tracker_empty.png'>
+                       </div>
+                    </div>
 {#                    问题1！！！！！！！！！！！！#}
                     <div class = 'quesPic' style='width:220px;float:left;margin-top:20px'>
                       <img src='/static/app01/img/quiz/quizpic/q1.jpg' class="img-responsive center-block img-circle">
@@ -494,7 +526,10 @@
                     <div class = 'showRes hideQues' style = 'text-align:center;margin-top:30px'>
                         <a  class = 'rewardStic' href="#" download = "sticker">
                             <button type="button" id = 'sticker' class="btn btn-info"  onclick = getSticker(this)>
-                                <h3 class = 'finalTit' style = 'color:red;font-weight:bold;margin-top:10px'>Nice!</h3>
+                                <p><h3 class = 'finalTit' style = 'color:red;font-weight:bold;margin-top:10px'>Nice!</h3></p>
+
+                                <p><h4 class = 'beat' style = 'color:red;font-weight:bold'></h4></p>
+
                                 <div class = 'finalScore' style = 'font-weight:bold'>You got</div>
                                 <div style = 'font-weight:bold'>Click for reward!</div>
                             </button>
@@ -515,10 +550,10 @@
         </div>
     </div>
 </div>
-<button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;background:none!important;color: black;"onclick="javascript:history.go(-1)"><</button>
-<div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
-        <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
-    </div>
+
+<div id="copyright" class="container" style="width: 100%">
+	<p style="color: #6c757d">&copy; Victorian wildlife bunj. All rights reserved. | Photos by VWB, Microsoft, Pixels | Design by <a href="#" style="color: #ad3729">VWB Team</a>.</p>
+</div>
 </body>
 <script src='/static/app01/js/jquery-3.3.1.js'></script>
 <script src='/static/app01/js/bootstrap.js'></script>
@@ -598,6 +633,21 @@
         $(arg).prev().removeClass('hideBtn');
         console.log(count);
         if(count == 10){
+            //发送ajax测试
+            $.ajax({
+                url:'/savescore',
+                type:'GET',
+                data:{'score':score},
+                success:function(arg){
+                    console.log(arg);
+                    var txt = 'You beat ' + arg + ' of people';
+                    $('.beat').html(txt);
+
+                }
+            });
+            //发送ajax测试完毕
+
+
             $('.showRes').removeClass('hideQues');
             $('.lastChange').addClass('hideBtn');
             $('.getRes').removeClass('hideBtn');
@@ -619,8 +669,7 @@
             else if(score == 10){
 
                $('.finalTit').text('Genius');
-            }
-
+            };
         }
     }
 

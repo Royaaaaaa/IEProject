@@ -245,8 +245,8 @@ MarkerClusterer.prototype.setupStyles_ = function() {
       url: this.imagePath_,
       height: size,
       width: size,
-      textColor:'black',
-      textSize:15
+      textColor: 'yellow',
+      textSize:20
     });
   }
 };

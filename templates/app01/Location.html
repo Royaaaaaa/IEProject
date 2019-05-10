@@ -44,7 +44,7 @@
         -moz-box-sizing: border-box;
         outline: none;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
+        background-color: #43413e;
       }
 
       #pac-container {
@@ -197,7 +197,9 @@
                      </div>
                 </div>
                 <li><a href="search" accesskey="5" title="" style="color: black">Identify</a></li>
-			</ul>
+                <li class="current_page_item"><a href="nearbyAnimal" accesskey="6" title="" style="color: black">Nearby-animal</a></li>
+
+            </ul>
 		</div>
 	</div>
 </div>
@@ -256,7 +258,7 @@
 
            var c = {{ x|safe }};
            list = c.animal_locationlist;
-           console.log(list);
+           {#console.log(list);#}
 
           var markers = [];
           var bounds = new google.maps.LatLngBounds();
@@ -272,43 +274,44 @@
           var mammalmarkers=[];
 
           var infowindow = new google.maps.InfoWindow();
-          for (var i in Object.keys(list)){
-                 var key = Object.keys(list)[i];
-                 var array = list[key];
-                 var srcImg ="<img src='static/app01/img/animal/" + array[2] + ".jpg' style='width:100px;height:100px;font-family: 'Comic Sans MS''/>";
-                 var content ="<div id='content' style='width:300px;text-align:center'>"+
-                             "<div id=‘siteNotice’>"+
-                             "</div>"+
-                             "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
-                              array[2] + "</h2>" +
-                             "<div id=‘bodyContent'>" +
-                             "<p>"+ array[3] + "</p>" + srcImg +
-                             "<p>More Detail: <a href="+ key +">click here</a></p>"+
-                             "</div>"+
-                             "</div>";
+          for (var i in Object.keys(list)) {
+              var key = Object.keys(list)[i];
+              for(var j=0;j<list[key].length;j++) {
+                  var array = list[key][j];
+                  console.log(array);
+                  var srcImg = "<img src='static/app01/img/animal/" + array[2] + ".jpg' style='width:100px;height:100px;font-family: 'Comic Sans MS''/>";
+                  var content = "<div id='content' style='width:300px;text-align:center'>" +
+                      "<div id=‘siteNotice’>" +
+                      "</div>" +
+                      "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
+                      array[2] + "</h2>" +
+                      "<div id=‘bodyContent'>" +
+                      "<p>" + array[3] + "</p>" + srcImg +
+                      "<p>More Detail: <a href=" + key + ">click here</a></p>" +
+                      "</div>" +
+                      "</div>";
 
-                 var marker = new google.maps.Marker({
-                     position: new google.maps.LatLng(array[0],array[1]),
-                     icon:icons[array[4]].icon,
-                     map: mapp,
-                 });
-                 {#infowindow.close();#}
-                 google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
-                       return function() {
-                           infowindow.setContent(content);
-                           infowindow.open(map,marker);
-                       };
-                 })(marker,content,infowindow));
-                 if (array[4]=="Fish"){
-                     fishmarkers.push(marker);
-                 }
-                 else if(array[4]=="Reptiles"){
-                     repmarkers.push(marker);
-                 }
-                 else if(array[4]=="Mammal") {
-                     mammalmarkers.push(marker);
-                 }
-                 markers.push(marker);
+                  var marker = new google.maps.Marker({
+                      position: new google.maps.LatLng(array[0], array[1]),
+                      icon: icons[array[4]].icon,
+                      map: mapp,
+                  });
+                  {#infowindow.close();#}
+                  google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
+                      return function () {
+                          infowindow.setContent(content);
+                          infowindow.open(map, marker);
+                      };
+                  })(marker, content, infowindow));
+                  if (array[4] == "Fish") {
+                      fishmarkers.push(marker);
+                  } else if (array[4] == "Reptiles") {
+                      repmarkers.push(marker);
+                  } else if (array[4] == "Mammal") {
+                      mammalmarkers.push(marker);
+                  }
+                  markers.push(marker);
+              }
           }
           var options1 = {
                     imagePath: 'static/app01/img/icon/fishicon.png',
@@ -446,32 +449,34 @@
              var shortest = -1;
              var shortestLat,shortestLon,shortestid;
              var shortestName,shortestFeature,shortesttypeName;
-             for (var i in Object.keys(list)){
+             for (var i in Object.keys(list)) {
                  var key = Object.keys(list)[i];
-                 var array = list[key];
-                 distance =  getdistance(lat,lon,array[0],array[1]);
-              if (shortest < 0){
-                  shortest = distance;
-                  shortestLat = array[0];
-                  shortestLon = array[1];
-                  shortestid = key;
-                  shortestName=array[2];
-                  shortestFeature=array[3];
-                  shortesttypeName=array[4];
-              }
-              else if (distance < shortest){
-                   shortest = distance;
-                   shortestLat = array[0];
-                   shortestLon = array[1];
-                   shortestid = key;
-                   shortestName=array[2];
-                   shortestFeature=array[3];
-                   shortesttypeName=array[4];
-              }
+                 for(var j=0;j<list[key].length;j++) {
+                  var array = list[key][j];
+                     distance = getdistance(lat, lon, array[0], array[1]);
+                     if (shortest < 0) {
+                         shortest = distance;
+                         shortestLat = array[0];
+                         shortestLon = array[1];
+                         shortestid = key;
+                         shortestName = array[2];
+                         shortestFeature = array[3];
+                         shortesttypeName = array[4];
+                     } else if (distance < shortest) {
+                         shortest = distance;
+                         shortestLat = array[0];
+                         shortestLon = array[1];
+                         shortestid = key;
+                         shortestName = array[2];
+                         shortestFeature = array[3];
+                         shortesttypeName = array[4];
+                     }
+                 }
              }
-             {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
-             return [new google.maps.LatLng(shortestLat,shortestLon),shortestid,shortestName,shortestFeature,shortesttypeName];
-            }
+                 {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
+            return [new google.maps.LatLng(shortestLat, shortestLon), shortestid, shortestName, shortestFeature, shortesttypeName];
+
+             }
         function returnpopmessage(aName,aid,afeature) {
           var srcImg ="<img src='static/app01/img/animal/" + aName + ".jpg' style='width:100px;height:100px'/>";
           console.log(srcImg);

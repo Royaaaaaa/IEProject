@@ -23,9 +23,7 @@ def marinelife(request,id):
 
 def quiz(request):
     return render(request, 'app01/quiz.html')
-#
-# def game(request):
-#     return render(request, 'app01/game.html')
+
 def pickingrubbish(request):
     return render(request, 'app01/pickingrubbish.html')
 #
@@ -118,15 +116,21 @@ def findNearbyAnimals(request):
     # animal_locationlist=[]
     animal_locationlist = {}
     locationlist=Location.objects.all()
+    list = []
     for location in locationlist:
         lat = location.latAnimal
         lon = location.lonAnimal
         aId = location.lAnimal_id
-        aName=Animal.objects.get(pk=aId).aName;
-        aFeature=Animal.objects.get(pk=aId).aFeature;
+        aName=Animal.objects.get(pk=aId).aName
+        aFeature=Animal.objects.get(pk=aId).aFeature
         atypeName=Animal.objects.get(pk=aId).aType.tName
-        s=[lat,lon,aName,aFeature,atypeName]
-        animal_locationlist[aId] = s
+        s = [lat, lon, aName, aFeature, atypeName]
+        if aId in animal_locationlist.keys():
+            list.append(s)
+        else:
+            list = []
+            list.append(s)
+        animal_locationlist[aId] = list
         # animal_locationlist.append(s)
         # animal_locationlist[aId]=s
     context = {'animal_locationlist': animal_locationlist}

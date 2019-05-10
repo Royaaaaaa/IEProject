@@ -186,7 +186,7 @@ function MarkerClusterer(map, opt_markers, opt_options) {
  * @type {string}
  * @private
  */
-MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_PATH_ = '../images/m';
+MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_PATH_ = '../icon/';
 
 
 /**
@@ -195,7 +195,7 @@ MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_PATH_ = '../images/m';
  * @type {string}
  * @private
  */
-MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_EXTENSION_ = 'png';
+MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_EXTENSION_ = '';
 
 
 /**
@@ -242,9 +242,11 @@ MarkerClusterer.prototype.setupStyles_ = function() {
 
   for (var i = 0, size; size = this.sizes[i]; i++) {
     this.styles_.push({
-      url: this.imagePath_ + (i + 1) + '.' + this.imageExtension_,
+      url: this.imagePath_,
       height: size,
-      width: size
+      width: size,
+      textColor:'black',
+      textSize:15
     });
   }
 };

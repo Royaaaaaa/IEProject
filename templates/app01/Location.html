@@ -203,15 +203,13 @@
 		</div>
 	</div>
 </div>
-<div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);padding-top: 0px; height: 30%">
+<div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);padding-top: 0px; height: 40%">
     <div id="banner-wrapper">
 		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
             <br/>
             <p style="font-family: 'Chicle', cursive;font-size: 2.5em; color: white">Do you want to see animals around you?</p>
 			<p style="font-family: 'Chicle', cursive;color: #FFFFFF; font-size: 1.5em">Choose or input a location then you can find which animal is nearest to you!</p>
-            <br/>
-            <br/>
-            <br/>
+
 		</div>
 
 	</div>
@@ -258,7 +256,6 @@
 
            var c = {{ x|safe }};
            list = c.animal_locationlist;
-           {#console.log(list);#}
 
           var markers = [];
           var bounds = new google.maps.LatLngBounds();

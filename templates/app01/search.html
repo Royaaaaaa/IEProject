@@ -242,13 +242,13 @@
 
 
 
-</div>
+  </div>
 	</div>
 </div>
-<div class="our-causes" style="background: url('static/app01/img/fact/fish1.jpg');backgournd-repeat: no-repeat; background-size: cover">
-        <div class="container">
+  <div class="our-causes" style="background: url('static/app01/img/fact/fish1.jpg');backgournd-repeat: no-repeat; background-size: cover">
+        <div class="container" style="text-align: center">
             {% if fishno > 0 %}
-             <div class="row">
+             <div class="row" style="text-align: left">
                 <div class="coL-12">
                     <div class="section-heading">
                         <h2 class="entry-title" style="color: white;font-family: 'Comic Sans MS'">Fishes: {{ fishno }}</h2>
@@ -276,10 +276,9 @@
             {% endfor %}
 
             </div>
-                <div id="button1" style="padding-top: 20px;text-align: center">
-              <button href='#' onclick="slideDiv('loadarea1',350)">Click to view more or hide</button>
-            </div>
+              <button id="button1" href='#' onclick="slideDiv('loadarea1',350,'button1')">View More</button>
             {% endif %}
+
             {% if repno > 0 %}
                 <div class="row">
                 <div class="coL-12">
@@ -309,9 +308,9 @@
             {% endfor %}
 
             </div>
-                <div id="button2" style="padding-top: 20px;text-align: center">
-              <button href='#' onclick="slideDiv('loadarea2',350)">Click to view more or hide</button>
-            </div>
+
+              <button id="button2" href='#' onclick="slideDiv('loadarea2',350,'button2')">View More</button>
+
             {% endif %}
             {% if mamno > 0 %}
                 <div class="row">
@@ -341,9 +340,9 @@
                 </div>
             {% endfor %}
             </div>
-                <div id="button3" style="padding-top: 20px;text-align: center">
-              <button href='#' onclick="slideDiv('loadarea3',350)">Click to view more or hide</button>
-               </div>
+
+              <button id="button3" href='#' onclick="slideDiv('loadarea3',350,'button3')">View More</button>
+
             {% endif %}
             <div style="text-align: center">
             {% if animal_list.count == 0 %}
@@ -414,24 +413,20 @@
 
     window.onload = showButton;
 
-    function slideDiv(divID,height){
+    function slideDiv(divID,height,btnID){
     var obj=document.getElementById(divID).style;
-    {#var button=document.getElementById('button').style;#}
-    {#var hei = $('.loadarea').height();#}
-    {#if(hei<650){#}
-    {#    button.display='none'#}
-    {#    button.visibility='blco';#}
-
+    var btn=document.getElementById(btnID);
     if(obj.height==""){
         obj.height=height+"px";
         obj.overflow="hidden";
+        $(btn).text('Show More');
     }else{
         obj.height="";
         obj.overflow="";
-        {#button.display='none';#}
+        $(btn).text('Hide');
     }
 
-}
+    }
 
     //方法二：全局变量，不建议用
     //$(function(){

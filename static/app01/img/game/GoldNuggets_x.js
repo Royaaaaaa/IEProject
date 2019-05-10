@@ -1680,7 +1680,7 @@ function test() {
     if ((g == af) && (eK))
     ;
     else
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'show';
     if ((g != 3) && (g != 6))
         document.addEventListener(cf, fz, false);
     for (i = 0; i < 200; i++)

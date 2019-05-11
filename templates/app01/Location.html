@@ -193,7 +193,7 @@
                      <div class="dropdown-content">
                           <a href="#"></a>
                           <a href="puzzle">Puzzle</a>
-                          <a href="pickingrubbish" >Pick-it-right</a>
+                          <a href="pickingrubbish" style="margin-top: -20px;" >Pick-it-right</a>
                      </div>
                 </div>
                 <li><a href="search" accesskey="5" title="" style="color: black">Identify</a></li>
@@ -311,19 +311,23 @@
               }
           }
           var options1 = {
-                    imagePath: 'static/app01/img/icon/fishicon.png',
-          };
+              imagePath: 'static/app01/img/icon/fishicon.png',
+              minimumClusterSize:3
+          }
 
 
           var markerCluster = new MarkerClusterer(mapp, fishmarkers,options1);
           var options2 = {
-                    imagePath: 'static/app01/img/icon/reptiesicon.png',
-          };
+              imagePath: 'static/app01/img/icon/reptiesicon.png',
+              minimumClusterSize:3
+          }
+
 
           var markerCluster2 = new MarkerClusterer(mapp, repmarkers,options2);
           var options3 = {
-                    imagePath: 'static/app01/img/icon/mammalicon.png',
-          };
+              imagePath: 'static/app01/img/icon/mammalicon.png',
+              minimumClusterSize:3
+          }
 
           var markerCluster3 = new MarkerClusterer(mapp, mammalmarkers,options3);
 

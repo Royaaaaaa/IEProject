@@ -160,9 +160,9 @@
 {#模板body开始##################################}
 <body style="background-color: #ffffff; font-family: 'Comic Sans MS'">
 <button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;background:none!important;color: black;"onclick="javascript:history.go(-1)"><</button>
-<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+ <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
-		<div id="logo" style="top:10px;margin-left: -40px"><a href="index" accesskey="1" title="" style="color: black">
+		<div id="logo" style="top:5px;margin-left: -40px"><a href="index" accesskey="1" title="" style="color: black">
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
         </a></div>
 		<div id="menu" style="height: 100px;">
@@ -174,8 +174,8 @@
                     <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
                      <div class="dropdown-content">
                           <a href="#"></a>
-                          <a href="puzzle" class="current_page_item">Puzzle</a>
-                          <a href="pickingrubbish">Pick-it-right</a>
+                          <a href="puzzle" style="color: white;padding-left: 30px">Puzzle</a>
+                          <a href="pickingrubbish" style="color: white;padding-left: 30px;margin-top: -20px">Pick-it-right</a>
                      </div>
                 </div>
                 <li class="current_page_item"><a href="search" accesskey="5" title="" style="color: black">Identify</a></li>
@@ -185,66 +185,62 @@
 		</div>
 	</div>
 </div>
-<div id="header-featured"  style="background-image: url(static/app01/img/searchBack.gif);background-size: cover;background-repeat: no-repeat">
-	<div id="banner-wrapper">
-		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
-            <p style="font-family: 'Indie Flower', cursive; color: #000000;font-size: 3.5em;font-weight: bolder">REMEMBER ME?</p>
-			<p style="font-family: 'Indie Flower', cursive;color: #000000; font-size: 2em;font-weight: bolder">Don't remember the names yet? No worries! Make a selection below and find out.</p>
-            <br/>
-            <br/>
-		</div>
-    <div class="container-fluid bg-light " style="background: none!important">
 
-    <form id = 'fm' class="row align-items-center justify-content-center"action ='' method = 'get'>
-    <div class="col-md-2 pt-3" >
-    <select class="sel form-control type" name = 'type'>
-        <option value='0' disabled selected style='display:none;'>Animal type</option>
-{#        <option value = 0>Any</option>#}
-        {% for item in type_list %}
-            {% if item.id == input_list.aType_id %}
-                <option value = {{ item.id }} selected>{{ item.tName }}</option>
-            {% else %}
-                <option value = {{ item.id }}>{{ item.tName }}</option>
-            {% endif %}
-        {% endfor %}
-    </select>
+<div id="header-featured"  style="padding:0;background-image: url(/static/app01/img/searchBack.gif);height:100%;background-repeat: no-repeat">
+	<div style="padding:150px;width:100%;height:100%;background: rgba(0, 0, 0, 0.4);">
+            <div id="banner-wrapper">
+                <div id="banner" class="container" style="width: 100%; color: darkslategrey">
+                    <p style="z-index:999;margin-bottom:10px;font-family: 'Indie Flower', cursive; color: #ffffff;font-size: 3.5em;font-weight: bolder">REMEMBER ME?</p>
+                    <p style="z-index:999;font-family: 'Indie Flower', cursive;color: #ffffff; font-size: 2em;font-weight: bolder">Don't remember the names yet? No worries! Make a selection below and find out.</p>
+                </div>
+                <div class="container-fluid bg-light " style="background: none!important;margin-top: -50px">
+                    <form id = 'fm' class="row align-items-center justify-content-center"action ='' method = 'get'>
+                        <div class="col-md-2 pt-3" >
+                            <select class="sel form-control type" name = 'type'>
+                                <option value='0' disabled selected style='display:none;'>Animal type</option>
+                                <option value = 0>Any</option>
+                                {% for item in type_list %}
+                                  {% if item.id == input_list.aType_id %}
+                                       <option value = {{ item.id }} selected>{{ item.tName }}</option>
+                                  {% else %}
+                                         <option value = {{ item.id }}>{{ item.tName }}</option>
+                                  {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-2 pt-3" >
+                            <select class="sel form-control colour" name = 'colour'>
+                                <option value='0' disabled selected style='display:none;'>Colour</option>
+                                <option value = 0>Any</option>
+                                {% for item in colour_list %}
+                                     {% if item.id == input_list.aColor_id %}
+                                         <option value = {{ item.id }} selected>{{ item.cName }}</option>
+                                     {% else %}
+                                           <option value = {{ item.id }}>{{ item.cName }}</option>
+                                     {% endif %}
+                                 {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-2 pt-3" >
+                            <select class="sel form-control size" name = 'size'>
+                                <option value='0' disabled selected style='display:none;'>SIZE</option>
+                                <option value = 0>Any</option>
+                                {% for item in size_list %}
+                                    {% if item.id == input_list.aSize_id %}
+                                      <option value = {{ item.id }} selected>{{ item.sName }}</option>
+                                 {% else %}
+                                       <option value = {{ item.id }}>{{ item.sName }}</option>
+                                    {% endif %}
+                                 {% endfor %}
+                            </select>
+                        </div >
+                        <button type="button" class="fa fa-search" style="z-index:999;font-family:'Comic Sans MS';border:0;padding-top:30px;font-size: 1.5em;background: none!important;color: black" onclick="searchAnimal()"> Click to get animals</button>
+                </form>
+                </div>
+            </div>
     </div>
-    <div class="col-md-2 pt-3" >
-    <select class="sel form-control colour" name = 'colour'>
-        <option value='0' disabled selected style='display:none;'>Colour</option>
-{#        <option value = 0>Any</option>#}
-        {% for item in colour_list %}
-            {% if item.id == input_list.aColor_id %}
-                <option value = {{ item.id }} selected>{{ item.cName }}</option>
-            {% else %}
-                <option value = {{ item.id }}>{{ item.cName }}</option>
-            {% endif %}
-        {% endfor %}
-    </select>
-    </div>
-    <div class="col-md-2 pt-3" >
-    <select class="sel form-control size" name = 'size'>
-        <option value='0' disabled selected style='display:none;'>SIZE</option>
-{#        <option value = 0>Any</option>#}
-        {% for item in size_list %}
-            {% if item.id == input_list.aSize_id %}
-                <option value = {{ item.id }} selected>{{ item.sName }}</option>
-            {% else %}
-                <option value = {{ item.id }}>{{ item.sName }}</option>
-            {% endif %}
-        {% endfor %}
-    </select>
-    </div >
-        <button type="button" class="fa fa-search" style="font-family:'Comic Sans MS';border:0;padding-top:30px;font-size: 1.5em;width: 100%;background: none!important;color: black" onclick="searchAnimal()"> Click to get animals</button>
-
-    </form>
-    </div>
-
-
-
-  </div>
-	</div>
 </div>
+<div id="result">
   <div class="our-causes" style="background: url('static/app01/img/fact/fish1.jpg');backgournd-repeat: no-repeat; background-size: cover">
         <div class="container" style="text-align: center">
             {% if fishno > 0 %}
@@ -352,6 +348,7 @@
 
         </div><!-- .container -->
 </div>
+</div>
 <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
     </div>
@@ -439,8 +436,8 @@
 
     //search animal####################################
     function searchAnimal(){
-        $('.button').addClass('hidden')
-        $('.result').addClass('hidden')
+        {#$('.button').addClass('hidden')#}
+        {#$('.result').addClass('hidden')#}
         var type;
         var colour;
         var size;
@@ -461,7 +458,7 @@
         }else{
             size = $('.size').val();
         }
-        src = '/advsearch-' + type +'-'+ colour + '-'+ size;
+        src = '/advsearch-' + type +'-'+ colour + '-'+ size +'#result';
         $('#fm').prop('action',src);
         $('#fm').submit();
     }

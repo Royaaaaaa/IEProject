@@ -60,7 +60,7 @@
 <a class="back_to_top" style="z-index:9999;text-align:center;cursor:pointer;width: 40px;background-color: darkorange;color: black">TOP</a>
 <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="color: black;height: 55px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
-		<div id="logo" style="top:10px;margin-left: -40px"><a href="index" accesskey="1" title="" style="color: black">
+		<div id="logo" style="top:10px; left: 10px"><a href="index" accesskey="1" title="" style="color: black">
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
         </a></div>
 		<div id="menu" style="height: 100px;">
@@ -183,7 +183,11 @@
 <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
     </div>
+<!--
 <a id="back" class="back_to_previous" style="text-align:center;z-index:9999;cursor:pointer;width: 30px;background-color: white;color: black;"onclick="javascript:history.go(-1)"><</a>
+-->
+<a id="back" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;"
+        onclick="javascript:history.go(-1)" class="back_to_previous" ><img src="static/app01/img/Arrow.png" style="width: 30px;height: 30px;background: none!important"/></a>
 <script>
     var backButton=$('.back_to_top');
     function backToTop() {

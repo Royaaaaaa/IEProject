@@ -34,6 +34,12 @@
     <link rel='stylesheet' href='/static/app01/css/newindex/loading.css'>
     <style>
 
+        .back_to_top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            border: 1px solid #888;
+        }
         #logo:after{
              content: "savingnemo";
              color: #000000;
@@ -159,10 +165,14 @@
 </head>
 {#模板body开始##################################}
 <body style="background-color: #ffffff; font-family: 'Comic Sans MS'">
+<!--
 <button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;background:none!important;color: black;"onclick="javascript:history.go(-1)"><</button>
- <div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
+ -->
+<a id="back" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;"
+        onclick="javascript:history.go(-1)" class="back_to_previous" ><img src="static/app01/img/Arrow.png" style="width: 30px;height: 30px;background: none!important"/></a>
+<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
 	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
-		<div id="logo" style="top:5px;margin-left: -40px"><a href="index" accesskey="1" title="" style="color: black">
+		<div id="logo" style="top:5px;margin-left: 0"><a href="index" accesskey="1" title="" style="color: black">
             <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
         </a></div>
 		<div id="menu" style="height: 100px;">
@@ -223,7 +233,7 @@
                         </div>
                         <div class="col-md-2 pt-3" >
                             <select class="sel form-control size" name = 'size'>
-                                <option value='0' disabled selected style='display:none;'>SIZE</option>
+                                <option value='0' disabled selected style='display:none;'>Size</option>
                                 <option value = 0>Any</option>
                                 {% for item in size_list %}
                                     {% if item.id == input_list.aSize_id %}
@@ -352,11 +362,19 @@
 <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
     </div>
+ <a class="back_to_top" style="z-index:9999;cursor:pointer;width: 40px;background-color: darkorange;color: black">TOP</a>
 </body>
 <script src='/static/app01/js/jquery-3.3.1.js'></script>
 {#<script src='/static/app01/js/bootstrap.js'></script>#}
 
  <script>
+     var backButton=$('.back_to_top');
+    function backToTop() {
+        $('html,body').animate({
+            scrollTop: 0
+        }, 800);
+    }
+    backButton.on('click', backToTop);
 
     $(document).ready(function(){
         setTimeout(function(){

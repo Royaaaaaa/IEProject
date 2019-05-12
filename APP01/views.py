@@ -110,7 +110,7 @@ def showDetail(request,id):
     context={'locationList':list}
     x = json.dumps(context)
     # context={'animal': animal,'locationList':list,'imagelist':list1}
-    return render(request,'app01/showDetail.html',locals())
+    return render(request,'app01/showDetail2.html',locals())
 
 def findNearbyAnimals(request):
     # animal_locationlist=[]

@@ -5,14 +5,13 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
       <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
+{#    <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />#}
        <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
       <link rel="stylesheet" href="static/app01/css/common.css">
        <link rel="stylesheet" href="static/app01/css/bootstrap.min.css">
-      <link rel="stylesheet" href="static/app01/css/fact/style.css">
-
-      <script type="text/javascript" src="static/app01/js/bootstrap.min.js"></script>
-{#      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>#}
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript" src="static/app01/js/bootstrap.min.js"></script>
+      {#      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>#}
 
     <title>Find Nearby Animals</title>
     <style>
@@ -86,11 +85,9 @@
     </style>
   </head>
   <body style="font-family: 'Comic Sans MS'">
-  <!--
-  <button id="back" class="back_to_previous" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;"onclick="javascript:history.go(-1)"><</button>
-  -->
-  <a id="back" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;"
-        onclick="javascript:history.go(-1)" class="back_to_previous" ><img src="static/app01/img/Arrow.png" style="width: 30px;height: 30px;background: none!important"/></a>
+
+
+  <a id="back" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;" onclick="javascript:history.go(-1)" class="back_to_previous" ><img src="static/app01/img/Arrow.png" style="width: 30px;height: 30px;background: none!important"/></a>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" style="color: black;width: 10%" href="index">
       <img id="logo" src="static/app01/index11/images/logo.png" style="width: 40px;height: 40px;margin-top: 10px"/>
@@ -116,7 +113,6 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="puzzle">PUZZLE</a>
-{#          <a class="dropdown-item" href="#">Another action</a>#}
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="pickingrubbish">PICK-IT-RIGHT</a>
         </div>
@@ -130,7 +126,8 @@
     </ul>
   </div>
 </nav>
-<div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);padding-top: 0px; height: 40%">
+
+ <div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);margin-top: 0px; padding-top:0;height: 40%">
     <div id="banner-wrapper">
 		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
             <br/>
@@ -156,9 +153,8 @@
   <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
     </div>
-  <a class="back_to_top" style="z-index:9999;cursor:pointer;width: 40px;background-color: darkorange;color: black" onclick="document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;">TOP</a>
-{# <button onclick="backToTop()" class="back_to_top" style="z-index:9999;cursor:pointer;width: 60px;background-color: darkorange;color: black">TOP</button>#}
+  <a class="back_to_top" style="z-index:9999;cursor:pointer;width: 40px;background-color: darkorange;color: black" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;">TOP</a>
+
   <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
@@ -224,7 +220,7 @@
                       icon: icons[array[4]].icon,
                       map: mapp,
                   });
-                  {#infowindow.close();#}
+                  infowindow.close();
                   google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
                       return function () {
                           infowindow.setContent(content);
@@ -303,7 +299,7 @@
                 bounds.extend(markers[i].getPosition());
             }
 
-            {#getLatest(place.geometry.location.lat(),place.geometry.location.lng(),mapp);#}
+            getLatest(place.geometry.location.lat(),place.geometry.location.lng(),mapp);
 
             console.log(place.geometry.location.lat());
             console.log(place.geometry.location.lng());
@@ -368,8 +364,8 @@
               dist = Math.acos(dist);
               dist = dist * 180 / Math.PI;
               dist = dist * 60 * 1.1515;
-              {#if (unit=="K") { dist = dist * 1.609344 }#}
-              {#if (unit=="N") { dist = dist * 0.8684 }#}
+              if (unit=="K") { dist = dist * 1.609344 }
+              if (unit=="N") { dist = dist * 0.8684 }
               return dist;
           }
       }
@@ -405,7 +401,7 @@
                      }
                  }
              }
-                 {#marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});#}
+                 marker = new google.maps.Marker({position: new google.maps.LatLng(shortestLat,shortestLon), map: map});
             return [new google.maps.LatLng(shortestLat, shortestLon), shortestid, shortestName, shortestFeature, shortesttypeName];
 
              }
@@ -413,8 +409,8 @@
           var srcImg ="<img src='static/app01/img/animal/" + aName + ".jpg' style='width:100px;height:100px'/>";
           console.log(srcImg);
           var contentString = "<div id='content' style='width:300px;text-align:center;font-family: 'Comic Sans MS''>"+
-{#                             "<div id=‘siteNotice’>"+#}
-{#                             "</div>"+#}
+                             "<div id=‘siteNotice’>"+
+                             "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               aName + "</h2>" +
                              "<div id=‘bodyContent'>" +
@@ -430,9 +426,9 @@
                              "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               cityname + "</h2>" +
-{#                             "<div id=‘bodyContent'>" +#}
-{#                             "<p> <a href=''>" + "SEE DETAIL</a></p>"+#}
-{#                             "</div>"+#}
+                             "<div id=‘bodyContent'>" +
+                             "<p> <a href=''>" + "SEE DETAIL</a></p>"+
+                             "</div>"+
                              "</div>";
             return contentString;
         }

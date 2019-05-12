@@ -18,7 +18,7 @@
 
         #map {
 
-	    height: 500px;
+	    height: 400px;
         width: 100%;  /* The width is the width of the web page */
         align-content: center;
        }
@@ -80,20 +80,18 @@
 
    <div id="wrapper" style="width: 100%">
 <div id="page" class="container" style="border:2px;background-color: #FFFFFF;width: 100%; text-align: left">
-		<div id="content" style="width: 50%; margin-left: 20px">
-			<p><img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" class="image image-full" style="width: 90%; height: 400px"/></p>
-            <b style="margin-left:auto; padding-top:50px; padding-bottom: 40px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b>
+		<div id="content" style="width: 45%; margin-left: 20px">
+			<p><img src="static/app01/img/animal/{{ animal.aName }}.jpg" alt="" class="image image-full" style="width: 90%; height: 450px"/></p>
+            <b style="margin-left:20%; padding-top:50px; padding-bottom: 40px;font-family: 'Comic Sans MS';font-size: 30px;color: #fd7e14 ">Did you know?</b>
             <br/>
             <br/>
-{#            <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px" >We are {{ animal.aPopulation}} in count now!</p> </li>#}
-            <br/>
-            <li style="list-style-type: none"><p style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px">{{ animal.aFact }}</p></li>
-            <br/>
+            <li style="list-style-type: none;"><p style="font-family: 'Comic Sans MS'; color: #000000; font-size: 20px">{{ animal.aFact }}</p></li>
             <br/>
             <br/>
 
-            <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" >Find me here </b></li>
-             <li style="list-style-type: none"><b style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" > -------------> </b></li>
+            <li style="list-style-type: none"><b style="margin-left:15%; padding-top:5px;font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" >Find me here </b></li>
+            <img src="static/app01/img/Orange_animated_right_arrow.gif" style="margin-left:40%;width: 40px;height:30px"/>
+{#             <li style="list-style-type: none"><b style="margin-left:20%; font-family: 'Comic Sans MS';color: #fd7e14; font-size: 40px; padding-bottom: 30px" > --------> </b></li>#}
 
 		</div>
 		<div id="sidebar" style="width: 45%; ">
@@ -104,7 +102,6 @@
             <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" > Lifespan: {{ animal.aLifespan }}</p>
             <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" >	Special design feature: : {{ animal.aFeature }}</p>
             <p style="font-family: 'Comic Sans MS';color: #fd7e14; font-size: 20px;" >	Human Observation : {{ animal.aPopulation }}</p>
-
 
             <div id="map" style="margin-top: 80px"></div>
 		</div>

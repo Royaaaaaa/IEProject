@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
     <meta name="viewport" content="width=device-width initial-scale=1.0, user-scalable=no" />
     <title>Game</title>
     <meta name='robots' content='noindex,follow' />
@@ -12,149 +11,65 @@
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
     <link href="static/app01/index11/default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="static/app01/index11/fonts.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
     <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
+    <link rel="stylesheet" href="static/app01/css/common.css">
+    <link rel="stylesheet" href="static/app01/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/app01/css/fact/style.css">
     <style>
-        #logo:after{
-            content: "savingnemo";
-             color: #000000;
-            vertical-align: bottom;
-         }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background:none!important;
-            min-width: 200px;
-            z-index: 1;
-        }
-
-
-        .dropdown-content a {
-        float: none;
-        padding: 18px 16px;
-        padding-left: 23px;
-        text-transform: uppercase;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-        color: #FFFFFF;
-    }
-
-    .dropdown-content a:hover {
-        border: 0px;
-        background:none!important;
-        {#color: #fd7e14;#}
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-    .arrow {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-        .back_to_top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            border: 1px solid #888;
-        }
-
-.arrow span{
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid #d9534f;
-    border-right: 5px solid #d9534f;
-    transform: rotate(45deg);
-    margin: -10px;
-    animation: animate 2s infinite;
-}
-.arrow span:nth-child(2){
-    animation-delay: -0.2s;
-}
-.arrow span:nth-child(3){
-    animation-delay: -0.4s;
-}
-@keyframes animate {
-    0%{
-        opacity: 0;
-        transform: rotate(45deg)
-        translate(-20px,-20px);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(45deg)
-        translate(20px,20px);
-    }
-}
-  #next {
-
-  }
         .back_to_previous{
          position: fixed;
         left:30px;
         top: 50%;
         border:1px solid #888;
         }
-    @media screen and (max-width: 900px)
- {
-    #menu {
-
-    width:100%;
-    margin:0 auto;
-    position:relative;
-    text-align:right;
-    font-size: 8px}
-    #logo img {
-        width: 20px;
-        height: 20px;
-    }
-    #logo:after{
-        font-size: 8px;
-    }
-
-}
     </style>
 </head>
 <body style="background-color: #ffffff;font-family: 'Comic Sans MS' ">
 
-<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
-	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
-		<div id="logo">
-           <a href="index" accesskey="1" title="" style="color: black">
-            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
-            </a></div>
-		<div id="menu" style="height: 100px; ">
-			<ul>
-				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
-				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
-				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
-                <div class="dropdown" style="float: left;" id="drop">
-                    <li class="current_page_item"><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
-                     <div class="dropdown-content">
-                          <a href="#"></a>
-                          <a href="puzzle" style="color: black">Puzzle</a>
-                          <a href="pickingrubbish" style="color: black">Pick-it-right</a>
-                     </div>
-                </div>
-                <li><a href="search" accesskey="5" title="" style="color: black">Identify</a></li>
-                <li><a href="nearbyAnimal" accesskey="6" title="" style="color: black">Nearby-animal</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" style="color: black;width: 10%" href="index">
+      <img id="logo" src="static/app01/index11/images/logo.png" style="width: 40px;height: 40px;margin-top: 10px"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-			</ul>
-		</div>
-	</div>
-</div>
-<div id="header-featured"  style="background-image: url(static/app01/img/game/rubbish.jpg);padding-top: 0px; width: 100%; height: 600px">
-     <div style="padding:150px;width:100%;height:600px;background: rgba(0, 0, 0, 0.4);">
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="right: 30px">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" style="color:black;" href="index">HOME <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:black;"href="marinefamily">DISCOVER</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" style="color:black;"href="quiz">QUIZ</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="color:black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PLAY & WIN
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="puzzle" style="color:black;;">PUZZLE</a>
+{#          <a class="dropdown-item" href="#">Another action</a>#}
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="pickingrubbish" style="background-color: #ed9c28;color: black">PICK-IT-RIGHT</a>
+        </div>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" style="color:black;"href="search">IDENTIFY</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" style="color:black;"href="nearbyAnimal">NEARBY-ANIMAL</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="header-featured"  style="background-image: url(static/app01/img/game/rubbish.jpg);margin-top: 0;padding-top: 0; width: 100%; height: 600px">
+     <div style="padding:30px;width:100%;height:600px;background: rgba(0, 0, 0, 0.4);">
     <div id="banner-wrapper">
-		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
+		<div id="banner" class="container" style="width: 100%; height:100%;color: darkslategrey">
             <p style="font-family: 'Chicle', cursive;font-size: 3em;color: wheat">Welcome to protect animals with us!</p>
 			<p style="font-family: 'Chicle', cursive;color: #FFFFFF; font-size: 1.5em"> This game has three levels in total, to pass each level of this game, you need to pick up all the rubbish</p>
             <p style="font-family: 'Chicle', cursive;color: orangered;font-size: 1.5em; font-weight: bold">Please don't catch animals.</p>
@@ -171,7 +86,7 @@
     <div style="padding:150px;width:100%;height:100%;background: rgba(0, 0, 0, 0.4);">
     </div>
 </div>
-
+<script type="text/javascript" src="static/app01/js/bootstrap.min.js"></script>
 <script>
     function clickIE(){if(document.all)return false;}
     function clickNS(e){if(document.layers||(document.getElementById&&!document.all)){
@@ -275,4 +190,5 @@
     $(window).trigger('scroll');
     </script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript" src="static/app01/js/bootstrap.min.js"></script>
 </html>

@@ -4,7 +4,6 @@
     {% load staticfiles %}
     <meta charset="UTF-8">
     <title>Find Animal</title>
-    <link rel='stylesheet' href='/static/app01/css/bootstrap3.3.7.css'>
     <link rel='stylesheet' href='/static/app01/css/bootstrap.min.css'>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -14,7 +13,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-
+<link rel="stylesheet" href="static/app01/css/common.css">
      <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="static/app01/css/font-awesome.min.css">
 
@@ -32,135 +31,6 @@
 
   <link rel="stylesheet" href="static/app01/index11/assets/css/main.css" />
     <link rel='stylesheet' href='/static/app01/css/newindex/loading.css'>
-    <style>
-
-        .back_to_top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            border: 1px solid #888;
-        }
-        #logo:after{
-             content: "savingnemo";
-             color: #000000;
-             vertical-align: bottom;
-         }
-
-
-        video {
-            width: 550px;
-        }
-
-
-        .quizBtn{
-            margin-left: 44%;
-        }
-
-
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background:none!important;
-            min-width: 200px;
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-        float: none;
-        padding: 18px 16px;
-        padding-left: 23px;
-        text-transform: uppercase;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-        color: #000000;
-    }
-
-    .dropdown-content a:hover {
-        border: 0px;
-        background:none!important;
-        {#color: #fd7e14;#}
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    @media screen and (max-width: 700px)
- {
-    #menu {
-
-    width:100%;
-    margin:0 auto;
-    position:relative;
-    text-align:right;
-    font-size: 8px}
-
-
-}
-        .arrow{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-.arrow span{
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-bottom: 5px solid #d9534f;
-    border-right: 5px solid #d9534f;
-    transform: rotate(45deg);
-    margin: -10px;
-    animation: animate 2s infinite;
-}
-.arrow span:nth-child(2){
-    animation-delay: -0.2s;
-}
-.arrow span:nth-child(3){
-    animation-delay: -0.4s;
-}
-@keyframes animate {
-    0%{
-        opacity: 0;
-        transform: rotate(45deg)
-        translate(-20px,-20px);
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: rotate(45deg)
-        translate(20px,20px);
-    }
-}
-        .back_to_previous{
-         position: fixed;
-        left:30px;
-        top: 50%;
-        border:1px solid #888;
-        }
-        @media screen and (max-width: 900px)
- {
-    #menu {
-
-    width:100%;
-    margin:0 auto;
-    position:relative;
-    text-align:right;
-    font-size: 8px}
-    #logo img {
-        width: 20px;
-        height: 20px;
-    }
-    #logo:after{
-        font-size: 8px;
-    }
-
-}
-
-    </style>
 
 </head>
 {#模板body开始##################################}
@@ -170,31 +40,45 @@
  -->
 <a id="back" style="z-index:9999;cursor:pointer;width: 30px;height:30px;background-color: #FFFFFF;color: black;"
         onclick="javascript:history.go(-1)" class="back_to_previous" ><img src="static/app01/img/Arrow.png" style="width: 30px;height: 30px;background: none!important"/></a>
-<div id="header-wrapper" style="background:none!important; padding: 0em 0em;">
-	<div id="header" class="container" style="color: black;height: 50px; font-family: 'Comic Sans MS';background: none!important; background-color: #000000; width: 100%">
-		<div id="logo" style="top:5px;margin-left: 0"><a href="index" accesskey="1" title="" style="color: black">
-            <img src="static/app01/index11/images/logo.png" width="40px" height="40px"/>
-        </a></div>
-		<div id="menu" style="height: 100px;">
-			<ul>
-				<li><a href="index" accesskey="1" title="" style="color: black">Home</a></li>
-				<li><a href="marinefamily" accesskey="2" title="" style="color: black">Discover</a></li>
-				<li><a href="quiz" accesskey="3" title="" style="color: black">Quiz</a></li>
-                <div class="dropdown" style="float: left;" id="drop">
-                    <li><a href="#" accesskey="4" style="text-transform: uppercase;color: black">Play & Win</a></li>
-                     <div class="dropdown-content">
-                          <a href="#"></a>
-                          <a href="puzzle" style="color: white;padding-left: 30px">Puzzle</a>
-                          <a href="pickingrubbish" style="color: white;padding-left: 30px;margin-top: -20px">Pick-it-right</a>
-                     </div>
-                </div>
-                <li class="current_page_item"><a href="search" accesskey="5" title="" style="color: black">Identify</a></li>
-                <li><a href="nearbyAnimal" accesskey="6" title="" style="color: black">Nearby-animal</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" style="color: black;width: 10%" href="index">
+      <img id="logo" src="static/app01/index11/images/logo.png" style="width: 40px;height: 40px;margin-top: 10px"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-			</ul>
-		</div>
-	</div>
-</div>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="right: 30px">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" style="color:black;" href="index">HOME <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:black;"href="marinefamily">DISCOVER</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" style="color:black;"href="quiz">QUIZ</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="color:black;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PLAY & WIN
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="puzzle">PUZZLE</a>
+{#          <a class="dropdown-item" href="#">Another action</a>#}
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="pickingrubbish">PICK-IT-RIGHT</a>
+        </div>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" style="color:black;background-color: #ed9c28"href="search">IDENTIFY</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" style="color:black;"href="nearbyAnimal">NEARBY-ANIMAL</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <div id="header-featured"  style="padding:0;background-image: url(/static/app01/img/searchBack.gif);height:100%;background-repeat: no-repeat">
 	<div style="padding:150px;width:100%;height:100%;background: rgba(0, 0, 0, 0.4);">
@@ -491,4 +375,7 @@
 <script type='text/javascript' src='static/app01/js/fact/jquery.barfiller.js'></script>
 <script type='text/javascript' src='static/app01/js/fact/custom.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript" src="static/app01/js/bootstrap.min.js"></script>
+
+{#<script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>#}
 </html>

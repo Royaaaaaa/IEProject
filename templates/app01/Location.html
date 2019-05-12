@@ -153,7 +153,7 @@
   <div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
     </div>
-  <a class="back_to_top" style="z-index:9999;cursor:pointer;width: 40px;background-color: darkorange;color: black" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;">TOP</a>
+  <a class="back_to_top" style="z-index:9999;cursor:pointer;width: 60px;text-align:center;background-color: darkorange;color: black" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;">TOP</a>
 
   <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
@@ -364,8 +364,6 @@
               dist = Math.acos(dist);
               dist = dist * 180 / Math.PI;
               dist = dist * 60 * 1.1515;
-              if (unit=="K") { dist = dist * 1.609344 }
-              if (unit=="N") { dist = dist * 0.8684 }
               return dist;
           }
       }

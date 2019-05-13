@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0, user-scalable=no" />
+{#    <meta name="viewport" content="width=device-width initial-scale=1.0, user-scalable=no" />#}
+    <meta name="viewport" content="width=device-width, initial-scale=0.5" />
     <title>Game</title>
     <meta name='robots' content='noindex,follow' />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -28,6 +29,10 @@
           .banner>p{
               font-size: 1em;
           }
+        }
+        .navbar-nav>li>a {
+            line-height: 1.8;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -72,13 +77,17 @@
     </ul>
   </div>
 </nav>
-  <div id="header-featured"  style="background-image: url(static/app01/img/game/rubbish.jpg);padding: 0">
+  <div id="header-featured"  style="background-image: url(static/app01/img/game/rubbish.jpg);width:100%;height:650px;padding: 0">
     <div style="width:100%;height:100%;background: rgba(0, 0, 0, 0.4);">
 		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
             <br/>
             <p style="font-family: 'Chicle', cursive;font-size: 2.5em;color: wheat">Welcome to protect animals with us!</p>
 			<p style="font-family: 'Chicle', cursive;color: #FFFFFF; font-size: 1.5em"> This game has three levels in total, to pass each level of this game, you need to pick up all the rubbish</p>
             <p style="font-family: 'Chicle', cursive;color: orangered;font-size: 1.5em; font-weight: bold">Please don't catch animals.</p>
+            <a href="#all"> <div class="arrow">
+                <span></span>
+                <span></span>
+            </div></a>
 		</div>
     </div>
 </div>
@@ -105,10 +114,7 @@
 {#    </div>#}
 {#	</div>#}
 {#</div>#}
-<div id="next" style="height: 700px; width: 100%;background-image: url(static/app01/img/searchbackground.jpg);margin-top: 0">
-    <div style="padding:150px;width:100%;height:100%;background: rgba(0, 0, 0, 0.4);">
-    </div>
-</div>
+
 
 <script type="text/javascript" src="static/app01/js/bootstrap.min.js"></script>
 <script>
@@ -122,6 +128,9 @@
 		{#if(window.innerWidth){rW=window.innerWidth;rH=window.innerHeight;}else{rW=document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;rH=document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;}#}
 		{#if(window.innerWidth<600){var gW=384;var gH=60;}#}
 		{#else {var gW=768;gH=120;}#}
+
+
+
 </script>
 
 
@@ -186,7 +195,7 @@
 {#<div id="copyright" class="container" >#}
 {#	<p style="color: #6c757d">&copy; Victorian wildlife bunj. All rights reserved. | Photos by VWB, Microsoft, Pixels | Design by <a href="#" style="color: #ad3729">VWB Team</a>.</p>#}
 {#</div>#}
-<div id="copyright" class="container" style="width: 100%;padding: 20px 0px 10px 0px">
+<div id="copyright" class="container" style="width: 100%;">
         <p style="color: #6c757d">Copyright <2019> < VIC wildlife BUNJ></p>
     </div>
  <button onclick="backToTop()" class="back_to_top" style="z-index:9999;cursor:pointer;width: 60px;background-color: darkorange;color: black">TOP</button>

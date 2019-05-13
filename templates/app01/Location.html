@@ -82,6 +82,10 @@
       #pac-input:focus {
         border-color: #4d90fe;
       }
+        .navbar-nav>li>a {
+            line-height: 1.8;
+            font-size: 15px;
+        }
     </style>
   </head>
   <body style="font-family: 'Comic Sans MS'">
@@ -126,18 +130,26 @@
     </ul>
   </div>
 </nav>
-
- <div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);margin-top: 0px; padding-top:0;height: 40%">
-    <div id="banner-wrapper">
+  <div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);padding: 0">
+    <div style="width:100%;height:100%;background: rgba(0, 0, 0, 0.4);">
 		<div id="banner" class="container" style="width: 100%; color: darkslategrey">
             <br/>
             <p style="font-family: 'Chicle', cursive;font-size: 2.5em; color: white">Do you want to see animals around you?</p>
 			<p style="font-family: 'Chicle', cursive;color: #FFFFFF; font-size: 1.5em">Choose or input a location then you can find which animal is nearest to you!</p>
-
 		</div>
-
-	</div>
+    </div>
 </div>
+{# <div id="header-featured"  style="background-image: url(static/app01/img/icon/locationBack.jpg);margin-top: 0px; padding-top:0;height: 40%">#}
+{#    <div id="banner-wrapper">#}
+{#		<div id="banner" class="container" style="width: 100%; color: darkslategrey">#}
+{#            <br/>#}
+{#            <p style="font-family: 'Chicle', cursive;font-size: 2.5em; color: white">Do you want to see animals around you?</p>#}
+{#			<p style="font-family: 'Chicle', cursive;color: #FFFFFF; font-size: 1.5em">Choose or input a location then you can find which animal is nearest to you!</p>#}
+{##}
+{#		</div>#}
+{##}
+{#	</div>#}
+{#</div>#}
   <div style="margin-top: 50px;text-align: center">
     <button type="button" class="btn btn-primary" id="btn1" style="font-size: 1.5em;cursor: pointer;color: white">Melbourne</button>
     <button type="button" class="btn btn-success" id="btn2" style="font-size: 1.5em;cursor: pointer;color: white" >Sydney</button>
@@ -292,8 +304,9 @@
               console.log("Returned place contains no geometry");
               return;
             }
+            var wiki = "https://en.wikipedia.org/wiki/" + place.name;
 
-            markers = clickButtonGetNearestLocation(place.name,place.geometry.location.lat(),place.geometry.location.lng(),mapp);
+            markers = clickButtonGetNearestLocation(place.name,place.geometry.location.lat(),place.geometry.location.lng(),mapp,wiki);
 
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
@@ -314,7 +327,8 @@
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
-            markers = clickButtonGetNearestLocation("Melbourne",-37.813629,144.963058,mapp);
+             var wiki = "https://en.wikipedia.org/wiki/Melbourne" ;
+            markers = clickButtonGetNearestLocation("Melbourne",-37.813629,144.963058,mapp,wiki);
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
@@ -327,7 +341,8 @@
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
-            markers = clickButtonGetNearestLocation("Sydeny",-33.868820,151.209290,mapp);
+            var wiki = "https://en.wikipedia.org/wiki/Sydeny" ;
+            markers = clickButtonGetNearestLocation("Sydeny",-33.868820,151.209290,mapp,wiki);
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
@@ -340,7 +355,8 @@
             markers.forEach(function(marker) {
                marker.setMap(null);
              });
-            markers = clickButtonGetNearestLocation("Brisbane",-27.469770,153.025131,mapp);
+            var wiki = "https://en.wikipedia.org/wiki/Brisbane" ;
+            markers = clickButtonGetNearestLocation("Brisbane",-27.469770,153.025131,mapp,wiki);
             for(i=0;i<markers.length;i++) {
                 bounds.extend(markers[i].getPosition());
             }
@@ -418,23 +434,23 @@
                              "</div>";
            return contentString;
         }
-        function returnCityMessage(cityname) {
+        function returnCityMessage(cityname,ref) {
             var contentString = "<div id='content' style='width:160px'>"+
                              "<div id=‘siteNotice’>"+
                              "</div>"+
                              "<h2 id=‘firstHeading’ class=‘firstHeading’>" +
                               cityname + "</h2>" +
                              "<div id=‘bodyContent'>" +
-                             "<p> <a href=''>" + "SEE DETAIL</a></p>"+
+                             "<p> <a href='#' onclick=See('" + ref +"')>" + "SEE DETAIL</a></p>"+
                              "</div>"+
                              "</div>";
             return contentString;
         }
-        function clickButtonGetNearestLocation(cityname,lat,lon,mapp) {
+        function clickButtonGetNearestLocation(cityname,lat,lon,mapp,ref) {
 
             var infowindow = new google.maps.InfoWindow({
                  maxWidth: 200,
-                 content: returnCityMessage(cityname)
+                 content: returnCityMessage(cityname,ref)
             });
             var citymarker = new google.maps.Marker({
                  map: mapp,
@@ -465,6 +481,11 @@
         function reload() {
             document.location.reload();
         }
+
+        function See(e) {
+             window.location.href = e
+         }
+
 
     </script>
   <script type="text/javascript" src="static/app01/js/location/markerclusterer.js"></script>

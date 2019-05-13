@@ -229,10 +229,10 @@ if (g == aI) {
 }
 var aZ = 0;
 if ((g != 3) && (g != 6))
-    aZ = 1;
+    // aZ = 0;
 function fz(e) {
-    if (aZ)
-        e.preventDefault();
+    // if (aZ)
+        // e.preventDefault();
 };
 if ((g == bf) || (g == af) || bL) {
     if (window.innerWidth < 600)
@@ -392,6 +392,7 @@ if (F / ai > r / (D)) {
 var aN = "position:absolute;top:0px;left:0px;z-Index:1;visibility:hidden;";
 var button_flow = "position:absolute;top:-100px;left:-100px;z-Index:1;visibility:hidden;";
 var bq = aN + "white-space:nowrap;";
+ai = document.getElementById('header-featured').offsetHeight;
 function eg(C, col) {
     document.getElementById(C).style.color = "#" + col;
     document.getElementById(C).style.fontWeight = "bold";
@@ -624,24 +625,24 @@ if (ac == ar) {
             });
         }
     };
-    function fu() {
-        if ((aZ) && (g != al))
-            window.event.preventDefault();
-        FB.login(function(ck) {});
-    };
-    function fi() {
-        if ((aZ) && (g != al))
-            window.event.preventDefault();
-        o("f_lo", -1000, -1000);
-        o("su", -1000, -1000);
-        o("hs", -1000, -1000);
-        o("f_p0", -1000, -1000);
-        o("f_n0", -1000, -1000);
-        R = 0;
-        document.getElementById("ng").src = bK;
-        document.getElementById("hi").src = bY;
-        FB.logout();
-    };
+    // function fu() {
+    //     if ((aZ) && (g != al))
+    //         // window.event.preventDefault();
+    //     FB.login(function(ck) {});
+    // };
+    // function fi() {
+    //     if ((aZ) && (g != al))
+    //         // window.event.preventDefault();
+    //     o("f_lo", -1000, -1000);
+    //     o("su", -1000, -1000);
+    //     o("hs", -1000, -1000);
+    //     o("f_p0", -1000, -1000);
+    //     o("f_n0", -1000, -1000);
+    //     R = 0;
+    //     document.getElementById("ng").src = bK;
+    //     document.getElementById("hi").src = bY;
+    //     FB.logout();
+    // };
     if (R == 1) {
         document.getElementById("ng").src = bP;
         document.getElementById("hi").src = bN;

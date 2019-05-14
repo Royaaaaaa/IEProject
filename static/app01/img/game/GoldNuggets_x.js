@@ -566,7 +566,7 @@ if (aW) {
 document.write('<div id=\'hs\' style=\'' + bq + 'color:#ffffff;font-family:"Comic Sans MS";font-size:' + (20 * f) + 'px;\'></div>');
 document.write('<img id=\'ng\' style=\'' + button_flow + 'opacity:1;-moz-opacity:0.6;cursor:pointer;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
 document.write('<div id=\'su\' style=\'' + aN + '\'><a href=\'#\' ' + P + '=\'go()\'><img  src=\'' + bv + '\' border=0></a></div>');
-document.write('<img id=\'co\' style=\'' + aN + 'cursor: pointer;\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
+document.write('<img id=\'co\' style=\'' + aN + 'cursor: pointer;padding-top: 20px;\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
 // document.write('<div id=\'co\' style=\'' + aN + '\' ' + Q + '=\'testgame.html\'  >Exit</div>');
 if (eN) {
 }

@@ -31,6 +31,41 @@
 
   <link rel="stylesheet" href="static/app01/index11/assets/css/main.css" />
     <link rel='stylesheet' href='/static/app01/css/newindex/loading.css'>
+    <style>
+        select.round {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+{#select.round:focus {#}
+{#  background-image:#}
+{#    linear-gradient(45deg, white 50%, transparent 50%),#}
+{#    linear-gradient(135deg, transparent 50%, white 50%),#}
+{#    radial-gradient(gray 70%, transparent 72%);#}
+{#  background-position:#}
+{#    calc(100% - 15px) 1em,#}
+{#    calc(100% - 20px) 1em,#}
+{#    calc(100% - .5em) .5em;#}
+{#  background-size:#}
+{#    5px 5px,#}
+{#    5px 5px,#}
+{#    1.5em 1.5em;#}
+{#  background-repeat: no-repeat;#}
+{#  border-color: green;#}
+{#  outline: 0;#}
+
+    </style>
 
 </head>
 {#模板body开始##################################}
@@ -87,8 +122,8 @@
                 <div class="container-fluid bg-light " style="background: none!important;margin-top: -50px">
                     <form id = 'fm' class="row align-items-center justify-content-center"action ='' method = 'get'>
                         <div class="col-md-2 pt-3">
-                            <select class="sel form-control type" name = 'type'>
-                                <option value='0' disabled selected style='display:none;'>Type</option>
+                            <select class="sel form-control round type" name = 'type'>
+                                <option value='0' disabled selected style='display:none;'>Type </option>
                                 <option value = 0>Any</option>
                                 {% for item in type_list %}
                                   {% if item.id == input_list.aType_id %}
@@ -100,7 +135,7 @@
                             </select>
                         </div>
                         <div class="col-md-2 pt-3" >
-                            <select class="sel form-control colour" name = 'colour'>
+                            <select class="sel form-control round colour" name = 'colour'>
                                 <option value='0' disabled selected style='display:none;'>Colour</option>
                                 <option value = 0>Any</option>
                                 {% for item in colour_list %}
@@ -113,7 +148,7 @@
                             </select>
                         </div>
                         <div class="col-md-2 pt-3" >
-                            <select class="sel form-control size" name = 'size'>
+                            <select class="sel form-control round size" name = 'size'>
                                 <option value='0' disabled selected style='display:none;'>Size</option>
                                 <option value = 0>Any</option>
                                 {% for item in size_list %}

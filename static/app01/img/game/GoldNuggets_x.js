@@ -1101,7 +1101,7 @@ function fL() {
         par_level = aL;
         par_game = bs;
         ds_HS();
-        var aO = '<center><font color=\'#ffffff\'><b>' + fy + '</b></font><br><br><font color=\'#ffffff\'>' + L + '</font>';
+        var aO = '<center><font color=\'#000000\'><b>' + fy + '</b></font><br><br><font color=\'#000000\'>' + L + '</font>';
         if (ac == gm) {
             // aO += '<br><br>' + fY + '<input style\'font-size:' + (14 * f) + 'px;\' type=text id=\'user\' name=\'user\' size=\'12\' value=\'' + bi + '\' style=\'font-size:' + (16 * f) + 'px;\' /><input type=\'button\'  value=\'OK\'  ' + P + '=\'go()\' style=\'background-color:#dddddd;font-size:' + (16 * f) + 'px;\' /><br><br><small><font color=\'#bfffff\'>' + fJ + '</font></small></center>';
             document.getElementById("hs").innerHTML = aO;

@@ -35,9 +35,9 @@ class Animal(models.Model):
   def __str__(self):
       return self.aName
 
-class Image(models.Model):
-    iName=models.CharField(max_length=50)
-    iAnimal=models.ForeignKey(Animal,on_delete=models.CASCADE)
+# class Image(models.Model):
+#     iName=models.CharField(max_length=50)
+#     iAnimal=models.ForeignKey(Animal,on_delete=models.CASCADE)
 
 class Location(models.Model):
     latAnimal = models.FloatField(null=True, blank=True,default=None)

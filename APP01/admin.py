@@ -1,9 +1,9 @@
 from django.contrib import admin
 from .models import *
 
-class imageInline(admin.StackedInline):
-    model = Image
-    extro = 3
+# class imageInline(admin.StackedInline):
+#     model = Image
+#     extro = 3
 
 class locationInline(admin.StackedInline):
     model = Location
@@ -18,13 +18,13 @@ class AnimalAdmin(admin.ModelAdmin):
     search_fields = ['aName']
     list_filter = ['aName']
     list_per_page = 20
-    inlines = [imageInline]
+    # inlines = [imageInline]
 class ScoreAdmin(admin.ModelAdmin):
     list_display = ['id','score']
 
-class ImageAdmin(admin.ModelAdmin):
-    list_display = ['id','iName']
-    search_fields = ['iName']
+# class ImageAdmin(admin.ModelAdmin):
+#     list_display = ['id','iName']
+#     search_fields = ['iName']
 
 class LocationAdmin(admin.ModelAdmin):
     list_display = ['id','latAnimal','lonAnimal','lAnimal']
@@ -43,7 +43,7 @@ class ColorAdmin(admin.ModelAdmin):
     inlines = [animalInline]
 
 admin.site.register(Animal,AnimalAdmin)
-admin.site.register(Image,ImageAdmin)
+# admin.site.register(Image,ImageAdmin)
 admin.site.register(Type,TypeAdmin)
 admin.site.register(Size,SizeAdmin)
 admin.site.register(Color,ColorAdmin)

@@ -97,7 +97,6 @@ def advsearch(req,*args,**kwargs):
 def showDetail(request,id):
     animal = Animal.objects.get(pk=id)
     locationList = animal.location_set.all()
-    imagelist=animal.image_set.all()
     list = []
     list1 = []
     for location in locationList:
@@ -105,11 +104,8 @@ def showDetail(request,id):
         lon = location.lonAnimal
         s=(lat,lon)
         list.append(s)
-    for image in imagelist:
-        list1.append(image.iName)
     context={'locationList':list}
     x = json.dumps(context)
-    # context={'animal': animal,'locationList':list,'imagelist':list1}
     return render(request, 'app01/showDetail.html', locals())
 
 def findNearbyAnimals(request):

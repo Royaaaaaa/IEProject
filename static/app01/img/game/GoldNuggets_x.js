@@ -563,10 +563,11 @@ if (aW) {
     document.write('<button type=\'button\' id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' class=\'close\' data-dismiss=\'modal\' aria-label=\'Close\' src=\'' + bY + '\' ></button>');
     // document.write('<img id=\'hi\' style=\'' + aN  + 'opacity:1;-moz-opacity:0.6;filter:alpha(opacity=60);\' ' + Q + '=\'fl()\' src=\'' + bY + '\' >');
 }
-document.write('<div id=\'hs\' style=\'' + bq + 'color:#ffffff;font-family:"Comic Sans MS";font-size:' + (20 * f) + 'px;\'></div>');
+///Continue page
+document.write('<div id=\'hs\' style=\'' + 'position:absolute;top: -100px;text-align:center;visibility:hidden;z-Index:0; width: 700px;height:1000px;' + 'color:#000000;background-image: url(static/app01/img/game/scorepage.png);background-size:700px 1000px;font-family:"Comic Sans MS";font-size:' + (20 * f) + 'px;\'></div>');
 document.write('<img id=\'ng\' style=\'' + button_flow + 'opacity:1;-moz-opacity:0.6;cursor:pointer;filter:alpha(opacity=60);\' ' + Q + '=\'fN()\'  src=\'' + bK + '\' >');
 document.write('<div id=\'su\' style=\'' + aN + '\'><a href=\'#\' ' + P + '=\'go()\'><img  src=\'' + bv + '\' border=0></a></div>');
-document.write('<img id=\'co\' style=\'' + aN + 'cursor: pointer;padding-top: 20px;\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
+document.write('<img id=\'co\' style=\'' + aN + 'cursor: pointer;padding-top: 300px;\' ' + Q + '=\'bm()\' src=\'' + dQ + '\' >');
 // document.write('<div id=\'co\' style=\'' + aN + '\' ' + Q + '=\'testgame.html\'  >Exit</div>');
 if (eN) {
 }
@@ -649,7 +650,7 @@ if (ac == ar) {
     }
     document.write('<img id=\'f_p0\' style="' + aN + '"  width=' + (50 * f) + ' height=' + (50 * f) + ' border=1>');
     document.write('<div id=\'f_n0\' style=\'' + bq + 'font-family:Arial;font-size:' + (16 * f) + 'px;color:#4fefff;\'></div>');
-    document.write('<div id=\'f_ba\' style=\'position:absolute;top:100px;left:0px;width:' + (r) + 'px;height:' + (42 * f) + 'px;background-Color:#000000;visibility:hidden;z-Index:1;\'></div>');
+    document.write('<div id=\'f_ba\' style=\'position:absolute;top:0px;left:0px;width:' + (r) + 'px;height:' + (42 * f) + 'px;background-Color:#000000;visibility:hidden;z-Index:1;\'></div>');
     document.write('<img id=\'f_li\' style=\'' + aN + '\' ' + Q + '=\'fu()\'  src=\'' + dk + '\' >');
     document.write('<img id=\'f_lo\' style=\'' + aN + '\' ' + Q + '=\'fi()\'  src=\'' + dj + '\' >');
     bQ("f_ba", 0.7);
@@ -674,14 +675,14 @@ document.write('<div id=\'g1\' style=\'' + bq + 'color:#000000;font-family:"Comi
 document.write('<img id=\'ti\' style=\'position:absolute;top:-100px;margin-left:50px;visibility:hidden;z-Index:0; height:900px;\' src=\'' + ds + '\' >');
 document.write('<img id=\'ba\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;opacity:0.5;-moz-opacity:0.6;filter:alpha(opacity=60);z-Index:7;\' src=\'' + ej + '\' >');
 document.write('<img id=\'bka\' ' + P + '=\'bt()\'  ' + aq + '=\'bt()\' style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:6;\' src=\'' + ci + '\' >');
-document.write('<img id=\'bkb\' ' + P + '=\'cR()\'   style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:4;\' src=\'' + cc + '\' >');
+document.write('<img id=\'bkb\' ' + P + '=\'cR()\'   style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:4;\' src=\'' + cc + '\' >');
 for (var i = 0; i < 8; i++)
-    document.write('<img id=\'spr' + i + '\'  ' + P + '=\'bt()\' ' + aq + '=\'bt()\'    style=\'position:absolute;top:200px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[i] + '\' >');
-document.write('<img id=\'ten\'   style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[8] + '\' >');
+    document.write('<img id=\'spr' + i + '\'  ' + P + '=\'bt()\' ' + aq + '=\'bt()\'    style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[i] + '\' >');
+document.write('<img id=\'ten\'   style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[8] + '\' >');
 var aH = 20;
 for (var i = 0; i < aH; i++)
-    document.write('<img id=\'bou' + i + '\'  ' + P + '=\'cR()\' ' + P + '=\'cR()\'   style=\'position:absolute;top:150px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[i % 17] + '\' >');
-document.write('<div id=\'li\' style=\'position:absolute;top:150px;left:0px;width:' + (1 * f) + 'px;height:' + (1 * f) + 'px;color:#7f7f7f;border-Width:' + (2 * f) + 'px 0px 0px 0px;border-Style:solid;visibility:hidden;z-Index:90;\'></div>');
+    document.write('<img id=\'bou' + i + '\'  ' + P + '=\'cR()\' ' + P + '=\'cR()\'   style=\'position:absolute;top:0px;left:0px;visibility:hidden;z-Index:5;\' src=\'' + aE[i % 17] + '\' >');
+document.write('<div id=\'li\' style=\'position:absolute;top:0px;left:0px;width:' + (1 * f) + 'px;height:' + (1 * f) + 'px;color:#7f7f7f;border-Width:' + (2 * f) + 'px 0px 0px 0px;border-Style:solid;visibility:hidden;z-Index:90;\'></div>');
 document.write('</div>');
 function B(C) {
     document.getElementById(C).style.visibility = 'hidden';
@@ -1063,7 +1064,7 @@ function fm() {
     }
 };
 var aw;
-var fy = "Your Total Score:";
+var fy = "Your total score:   ";
 var fY = "Insert your name: ";
 var fJ = "The name must be at least 4 characters!<br>Please insert only charachers and numbers!";
 function fI(bn) {
@@ -1101,7 +1102,8 @@ function fL() {
         par_level = aL;
         par_game = bs;
         ds_HS();
-        var aO = '<center><font color=\'#000000\'><b>' + fy + '</b></font><br><br><font color=\'#000000\'>' + L + '</font>';
+        // var aO = '<center><font color=\'#ffffff\' style=\'' + 'margin-top:300px;\'><b>' + fy + '</b></font><br><br><font color=\'#ffffff\' style=\'' + 'margin-top:300px;\'>' + L + '</font>';
+        var aO = '<span style="font-size:50px;color:darkorange;line-height: 780px;">' + fy + L + '</span>';
         if (ac == gm) {
             // aO += '<br><br>' + fY + '<input style\'font-size:' + (14 * f) + 'px;\' type=text id=\'user\' name=\'user\' size=\'12\' value=\'' + bi + '\' style=\'font-size:' + (16 * f) + 'px;\' /><input type=\'button\'  value=\'OK\'  ' + P + '=\'go()\' style=\'background-color:#dddddd;font-size:' + (16 * f) + 'px;\' /><br><br><small><font color=\'#bfffff\'>' + fJ + '</font></small></center>';
             document.getElementById("hs").innerHTML = aO;

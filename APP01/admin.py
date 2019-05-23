@@ -43,7 +43,6 @@ class ColorAdmin(admin.ModelAdmin):
     inlines = [animalInline]
 
 admin.site.register(Animal,AnimalAdmin)
-# admin.site.register(Image,ImageAdmin)
 admin.site.register(Type,TypeAdmin)
 admin.site.register(Size,SizeAdmin)
 admin.site.register(Color,ColorAdmin)
